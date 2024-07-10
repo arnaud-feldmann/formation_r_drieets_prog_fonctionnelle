@@ -53,6 +53,69 @@ Le code ci-dessus renvoie une erreur. En effet, si un paramètre n'a pas de vale
 
 ::: callout-note
 
-La dernière remarque n'est pas complètement vraie. Du vieux code existe dans R, renseignant des arguments par défaut dans le code même de la fonction, à l'aide de `if (missing(argument)) {}`. Ceci est toutefois, en général [considéré comme une mauvaise pratique](https://design.tidyverse.org/def-magical.html).
+La dernière remarque n'est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l'aide de `if (missing(argument)) {}`. Ceci est toutefois, en général, [considéré comme une mauvaise pratique](https://design.tidyverse.org/def-magical.html).
 
 :::
+
+On vient de constater de manière implicite un aspect de R : par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que `if () else {}`). Une manière explicite de renvoyer une valeur de retour est d'invoquer `return()`. Appeler `return()` met fin à l'exécution de la fonction. Tout ce qui vient après n'est jamais rappelé.
+
+```{webr-r}
+calcula <- function() {
+  1L
+  return(2L)
+  3L
+}
+print(calcula())
+
+calculb <- function() {
+  1L
+  2L
+  3L
+}
+print(calculb())
+```
+
+`calcula()` renvoie 2L, tandis que `calculb()` renvoie 3L. On aurait pu également constater que, dans `calcula`, si on remplace 3L par `stop()`, le stop n'empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.
+
+## Dots
+
+Lorsque le nombre de paramètres d'une fonction peut être variable, on peut utiliser les `...` qu'on appelle "dots". `list(...)` permet de retrouver ces arguments sous forme de liste dans le corps de la fonction.
+
+```{webr-r}
+super_somme <- function(...) {
+  dots <- list(...)
+  Reduce(`+`, dots)
+}
+print(super_somme(2, 3, 7, 1))
+```
+
+Dans le code précédent, on a pu faire une fonction de somme sans savoir à l'avance le nombre de termes de la somme.
+
+::: callout-note
+
+On a utilisé dans `super_somme` une fonction particulière, `Reduce`, qui est typique des langages fonctionnels. L'idée est ici que l'on calcule `2 + 3 + 7 + 1`. On verra plus en détail ce type d'opérations dans la partie dédiée au paradigme fonctionnel.
+
+:::
+
+## Fonction récursives
+
+Les fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si `factorial()` existe déjà dans R, on pourrait très bien la redéfinir via :
+
+```{webr-r}
+fact <- function(n) {
+  if (n == 1L) 1L
+  else n * fact(n - 1L)
+}
+fact(10)
+```
+
+R permet également une petite astuce pour éviter d'avoir à utiliser le nom d'une fonction dans son propre corps (cela permet de pouvoir renommer la fonction à un seul endroit). Le code précédent est équivalent à :
+
+```{webr-r}
+fact <- function(n) {
+  if (n == 1L) 1L
+  else n * Recall(n - 1L)
+}
+fact(10)
+```
+
