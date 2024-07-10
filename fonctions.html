@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"out-height":"","context":"interactive","results":"markup","editor-word-wrap":"true","warning":"true","comment":"","autorun":"false","dpi":72,"out-width":"700px","label":"unnamed-chunk-1","editor-font-scale":"1","output":"true","fig-width":7,"classes":"","fig-cap":"","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","message":"true","editor-max-height":""},"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\n\n# Calcul 1\nprint(super_calcul(2, 3, TRUE))\n\n# Calcul 2\n# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut\nprint(super_calcul(2, 3))\n\n# Calcul 3\nprint(super_calcul(2, 3, FALSE))\n\n# Calcul 4\n# Même valeur que le calcul 3, on a juste nommé explicitement\nprint(super_calcul(a = 2, b = 3, FALSE))\n\n# Calcul 5\n# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments\nprint(super_calcul(b = 3, a = 2, FALSE))\n\n# Calcul 6\n# Même valeur que le calcul 3, cas extrême d'interversion\nprint(super_calcul(b = 3, 2, FALSE))"},{"id":2,"options":{"out-height":"","context":"interactive","results":"markup","editor-word-wrap":"true","warning":"true","comment":"","autorun":"false","dpi":72,"out-width":"700px","label":"unnamed-chunk-2","editor-font-scale":"1","output":"true","fig-width":7,"classes":"","fig-cap":"","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","message":"true","editor-max-height":""},"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\nprint(super_calcul(2))"}];
+globalThis.qwebrCellDetails = [{"options":{"comment":"","editor-font-scale":"1","results":"markup","editor-max-height":"","label":"unnamed-chunk-1","warning":"true","autorun":"false","read-only":"false","fig-cap":"","classes":"","editor-quick-suggestions":"false","out-width":"700px","dpi":72,"out-height":"","fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","message":"true","fig-height":5},"id":1,"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\n\n# Calcul 1\nprint(super_calcul(2, 3, TRUE))\n\n# Calcul 2\n# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut\nprint(super_calcul(2, 3))\n\n# Calcul 3\nprint(super_calcul(2, 3, FALSE))\n\n# Calcul 4\n# Même valeur que le calcul 3, on a juste nommé explicitement\nprint(super_calcul(a = 2, b = 3, FALSE))\n\n# Calcul 5\n# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments\nprint(super_calcul(b = 3, a = 2, FALSE))\n\n# Calcul 6\n# Même valeur que le calcul 3, cas extrême d'interversion\nprint(super_calcul(b = 3, 2, FALSE))"},{"options":{"comment":"","editor-font-scale":"1","results":"markup","editor-max-height":"","label":"unnamed-chunk-2","warning":"true","autorun":"false","read-only":"false","fig-cap":"","classes":"","editor-quick-suggestions":"false","out-width":"700px","dpi":72,"out-height":"","fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","message":"true","fig-height":5},"id":2,"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\nprint(super_calcul(2))"},{"options":{"comment":"","editor-font-scale":"1","results":"markup","editor-max-height":"","label":"unnamed-chunk-3","warning":"true","autorun":"false","read-only":"false","fig-cap":"","classes":"","editor-quick-suggestions":"false","out-width":"700px","dpi":72,"out-height":"","fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","message":"true","fig-height":5},"id":3,"code":"calcula <- function() {\n  1L\n  return(2L)\n  3L\n}\nprint(calcula())\n\ncalculb <- function() {\n  1L\n  2L\n  3L\n}\nprint(calculb())"},{"options":{"comment":"","editor-font-scale":"1","results":"markup","editor-max-height":"","label":"unnamed-chunk-4","warning":"true","autorun":"false","read-only":"false","fig-cap":"","classes":"","editor-quick-suggestions":"false","out-width":"700px","dpi":72,"out-height":"","fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","message":"true","fig-height":5},"id":4,"code":"super_somme <- function(...) {\n  dots <- list(...)\n  Reduce(`+`, dots)\n}\nprint(super_somme(2, 3, 7, 1))"},{"options":{"comment":"","editor-font-scale":"1","results":"markup","editor-max-height":"","label":"unnamed-chunk-5","warning":"true","autorun":"false","read-only":"false","fig-cap":"","classes":"","editor-quick-suggestions":"false","out-width":"700px","dpi":72,"out-height":"","fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","message":"true","fig-height":5},"id":5,"code":"fact <- function(n) {\n  if (n == 1L) 1L\n  else n * fact(n - 1L)\n}\nfact(10)"},{"options":{"comment":"","editor-font-scale":"1","results":"markup","editor-max-height":"","label":"unnamed-chunk-6","warning":"true","autorun":"false","read-only":"false","fig-cap":"","classes":"","editor-quick-suggestions":"false","out-width":"700px","dpi":72,"out-height":"","fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","message":"true","fig-height":5},"id":6,"code":"fact <- function(n) {\n  if (n == 1L) 1L\n  else n * Recall(n - 1L)\n}\nfact(10)"}];
 
 </script>
 <script type="module">
@@ -1607,6 +1607,8 @@ globalThis.qwebrExecuteCode = async function (
    
   <ul>
   <li><a href="#définition-de-fonction" id="toc-définition-de-fonction" class="nav-link active" data-scroll-target="#définition-de-fonction">Définition de fonction</a></li>
+  <li><a href="#dots" id="toc-dots" class="nav-link" data-scroll-target="#dots">Dots</a></li>
+  <li><a href="#fonction-récursives" id="toc-fonction-récursives" class="nav-link" data-scroll-target="#fonction-récursives">Fonction récursives</a></li>
   </ul>
 </nav>
     </div>
@@ -1937,9 +1939,42 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La dernière remarque n’est pas complètement vraie. Du vieux code existe dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de <code>if (missing(argument)) {}</code>. Ceci est toutefois, en général <a href="https://design.tidyverse.org/def-magical.html">considéré comme une mauvaise pratique</a>.</p>
+<p>La dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de <code>if (missing(argument)) {}</code>. Ceci est toutefois, en général, <a href="https://design.tidyverse.org/def-magical.html">considéré comme une mauvaise pratique</a>.</p>
 </div>
 </div>
+<p>On vient de constater de manière implicite un aspect de R&nbsp;: par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que <code>if () else {}</code>). Une manière explicite de renvoyer une valeur de retour est d’invoquer <code>return()</code>. Appeler <code>return()</code> met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.</p>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><code>calcula()</code> renvoie 2L, tandis que <code>calculb()</code> renvoie 3L. On aurait pu également constater que, dans <code>calcula</code>, si on remplace 3L par <code>stop()</code>, le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.</p>
+</section>
+<section id="dots" class="level2">
+<h2 class="anchored" data-anchor-id="dots">Dots</h2>
+<p>Lorsque le nombre de paramètres d’une fonction peut être variable, on peut utiliser les <code>...</code> qu’on appelle “dots”. <code>list(...)</code> permet de retrouver ces arguments sous forme de liste dans le corps de la fonction.</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Dans le code précédent, on a pu faire une fonction de somme sans savoir à l’avance le nombre de termes de la somme.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On a utilisé dans <code>super_somme</code> une fonction particulière, <code>Reduce</code>, qui est typique des langages fonctionnels. L’idée est ici que l’on calcule <code>2 + 3 + 7 + 1</code>. On verra plus en détail ce type d’opérations dans la partie dédiée au paradigme fonctionnel.</p>
+</div>
+</div>
+</section>
+<section id="fonction-récursives" class="level2">
+<h2 class="anchored" data-anchor-id="fonction-récursives">Fonction récursives</h2>
+<p>Les fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si <code>factorial()</code> existe déjà dans R, on pourrait très bien la redéfinir via&nbsp;:</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>R permet également une petite astuce pour éviter d’avoir à utiliser le nom d’une fonction dans son propre corps (cela permet de pouvoir renommer la fonction à un seul endroit). Le code précédent est équivalent à&nbsp;:</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
 </section>
