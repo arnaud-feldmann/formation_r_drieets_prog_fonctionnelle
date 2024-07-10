@@ -1,0 +1,58 @@
+---
+title: "Rappel sur les fonctions en R"
+---
+
+## Définition de fonction
+
+En R, on définit une fonction de cette manière :
+
+```{webr-r}
+super_calcul <- function(a, b, multiplication = TRUE) {
+  if (multiplication) a * b
+  else a + b
+}
+
+# Calcul 1
+print(super_calcul(2, 3, TRUE))
+
+# Calcul 2
+# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut
+print(super_calcul(2, 3))
+
+# Calcul 3
+print(super_calcul(2, 3, FALSE))
+
+# Calcul 4
+# Même valeur que le calcul 3, on a juste nommé explicitement
+print(super_calcul(a = 2, b = 3, FALSE))
+
+# Calcul 5
+# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments
+print(super_calcul(b = 3, a = 2, FALSE))
+
+# Calcul 6
+# Même valeur que le calcul 3, cas extrême d'interversion
+print(super_calcul(b = 3, 2, FALSE))
+```
+
+La fonction `super_calcul` a plusieurs **paramètres** : `a`, `b` et `multiplication`. On donne à ces paramètres des valeurs qu'on appelle **arguments**. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.
+
+On remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera `TRUE`.
+
+On remarque aussi que, lorsque l'on fait des appels de fonctions, l'on peut choisir d'utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.
+
+```{webr-r}
+super_calcul <- function(a, b, multiplication = TRUE) {
+  if (multiplication) a * b
+  else a + b
+}
+print(super_calcul(2))
+```
+
+Le code ci-dessus renvoie une erreur. En effet, si un paramètre n'a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l'appel de fonction.
+
+::: callout-note
+
+La dernière remarque n'est pas complètement vraie. Du vieux code existe dans R, renseignant des arguments par défaut dans le code même de la fonction, à l'aide de `if (missing(argument)) {}`. Ceci est toutefois, en général [considéré comme une mauvaise pratique](https://design.tidyverse.org/def-magical.html).
+
+:::

@@ -7,9 +7,9 @@ website:
     style: "floating"
     contents:
       - href: index.qmd
-        text: Paradigmes de programmation
-      - href: programmation_objet.qmd
-        text: Programmation objet
+        text: Introduction
+      - href: fonctions.qmd
+        text: Rappel sur les fonctions en R
     search: false
 
 format:

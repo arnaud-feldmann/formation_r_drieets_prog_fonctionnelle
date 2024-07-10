@@ -1,9 +1,0 @@
----
-title: "paradigmes_programmation"
----
-
-## Paradigmes de programmation
-
-```{webr-r}
-1+1
-```
