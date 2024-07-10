@@ -182,23 +182,162 @@ Non, un langage de bas-niveau est un langage stromosogomique de capacitance inf�
 **Question 4**
 
 ::: question
-Un langage de bas niveau est un langage caractérisé par sa simplicité.
+Analysons ce pseudo-code :
+
+> | classeur_ods = nouveau_classeur_ods()
+> | onglet = nouvel_onglet(donnee = "En voilà de la donnée")
+> | classeur_ods.ajouter_onglet(onglet)
+> | classeur_ods.enregistrer("/home/tintin/mon_classeur.ods")
+
+À quel paradigme de programmation cela ressemble ?
+
+::: choices
+::: choice
+Langage procédural
+:::
+
+::: {.choice .correct-choice}
+Langage objet
+:::
+
+::: choice
+Langage fonctionnel
+:::
+
+:::
+:::
+
+**Question 5**
+
+::: question
+Analysons ce pseudo-code :
+
+> | a = ['b', 'o', 'n', 'j', 'o', 'u', 'r', ' ']
+> | i = 1
+> | while a[i] != ' ' {
+> |   print(a[i])
+> |   print(a[i])
+> | }
+
+À quel paradigme de programmation cela ressemble ?
 
 ::: choices
 ::: {.choice .correct-choice}
-Non, c'est un langage proche du langage machine, donc souvent assez complexe et verbieux.
+Langage procédural
 :::
 
 ::: choice
-Exactement ! C'est un langage prévu pour être facile d'appréhension, d'où de "bas niveau".
+Langage objet
 :::
 
 ::: choice
-Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.
+Langage fonctionnel
+:::
+
+:::
+:::
+
+**Question 6**
+
+::: question
+Analysons ce pseudo-code :
+
+> | racine_carrée(multiplier_par(entiers de 1 à 10, 3))
+
+À quel paradigme de programmation cela ressemble ?
+
+::: choices
+::: choice
+Langage procédural
 :::
 
 ::: choice
-Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.
+Langage objet
 :::
+
+::: {.choice .correct-choice}
+Un langage fonctionnel ! Et vectoriel en plus ! C'est presque R !
+:::
+
+:::
+:::
+
+**Question 7**
+
+::: question
+On a vu qu'un langage objet permet notamment d'éviter les dépendances à l'implémentation.
+
+On préfère écrire :
+
+> | mur.peindre(palette.get_couleur())
+
+Que :
+
+> | peindre_mur(mur, palette\[3\])
+
+Quel intérêt cela présente ?
+
+::: choices
+::: choice
+Aucun, c'est purement esthétique.
+:::
+
+::: {.choice .correct-choice}
+Cela permet à un collègue d'être libre de modifier le fonctionnement interne de la palette sans faire bugger le programme de peinture.
+:::
+
+::: choice
+Compter jusqu'à 3 est difficile car un ordinateur repose sur des nombres binaires. On préfère donc enlever le 3.
+:::
+
+::: choice
+On a vraiment envie que le programme de peinture dépende du programme de la palette. Il faut que les gens travaillent en équipe et donc qu'ils soient chacun au courant de tout ce qu'il se passe dans l'intégralité du projet.
+:::
+
+:::
+:::
+
+**Question 8**
+
+::: question
+Combien de méthodes différentes de la classe discman ce pseudo-code utilise-t-il ?
+
+> | discman.brancher_ecouteurs(ecouteurs)
+> | discman.inserer_cd(never_mind_the_bollocks_here_s_the_sex_pistols)
+> | discman.ecouter_cd()
+> | discman.retirer_cd()
+> | discman.inserer_cd(peace_sells_but_who_s_buying)
+> | discman.ecouter_cd()
+> | discman.retirer_cd()
+
+::: choices
+::: choice
+1
+:::
+
+::: choice
+2
+:::
+
+::: choice
+3
+:::
+
+::: {.choice .correct-choice}
+4
+:::
+
+::: choice
+5
+:::
+
+::: choice
+6
+:::
+
+::: choice
+7
+:::
+
 :::
 :::
