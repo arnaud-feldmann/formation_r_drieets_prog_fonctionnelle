@@ -1,0 +1,204 @@
+---
+title: "Introduction : les paradigmes de programmation"
+---
+
+## Paradigmes de programmation
+
+Un **paradigme de programmation** peut être vu comme la philosophie d'un langage. Il prédétermine une manière d'écrire propre à celui-ci, influence ses possibilités, définit une idiomatique conventionnelle (c'est-à-dire, par exemple, une manière d'éviter de copier-coller 500 fois le même paragraphe). Ces paradigmes sont des archétypes ; en réalité, les langages modernes permettent souvent plusieurs paradigmes. Ceux-ci ne correspondent donc pas à une sorte de réglement implacable mais énoncent plutôt différentes manières de structurer du code. Ce qui importe, au fond, c'est d'être suffisamment avisé pour pouvoir faire des choix.
+
+Trois principaux paradigmes dominent le monde actuel de la programmation. La **programmation procédurale**, la **programmation objet**, et la **programmation fonctionnelle** (cette dernière est le paradigme principal de R).
+
+## La programmation procédurale
+
+La **programmation procédurale** est le plus ancien paradigme de programmation. Il s'agit d'une séquence de *procédures*, c'est-à-dire une série d'étapes à réaliser pour faire quelque chose. On peut voir cela comme une recette de cuisine.
+
+Supposons que l'on veuille peindre un mur en vert, on pourrait faire :
+
+> | mettre_sur_palette(palette, bleu)
+> | mettre_sur_palette(palette, jaune)
+> | mélanger_couleurs_sur_palette(palette)
+> | peindre_mur(mur, palette\[3\])
+
+Il faut bien noter ce qui se passe à la fin de la dernière ligne : on a sélectionné la couleur de la palette en appelant son emplacement numéro 3 avec `palette[3]`. Cela suppose d'une part que l'on connait le fonctionnement interne des palettes, et d'autre part que cette structure interne ne change jamais. Si l'on change le code interne de la palette, il faudra aussi changer notre code. Notre programme dépend de l'*implémentation* de la palette.
+
+Toutefois, la programmation purement procédurale n'est pas sans intérêt dans les langages proches du matériel (on les appelle "de bas niveau"). Elle est par exemple utilisée dans le langage C. Le véritable langage des machines est en effet en lui-même procédural ; un processeur est essentiellement un composant électronique qui manipule des états de manière séquentielle. La programmation procédurale pour autant pas restreinte aux langages de bas-niveau ; Python notamment est un peu fourre-tout, mais reste relativement procédural.
+
+## La programmation orientée objet (POO)
+
+La **programmation orientée objet** a émergé du besoin de faire apparaître une syntaxe disciplinée et plus proche d'une perception humaine. Pour ce faire, on s'inspire du monde réel : il n'y a pas besoin de connaitre le fonctionnement électronique d'une télécommande pour appuyer sur ses boutons. Il est pas attendu non plus que l'utilisateur d'une télévision aille bidouiller ses circuits imprimés pour s'en servir. Dans un langage objet, l'exemple précédent pourrait s'écrire :
+
+> | palette.ajouter(bleu)
+> | palette.ajouter(jaune)
+> | palette.mélanger()
+> | mur.peindre(palette.get_couleur())
+
+On voit que `palette`, une *instance* de palette, possède a minima trois méthodes (`ajouter`, `mélanger`, et `get_couleur`). Puisqu'on s'est astreints à ne jamais accéder aux états internes de la palette, on a découplé le programme de peinture de celui des palettes. On n'a plus besoin de savoir comment est structurée intérieurement une palette (on ne sélectionne plus son 3ème élément). La différence est de taille : la personne qui s'occupe de la maintenance des *palettes* peut maintenant les changer comme elle veut sans risquer de causer une erreur dans le programme de *peinture* (par exemple un mur jaune fluo à poids mauves). La seule chose qui doit être respectée, c'est le comportement des différentes méthodes.
+
+::: callout-note
+Java et C++ sont des langages objet populaires.
+:::
+
+## La programmation fonctionnelle
+
+Là où la POO s'inspire des objets dans le monde réel, la programmation fonctionnelle s'inspire du monde des mathématiques. L'idée fondamentale de la programmation fonctionnelle est de ne plus manipuler d'états ; on n'utilise que ce qu'on appelle des "fonctions pures". Celles-ci se comportent comme une calculatrice sans mémoire. Elles font un calcul purement combinatoire ; elles sont prévues pour retourner toujours le même résultat à partir des mêmes entrées.
+
+> | mur = mur_peint(couleur = mélanger(jaune, bleu))
+
+La syntaxe fonctionnelle étant proche d'une écriture mathématique, elle convient aux langages de haut niveau prévus pour le calcul scientifique, comme R. Pendant longtemps (jusqu'aux années 2010), ce paradigme a été considéré comme assez académique et réservé aux profs de facs. Depuis les années 2010, cependant, le paradigme fonctionnel a rencontré un très net regain de popularité et est sorti des universités. Ses principaux intérêts sont :
+
+-   la grande facilité de déboggage et de test (une entrée doit toujours retourner la même sortie)
+-   la beauté/maintenabilité du code
+-   la forte parallélisabilité des calculs : les résultats ne dépendant **que** de leurs entrées, il est potentiellement possible de calculer plusieurs choses en même temps si l'on dispose de plusieurs CPU. C'est notamment cet aspect qui permet par exemple au package arrow d'être extrêmement rapide ; les calculs sont faits de manière possiblement concourrante plutôt que consécutive.
+
+::: callout-note
+Outre R, Haskell, Scala et Lisp sont des langages fonctionnels.
+:::
+
+## R : un langage fonctionnel, vectoriel, avec quelques éléments de POO
+
+R est très majoritairement un langage **fonctionnel**. Dans la mesure où aucun langage n'est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation **objet** tordus pour correspondre au coeur d'un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n'a rien à voir avec le protocole de stockage même s'il s'appelle pareil), adapte les principes de la POO dans le contexte de la programmation fonctionnelle. Grosso modo, dans R, on définit des classes d'objets de manière beaucoup moins formelle que dans la POO (par exemple des `tibble`, des `ggplot`...), et on applique des fonctions pures dessus. Contrairement à ce qu'il se passe dans un langage POO, les objets de R sont *immutables*.
+
+D'accord, mais qu'est-ce que l'immutabilité ?
+
+Dans presque tous les langages de programmation objet, si on fait :
+
+> | mur_a = nouveau_mur()
+> | mur_a.peindre(rouge)
+> | mur_b = mur_a
+> | mur_b.peindre(vert)
+> | mur_a.get_couleur() --\> renvoie vert
+> | mur_b.get_couleur() --\> renvoie vert
+
+La couleur de `mur_a` a aussi changé ! En fait, dans un langage de POO, on crée des *instances* avec un constructeur (ici **nouveau_mur**). `mur_a` et `mur_b` correspondent au même mur. Si on modifie l'un, on modifie l'autre.
+
+A contrario, dans R, on aura plutôt :
+
+> | mur_a = nouveau_mur()
+> | mur_a.peindre(rouge)
+> | mur_b = mur_a
+> | mur_b.peindre(vert)
+> | mur_a.get_couleur() --\> renvoie rouge
+> | mur_b.get_couleur() --\> renvoie vert
+
+Dans R, en fait, tout se passe comme si on ne manipulait que des valeurs, même quand on manipule des objets. On ne crée pas vraiment d'instances de murs.
+
+Un autre aspect particulier de R est qu'il est vectoriel. Si je fais :
+
+```{webr-r}
+resultat <- sin(sqrt(1:10))
+resultat
+```
+
+La vectorisation est tout-à-fait implicite. Dans un langage procédural non-vectorisé, j'aurais plutôt écrit :
+
+```{webr-r}
+resultat <- vector(mode="numeric", length = 10L)
+for (i in 1:length(resultat)) {
+  resultat[i] <- sin(sqrt(i))
+}
+resultat
+```
+
+Cette dernière écriture est équivalente mais n'est pas très pratique pour écrire des statistiques....
+
+::: callout-note
+L'opérateur pipe `%>%` repose sur les axiomes de la programmation fonctionnelle. Il suppose en effet que chaque sortie de fonction ne dépend que des entrées. Il permet de profiter à la fois de la simplicité d'une écriture de type "recette de cuisine" et des avantages de la programmation fonctionnelle.
+:::
+
+## Quizz
+
+**Question 1**
+
+::: question
+Dans un langage fonctionnel idéal :
+
+::: choices
+::: choice
+On n'utilise que des procédures (des fonctions sans valeur de retour).
+:::
+
+::: {.choice .correct-choice}
+On n'utilise que des fonctions dites pures, c'est-à-dire des fonctions purement combinatoires.
+:::
+
+::: choice
+On n'utilise que des fonctions, pures, ou non.
+:::
+
+::: choice
+Différentes étapes successives qu'on appelle fonctions. On les applique sur des objets qu'elles modifient progressivement.
+:::
+:::
+:::
+
+**Question 2**
+
+::: question
+Quel est le rapport entretenu entre R et la Programmation Orientée Objet ?
+
+::: choices
+::: choice
+R est un archétype de langage de POO.
+:::
+
+::: choice
+On ne peut pas du tout faire de POO en R.
+:::
+
+::: choice
+Objection votre honneur !
+:::
+
+::: {.choice .correct-choice}
+R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.
+:::
+:::
+:::
+
+**Question 3**
+
+::: question
+Un langage de bas niveau est un langage caractérisé par sa simplicité.
+
+::: choices
+::: {.choice .correct-choice}
+Non, c'est un langage proche du langage machine, donc souvent assez complexe et verbieux.
+:::
+
+::: choice
+Exactement ! C'est un langage prévu pour être facile d'appréhension, d'où de "bas niveau".
+:::
+
+::: choice
+Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.
+:::
+
+::: choice
+Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.
+:::
+:::
+:::
+
+**Question 4**
+
+::: question
+Un langage de bas niveau est un langage caractérisé par sa simplicité.
+
+::: choices
+::: {.choice .correct-choice}
+Non, c'est un langage proche du langage machine, donc souvent assez complexe et verbieux.
+:::
+
+::: choice
+Exactement ! C'est un langage prévu pour être facile d'appréhension, d'où de "bas niveau".
+:::
+
+::: choice
+Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.
+:::
+
+::: choice
+Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.
+:::
+:::
+:::
