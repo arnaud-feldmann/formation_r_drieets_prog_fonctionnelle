@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"resultat <- sin(sqrt(1:10))\nresultat","id":1,"options":{"warning":"true","output":"true","dpi":72,"label":"unnamed-chunk-1","classes":"","out-height":"","autorun":"false","editor-quick-suggestions":"false","fig-cap":"","comment":"","fig-width":7,"read-only":"false","message":"true","results":"markup","out-width":"700px","context":"interactive","editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","fig-height":5}},{"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","id":2,"options":{"warning":"true","output":"true","dpi":72,"label":"unnamed-chunk-2","classes":"","out-height":"","autorun":"false","editor-quick-suggestions":"false","fig-cap":"","comment":"","fig-width":7,"read-only":"false","message":"true","results":"markup","out-width":"700px","context":"interactive","editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"code":"resultat <- sin(sqrt(1:10))\nresultat","id":1,"options":{"dpi":72,"context":"interactive","classes":"","output":"true","editor-quick-suggestions":"false","fig-cap":"","read-only":"false","warning":"true","out-width":"700px","editor-max-height":"","label":"unnamed-chunk-1","fig-width":7,"autorun":"false","editor-word-wrap":"true","message":"true","fig-height":5,"results":"markup","comment":"","editor-font-scale":"1","out-height":""}},{"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","id":2,"options":{"dpi":72,"context":"interactive","classes":"","output":"true","editor-quick-suggestions":"false","fig-cap":"","read-only":"false","warning":"true","out-width":"700px","editor-max-height":"","label":"unnamed-chunk-2","fig-width":7,"autorun":"false","editor-word-wrap":"true","message":"true","fig-height":5,"results":"markup","comment":"","editor-font-scale":"1","out-height":""}}];
 
 </script>
 <script type="module">
@@ -2104,26 +2104,151 @@ Note
 </div>
 <p><strong>Question 4</strong></p>
 <div class="question">
-<p>Un langage de bas niveau est un langage caractérisé par sa simplicité.</p>
+<p>Analysons ce pseudo-code&nbsp;:</p>
+<blockquote class="blockquote">
+<div class="line-block">classeur_ods = nouveau_classeur_ods()<br>
+onglet = nouvel_onglet(donnee = “En voilà de la donnée”)<br>
+classeur_ods.ajouter_onglet(onglet)<br>
+classeur_ods.enregistrer(“/home/tintin/mon_classeur.ods”)</div>
+</blockquote>
+<p>À quel paradigme de programmation cela ressemble&nbsp;?</p>
+<div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>Langage procédural</p><p></p>
+</div>
+<div class="choice correct-choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Langage objet</p><p></p>
+</div>
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Langage fonctionnel</p><p></p>
+</div>
+</div>
+
+</div>
+</div>
+<p><strong>Question 5</strong></p>
+<div class="question">
+<p>Analysons ce pseudo-code&nbsp;:</p>
+<blockquote class="blockquote">
+<div class="line-block">a = [‘b’, ‘o’, ‘n’, ‘j’, ‘o’, ‘u’, ‘r’, ’ ’]<br>
+i = 1<br>
+while a[i] != ’ ’ {<br>
+&nbsp;&nbsp;print(a[i])<br>
+&nbsp;&nbsp;print(a[i])<br>
+}</div>
+</blockquote>
+<p>À quel paradigme de programmation cela ressemble&nbsp;?</p>
 <div class="choices">
 <div x-data="{ answer: '' , clear() { this.answer = '' }}">
 
 <div class="choice correct-choice">
-<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Non, c’est un langage proche du langage machine, donc souvent assez complexe et verbieux.</p><p></p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Langage procédural</p><p></p>
 </div>
 <div class="choice">
-<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Exactement ! C’est un langage prévu pour être facile d’appréhension, d’où de “bas niveau”.</p><p></p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Langage objet</p><p></p>
 </div>
 <div class="choice">
-<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.</p><p></p>
-</div>
-<div class="choice">
-<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no4"> <span id="no4" x-show="answer == $el.id" class="badge">✗</span>Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.</p><p></p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Langage fonctionnel</p><p></p>
 </div>
 </div>
 
 </div>
 </div>
+<p><strong>Question 6</strong></p>
+<div class="question">
+<p>Analysons ce pseudo-code&nbsp;:</p>
+<blockquote class="blockquote">
+<div class="line-block">racine_carrée(multiplier_par(entiers de 1 à 10, 3))</div>
+</blockquote>
+<p>À quel paradigme de programmation cela ressemble&nbsp;?</p>
+<div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>Langage procédural</p><p></p>
+</div>
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Langage objet</p><p></p>
+</div>
+<div class="choice correct-choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Un langage fonctionnel ! Et vectoriel en plus ! C’est presque R !</p><p></p>
+</div>
+</div>
+
+</div>
+</div>
+<p><strong>Question 7</strong></p>
+<div class="question">
+<p>On a vu qu’un langage objet permet notamment d’éviter les dépendances à l’implémentation.</p>
+<p>On préfère écrire&nbsp;:</p>
+<blockquote class="blockquote">
+<div class="line-block">mur.peindre(palette.get_couleur())</div>
+</blockquote>
+<p>Que&nbsp;:</p>
+<blockquote class="blockquote">
+<div class="line-block">peindre_mur(mur, palette[3])</div>
+</blockquote>
+<p>Quel intérêt cela présente ?</p>
+<div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>Aucun, c’est purement esthétique.</p><p></p>
+</div>
+<div class="choice correct-choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Cela permet à un collègue d’être libre de modifier le fonctionnement interne de la palette sans faire bugger le programme de peinture.</p><p></p>
+</div>
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Compter jusqu’à 3 est difficile car un ordinateur repose sur des nombres binaires. On préfère donc enlever le 3.</p><p></p>
+</div>
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no4"> <span id="no4" x-show="answer == $el.id" class="badge">✗</span>On a vraiment envie que le programme de peinture dépende du programme de la palette. Il faut que les gens travaillent en équipe et donc qu’ils soient chacun au courant de tout ce qu’il se passe dans l’intégralité du projet.</p><p></p>
+</div>
+</div>
+
+</div>
+</div>
+<p><strong>Question 8</strong></p>
+<div class="question">
+<p>Combien de méthodes différentes de la classe discman ce pseudo-code utilise-t-il&nbsp;?</p>
+<blockquote class="blockquote">
+<div class="line-block">discman.brancher_ecouteurs(ecouteurs)<br>
+discman.inserer_cd(never_mind_the_bollocks_here_s_the_sex_pistols)<br>
+discman.ecouter_cd()<br>
+discman.retirer_cd()<br>
+discman.inserer_cd(peace_sells_but_who_s_buying)<br>
+discman.ecouter_cd()<br>
+discman.retirer_cd()</div>
+</blockquote>
+<div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>1</p><p></p>
+</div>
+</div>
+
+</div>
+<p>2</p>
+</div>
+<div class="choice">
+<p>3</p>
+</div>
+<div class="choice correct-choice">
+<p>4</p>
+</div>
+<div class="choice">
+<p>5</p>
+</div>
+<div class="choice">
+<p>6</p>
+</div>
+<div class="choice">
+<p>7</p>
+</div>
+<p>::: :::</p>
 
 
 </section>
@@ -2221,7 +2346,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/arnaud-feldmann\.github\.io\/formation_r_drieets_paradigmes\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -1,25 +1,5 @@
 [
   {
-    "objectID": "programmation_objet.html",
-    "href": "programmation_objet.html",
-    "title": "paradigmes_programmation",
-    "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Programmation objet"
-    ]
-  },
-  {
-    "objectID": "programmation_objet.html#paradigmes-de-programmation",
-    "href": "programmation_objet.html#paradigmes-de-programmation",
-    "title": "paradigmes_programmation",
-    "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Programmation objet"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction : les paradigmes de programmation",
@@ -84,9 +64,29 @@
     "href": "index.html#quizz",
     "title": "Introduction : les paradigmes de programmation",
     "section": "Quizz",
-    "text": "Quizz\nQuestion 1\n\nDans un langage fonctionnel idéal :\n\n\n\n\n ✗On n’utilise que des procédures (des fonctions sans valeur de retour).\n\n\n ✓On n’utilise que des fonctions dites pures, c’est-à-dire des fonctions purement combinatoires.\n\n\n ✗On n’utilise que des fonctions, pures, ou non.\n\n\n ✗Différentes étapes successives qu’on appelle fonctions. On les applique sur des objets qu’elles modifient progressivement.\n\n\n\n\n\nQuestion 2\n\nQuel est le rapport entretenu entre R et la Programmation Orientée Objet ?\n\n\n\n\n ✗R est un archétype de langage de POO.\n\n\n ✗On ne peut pas du tout faire de POO en R.\n\n\n ✗Objection votre honneur !\n\n\n ✓R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.\n\n\n\n\n\nQuestion 3\n\nUn langage de bas niveau est un langage caractérisé par sa simplicité.\n\n\n\n\n ✓Non, c’est un langage proche du langage machine, donc souvent assez complexe et verbieux.\n\n\n ✗Exactement ! C’est un langage prévu pour être facile d’appréhension, d’où de “bas niveau”.\n\n\n ✗Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.\n\n\n ✗Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.\n\n\n\n\n\nQuestion 4\n\nUn langage de bas niveau est un langage caractérisé par sa simplicité.\n\n\n\n\n ✓Non, c’est un langage proche du langage machine, donc souvent assez complexe et verbieux.\n\n\n ✗Exactement ! C’est un langage prévu pour être facile d’appréhension, d’où de “bas niveau”.\n\n\n ✗Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.\n\n\n ✗Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.",
+    "text": "Quizz\nQuestion 1\n\nDans un langage fonctionnel idéal :\n\n\n\n\n ✗On n’utilise que des procédures (des fonctions sans valeur de retour).\n\n\n ✓On n’utilise que des fonctions dites pures, c’est-à-dire des fonctions purement combinatoires.\n\n\n ✗On n’utilise que des fonctions, pures, ou non.\n\n\n ✗Différentes étapes successives qu’on appelle fonctions. On les applique sur des objets qu’elles modifient progressivement.\n\n\n\n\n\nQuestion 2\n\nQuel est le rapport entretenu entre R et la Programmation Orientée Objet ?\n\n\n\n\n ✗R est un archétype de langage de POO.\n\n\n ✗On ne peut pas du tout faire de POO en R.\n\n\n ✗Objection votre honneur !\n\n\n ✓R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.\n\n\n\n\n\nQuestion 3\n\nUn langage de bas niveau est un langage caractérisé par sa simplicité.\n\n\n\n\n ✓Non, c’est un langage proche du langage machine, donc souvent assez complexe et verbieux.\n\n\n ✗Exactement ! C’est un langage prévu pour être facile d’appréhension, d’où de “bas niveau”.\n\n\n ✗Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.\n\n\n ✗Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.\n\n\n\n\n\nQuestion 4\n\nAnalysons ce pseudo-code :\n\nclasseur_ods = nouveau_classeur_ods()\nonglet = nouvel_onglet(donnee = “En voilà de la donnée”)\nclasseur_ods.ajouter_onglet(onglet)\nclasseur_ods.enregistrer(“/home/tintin/mon_classeur.ods”)\n\nÀ quel paradigme de programmation cela ressemble ?\n\n\n\n\n ✗Langage procédural\n\n\n ✓Langage objet\n\n\n ✗Langage fonctionnel\n\n\n\n\n\nQuestion 5\n\nAnalysons ce pseudo-code :\n\na = [‘b’, ‘o’, ‘n’, ‘j’, ‘o’, ‘u’, ‘r’, ’ ’]\ni = 1\nwhile a[i] != ’ ’ {\n  print(a[i])\n  print(a[i])\n}\n\nÀ quel paradigme de programmation cela ressemble ?\n\n\n\n\n ✓Langage procédural\n\n\n ✗Langage objet\n\n\n ✗Langage fonctionnel\n\n\n\n\n\nQuestion 6\n\nAnalysons ce pseudo-code :\n\nracine_carrée(multiplier_par(entiers de 1 à 10, 3))\n\nÀ quel paradigme de programmation cela ressemble ?\n\n\n\n\n ✗Langage procédural\n\n\n ✗Langage objet\n\n\n ✓Un langage fonctionnel ! Et vectoriel en plus ! C’est presque R !\n\n\n\n\n\nQuestion 7\n\nOn a vu qu’un langage objet permet notamment d’éviter les dépendances à l’implémentation.\nOn préfère écrire :\n\nmur.peindre(palette.get_couleur())\n\nQue :\n\npeindre_mur(mur, palette[3])\n\nQuel intérêt cela présente ?\n\n\n\n\n ✗Aucun, c’est purement esthétique.\n\n\n ✓Cela permet à un collègue d’être libre de modifier le fonctionnement interne de la palette sans faire bugger le programme de peinture.\n\n\n ✗Compter jusqu’à 3 est difficile car un ordinateur repose sur des nombres binaires. On préfère donc enlever le 3.\n\n\n ✗On a vraiment envie que le programme de peinture dépende du programme de la palette. Il faut que les gens travaillent en équipe et donc qu’ils soient chacun au courant de tout ce qu’il se passe dans l’intégralité du projet.\n\n\n\n\n\nQuestion 8\n\nCombien de méthodes différentes de la classe discman ce pseudo-code utilise-t-il ?\n\ndiscman.brancher_ecouteurs(ecouteurs)\ndiscman.inserer_cd(never_mind_the_bollocks_here_s_the_sex_pistols)\ndiscman.ecouter_cd()\ndiscman.retirer_cd()\ndiscman.inserer_cd(peace_sells_but_who_s_buying)\ndiscman.ecouter_cd()\ndiscman.retirer_cd()\n\n\n\n\n\n ✗1\n\n\n\n\n2\n\n\n3\n\n\n4\n\n\n5\n\n\n6\n\n\n7\n\n::: :::",
     "crumbs": [
       "Paradigmes de programmation"
+    ]
+  },
+  {
+    "objectID": "programmation_objet.html",
+    "href": "programmation_objet.html",
+    "title": "paradigmes_programmation",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Programmation objet"
+    ]
+  },
+  {
+    "objectID": "programmation_objet.html#paradigmes-de-programmation",
+    "href": "programmation_objet.html#paradigmes-de-programmation",
+    "title": "paradigmes_programmation",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Programmation objet"
     ]
   }
 ]
