@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>paradigmes_programmation – Fonctions et programmation fonctionnelle</title>
+<title>Rappel sur les fonctions en R – Fonctions et programmation fonctionnelle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"editor-font-scale":"1","classes":"","editor-max-height":"","read-only":"false","warning":"true","autorun":"false","comment":"","message":"true","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"context":"interactive","output":"true","results":"markup","editor-word-wrap":"true","out-width":"700px","label":"unnamed-chunk-1","out-height":""},"code":"1+1"}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"out-height":"","context":"interactive","results":"markup","editor-word-wrap":"true","warning":"true","comment":"","autorun":"false","dpi":72,"out-width":"700px","label":"unnamed-chunk-1","editor-font-scale":"1","output":"true","fig-width":7,"classes":"","fig-cap":"","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","message":"true","editor-max-height":""},"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\n\n# Calcul 1\nprint(super_calcul(2, 3, TRUE))\n\n# Calcul 2\n# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut\nprint(super_calcul(2, 3))\n\n# Calcul 3\nprint(super_calcul(2, 3, FALSE))\n\n# Calcul 4\n# Même valeur que le calcul 3, on a juste nommé explicitement\nprint(super_calcul(a = 2, b = 3, FALSE))\n\n# Calcul 5\n# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments\nprint(super_calcul(b = 3, a = 2, FALSE))\n\n# Calcul 6\n# Même valeur que le calcul 3, cas extrême d'interversion\nprint(super_calcul(b = 3, 2, FALSE))"},{"id":2,"options":{"out-height":"","context":"interactive","results":"markup","editor-word-wrap":"true","warning":"true","comment":"","autorun":"false","dpi":72,"out-width":"700px","label":"unnamed-chunk-2","editor-font-scale":"1","output":"true","fig-width":7,"classes":"","fig-cap":"","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","message":"true","editor-max-height":""},"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\nprint(super_calcul(2))"}];
 
 </script>
 <script type="module">
@@ -1567,7 +1567,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./programmation_objet.html">Programmation objet</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions.html">Rappel sur les fonctions en R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1587,13 +1587,13 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Paradigmes de programmation</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./programmation_objet.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Programmation objet</span></a>
+  <a href="./fonctions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Rappel sur les fonctions en R</span></a>
   </div>
 </li>
     </ul>
@@ -1606,7 +1606,7 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#paradigmes-de-programmation" id="toc-paradigmes-de-programmation" class="nav-link active" data-scroll-target="#paradigmes-de-programmation">Paradigmes de programmation</a></li>
+  <li><a href="#définition-de-fonction" id="toc-définition-de-fonction" class="nav-link active" data-scroll-target="#définition-de-fonction">Définition de fonction</a></li>
   </ul>
 </nav>
     </div>
@@ -1899,7 +1899,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">paradigmes_programmation</h1>
+<h1 class="title">Rappel sur les fonctions en R</h1>
 </div>
 
 
@@ -1916,10 +1916,30 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="paradigmes-de-programmation" class="level2">
-<h2 class="anchored" data-anchor-id="paradigmes-de-programmation">Paradigmes de programmation</h2>
+<section id="définition-de-fonction" class="level2">
+<h2 class="anchored" data-anchor-id="définition-de-fonction">Définition de fonction</h2>
+<p>En R, on définit une fonction de cette manière&nbsp;:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>La fonction <code>super_calcul</code> a plusieurs <strong>paramètres</strong>&nbsp;: <code>a</code>, <code>b</code> et <code>multiplication</code>. On donne à ces paramètres des valeurs qu’on appelle <strong>arguments</strong>. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.</p>
+<p>On remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera <code>TRUE</code>.</p>
+<p>On remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Le code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La dernière remarque n’est pas complètement vraie. Du vieux code existe dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de <code>if (missing(argument)) {}</code>. Ceci est toutefois, en général <a href="https://design.tidyverse.org/def-magical.html">considéré comme une mauvaise pratique</a>.</p>
+</div>
+</div>
 
 
 </section>
