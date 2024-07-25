@@ -178,7 +178,6 @@ Réécrire la fonction `super_somme` en utilisant une syntaxe récursive. On pou
 ## Proposition de solution
 
 ```{r}
-#| eval: false
 super_somme <- function(...) {
   dots <- list(...)
   longueur <- length(dots)
@@ -210,7 +209,6 @@ Ecrire une fonction `...` `super_produit` qui calcule le produit de tous les arg
 ## Proposition de solution
 
 ```{r}
-#| eval: false
 super_produit <- function(...) {
   dots <- list(...)
   Reduce(`*`, dots)
@@ -221,7 +219,7 @@ fact <- function(n) {
 fact(10)
 ```
 
-::: callout-note
+:::
 
 **Question 3**
 
@@ -239,10 +237,10 @@ On pourra *éventuellement* s'aider des petites astuces, dont `...length()`, lis
 ```
 
 ::: {.callout-tip collapse="true"}
+
 ## Proposition de solution
 
 ```{r}
-#| eval: false
 usine_a_gaz <- function(...) {
   longueur <- ...length()
   if (longueur == 0) NULL
@@ -262,7 +260,6 @@ print(usine_a_gaz(list()))
 On peut également utiliser des `return()`, auquel cas les `else` deviennent inutiles puisque `return` fait directement retourner la fonction.
 
 ```{r}
-#| eval: false
 usine_a_gaz <- function(...) {
   longueur <- ...length()
   if (longueur == 0) return(NULL)
