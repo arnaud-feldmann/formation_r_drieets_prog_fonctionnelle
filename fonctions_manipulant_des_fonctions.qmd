@@ -88,7 +88,9 @@ vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 0L)
 print(vecteur)
 print(typeof(vecteur))
 print(class(vecteur))
+```
 
+```{webr-r}
 # Calcul 2 : seul le type du troisième argument (FUN.VALUE) importe, sa valeur
 # n'a aucune importance. Le type doit être le même que celui du vecteur en retour
 # (ici on retourne un vecteur integer donc n'importe quelle valeur entière fait
@@ -98,7 +100,9 @@ vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 133123128L)
 print(vecteur)
 print(typeof(vecteur))
 print(class(vecteur))
+```
 
+```{webr-r}
 # Calcul 3 : dans le cas où on retourne plusieurs valeurs avec la fonction utilisée
 # il faut en argument (FUN.VALUE) un vecteur de même taille. L'objet en retour
 # est une matrice de même type.
@@ -112,8 +116,10 @@ matrice <-
 print(matrice)
 print(typeof(matrice))
 print(class(matrice))
+```
 
-# Calcul 3 : Là encore, les valeurs de l'argument FUN.VALUE sont purement arbitraires.
+```{webr-r}
+# Calcul 4 : Là encore, les valeurs de l'argument FUN.VALUE sont purement arbitraires.
 # Seule sa longueur et son type importent.
 
 matrice <-
@@ -136,7 +142,9 @@ vecteur <- sapply(list(3L, 7L, -1L), \(x) x + 1L)
 print(vecteur)
 print(typeof(vecteur))
 print(class(vecteur))
+```
 
+```{webr-r}
 # Calcul 2
 
 matrice <-
@@ -175,9 +183,9 @@ Que se passe-t-il ? Pourquoi ? Peut-on résoudre ce problème avec un vapply ?
 
 ## Réponse
 
-La liste en entrée du `sapply` est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en **sortie** seront donc de tailles variables également ; et c'est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate.
+La liste en entrée du `sapply` est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en **sortie** seront donc de tailles variables également ; et c'est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate. Il laisse donc le résultat sous la forme d'une liste.
 
-On ne peut pas résoudre le problème avec un `vapply`, mais le vapply a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée.
+On ne peut pas résoudre ce problème structurel avec un `vapply`, mais vapply a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée.
 
 :::
 
