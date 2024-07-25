@@ -1,0 +1,184 @@
+---
+title: "Fonctions manipulant des fonctions"
+---
+
+## Manipuler des fonctions avec des fonctions
+
+On a vu dans le point précédent deux fonctions qui s'appliquent sur des fonctions. `do.call` nous a permis d'appliquer une fonction `...` sur une liste, tandis que Reduce nous a permis d'écrire `2 + 3 + 7 + 1` de manière un peu plus jolie qu'à la main.
+
+On a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d'appliquer des fonctions de différentes manières. Nous verrons ici `lapply`, `vapply`, `Map`, `replicate`, `apply`, `do.call`, `Reduce`.
+
+## lapply : appliquer une fonction à chaque élément d'une liste ou d'un vecteur
+
+```{webr-r}
+# Calcul 1
+
+begaiement <-
+  lapply(
+    list(c("a", "b"),
+         c("c", "d", "e"),
+         c("f", "g")),
+    function(x) c(x, x, x)
+  )
+print(begaiement)
+print(typeof(begaiement))
+print(class(begaiement))
+
+# Calcul 2 : à l'intérieur d'une fonction
+
+tripler_les_elements <- function(liste) {
+  lapply(liste, function(x) c(x, x, x))
+}
+begaiement <-
+  tripler_les_elements(
+    list(c("a", "b"),
+         c("c", "d", "e"),
+         c("f", "g")))
+print(begaiement)
+print(typeof(begaiement))
+print(class(begaiement))
+
+# Calcul 3 : en utilisant une fonction nommée
+
+tripler <- function(x) c(x, x, x)
+
+tripler_les_elements <- function(liste) {
+  lapply(liste, tripler)
+}
+begaiement <-
+  tripler_les_elements(
+    list(c("a", "b"),
+         c("c", "d", "e"),
+         c("f", "g")))
+print(begaiement)
+print(typeof(begaiement))
+print(class(begaiement))
+
+# Calcul 4 : sur un vecteur
+
+begaiement_bis <-
+  tripler_les_elements(c("a", "b", "c", "d"))
+print(begaiement_bis)
+print(typeof(begaiement_bis))
+print(class(begaiement_bis))
+```
+
+Dans les exemples ci-dessus qui sont tous rigoureusement équivalents excepté le calcul 4, on utilisé la fonction `lapply` pour appliquer la fonction de triplement à chaque élément de la liste.
+
+Le calcul 2 montre que l'on peut tout-à-fait utiliser `lapply` à l'intérieur d'une autre fonction. Le calcul 3 illustre un aspect implicite des syntaxes 1 et 2 : celles-ci utilisent `function(x) c(x, x, x)` en lieu et place d'un nom de fonction à l'intérieur du lapply ! On appelle cela des *fonctions anonymes*. Si une fonction n'a pour vocation que d'être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu'une *fonction nommée*.
+
+En outre, dans les 4 calculs, on se rend compte que le résultat de lapply est une liste. lapply retourne en effet une liste même dans le cas du quatrième calcul qui lui soumet un vecteur.
+
+::: callout-note
+
+Dans les versions de R récentes, on peut utiliser la notation compacte `\(x) c(x, x, x)` à la place de `function(x) c(x, x, x)` pour désigner une fonction.
+
+À l'intérieur de l'écosystème tidyverse, on peut également utiliser la notation très compacte `~c(.x, .x, .x)`.
+
+:::
+
+# vapply : une sorte de lapply mais avec une sortie sous forme d'un vecteur ou d'une matrice.
+
+On l'a vu dans les exemples précédents, `lapply` renvoie tous les élements sous la forme d'une liste. Mais une liste n'est pas un objet très pratique à manipuler dans un un langage vectoriel ! la fonction `vapply` permet de retourner les résultats sous la forme d'un vecteur ou d'une matrice. La syntaxe est un peu particulière mais on s'y habitue vite !
+
+```{webr-r}
+# Calcul 1
+
+vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 0L)
+print(vecteur)
+print(typeof(vecteur))
+print(class(vecteur))
+
+# Calcul 2 : seul le type du troisième argument (FUN.VALUE) importe, sa valeur
+# n'a aucune importance. Le type doit être le même que celui du vecteur en retour
+# (ici on retourne un vecteur integer donc n'importe quelle valeur entière fait
+# l'affaire)
+
+vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 133123128L)
+print(vecteur)
+print(typeof(vecteur))
+print(class(vecteur))
+
+# Calcul 3 : dans le cas où on retourne plusieurs valeurs avec la fonction utilisée
+# il faut en argument (FUN.VALUE) un vecteur de même taille. L'objet en retour
+# est une matrice de même type.
+
+matrice <-
+  vapply(
+    c("a", "b", "c", "d"),
+    \(x) c(x, x, x),
+    c("", "", "")
+  )
+print(matrice)
+print(typeof(matrice))
+print(class(matrice))
+
+# Calcul 3 : Là encore, les valeurs de l'argument FUN.VALUE sont purement arbitraires.
+# Seule sa longueur et son type importent.
+
+matrice <-
+  vapply(
+    c("a", "b", "c", "d"),
+    \(x) c(x, x, x),
+    c("je", "suis", "arbitraire")
+  )
+print(matrice)
+print(typeof(matrice))
+print(class(matrice))
+```
+
+Lorsque l'on veut faire vite dans la console et que l'on n'a pas le temps de réfléchir, un raccourci pour `vapply` existe sans la `FUN.VALUE`. La fonction `sapply` devine automatiquement les dimensions et le type requis. Utiliser un `vapply` explicite est cependant une meilleure pratique à l'intérieur d'un programme.
+
+```{webr-r}
+# Calcul 1
+
+vecteur <- sapply(list(3L, 7L, -1L), \(x) x + 1L)
+print(vecteur)
+print(typeof(vecteur))
+print(class(vecteur))
+
+# Calcul 2
+
+matrice <-
+  sapply(
+    c("a", "b", "c", "d"),
+    \(x) c(x, x, x)
+  )
+print(matrice)
+print(typeof(matrice))
+print(class(matrice))
+```
+
+::: callout-warning
+
+## sapply est moins contraignant que vapply
+
+Essayer d'utiliser un `sapply` sur :
+
+```{r}
+#| eval: false
+lapply(
+  list(c("a", "b"),
+       c("c", "d", "e"),
+       c("f", "g")),
+  function(x) c(x, x, x)
+)
+```
+
+```{webr-r}
+# Vous pouvez essayer ici.
+```
+
+Que se passe-t-il ? Pourquoi ? Peut-on résoudre ce problème avec un vapply ?
+
+::: {.callout-tip collapse="true"}
+
+## Réponse
+
+La liste en entrée du `sapply` est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en **sortie** seront donc de tailles variables également ; et c'est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate.
+
+On ne peut pas résoudre le problème avec un `vapply`, mais le vapply a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée.
+
+:::
+
+:::

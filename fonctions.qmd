@@ -95,6 +95,8 @@ Dans le code précédent, on a pu faire une fonction de somme sans figer à l'av
 
 On a utilisé dans `super_somme` une fonction particulière, `Reduce`, qui est typique des langages fonctionnels. L'idée est ici que l'on calcule `2 + 3 + 7 + 1`. On verra plus en détail ce type d'opérations dans la partie dédiée au paradigme fonctionnel.
 
+Dans le cas présent, `sum` existe déjà et peut déjà s'appliquer à un vecteur. On n'a écrit `super_somme` qu'à fin d'illustration.
+
 :::
 
 ## Appeler une fonction dots sur une liste
@@ -165,13 +167,10 @@ fact(10)
 
 **Question 1**
 
-::: question
-
 Réécrire la fonction `super_somme` en utilisant une syntaxe récursive. On pourra, par exemple, s'aider de la fonction `head`, qui permet de retourner une sous-liste contenant les n premiers éléments d'une liste.
 
-:::
-
 ```{webr-r}
+# Vous pouvez faire l'exercice ici.
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -200,9 +199,12 @@ print(super_somme(2, 3, 7, 1))
 
 **Question 2**
 
+
+
 Ecrire une fonction `...` `super_produit` qui calcule le produit de tous les arguments, et l'utiliser pour écrire une nouvelle version de la fonction `fact`.
 
 ```{webr-r}
+# Vous pouvez faire l'exercice ici.
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -234,6 +236,7 @@ Ecrire une fonction dots `usine_a_gaz` qui renvoie :
 On pourra *éventuellement* s'aider des petites astuces, dont `...length()`, lisibles dans la page d'aide des `...`. Celle-ci est accessible en tapant `?dots`.
 
 ```{webr-r}
+# Vous pouvez faire l'exercice ici.
 ```
 
 ::: {.callout-tip collapse="true"}

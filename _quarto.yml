@@ -10,6 +10,8 @@ website:
         text: Introduction
       - href: fonctions.qmd
         text: Rappel sur les fonctions en R
+      - href: fonctions_manipulant_des_fonctions.qmd
+        text: Fonctions manipulant des fonctions
     search: false
 
 format:
