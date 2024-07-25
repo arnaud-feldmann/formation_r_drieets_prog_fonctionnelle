@@ -89,11 +89,34 @@ super_somme <- function(...) {
 print(super_somme(2, 3, 7, 1))
 ```
 
-Dans le code précédent, on a pu faire une fonction de somme sans savoir à l'avance le nombre de termes de la somme.
+Dans le code précédent, on a pu faire une fonction de somme sans figer à l'avance le nombre de termes de la somme.
 
 ::: callout-note
 
 On a utilisé dans `super_somme` une fonction particulière, `Reduce`, qui est typique des langages fonctionnels. L'idée est ici que l'on calcule `2 + 3 + 7 + 1`. On verra plus en détail ce type d'opérations dans la partie dédiée au paradigme fonctionnel.
+
+:::
+
+## Appeler une fonction dots sur une liste
+
+Imaginons que l'on veuille appeler une fonction `...` sur une liste. On souhaite que chaque élément de la liste devienne un argument. On peut par exemple faire, sur notre fonction `super_somme`.
+
+```{webr-r}
+liste <- list(2, 3, 7, 1)
+super_somme <- function(...) {
+  dots <- list(...)
+  Reduce(`+`, dots)
+}
+print(do.call(super_somme, liste))
+```
+
+::: callout-note
+
+La fonction `do.call` est en réalité plus générale que cela. Elle permet également d'utiliser des arguments nommés, comme on peut le voir dans l'exemple suivant :
+
+```{webr-r}
+do.call(paste, list("a", "b", "c", sep = "/"))
+```
 
 :::
 
@@ -119,3 +142,141 @@ fact <- function(n) {
 fact(10)
 ```
 
+::: callout-note
+
+## Remarque optionnelle
+
+Depuis la dernière version de R (pas avant !), on peut utiliser la fonction `Tailcall` pour faire des **récursivités terminales** ; qui sont moins pratiques à lire mais plus efficaces. L'interface n'est pas encore figée mais cela ressemble aujourd'hui à cela.
+
+```{webr-r}
+fact <- function(n, acc = 1) {
+  if (n == 1L) acc
+  else {
+    acc <- acc * n
+    Tailcall(fact, n - 1L, acc)
+  }
+}
+fact(10)
+```
+
+:::
+
+## Quizz
+
+**Question 1**
+
+::: question
+
+Réécrire la fonction `super_somme` en utilisant une syntaxe récursive. On pourra, par exemple, s'aider de la fonction `head`, qui permet de retourner une sous-liste contenant les n premiers éléments d'une liste.
+
+:::
+
+```{webr-r}
+```
+
+::: {.callout-tip collapse="true"}
+## Proposition de solution
+
+```{r}
+#| eval: false
+super_somme <- function(...) {
+  dots <- list(...)
+  longueur <- length(dots)
+  if (longueur == 0L) 0
+  else dots[[longueur]] + do.call(super_somme, head(dots, longueur - 1L))
+}
+print(super_somme(2, 3, 7, 1))
+```
+
+::: callout-note
+
+## Remarque
+
+- La récursivité est ici très bourrine ! On le fait juste pour l'exercice.
+- Quelques petites astuces permettent, si besoin, d'éviter de convertir tous les arguments d'une fonction dots en liste. On dispose par exemple de `...length()` en tant que substitut pour `length(list(...))`.
+
+:::
+
+:::
+
+**Question 2**
+
+Ecrire une fonction `...` `super_produit` qui calcule le produit de tous les arguments, et l'utiliser pour écrire une nouvelle version de la fonction `fact`.
+
+```{webr-r}
+```
+
+::: {.callout-tip collapse="true"}
+## Proposition de solution
+
+```{r}
+#| eval: false
+super_produit <- function(...) {
+  dots <- list(...)
+  Reduce(`*`, dots)
+}
+fact <- function(n) {
+  do.call(super_produit, as.list(1L:n))
+}
+fact(10)
+```
+
+::: callout-note
+
+**Question 3**
+
+Ecrire une fonction dots `usine_a_gaz` qui renvoie :
+
+* `NULL` s'il n'y a aucun argument.
+* Le nombre d'arguments s'il y en a deux ou plus.
+* `"bonjour"` si on lui soumet en unique argument un vecteur de type character.
+* La somme du vecteur si on lui soumet en unique argument un vecteur numérique au sens de `is.numeric`.
+* `"échec"` dans tous les autres cas.
+
+On pourra *éventuellement* s'aider des petites astuces, dont `...length()`, lisibles dans la page d'aide des `...`. Celle-ci est accessible en tapant `?dots`.
+
+```{webr-r}
+```
+
+::: {.callout-tip collapse="true"}
+## Proposition de solution
+
+```{r}
+#| eval: false
+usine_a_gaz <- function(...) {
+  longueur <- ...length()
+  if (longueur == 0) NULL
+  else if (longueur >= 2L) longueur
+  else if (is.character(..1)) "bonjour"
+  else if (is.numeric(..1)) sum(..1)
+  else "échec"
+}
+print(usine_a_gaz())
+print(usine_a_gaz(1,3))
+print(usine_a_gaz(c("a","b")))
+print(usine_a_gaz(c(1, 2)))
+print(usine_a_gaz(c(1L, 2L)))
+print(usine_a_gaz(list()))
+```
+
+On peut également utiliser des `return()`, auquel cas les `else` deviennent inutiles puisque `return` fait directement retourner la fonction.
+
+```{r}
+#| eval: false
+usine_a_gaz <- function(...) {
+  longueur <- ...length()
+  if (longueur == 0) return(NULL)
+  if (longueur >= 2L) return(longueur)
+  if (is.character(..1)) return("bonjour")
+  if (is.numeric(..1)) return(sum(..1))
+  "échec"
+}
+print(usine_a_gaz())
+print(usine_a_gaz(1,3))
+print(usine_a_gaz(c("a","b")))
+print(usine_a_gaz(c(1, 2)))
+print(usine_a_gaz(c(1L, 2L)))
+print(usine_a_gaz(list()))
+```
+
+:::

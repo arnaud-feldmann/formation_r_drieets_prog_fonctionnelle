@@ -22,3 +22,6 @@ filters:
 
 webr: 
   show-startup-message: false
+
+execute: 
+  freeze: true
