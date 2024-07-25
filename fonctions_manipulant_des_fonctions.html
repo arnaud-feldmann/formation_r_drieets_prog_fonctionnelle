@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Rappel sur les fonctions en R – Fonctions et programmation fonctionnelle</title>
+<title>Fonctions manipulant des fonctions – Fonctions et programmation fonctionnelle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\n\n# Calcul 1\nprint(super_calcul(2, 3, TRUE))\n\n# Calcul 2\n# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut\nprint(super_calcul(2, 3))\n\n# Calcul 3\nprint(super_calcul(2, 3, FALSE))\n\n# Calcul 4\n# Même valeur que le calcul 3, on a juste nommé explicitement\nprint(super_calcul(a = 2, b = 3, FALSE))\n\n# Calcul 5\n# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments\nprint(super_calcul(b = 3, a = 2, FALSE))\n\n# Calcul 6\n# Même valeur que le calcul 3, cas extrême d'interversion\nprint(super_calcul(b = 3, 2, FALSE))","id":1,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-1","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\nprint(super_calcul(2))","id":2,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-2","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"calcula <- function() {\n  1L\n  return(2L)\n  3L\n}\nprint(calcula())\n\ncalculb <- function() {\n  1L\n  2L\n  3L\n}\nprint(calculb())","id":3,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-3","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"super_somme <- function(...) {\n  dots <- list(...)\n  Reduce(`+`, dots)\n}\nprint(super_somme(2, 3, 7, 1))","id":4,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-4","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"liste <- list(2, 3, 7, 1)\nsuper_somme <- function(...) {\n  dots <- list(...)\n  Reduce(`+`, dots)\n}\nprint(do.call(super_somme, liste))","id":5,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-5","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","id":6,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-6","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"fact <- function(n) {\n  if (n == 1L) 1L\n  else n * fact(n - 1L)\n}\nfact(10)","id":7,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-7","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"fact <- function(n) {\n  if (n == 1L) 1L\n  else n * Recall(n - 1L)\n}\nfact(10)","id":8,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-8","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"fact <- function(n, acc = 1) {\n  if (n == 1L) acc\n  else {\n    acc <- acc * n\n    Tailcall(fact, n - 1L, acc)\n  }\n}\nfact(10)","id":9,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-9","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"# Vous pouvez faire l'exercice ici.","id":10,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-10","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"# Vous pouvez faire l'exercice ici.","id":11,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-11","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}},{"code":"# Vous pouvez faire l'exercice ici.","id":12,"options":{"fig-width":7,"editor-font-scale":"1","context":"interactive","editor-word-wrap":"true","label":"unnamed-chunk-12","comment":"","autorun":"false","out-width":"700px","classes":"","dpi":72,"warning":"true","read-only":"false","out-height":"","results":"markup","output":"true","editor-max-height":"","fig-cap":"","fig-height":5,"editor-quick-suggestions":"false","message":"true"}}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","editor-max-height":"","warning":"true","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","label":"unnamed-chunk-1","classes":"","out-height":"","message":"true","fig-cap":"","fig-height":5,"editor-font-scale":"1","comment":"","dpi":72,"context":"interactive","out-width":"700px","read-only":"false","editor-quick-suggestions":"false"},"code":"# Calcul 1\n\nbegaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))\n\n# Calcul 2 : à l'intérieur d'une fonction\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))\n\n# Calcul 3 : en utilisant une fonction nommée\n\ntripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))\n\n# Calcul 4 : sur un vecteur\n\nbegaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))","id":1},{"options":{"results":"markup","editor-max-height":"","warning":"true","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","label":"unnamed-chunk-2","classes":"","out-height":"","message":"true","fig-cap":"","fig-height":5,"editor-font-scale":"1","comment":"","dpi":72,"context":"interactive","out-width":"700px","read-only":"false","editor-quick-suggestions":"false"},"code":"# Calcul 1\n\nvecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))\n\n# Calcul 2 : seul le type du troisième argument (FUN.VALUE) importe, sa valeur\n# n'a aucune importance. Le type doit être le même que celui du vecteur en retour\n# (ici on retourne un vecteur integer donc n'importe quelle valeur entière fait\n# l'affaire)\n\nvecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))\n\n# Calcul 3 : dans le cas où on retourne plusieurs valeurs avec la fonction utilisée\n# il faut en argument (FUN.VALUE) un vecteur de même taille. L'objet en retour\n# est une matrice de même type.\n\nmatrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))\n\n# Calcul 3 : Là encore, les valeurs de l'argument FUN.VALUE sont purement arbitraires.\n# Seule sa longueur et son type importent.\n\nmatrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":2},{"options":{"results":"markup","editor-max-height":"","warning":"true","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","label":"unnamed-chunk-3","classes":"","out-height":"","message":"true","fig-cap":"","fig-height":5,"editor-font-scale":"1","comment":"","dpi":72,"context":"interactive","out-width":"700px","read-only":"false","editor-quick-suggestions":"false"},"code":"# Calcul 1\n\nvecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))\n\n# Calcul 2\n\nmatrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":3},{"options":{"results":"markup","editor-max-height":"","warning":"true","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","label":"unnamed-chunk-4","classes":"","out-height":"","message":"true","fig-cap":"","fig-height":5,"editor-font-scale":"1","comment":"","dpi":72,"context":"interactive","out-width":"700px","read-only":"false","editor-quick-suggestions":"false"},"code":"# Vous pouvez essayer ici.","id":4}];
 
 </script>
 <script type="module">
@@ -1601,7 +1601,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions.html">Rappel sur les fonctions en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions_manipulant_des_fonctions.html">Fonctions manipulant des fonctions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1626,13 +1626,13 @@ globalThis.qwebrExecuteCode = async function (
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./fonctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rappel sur les fonctions en R</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions_manipulant_des_fonctions.html" class="sidebar-item-text sidebar-link">
+  <a href="./fonctions_manipulant_des_fonctions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Fonctions manipulant des fonctions</span></a>
   </div>
 </li>
@@ -1646,11 +1646,9 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#définition-de-fonction" id="toc-définition-de-fonction" class="nav-link active" data-scroll-target="#définition-de-fonction">Définition de fonction</a></li>
-  <li><a href="#dots" id="toc-dots" class="nav-link" data-scroll-target="#dots">Dots</a></li>
-  <li><a href="#appeler-une-fonction-dots-sur-une-liste" id="toc-appeler-une-fonction-dots-sur-une-liste" class="nav-link" data-scroll-target="#appeler-une-fonction-dots-sur-une-liste">Appeler une fonction dots sur une liste</a></li>
-  <li><a href="#fonction-récursives" id="toc-fonction-récursives" class="nav-link" data-scroll-target="#fonction-récursives">Fonction récursives</a></li>
-  <li><a href="#quizz" id="toc-quizz" class="nav-link" data-scroll-target="#quizz">Quizz</a></li>
+  <li><a href="#manipuler-des-fonctions-avec-des-fonctions" id="toc-manipuler-des-fonctions-avec-des-fonctions" class="nav-link active" data-scroll-target="#manipuler-des-fonctions-avec-des-fonctions">Manipuler des fonctions avec des fonctions</a></li>
+  <li><a href="#lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" id="toc-lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" class="nav-link" data-scroll-target="#lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur">lapply&nbsp;: appliquer une fonction à chaque élément d’une liste ou d’un vecteur</a></li>
+  <li><a href="#vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice." id="toc-vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice." class="nav-link" data-scroll-target="#vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice.">vapply&nbsp;: une sorte de lapply mais avec une sortie sous forme d’un vecteur ou d’une matrice.</a></li>
   </ul>
 </nav>
     </div>
@@ -1943,7 +1941,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Rappel sur les fonctions en R</h1>
+<h1 class="title">Fonctions manipulant des fonctions</h1>
 </div>
 
 
@@ -1960,273 +1958,77 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="définition-de-fonction" class="level2">
-<h2 class="anchored" data-anchor-id="définition-de-fonction">Définition de fonction</h2>
-<p>En R, on définit une fonction de cette manière&nbsp;:</p>
+<section id="manipuler-des-fonctions-avec-des-fonctions" class="level2">
+<h2 class="anchored" data-anchor-id="manipuler-des-fonctions-avec-des-fonctions">Manipuler des fonctions avec des fonctions</h2>
+<p>On a vu dans le point précédent deux fonctions qui s’appliquent sur des fonctions. <code>do.call</code> nous a permis d’appliquer une fonction <code>...</code> sur une liste, tandis que Reduce nous a permis d’écrire <code>2 + 3 + 7 + 1</code> de manière un peu plus jolie qu’à la main.</p>
+<p>On a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d’appliquer des fonctions de différentes manières. Nous verrons ici <code>lapply</code>, <code>vapply</code>, <code>Map</code>, <code>replicate</code>, <code>apply</code>, <code>do.call</code>, <code>Reduce</code>.</p>
+</section>
+<section id="lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" class="level2">
+<h2 class="anchored" data-anchor-id="lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur">lapply&nbsp;: appliquer une fonction à chaque élément d’une liste ou d’un vecteur</h2>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>La fonction <code>super_calcul</code> a plusieurs <strong>paramètres</strong>&nbsp;: <code>a</code>, <code>b</code> et <code>multiplication</code>. On donne à ces paramètres des valeurs qu’on appelle <strong>arguments</strong>. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.</p>
-<p>On remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera <code>TRUE</code>.</p>
-<p>On remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.</p>
+<p>Dans les exemples ci-dessus qui sont tous rigoureusement équivalents excepté le calcul 4, on utilisé la fonction <code>lapply</code> pour appliquer la fonction de triplement à chaque élément de la liste.</p>
+<p>Le calcul 2 montre que l’on peut tout-à-fait utiliser <code>lapply</code> à l’intérieur d’une autre fonction. Le calcul 3 illustre un aspect implicite des syntaxes 1 et 2&nbsp;: celles-ci utilisent <code>function(x) c(x, x, x)</code> en lieu et place d’un nom de fonction à l’intérieur du lapply ! On appelle cela des <em>fonctions anonymes</em>. Si une fonction n’a pour vocation que d’être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu’une <em>fonction nommée</em>.</p>
+<p>En outre, dans les 4 calculs, on se rend compte que le résultat de lapply est une liste. lapply retourne en effet une liste même dans le cas du quatrième calcul qui lui soumet un vecteur.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans les versions de R récentes, on peut utiliser la notation compacte <code>\(x) c(x, x, x)</code> à la place de <code>function(x) c(x, x, x)</code> pour désigner une fonction.</p>
+<p>À l’intérieur de l’écosystème tidyverse, on peut également utiliser la notation très compacte <code>~c(.x, .x, .x)</code>.</p>
+</div>
+</div>
+</section>
+<section id="vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice." class="level1">
+<h1>vapply&nbsp;: une sorte de lapply mais avec une sortie sous forme d’un vecteur ou d’une matrice.</h1>
+<p>On l’a vu dans les exemples précédents, <code>lapply</code> renvoie tous les élements sous la forme d’une liste. Mais une liste n’est pas un objet très pratique à manipuler dans un un langage vectoriel&nbsp;! la fonction <code>vapply</code> permet de retourner les résultats sous la forme d’un vecteur ou d’une matrice. La syntaxe est un peu particulière mais on s’y habitue vite&nbsp;!</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Le code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de <code>if (missing(argument)) {}</code>. Ceci est toutefois, en général, <a href="https://design.tidyverse.org/def-magical.html">considéré comme une mauvaise pratique</a>.</p>
-</div>
-</div>
-<p>On vient de constater de manière implicite un aspect de R&nbsp;: par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que <code>if () else {}</code>). Une manière explicite de renvoyer une valeur de retour est d’invoquer <code>return()</code>. Appeler <code>return()</code> met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.</p>
+<p>Lorsque l’on veut faire vite dans la console et que l’on n’a pas le temps de réfléchir, un raccourci pour <code>vapply</code> existe sans la <code>FUN.VALUE</code>. La fonction <code>sapply</code> devine automatiquement les dimensions et le type requis. Utiliser un <code>vapply</code> explicite est cependant une meilleure pratique à l’intérieur d’un programme.</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><code>calcula()</code> renvoie 2L, tandis que <code>calculb()</code> renvoie 3L. On aurait pu également constater que, dans <code>calcula</code>, si on remplace 3L par <code>stop()</code>, le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.</p>
-</section>
-<section id="dots" class="level2">
-<h2 class="anchored" data-anchor-id="dots">Dots</h2>
-<p>Lorsque le nombre de paramètres d’une fonction peut être variable, on peut utiliser les <code>...</code> qu’on appelle “dots”. <code>list(...)</code> permet de retrouver ces arguments sous forme de liste dans le corps de la fonction.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+sapply est moins contraignant que vapply
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Essayer d’utiliser un <code>sapply</code> sur&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="st">"f"</span>, <span class="st">"g"</span>)),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) <span class="fu">c</span>(x, x, x)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Dans le code précédent, on a pu faire une fonction de somme sans figer à l’avance le nombre de termes de la somme.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>On a utilisé dans <code>super_somme</code> une fonction particulière, <code>Reduce</code>, qui est typique des langages fonctionnels. L’idée est ici que l’on calcule <code>2 + 3 + 7 + 1</code>. On verra plus en détail ce type d’opérations dans la partie dédiée au paradigme fonctionnel.</p>
-<p>Dans le cas présent, <code>sum</code> existe déjà et peut déjà s’appliquer à un vecteur. On n’a écrit <code>super_somme</code> qu’à fin d’illustration.</p>
-</div>
-</div>
-</section>
-<section id="appeler-une-fonction-dots-sur-une-liste" class="level2">
-<h2 class="anchored" data-anchor-id="appeler-une-fonction-dots-sur-une-liste">Appeler une fonction dots sur une liste</h2>
-<p>Imaginons que l’on veuille appeler une fonction <code>...</code> sur une liste. On souhaite que chaque élément de la liste devienne un argument. On peut par exemple faire, sur notre fonction <code>super_somme</code>.</p>
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La fonction <code>do.call</code> est en réalité plus générale que cela. Elle permet également d’utiliser des arguments nommés, comme on peut le voir dans l’exemple suivant&nbsp;:</p>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</section>
-<section id="fonction-récursives" class="level2">
-<h2 class="anchored" data-anchor-id="fonction-récursives">Fonction récursives</h2>
-<p>Les fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si <code>factorial()</code> existe déjà dans R, on pourrait très bien la redéfinir via&nbsp;:</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>R permet également une petite astuce pour éviter d’avoir à utiliser le nom d’une fonction dans son propre corps (cela permet de pouvoir renommer la fonction à un seul endroit). Le code précédent est équivalent à&nbsp;:</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque optionnelle
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Depuis la dernière version de R (pas avant !), on peut utiliser la fonction <code>Tailcall</code> pour faire des <strong>récursivités terminales</strong>&nbsp;; qui sont moins pratiques à lire mais plus efficaces. L’interface n’est pas encore figée mais cela ressemble aujourd’hui à cela.</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</section>
-<section id="quizz" class="level2">
-<h2 class="anchored" data-anchor-id="quizz">Quizz</h2>
-<p><strong>Question 1</strong></p>
-<p>Réécrire la fonction <code>super_somme</code> en utilisant une syntaxe récursive. On pourra, par exemple, s’aider de la fonction <code>head</code>, qui permet de retourner une sous-liste contenant les n premiers éléments d’une liste.</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Que se passe-t-il&nbsp;? Pourquoi ? Peut-on résoudre ce problème avec un vapply&nbsp;?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proposition de solution
+Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>super_somme <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  dots <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">length</span>(dots)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">==</span> <span class="dv">0</span>L) <span class="dv">0</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> dots[[longueur]] <span class="sc">+</span> <span class="fu">do.call</span>(super_somme, <span class="fu">head</span>(dots, longueur <span class="sc">-</span> <span class="dv">1</span>L))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">super_somme</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 13</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>La récursivité est ici très bourrine ! On le fait juste pour l’exercice.</li>
-<li>Quelques petites astuces permettent, si besoin, d’éviter de convertir tous les arguments d’une fonction dots en liste. On dispose par exemple de <code>...length()</code> en tant que substitut pour <code>length(list(...))</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Question 2</strong></p>
-<p>Ecrire une fonction <code>...</code> <code>super_produit</code> qui calcule le produit de tous les arguments, et l’utiliser pour écrire une nouvelle version de la fonction <code>fact</code>.</p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proposition de solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>super_produit <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dots <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Reduce</span>(<span class="st">`</span><span class="at">*</span><span class="st">`</span>, dots)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fact <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(super_produit, <span class="fu">as.list</span>(<span class="dv">1</span>L<span class="sc">:</span>n))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fact</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3628800</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Question 3</strong></p>
-<p>Ecrire une fonction dots <code>usine_a_gaz</code> qui renvoie&nbsp;:</p>
-<ul>
-<li><code>NULL</code> s’il n’y a aucun argument.</li>
-<li>Le nombre d’arguments s’il y en a deux ou plus.</li>
-<li><code>"bonjour"</code> si on lui soumet en unique argument un vecteur de type character.</li>
-<li>La somme du vecteur si on lui soumet en unique argument un vecteur numérique au sens de <code>is.numeric</code>.</li>
-<li><code>"échec"</code> dans tous les autres cas.</li>
-</ul>
-<p>On pourra <em>éventuellement</em> s’aider des petites astuces, dont <code>...length()</code>, lisibles dans la page d’aide des <code>...</code>. Celle-ci est accessible en tapant <code>?dots</code>.</p>
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proposition de solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usine_a_gaz <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">...length</span>()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">==</span> <span class="dv">0</span>) <span class="cn">NULL</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (longueur <span class="sc">&gt;=</span> <span class="dv">2</span>L) longueur</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.character</span>(..<span class="dv">1</span>)) <span class="st">"bonjour"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(..<span class="dv">1</span>)) <span class="fu">sum</span>(..<span class="dv">1</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="st">"échec"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "bonjour"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>L, <span class="dv">2</span>L)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">list</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "échec"</code></pre>
-</div>
-</div>
-<p>On peut également utiliser des <code>return()</code>, auquel cas les <code>else</code> deviennent inutiles puisque <code>return</code> fait directement retourner la fonction.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>usine_a_gaz <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">...length</span>()</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">&gt;=</span> <span class="dv">2</span>L) <span class="fu">return</span>(longueur)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.character</span>(..<span class="dv">1</span>)) <span class="fu">return</span>(<span class="st">"bonjour"</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.numeric</span>(..<span class="dv">1</span>)) <span class="fu">return</span>(<span class="fu">sum</span>(..<span class="dv">1</span>))</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"échec"</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "bonjour"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>L, <span class="dv">2</span>L)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">list</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "échec"</code></pre>
+<p>La liste en entrée du <code>sapply</code> est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en <strong>sortie</strong> seront donc de tailles variables également&nbsp;; et c’est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate.</p>
+<p>On ne peut pas résoudre le problème avec un <code>vapply</code>, mais le vapply a le mérite d’être plus strict&nbsp;: il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée.</p>
 </div>
 </div>
 </div>
