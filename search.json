@@ -1,5 +1,65 @@
 [
   {
+    "objectID": "fonctions.html",
+    "href": "fonctions.html",
+    "title": "Rappel sur les fonctions en R",
+    "section": "",
+    "text": "En R, on définit une fonction de cette manière :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLa fonction super_calcul a plusieurs paramètres : a, b et multiplication. On donne à ces paramètres des valeurs qu’on appelle arguments. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.\nOn remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera TRUE.\nOn remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLe code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.\n\n\n\n\n\n\nNote\n\n\n\nLa dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de if (missing(argument)) {}. Ceci est toutefois, en général, considéré comme une mauvaise pratique.\n\n\nOn vient de constater de manière implicite un aspect de R : par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que if () else {}). Une manière explicite de renvoyer une valeur de retour est d’invoquer return(). Appeler return() met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\ncalcula() renvoie 2L, tandis que calculb() renvoie 3L. On aurait pu également constater que, dans calcula, si on remplace 3L par stop(), le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.",
+    "crumbs": [
+      "Rappel sur les fonctions en R"
+    ]
+  },
+  {
+    "objectID": "fonctions.html#définition-de-fonction",
+    "href": "fonctions.html#définition-de-fonction",
+    "title": "Rappel sur les fonctions en R",
+    "section": "",
+    "text": "En R, on définit une fonction de cette manière :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLa fonction super_calcul a plusieurs paramètres : a, b et multiplication. On donne à ces paramètres des valeurs qu’on appelle arguments. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.\nOn remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera TRUE.\nOn remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLe code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.\n\n\n\n\n\n\nNote\n\n\n\nLa dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de if (missing(argument)) {}. Ceci est toutefois, en général, considéré comme une mauvaise pratique.\n\n\nOn vient de constater de manière implicite un aspect de R : par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que if () else {}). Une manière explicite de renvoyer une valeur de retour est d’invoquer return(). Appeler return() met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\ncalcula() renvoie 2L, tandis que calculb() renvoie 3L. On aurait pu également constater que, dans calcula, si on remplace 3L par stop(), le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.",
+    "crumbs": [
+      "Rappel sur les fonctions en R"
+    ]
+  },
+  {
+    "objectID": "fonctions.html#dots",
+    "href": "fonctions.html#dots",
+    "title": "Rappel sur les fonctions en R",
+    "section": "Dots",
+    "text": "Dots\nLorsque le nombre de paramètres d’une fonction peut être variable, on peut utiliser les ... qu’on appelle “dots”. list(...) permet de retrouver ces arguments sous forme de liste dans le corps de la fonction.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDans le code précédent, on a pu faire une fonction de somme sans figer à l’avance le nombre de termes de la somme.\n\n\n\n\n\n\nNote\n\n\n\nOn a utilisé dans super_somme une fonction particulière, Reduce, qui est typique des langages fonctionnels. L’idée est ici que l’on calcule 2 + 3 + 7 + 1. On verra plus en détail ce type d’opérations dans la partie dédiée au paradigme fonctionnel.",
+    "crumbs": [
+      "Rappel sur les fonctions en R"
+    ]
+  },
+  {
+    "objectID": "fonctions.html#appeler-une-fonction-dots-sur-une-liste",
+    "href": "fonctions.html#appeler-une-fonction-dots-sur-une-liste",
+    "title": "Rappel sur les fonctions en R",
+    "section": "Appeler une fonction dots sur une liste",
+    "text": "Appeler une fonction dots sur une liste\nImaginons que l’on veuille appeler une fonction ... sur une liste. On souhaite que chaque élément de la liste devienne un argument. On peut par exemple faire, sur notre fonction super_somme.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nLa fonction do.call est en réalité plus générale que cela. Elle permet également d’utiliser des arguments nommés, comme on peut le voir dans l’exemple suivant :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Rappel sur les fonctions en R"
+    ]
+  },
+  {
+    "objectID": "fonctions.html#fonction-récursives",
+    "href": "fonctions.html#fonction-récursives",
+    "title": "Rappel sur les fonctions en R",
+    "section": "Fonction récursives",
+    "text": "Fonction récursives\nLes fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si factorial() existe déjà dans R, on pourrait très bien la redéfinir via :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nR permet également une petite astuce pour éviter d’avoir à utiliser le nom d’une fonction dans son propre corps (cela permet de pouvoir renommer la fonction à un seul endroit). Le code précédent est équivalent à :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nRemarque optionnelle\n\n\n\nDepuis la dernière version de R (pas avant !), on peut utiliser la fonction Tailcall pour faire des récursivités terminales ; qui sont moins pratiques à lire mais plus efficaces. L’interface n’est pas encore figée mais cela ressemble aujourd’hui à cela.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Rappel sur les fonctions en R"
+    ]
+  },
+  {
+    "objectID": "fonctions.html#quizz",
+    "href": "fonctions.html#quizz",
+    "title": "Rappel sur les fonctions en R",
+    "section": "Quizz",
+    "text": "Quizz\nQuestion 1\n\nRéécrire la fonction super_somme en utilisant une syntaxe récursive. On pourra, par exemple, s’aider de la fonction head, qui permet de retourner une sous-liste contenant les n premiers éléments d’une liste.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nProposition de solution\n\n\n\n\n\n\nsuper_somme &lt;- function(...) {\n  dots &lt;- list(...)\n  longueur &lt;- length(dots)\n  if (longueur == 0L) 0\n  else dots[[longueur]] + do.call(super_somme, head(dots, longueur - 1L))\n}\nprint(super_somme(2, 3, 7, 1))\n\n\n\n\n\n\n\nRemarque\n\n\n\n\nLa récursivité est ici très bourrine ! On le fait juste pour l’exercice.\nQuelques petites astuces permettent, si besoin, d’éviter de convertir tous les arguments d’une fonction dots en liste. On dispose par exemple de ...length() en tant que substitut pour length(list(...)).\n\n\n\n\n\n\nQuestion 2\nEcrire une fonction ... super_produit qui calcule le produit de tous les arguments, et l’utiliser pour écrire une nouvelle version de la fonction fact.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nProposition de solution\n\n\n\n\n\n\nsuper_produit &lt;- function(...) {\n  dots &lt;- list(...)\n  Reduce(`*`, dots)\n}\nfact &lt;- function(n) {\n  do.call(super_produit, as.list(1L:n))\n}\nfact(10)\n\n\n\n\n\n\n\nNote\n\n\n\nQuestion 3\nEcrire une fonction dots usine_a_gaz qui renvoie :\n\nNULL s’il n’y a aucun argument.\nLe nombre d’arguments s’il y en a deux ou plus.\n\"bonjour\" si on lui soumet en unique argument un vecteur de type character.\nLa somme du vecteur si on lui soumet en unique argument un vecteur numérique au sens de is.numeric.\n\"échec\" dans tous les autres cas.\n\nOn pourra éventuellement s’aider des petites astuces, dont ...length(), lisibles dans la page d’aide des .... Celle-ci est accessible en tapant ?dots.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nProposition de solution\n\n\n\n\n\n\nusine_a_gaz &lt;- function(...) {\n  longueur &lt;- ...length()\n  if (longueur == 0) NULL\n  else if (longueur &gt;= 2L) longueur\n  else if (is.character(..1)) \"bonjour\"\n  else if (is.numeric(..1)) sum(..1)\n  else \"échec\"\n}\nprint(usine_a_gaz())\nprint(usine_a_gaz(1,3))\nprint(usine_a_gaz(c(\"a\",\"b\")))\nprint(usine_a_gaz(c(1, 2)))\nprint(usine_a_gaz(c(1L, 2L)))\nprint(usine_a_gaz(list()))\n\nOn peut également utiliser des return(), auquel cas les else deviennent inutiles puisque return fait directement retourner la fonction.\n\nusine_a_gaz &lt;- function(...) {\n  longueur &lt;- ...length()\n  if (longueur == 0) return(NULL)\n  if (longueur &gt;= 2L) return(longueur)\n  if (is.character(..1)) return(\"bonjour\")\n  if (is.numeric(..1)) return(sum(..1))\n  \"échec\"\n}\nprint(usine_a_gaz())\nprint(usine_a_gaz(1,3))\nprint(usine_a_gaz(c(\"a\",\"b\")))\nprint(usine_a_gaz(c(1, 2)))\nprint(usine_a_gaz(c(1L, 2L)))\nprint(usine_a_gaz(list()))",
+    "crumbs": [
+      "Rappel sur les fonctions en R"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction : les paradigmes de programmation",
@@ -67,46 +127,6 @@
     "text": "Quizz\nQuestion 1\n\nDans un langage fonctionnel idéal :\n\n\n\n\n ✗On n’utilise que des procédures (des fonctions sans valeur de retour).\n\n\n ✓On n’utilise que des fonctions dites pures, c’est-à-dire des fonctions purement combinatoires.\n\n\n ✗On n’utilise que des fonctions, pures, ou non.\n\n\n ✗Différentes étapes successives qu’on appelle fonctions. On les applique sur des objets qu’elles modifient progressivement.\n\n\n\n\n\nQuestion 2\n\nQuel est le rapport entretenu entre R et la Programmation Orientée Objet ?\n\n\n\n\n ✗R est un archétype de langage de POO.\n\n\n ✗On ne peut pas du tout faire de POO en R.\n\n\n ✗Objection votre honneur !\n\n\n ✓R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.\n\n\n\n\n\nQuestion 3\n\nUn langage de bas niveau est un langage caractérisé par sa simplicité.\n\n\n\n\n ✓Non, c’est un langage proche du langage machine, donc souvent assez complexe et verbieux.\n\n\n ✗Exactement ! C’est un langage prévu pour être facile d’appréhension, d’où de “bas niveau”.\n\n\n ✗Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.\n\n\n ✗Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.\n\n\n\n\n\nQuestion 4\n\nAnalysons ce pseudo-code :\n\nclasseur_ods = nouveau_classeur_ods()\nonglet = nouvel_onglet(donnee = “En voilà de la donnée”)\nclasseur_ods.ajouter_onglet(onglet)\nclasseur_ods.enregistrer(“/home/tintin/mon_classeur.ods”)\n\nÀ quel paradigme de programmation cela ressemble ?\n\n\n\n\n ✗Langage procédural\n\n\n ✓Langage objet\n\n\n ✗Langage fonctionnel\n\n\n\n\n\nQuestion 5\n\nAnalysons ce pseudo-code :\n\na = [‘b’, ‘o’, ‘n’, ‘j’, ‘o’, ‘u’, ‘r’, ’ ’]\ni = 1\nwhile a[i] != ’ ’ {\n  print(a[i])\n  print(a[i])\n}\n\nÀ quel paradigme de programmation cela ressemble ?\n\n\n\n\n ✓Langage procédural\n\n\n ✗Langage objet\n\n\n ✗Langage fonctionnel\n\n\n\n\n\nQuestion 6\n\nAnalysons ce pseudo-code :\n\nracine_carrée(multiplier_par(entiers de 1 à 10, 3))\n\nÀ quel paradigme de programmation cela ressemble ?\n\n\n\n\n ✗Langage procédural\n\n\n ✗Langage objet\n\n\n ✓Un langage fonctionnel ! Et vectoriel en plus ! C’est presque R !\n\n\n\n\n\nQuestion 7\n\nOn a vu qu’un langage objet permet notamment d’éviter les dépendances à l’implémentation.\nOn préfère écrire :\n\nmur.peindre(palette.get_couleur())\n\nQue :\n\npeindre_mur(mur, palette[3])\n\nQuel intérêt cela présente ?\n\n\n\n\n ✗Aucun, c’est purement esthétique.\n\n\n ✓Cela permet à un collègue d’être libre de modifier le fonctionnement interne de la palette sans faire bugger le programme de peinture.\n\n\n ✗Compter jusqu’à 3 est difficile car un ordinateur repose sur des nombres binaires. On préfère donc enlever le 3.\n\n\n ✗On a vraiment envie que le programme de peinture dépende du programme de la palette. Il faut que les gens travaillent en équipe et donc qu’ils soient chacun au courant de tout ce qu’il se passe dans l’intégralité du projet.\n\n\n\n\n\nQuestion 8\n\nCombien de méthodes différentes de la classe discman ce pseudo-code utilise-t-il ?\n\ndiscman.brancher_ecouteurs(ecouteurs)\ndiscman.inserer_cd(never_mind_the_bollocks_here_s_the_sex_pistols)\ndiscman.ecouter_cd()\ndiscman.retirer_cd()\ndiscman.inserer_cd(peace_sells_but_who_s_buying)\ndiscman.ecouter_cd()\ndiscman.retirer_cd()\n\n\n\n\n\n ✗1\n\n\n ✗2\n\n\n ✗3\n\n\n ✓4\n\n\n ✗5\n\n\n ✗6\n\n\n ✗7",
     "crumbs": [
       "Introduction"
-    ]
-  },
-  {
-    "objectID": "fonctions.html",
-    "href": "fonctions.html",
-    "title": "Rappel sur les fonctions en R",
-    "section": "",
-    "text": "En R, on définit une fonction de cette manière :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLa fonction super_calcul a plusieurs paramètres : a, b et multiplication. On donne à ces paramètres des valeurs qu’on appelle arguments. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.\nOn remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera TRUE.\nOn remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLe code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.\n\n\n\n\n\n\nNote\n\n\n\nLa dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de if (missing(argument)) {}. Ceci est toutefois, en général, considéré comme une mauvaise pratique.\n\n\nOn vient de constater de manière implicite un aspect de R : par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que if () else {}). Une manière explicite de renvoyer une valeur de retour est d’invoquer return(). Appeler return() met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\ncalcula() renvoie 2L, tandis que calculb() renvoie 3L. On aurait pu également constater que, dans calcula, si on remplace 3L par stop(), le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.",
-    "crumbs": [
-      "Rappel sur les fonctions en R"
-    ]
-  },
-  {
-    "objectID": "fonctions.html#définition-de-fonction",
-    "href": "fonctions.html#définition-de-fonction",
-    "title": "Rappel sur les fonctions en R",
-    "section": "",
-    "text": "En R, on définit une fonction de cette manière :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLa fonction super_calcul a plusieurs paramètres : a, b et multiplication. On donne à ces paramètres des valeurs qu’on appelle arguments. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.\nOn remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera TRUE.\nOn remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLe code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.\n\n\n\n\n\n\nNote\n\n\n\nLa dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de if (missing(argument)) {}. Ceci est toutefois, en général, considéré comme une mauvaise pratique.\n\n\nOn vient de constater de manière implicite un aspect de R : par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que if () else {}). Une manière explicite de renvoyer une valeur de retour est d’invoquer return(). Appeler return() met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\ncalcula() renvoie 2L, tandis que calculb() renvoie 3L. On aurait pu également constater que, dans calcula, si on remplace 3L par stop(), le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.",
-    "crumbs": [
-      "Rappel sur les fonctions en R"
-    ]
-  },
-  {
-    "objectID": "fonctions.html#dots",
-    "href": "fonctions.html#dots",
-    "title": "Rappel sur les fonctions en R",
-    "section": "Dots",
-    "text": "Dots\nLorsque le nombre de paramètres d’une fonction peut être variable, on peut utiliser les ... qu’on appelle “dots”. list(...) permet de retrouver ces arguments sous forme de liste dans le corps de la fonction.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDans le code précédent, on a pu faire une fonction de somme sans savoir à l’avance le nombre de termes de la somme.\n\n\n\n\n\n\nNote\n\n\n\nOn a utilisé dans super_somme une fonction particulière, Reduce, qui est typique des langages fonctionnels. L’idée est ici que l’on calcule 2 + 3 + 7 + 1. On verra plus en détail ce type d’opérations dans la partie dédiée au paradigme fonctionnel.",
-    "crumbs": [
-      "Rappel sur les fonctions en R"
-    ]
-  },
-  {
-    "objectID": "fonctions.html#fonction-récursives",
-    "href": "fonctions.html#fonction-récursives",
-    "title": "Rappel sur les fonctions en R",
-    "section": "Fonction récursives",
-    "text": "Fonction récursives\nLes fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si factorial() existe déjà dans R, on pourrait très bien la redéfinir via :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nR permet également une petite astuce pour éviter d’avoir à utiliser le nom d’une fonction dans son propre corps (cela permet de pouvoir renommer la fonction à un seul endroit). Le code précédent est équivalent à :\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Rappel sur les fonctions en R"
     ]
   }
 ]
