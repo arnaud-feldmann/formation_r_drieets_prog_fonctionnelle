@@ -263,6 +263,31 @@ L'astuce ci-dessus permet de résoudre le problème ; on a répété 4 fois le 
 replicate(4L, runif(2L), simplify = FALSE)
 ```
 
-`replicate` permet d'évaluer une expression plusieurs fois de suite. Cela n'est, bien entendu, utile que dans le cas où cette expression renvoie des résultats différents à chaque évaluation, ce qui est notamment le cas dans le cas des générations de nombres aléatoires.
+`replicate` est une variante de lapply qui permet d'évaluer une *expression* plusieurs fois de suite. Cela n'est, bien entendu, utile que dans le cas où cette expression renvoie des résultats différents à chaque évaluation, ce qui est notamment le cas en ce qui concerne la générations de nombres aléatoires.
 
 On note l'argument `simplify = FALSE` à la fin. Si celui-ci n'est pas spécifié, il est par défaut défini à la valeur `TRUE`, et alors replicate se comporte comme un `sapply` ; il essaye de construire des matrices.
+
+## apply : appliquer une fonction sur les colonnes ou les lignes d'une matrice
+
+`apply` permet d'appliquer une fonction par ligne ou par colonne.
+
+```{webr-r}
+matrice <-
+  matrix(1:12,
+         nrow = 3L)
+print(matrice)
+apply(matrice,
+      1L,
+      max)
+apply(matrice,
+      2L,
+      max)
+```
+
+Dans le tronçon de code ci-dessus, on a appliqué la fonction `max` (maximum) respectivement sur chaque ligne et chaque colonne. C'est l'argument `MARGIN` en deuxième position qui permet de déterminer la direction de cette application de fonction (`1` pour les lignes, `2` pour les colonnes).
+
+::: callout-note
+
+Il est à noter que quelques optimisations de ces fonctions existent. `rowSums`, `colSums`, `rowMeans`, `colMeans` ont toutes les quatre des noms assez parlants qui permettent d'éviter une écriture un peu trop poussive.
+
+:::
