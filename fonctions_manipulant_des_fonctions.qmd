@@ -291,3 +291,63 @@ Dans le tronçon de code ci-dessus, on a appliqué la fonction `max` (maximum) r
 Il est à noter que quelques optimisations de ces fonctions existent. `rowSums`, `colSums`, `rowMeans`, `colMeans` ont toutes les quatre des noms assez parlants qui permettent d'éviter une écriture un peu trop poussive.
 
 :::
+
+## do.call : appliquer une fonction multi-paramètres sur une liste d'arguments
+
+La fonction `do.call` permet d'utiliser une fonction multi-paramètres, par exemple (mais pas obligatoirement) une fonction dépendant de paramètres en dots `...`, sur une liste de valeurs.
+
+```{webr-r}
+do.call(paste, list("a", "b", "c", sep = "/"))
+```
+
+Ici, on a appliqué la fonction `paste` en même temps sur chaque élément de la liste fournie en argument. On peut noter, également, que les éléments nommés de la liste (ici `sep`) sont traduits par des arguments nommés.
+
+## Reduce : réduire une liste ou un vecteur d'arguments par application successive d'un opérateur binaire
+
+La fonction `Reduce` permet d'appliquer consécutivement une opération binaire.
+
+```{webr-r}
+Reduce(`+`, c(1, 2, 8, -7))
+```
+
+Cet exemple (que l'on a déjà vu dans le chapitre précédent) correspond à `((1 + 2) + 8) + (-7)`. Chaque étape utilise l'opération binaire `+`. Mais `Reduce` peut être employé dans des calculs plus complexes.
+
+```{web-r}
+liste_fonctions <- list(
+  \(x) x + 1,
+  \(x) x / 3,
+  atan
+)
+
+composer_fonctions <- function(e1, e2) {
+  e1 <- match.fun(e1)
+  e2 <- match.fun(e2)
+  function(...) {
+    e1(e2(...))
+  }
+}
+
+fonction_composee <- Reduce(composer_fonctions, liste_fonctions)
+
+print(fonction_composee(pi))
+print(atan(pi) / 3 + 1)
+```
+
+Dans l'exemple précédent, on a appliqué sur une liste de fonctions l'opérateur `Reduce` au sens de la composition. C'est un joli exemple pour montrer la richesse d'un langage fonctionnel et illustrer l'idée que `Reduce` n'est pas restreint à des opérations numériques. En général, cependant, on préfèrera éviter d'empiler des fonctions non-évaluées. On préfèrera donc une notation intermédiaire comme employé ci-dessous.
+
+```{web-r}
+liste_fonctions <- list(
+  \(x) x + 1,
+  \(x) x / 3,
+  atan
+)
+
+appliquer_fonction <- function(f, accumulateur) {
+  f <- match.fun(f)
+  f(accumulateur)
+}
+
+Reduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)
+```
+
+Ici, plutôt que d'empiler des fonctions en mémoire, on les applique successivement. `applique_fonction` reste une opération binaire, mais est une loi de composition externe, dans la mesure où `f` est une fonction tandis que `accumulateur` est un résultat numérique. On remarque aussi qu'on a utilisé l'argument `init` de `Reduce` qui permet d'initialiser l'accumulateur. En effet si on veut obtenir `atan(pi) / 3 + 1` il faut bien renseigner qu'on commence à `pi` quelque part. L'argument `right = TRUE` permet de parcourir la liste de droite à gauche plutôt que de gauche à droite.
