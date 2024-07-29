@@ -188,5 +188,25 @@
     "crumbs": [
       "Fonctions manipulant des fonctions"
     ]
+  },
+  {
+    "objectID": "fonctions_manipulant_des_fonctions.html#do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments",
+    "href": "fonctions_manipulant_des_fonctions.html#do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments",
+    "title": "Fonctions manipulant des fonctions",
+    "section": "do.call : appliquer une fonction multi-paramètres sur une liste d’arguments",
+    "text": "do.call : appliquer une fonction multi-paramètres sur une liste d’arguments\nLa fonction do.call permet d’utiliser une fonction multi-paramètres, par exemple (mais pas obligatoirement) une fonction dépendant de paramètres en dots ..., sur une liste de valeurs.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIci, on a appliqué la fonction paste en même temps sur chaque élément de la liste fournie en argument. On peut noter, également, que les éléments nommés de la liste (ici sep) sont traduits par des arguments nommés.",
+    "crumbs": [
+      "Fonctions manipulant des fonctions"
+    ]
+  },
+  {
+    "objectID": "fonctions_manipulant_des_fonctions.html#reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire",
+    "href": "fonctions_manipulant_des_fonctions.html#reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire",
+    "title": "Fonctions manipulant des fonctions",
+    "section": "Reduce : réduire une liste ou un vecteur d’arguments par application successive d’un opérateur binaire",
+    "text": "Reduce : réduire une liste ou un vecteur d’arguments par application successive d’un opérateur binaire\nLa fonction Reduce permet d’appliquer consécutivement un opérateur binaire.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nCet exemple (que l’on a déjà vu dans le chapitre précédent) correspond à ((1 + 2) + 8) + (-7). Chaque étape utilise l’opérateur binaire +. Mais Reduce peut être employé dans des calculs plus complexes.\nliste_fonctions &lt;- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\ncomposer_fonctions &lt;- function(e1, e2) {\n  e1 &lt;- match.fun(e1)\n  e2 &lt;- match.fun(e2)\n  function(...) {\n    e1(e2(...))\n  }\n}\n\nfonction_composee &lt;- Reduce(composer_fonctions, liste_fonctions)\n\nprint(fonction_composee(pi))\nprint(atan(pi) / 3 + 1)\nDans l’exemple précédent, on a appliqué sur une liste de fonctions l’opérateur Reduce au sens de la composition. C’est un joli exemple pour montrer la richesse d’un langage fonctionnel et illustrer l’idée que Reduce n’est pas restreint à des opérateurs numériques. En général, cependant, on préfèrera éviter d’empiler des fonctions non-évaluées. On préfèrera donc une notation intermédiaire comme employé ci-dessous.\nliste_fonctions &lt;- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\nappliquer_fonction &lt;- function(f, ...) {\n  f &lt;- match.fun(f)\n  f(...)\n}\n\nReduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)\nIci, plutôt qu’empiler des fonctions en mémoire, on les applique successivement. On remarque aussi qu’on a utilisé l’argument init de Reduce qui permet d’initialiser l’accumulateur. En effet si on veut obtenir atan(pi) / 3 + 1 il faut bien renseigner qu’on commence à pi quelque part. L’argument right = TRUE permet de parcourir la liste de droite à gauche plutôt que de gauche à droite.",
+    "crumbs": [
+      "Fonctions manipulant des fonctions"
+    ]
   }
 ]
