@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-1","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":1,"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-2","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":2,"code":"tripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-3","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":3,"code":"tripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-4","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":4,"code":"begaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-5","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":5,"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-6","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":6,"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-7","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":7,"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-8","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":8,"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-9","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":9,"code":"vecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-10","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":10,"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-11","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":11,"code":"# Vous pouvez essayer ici."},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-12","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":12,"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-13","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":13,"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-14","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":14,"code":"Map(\\(x) paste(x, sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-15","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":15,"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-16","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":16,"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-17","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":17,"code":"lapply(rep(2L, 4L),\n       function(n) runif(n))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-18","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":18,"code":"replicate(4L, runif(2L), simplify = FALSE)"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-19","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":19,"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-20","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":20,"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-21","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":21,"code":"Reduce(`+`, c(1, 2, 8, -7))"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-22","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":22,"code":"Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)"},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-23","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":23,"code":"liste <- list(1, -7, 8, 0)\n# Vous pouvez faire l'exercice ici."},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-24","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":24,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-25","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":25,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-26","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":26,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-27","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":27,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-cap":"","editor-font-scale":"1","fig-width":7,"output":"true","classes":"","read-only":"false","editor-max-height":"","out-width":"700px","warning":"true","label":"unnamed-chunk-28","comment":"","autorun":"false","results":"markup","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","context":"interactive","out-height":"","message":"true","fig-height":5},"id":28,"code":"# Vous pouvez faire l'exercice ici."}];
+globalThis.qwebrCellDetails = [{"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-1","classes":"","editor-font-scale":"1","dpi":72},"id":1},{"code":"tripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-2","classes":"","editor-font-scale":"1","dpi":72},"id":2},{"code":"tripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-3","classes":"","editor-font-scale":"1","dpi":72},"id":3},{"code":"begaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-4","classes":"","editor-font-scale":"1","dpi":72},"id":4},{"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-5","classes":"","editor-font-scale":"1","dpi":72},"id":5},{"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-6","classes":"","editor-font-scale":"1","dpi":72},"id":6},{"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-7","classes":"","editor-font-scale":"1","dpi":72},"id":7},{"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-8","classes":"","editor-font-scale":"1","dpi":72},"id":8},{"code":"vecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-9","classes":"","editor-font-scale":"1","dpi":72},"id":9},{"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-10","classes":"","editor-font-scale":"1","dpi":72},"id":10},{"code":"# Vous pouvez essayer ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-11","classes":"","editor-font-scale":"1","dpi":72},"id":11},{"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-12","classes":"","editor-font-scale":"1","dpi":72},"id":12},{"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-13","classes":"","editor-font-scale":"1","dpi":72},"id":13},{"code":"Map(\\(x) paste(x, sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-14","classes":"","editor-font-scale":"1","dpi":72},"id":14},{"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-15","classes":"","editor-font-scale":"1","dpi":72},"id":15},{"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-16","classes":"","editor-font-scale":"1","dpi":72},"id":16},{"code":"lapply(rep(2L, 4L),\n       function(n) runif(n))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-17","classes":"","editor-font-scale":"1","dpi":72},"id":17},{"code":"replicate(4L, runif(2L), simplify = FALSE)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-18","classes":"","editor-font-scale":"1","dpi":72},"id":18},{"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-19","classes":"","editor-font-scale":"1","dpi":72},"id":19},{"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-20","classes":"","editor-font-scale":"1","dpi":72},"id":20},{"code":"Reduce(`+`, c(1, 2, 8, -7))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-21","classes":"","editor-font-scale":"1","dpi":72},"id":21},{"code":"Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-22","classes":"","editor-font-scale":"1","dpi":72},"id":22},{"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\ncomposer_fonctions <- function(e1, e2) {\n  e1 <- match.fun(e1)\n  e2 <- match.fun(e2)\n  function(...) {\n    e1(e2(...))\n  }\n}\n\nfonction_composee <- Reduce(composer_fonctions, liste_fonctions)\n\nprint(fonction_composee(pi))\nprint(atan(pi) / 3 + 1)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-23","classes":"","editor-font-scale":"1","dpi":72},"id":23},{"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\nappliquer_fonction <- function(f, accumulateur) {\n  f <- match.fun(f)\n  f(accumulateur)\n}\n\nReduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-24","classes":"","editor-font-scale":"1","dpi":72},"id":24},{"code":"liste <- list(1, -7, 8, 0)\n# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-25","classes":"","editor-font-scale":"1","dpi":72},"id":25},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-26","classes":"","editor-font-scale":"1","dpi":72},"id":26},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-27","classes":"","editor-font-scale":"1","dpi":72},"id":27},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-28","classes":"","editor-font-scale":"1","dpi":72},"id":28},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-29","classes":"","editor-font-scale":"1","dpi":72},"id":29},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-30","classes":"","editor-font-scale":"1","dpi":72},"id":30}];
 
 </script>
 <script type="module">
@@ -2154,44 +2154,18 @@ Note
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Comme on le voit ci-dessus, on peut éventuellement, à l’aide de <code>accumulate = TRUE</code>, conserver les résultats intermédiaires de la réduction. À savoir ici <code>1</code>, puis <code>1 + 2</code>, puis <code>1 + 2 + 8</code> et enfin <code>1 + 2 + 8 - 7</code>.</p>
 <p>Mais <code>Reduce</code> peut être employé dans des calculs plus complexes.</p>
-<pre class="{web-r}"><code>liste_fonctions &lt;- list(
-  \(x) x + 1,
-  \(x) x / 3,
-  atan
-)
-
-composer_fonctions &lt;- function(e1, e2) {
-  e1 &lt;- match.fun(e1)
-  e2 &lt;- match.fun(e2)
-  function(...) {
-    e1(e2(...))
-  }
-}
-
-fonction_composee &lt;- Reduce(composer_fonctions, liste_fonctions)
-
-print(fonction_composee(pi))
-print(atan(pi) / 3 + 1)</code></pre>
+<div id="qwebr-insertion-location-23"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Dans l’exemple précédent, on a appliqué sur une liste de fonctions l’opérateur <code>Reduce</code> au sens de la composition. C’est un joli exemple pour montrer la richesse d’un langage fonctionnel et illustrer l’idée que <code>Reduce</code> n’est pas restreint à des opérations numériques. En général, cependant, on préfèrera éviter d’empiler des fonctions non-évaluées. On préfèrera donc une notation intermédiaire comme employé ci-dessous.</p>
-<pre class="{web-r}"><code>liste_fonctions &lt;- list(
-  \(x) x + 1,
-  \(x) x / 3,
-  atan
-)
-
-appliquer_fonction &lt;- function(f, accumulateur) {
-  f &lt;- match.fun(f)
-  f(accumulateur)
-}
-
-Reduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)</code></pre>
+<div id="qwebr-insertion-location-24"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Ici, plutôt que d’empiler des fonctions en mémoire, on les applique successivement. <code>applique_fonction</code> reste une opération binaire, mais est une loi de composition externe, dans la mesure où <code>f</code> est une fonction tandis que <code>accumulateur</code> est un résultat numérique. On remarque aussi qu’on a utilisé l’argument <code>init</code> de <code>Reduce</code> qui permet d’initialiser l’accumulateur. En effet si on veut obtenir <code>atan(pi) / 3 + 1</code> il faut bien renseigner qu’on commence à <code>pi</code> quelque part. L’argument <code>right = TRUE</code> permet de parcourir la liste de droite à gauche plutôt que de gauche à droite.</p>
 </section>
 <section id="exercices" class="level2">
 <h2 class="anchored" data-anchor-id="exercices">Exercices</h2>
 <p><strong>Question 1</strong></p>
 <p>À l’aide de la fonction <code>pmax</code> (sans utiliser la fonction <code>max</code>), calculer le maximum de cette liste.</p>
-<div id="qwebr-insertion-location-23"></div>
+<div id="qwebr-insertion-location-25"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -2206,8 +2180,8 @@ Proposition de solution
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">0</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(pmax, liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">0</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(pmax, liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -2217,7 +2191,7 @@ Proposition de solution
 </div>
 <p><strong>Question 2</strong></p>
 <p>Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d’espérance 3 et d’écart-type 0.5. Vous pouvez consulter l’aide de la fonction <code>rnorm</code> via <code>?rnorm</code>.</p>
-<div id="qwebr-insertion-location-24"></div>
+<div id="qwebr-insertion-location-26"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -2232,115 +2206,115 @@ Proposition de solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">60</span>,<span class="at">mean =</span> <span class="dv">3</span>,<span class="at">sd =</span> <span class="fl">0.5</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">60</span>,<span class="at">mean =</span> <span class="dv">3</span>,<span class="at">sd =</span> <span class="fl">0.5</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
- [1] 2.439507 3.017039 3.737032 4.658608 4.010825 3.497078 3.558995 3.064562
- [9] 3.541626 2.867001 2.683064 2.824639 2.878625 3.210421 2.417453 2.100825
-[17] 2.271261 3.060711 3.980825 3.282869 2.392588 2.790531 2.487695 3.472774
-[25] 3.098705 2.613423 2.718546 2.949631 3.432797 4.270159 2.832150 2.630406
-[33] 3.201772 2.800053 2.846604 2.690024 2.185214 3.060804 2.714410 3.188013
-[41] 2.793288 2.952550 3.370055 3.686804 2.805107 3.351407 3.197493 2.689418
-[49] 3.308693 3.405177 3.059250 3.291057 3.086472 3.785228 3.035323 2.277769
-[57] 3.068215 3.057424 3.074319 3.087649
+ [1] 2.945190 3.689774 2.834709 2.675219 3.373121 2.280165 2.296460 2.201929
+ [9] 2.975534 2.930515 3.456482 3.377843 2.738632 3.377906 3.316418 3.620004
+[17] 2.910195 3.214161 3.283914 3.155467 3.485684 3.102626 2.184568 3.112141
+[25] 3.095935 3.525561 3.209564 3.012670 3.279944 3.734326 3.383275 2.712052
+[33] 2.549636 2.967407 3.456160 3.329602 2.684705 3.108149 2.995610 2.753371
+[41] 2.855713 3.030279 1.973138 2.370600 3.216329 3.000944 3.832782 3.203346
+[49] 2.454869 3.238868 2.112340 3.110525 2.984646 3.167227 3.032527 2.644053
+[57] 2.822058 2.652624 1.701097 3.653376
 
 [[2]]
- [1] 3.133045 2.530666 2.827899 2.700197 3.355398 3.981317 3.245544 3.433864
- [9] 3.307308 2.868218 2.595220 2.384223 3.014515 3.388478 2.851432 3.138777
-[17] 2.949980 3.546872 3.452409 3.562412 2.282978 2.870097 3.461405 2.936147
-[25] 2.934312 3.531533 4.203035 3.249997 3.069445 2.806534 2.349615 3.327868
-[33] 1.973748 2.513541 3.296365 3.753144 2.332800 3.213404 2.888479 2.454465
-[41] 2.973301 3.622123 3.200419 2.783721 3.831198 2.315154 3.298396 1.885614
-[49] 3.104463 3.887885 2.767392 3.677431 2.851625 1.903837 3.583376 3.309926
-[57] 2.814349 2.513571 3.309268 3.115772
+ [1] 2.700733 3.175546 3.222453 2.756638 2.882133 2.531906 2.967691 3.001449
+ [9] 2.765007 2.522784 3.015504 2.817449 3.549796 2.931609 2.545157 2.124304
+[17] 3.194720 2.362288 2.915612 2.295578 3.443964 3.257206 3.646187 3.319236
+[25] 3.257530 3.289501 2.470275 2.948116 3.750068 3.047629 2.931829 3.028832
+[33] 3.610043 1.356037 2.358965 2.344329 4.062540 3.158011 3.363879 2.732560
+[41] 2.866943 2.649896 2.695793 2.987785 3.303133 2.276929 2.863690 2.853631
+[49] 2.842360 2.901706 3.300580 2.747383 2.442608 2.115980 2.654710 3.232925
+[57] 2.597433 3.580980 3.033270 2.455633
 
 [[3]]
- [1] 2.710504 3.151536 2.403310 2.076538 3.455999 2.940418 2.973761 2.446431
- [9] 3.056629 3.301921 3.046817 3.180775 3.037654 2.627099 2.237773 3.809342
-[17] 3.101192 2.335497 3.696407 2.789559 2.504684 3.090629 3.319229 2.987142
-[25] 3.788770 2.296919 2.296490 2.752871 3.052307 4.240502 3.206436 2.882312
-[33] 3.935060 2.755467 2.548721 3.336310 2.998732 3.529269 3.520324 3.997279
-[41] 3.071209 2.927326 2.657905 2.780875 3.185291 3.306525 2.713185 3.207382
-[49] 2.549518 3.037042 2.833227 2.767748 3.319604 2.878799 2.888231 2.465775
-[57] 2.712629 3.450024 3.722555 3.362880
+ [1] 2.965665 2.337071 3.286953 1.978672 2.645645 3.647392 3.371573 2.290401
+ [9] 3.899753 2.660074 1.699275 3.541451 3.013324 2.922042 3.371702 2.949716
+[17] 2.063790 3.083304 3.386527 2.627046 3.078610 3.043802 2.519999 2.447171
+[25] 2.631938 2.589618 3.094190 3.318430 3.013931 2.916234 2.615722 2.658454
+[33] 2.223172 2.840353 3.011267 3.955952 2.843009 2.932922 2.367985 2.751579
+[41] 2.601571 3.340378 3.770561 3.036170 2.989003 3.412837 2.706429 2.882474
+[49] 2.651799 3.241494 2.520012 2.528300 3.892664 3.892818 2.863842 3.274836
+[57] 2.803749 2.857929 3.517121 3.650169
 
 [[4]]
- [1] 1.793070 4.118032 3.039594 3.241596 2.709637 3.113022 2.803513 3.159870
- [9] 2.891707 2.226372 3.811264 3.209542 2.738009 2.728942 3.115019 2.260090
-[17] 3.017963 3.260946 3.436196 2.837056 2.078471 3.926587 3.567847 3.251340
-[25] 3.208957 3.082777 3.460791 3.403618 3.638886 2.148910 3.391283 2.719067
-[33] 2.552815 2.143038 3.188061 3.051185 2.739672 2.887871 1.928368 2.540802
-[41] 3.521221 2.766954 3.015410 2.575665 2.439105 3.267080 3.291809 3.519481
-[49] 3.224437 3.292865 3.470165 2.831901 1.653326 3.202348 3.160670 1.560451
-[57] 3.131498 3.355686 2.963178 3.111776
+ [1] 3.067890 3.926129 3.218663 2.539130 2.422542 3.732739 2.422095 3.445316
+ [9] 3.001726 2.249829 3.168816 3.132606 3.756343 3.858855 2.679064 2.934370
+[17] 2.325845 3.066202 3.064843 3.566040 3.546680 3.253415 2.653988 2.904436
+[25] 3.084129 2.696063 3.434859 2.348696 2.540915 3.206894 2.998248 2.810290
+[33] 2.833012 3.693509 3.772737 3.158415 1.734699 2.258199 2.501934 4.215443
+[41] 3.153358 3.276138 2.449788 3.013814 3.266682 2.837973 2.579594 2.731997
+[49] 2.707841 2.065409 1.829452 2.676403 3.114086 2.997162 3.004715 3.985534
+[57] 3.833934 2.441828 2.825845 3.774873
 
 [[5]]
- [1] 2.895020 3.029215 2.167023 3.463204 3.689613 3.861566 3.913481 4.198813
- [9] 2.872741 3.485126 3.200181 3.221309 2.558781 3.353357 1.994482 3.333741
-[17] 3.794701 2.678897 3.048133 3.431178 3.387581 2.941700 2.461023 2.746520
-[25] 2.729880 2.735938 3.819003 3.111499 2.545736 3.380740 3.332475 3.329227
-[33] 4.093639 3.881475 2.790711 2.711756 2.883832 3.187244 3.987205 2.123618
-[41] 2.187292 3.260177 2.305080 3.307186 2.604182 2.656476 3.225187 4.220323
-[49] 3.135666 2.951193 3.194263 3.412895 2.499434 2.583505 3.110500 2.619485
-[57] 2.926877 2.679953 3.386558 3.366078
+ [1] 2.506134 3.262829 2.919872 3.375525 2.047295 2.524776 3.146332 3.615658
+ [9] 3.389791 3.347057 2.933058 3.057442 2.896028 4.164673 3.129289 2.879989
+[17] 2.560946 3.661774 1.939778 2.601968 2.223647 1.004420 3.281113 2.730517
+[25] 3.066030 3.606713 3.557001 3.509972 2.911045 2.984831 1.530075 3.284495
+[33] 2.910263 3.817430 4.323413 3.537865 3.436432 2.287610 3.307696 3.581217
+[41] 3.388144 2.675607 2.402101 3.438010 2.428335 3.636887 3.061773 3.722320
+[49] 3.331042 2.999251 2.302596 3.531252 3.374166 3.307852 2.536472 2.479843
+[57] 2.898213 3.275301 3.583549 2.958568
 
 [[6]]
- [1] 3.113890 2.586966 3.081014 3.145611 2.756621 3.694975 2.778066 3.294176
- [9] 2.496470 2.247950 2.597108 2.435940 2.525454 3.384054 3.675659 3.748924
-[17] 2.946388 3.109032 3.694679 3.114486 2.865979 2.422458 2.789165 3.063554
-[25] 3.071364 3.195852 2.674588 3.601211 3.244077 4.271569 3.116658 2.696168
-[33] 2.776515 3.821376 2.778793 2.851129 2.864934 2.712412 2.907162 2.805795
-[41] 2.856053 2.705338 3.000919 2.032722 3.053357 3.776919 2.655768 2.960626
-[49] 1.991845 3.461325 2.887900 3.041874 3.215754 2.953076 2.229485 2.772394
-[57] 3.505088 2.864400 2.783392 2.352899
+ [1] 2.759983 2.717782 2.512593 2.454632 2.945590 2.803374 3.496802 2.734772
+ [9] 3.023617 2.860714 3.281477 2.851923 3.068824 3.734996 3.378505 3.096408
+[17] 2.633449 2.643478 3.567651 2.854408 2.777484 2.902738 2.608742 3.048947
+[25] 2.787693 3.568748 1.660080 3.153358 2.905809 2.938890 3.597832 2.792837
+[33] 2.095198 2.883654 3.306552 3.268411 3.491499 2.834339 4.094669 2.978060
+[41] 2.636511 2.292607 3.445217 2.723549 3.510750 2.805820 2.806650 3.912339
+[49] 3.517209 2.842602 3.820475 2.943491 3.514937 3.011756 3.370315 2.124887
+[57] 2.609504 2.626293 3.947644 2.406152
 
 [[7]]
- [1] 3.070133 2.212004 3.345243 3.535883 3.469357 3.899548 2.857954 2.775134
- [9] 4.270983 3.122594 2.761190 3.084929 2.976507 2.871214 3.078328 2.975044
-[17] 3.686064 2.625772 3.911422 2.735777 3.415419 3.571143 3.487061 3.136303
-[25] 2.919507 2.893923 3.986629 2.396946 2.764945 3.408179 2.815033 4.188498
-[33] 2.518195 2.860952 2.888393 2.866613 3.071160 3.104476 1.969188 3.533402
-[41] 2.377272 3.197714 3.634063 1.640671 3.121985 3.607955 3.447709 3.432625
-[49] 2.430661 3.565593 3.691297 2.600141 2.958264 2.124768 2.851267 2.562281
-[57] 2.596591 3.132582 3.559314 2.937290
+ [1] 2.503619 3.321371 3.196114 2.521041 2.795934 3.089677 2.883284 2.412295
+ [9] 2.954451 3.260039 3.121776 2.888902 3.066562 3.330178 3.122737 3.201653
+[17] 3.766212 2.377866 3.134883 1.807507 2.876118 3.322443 3.469065 2.258656
+[25] 3.369697 3.788339 3.106770 2.826779 3.479992 3.243653 2.195606 3.407323
+[33] 2.717495 2.588082 3.241171 2.423053 2.632692 3.405072 2.983763 3.348769
+[41] 3.959177 2.332042 3.510909 2.029554 3.492103 2.779038 3.106756 1.668766
+[49] 2.995226 2.172279 3.712460 1.764258 1.827221 2.627713 2.636046 3.503488
+[57] 2.763703 2.634675 2.920670 2.331616
 
 [[8]]
- [1] 3.366725 3.432464 2.254093 3.585474 2.992913 2.337173 2.715674 3.138000
- [9] 3.181822 3.153922 2.801414 3.514712 3.357453 3.022631 3.531230 2.500684
-[17] 3.784174 2.204697 3.858176 3.239180 2.704722 3.532716 3.384459 2.986712
-[25] 2.932201 3.165501 2.640035 2.634366 2.877404 3.273187 2.870175 3.469188
-[33] 3.107422 3.746614 3.195060 3.089832 2.737036 3.247540 3.142254 3.124521
-[41] 2.765055 3.008265 2.082151 3.536142 3.702495 3.674978 3.086488 3.045886
-[49] 3.024081 2.941105 2.676536 3.065365 2.686520 2.723774 3.622042 2.614165
-[57] 1.629027 3.061935 2.891814 3.003355
+ [1] 3.007616 3.185895 3.123852 2.711697 3.990874 3.546854 3.309876 2.682229
+ [9] 3.609715 2.586623 1.984525 2.529217 2.964609 2.930071 2.794104 3.182096
+[17] 3.321844 3.739183 3.648427 3.894031 2.854401 3.154684 2.795359 2.681974
+[25] 1.943180 3.494868 2.795288 2.973098 2.856899 1.468333 3.691191 2.178916
+[33] 3.215456 2.689033 3.546938 2.743230 3.058907 3.360415 3.271022 2.961366
+[41] 3.127955 2.891277 3.287970 3.832766 3.482794 2.394684 2.497038 2.788962
+[49] 3.646429 2.627803 2.520767 2.964422 3.417782 2.403738 2.830667 3.081242
+[57] 3.193275 3.315166 3.347737 2.996504
 
 [[9]]
- [1] 3.502185 3.659768 3.272315 3.373814 2.179314 2.973040 3.227574 2.915911
- [9] 2.882072 3.119697 2.554899 2.977568 3.144672 2.692949 3.642744 2.989185
-[17] 3.404586 3.178574 2.551535 2.046731 2.528963 2.596463 3.040354 2.378258
-[25] 3.325000 3.432358 2.983359 4.041083 2.612991 3.435756 2.907467 4.060926
-[33] 2.067626 3.768506 3.559757 3.295525 3.491387 3.004765 2.714145 3.108427
-[41] 2.397479 3.449086 2.776795 2.608789 3.307196 3.184673 3.674613 2.337069
-[49] 3.466777 3.378520 2.623466 2.334752 2.118941 2.031408 2.390548 2.540498
-[57] 2.705377 2.801444 2.685511 2.624491
+ [1] 3.304540 3.652960 3.258424 3.890154 4.147979 2.820627 2.495024 3.987663
+ [9] 2.778394 3.190001 3.202533 3.468961 3.349873 2.262447 2.138251 3.715904
+[17] 2.750250 3.145551 3.459964 2.525392 3.339949 2.360416 3.054152 2.690851
+[25] 2.761095 4.323387 3.563038 3.186422 3.607526 3.655162 3.043336 3.183650
+[33] 2.836099 2.798422 4.316947 3.937180 3.082113 2.290776 1.856219 3.058601
+[41] 3.044540 3.291709 3.306013 3.119446 3.058468 2.734612 3.702347 3.059364
+[49] 3.543672 2.037150 2.480581 3.846442 2.272261 2.949264 3.079672 2.710041
+[57] 2.430404 2.684815 3.262095 2.724790
 
 [[10]]
- [1] 3.142058 3.130038 2.078804 2.952578 3.058815 2.105752 2.874433 4.012368
- [9] 3.259878 3.042186 3.767656 3.022804 2.771035 2.848786 3.328657 3.495608
-[17] 2.747956 2.935829 3.284684 2.765498 2.883693 2.455646 3.296054 2.888982
-[25] 3.644500 2.837623 2.803589 3.304120 2.957420 2.956066 3.194847 3.033243
-[33] 3.462479 1.966864 2.676729 2.435383 2.565394 2.665996 3.395647 3.527277
-[41] 3.429069 3.055954 2.416214 3.220172 2.119782 3.316747 3.642926 2.750099
-[49] 3.110633 3.149750 2.773719 3.344626 2.451762 2.943471 2.475596 2.566887
-[57] 3.120583 3.220280 2.801840 3.556381</code></pre>
+ [1] 3.757303 3.207300 3.133512 2.700407 2.711993 3.621752 2.186890 2.294711
+ [9] 3.450972 2.875661 3.455074 2.826353 2.673484 2.171630 2.541035 2.701082
+[17] 3.488592 2.421358 3.333854 3.508501 3.237116 2.547915 2.332988 3.003912
+[25] 3.018399 2.202544 2.155630 3.590317 2.494840 3.406011 2.044224 3.653661
+[33] 2.579729 3.675547 3.150110 3.276930 3.504760 3.091101 3.284369 2.577347
+[41] 2.482618 4.386510 4.075329 2.527134 2.719699 3.849078 3.501329 3.036208
+[49] 2.518480 2.506948 2.514735 3.065467 3.022085 2.001137 2.518736 2.710365
+[57] 2.977204 3.117520 2.774776 2.277688</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p><strong>Question 2</strong></p>
+<p><strong>Question 3</strong></p>
 <p>À l’aide de la fonction <code>paste0</code> (qui est comme la fonction <code>paste</code> mais avec l’argument par défaut <code>sep = ""</code>), produire la chaine de caractère <code>"aabbccddeeffgg (...) xxyyzz"</code>. Les lettres en minuscules sont accessibles via <code>letters</code>.</p>
-<div id="qwebr-insertion-location-25"></div>
+<div id="qwebr-insertion-location-27"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -2355,19 +2329,19 @@ Propositions de solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(paste0, <span class="fu">Map</span>(paste0, letters, letters))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(paste0, <span class="fu">Map</span>(paste0, letters, letters))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(paste0, <span class="fu">as.list</span>(<span class="fu">rep</span>(letters, <span class="at">each =</span> <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou plus simplement</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(paste0, <span class="fu">as.list</span>(<span class="fu">rep</span>(letters, <span class="at">each =</span> <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou plus simplement</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">rep</span>(letters, <span class="at">each =</span> <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">rep</span>(letters, <span class="at">each =</span> <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
 </div>
@@ -2375,18 +2349,18 @@ Propositions de solution
 </div>
 </div>
 </div>
-<p><strong>Question 3</strong></p>
+<p><strong>Question 4</strong></p>
 <p>Observer cette matrice des permutations en colonnes de <code>1L:5L</code>&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="dv">1</span>L<span class="sc">:</span><span class="dv">5</span>L</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">tail</span>(vecteur, <span class="dv">5</span>L),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">4</span>L), <span class="fu">head</span>(vecteur, <span class="dv">1</span>L),</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">3</span>L), <span class="fu">head</span>(vecteur, <span class="dv">2</span>L),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">2</span>L), <span class="fu">head</span>(vecteur, <span class="dv">3</span>L),</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">1</span>L), <span class="fu">head</span>(vecteur, <span class="dv">4</span>L)),</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="fu">length</span>(vecteur),</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="fu">length</span>(vecteur))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="dv">1</span>L<span class="sc">:</span><span class="dv">5</span>L</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">tail</span>(vecteur, <span class="dv">5</span>L),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">4</span>L), <span class="fu">head</span>(vecteur, <span class="dv">1</span>L),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">3</span>L), <span class="fu">head</span>(vecteur, <span class="dv">2</span>L),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">2</span>L), <span class="fu">head</span>(vecteur, <span class="dv">3</span>L),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">1</span>L), <span class="fu">head</span>(vecteur, <span class="dv">4</span>L)),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="fu">length</span>(vecteur),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="fu">length</span>(vecteur))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
@@ -2397,7 +2371,7 @@ Propositions de solution
 </div>
 </div>
 <p>Pouvez-vous généraliser cette création de matrice à n’importe quel vecteur d’entiers&nbsp;? Pour ce faire, construisez une fonction <code>super_matrice</code> dont l’unique paramètre est <code>vecteur</code>.</p>
-<div id="qwebr-insertion-location-26"></div>
+<div id="qwebr-insertion-location-28"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -2412,14 +2386,14 @@ Proposition de solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="dv">1</span>L<span class="sc">:</span><span class="dv">5</span>L</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>super_matrice <span class="ot">&lt;-</span> <span class="cf">function</span>(vecteur) {</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">length</span>(vecteur)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vapply</span>(<span class="dv">0</span>L<span class="sc">:</span>(longueur <span class="sc">-</span> <span class="dv">1</span>L),</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>         \(n) <span class="fu">c</span>(<span class="fu">tail</span>(vecteur, longueur <span class="sc">-</span> n), <span class="fu">head</span>(vecteur, n)),</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">rep</span>(<span class="dv">0</span>L,longueur))</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">super_matrice</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="dv">1</span>L<span class="sc">:</span><span class="dv">5</span>L</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>super_matrice <span class="ot">&lt;-</span> <span class="cf">function</span>(vecteur) {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">length</span>(vecteur)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vapply</span>(<span class="dv">0</span>L<span class="sc">:</span>(longueur <span class="sc">-</span> <span class="dv">1</span>L),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>         \(n) <span class="fu">c</span>(<span class="fu">tail</span>(vecteur, longueur <span class="sc">-</span> n), <span class="fu">head</span>(vecteur, n)),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">rep</span>(<span class="dv">0</span>L,longueur))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">super_matrice</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
@@ -2432,11 +2406,11 @@ Proposition de solution
 </div>
 </div>
 </div>
-<p><strong>Question 4</strong></p>
+<p><strong>Question 5</strong></p>
 <p>Proposer une version du <a href="crible d'Eratosthène">https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne</a> faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l’entier i.</p>
 <p>Par exemple, <code>crible(10)</code> donne <code>c(FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE)</code>. En effet <code>1</code> n’est pas premier, <code>2</code> est premier, <code>3</code> est premier…</p>
 <p>On pourra utiliser la fonction <code>Reduce</code>.</p>
-<div id="qwebr-insertion-location-27"></div>
+<div id="qwebr-insertion-location-29"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -2456,7 +2430,7 @@ Aide (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
 <li>valant <code>FALSE</code> sur les multiples de i à l’exception de i lui-même</li>
 <li>valant <code>TRUE</code> ailleurs</li>
 </ul>
-<div id="qwebr-insertion-location-28"></div>
+<div id="qwebr-insertion-location-30"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -2471,9 +2445,9 @@ Proposition de solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span>L</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>est_multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(i) <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">==</span> i <span class="sc">|</span> <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">%%</span> i <span class="sc">!=</span> <span class="dv">0</span>L</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">est_multiple</span>(<span class="dv">2</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span>L</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>est_multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(i) <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">==</span> i <span class="sc">|</span> <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">%%</span> i <span class="sc">!=</span> <span class="dv">0</span>L</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">est_multiple</span>(<span class="dv">2</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 </div>
@@ -2497,12 +2471,12 @@ Proposition de solution
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>crible <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Reduce</span>(<span class="st">`</span><span class="at">&amp;</span><span class="st">`</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">lapply</span>(<span class="dv">2</span>L<span class="sc">:</span><span class="fu">sqrt</span>(n), \(i) <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">==</span> i <span class="sc">|</span> <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">%%</span> i <span class="sc">!=</span> <span class="dv">0</span>L),</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">init =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="fu">rep</span>(<span class="cn">TRUE</span>, n <span class="sc">-</span> <span class="dv">1</span>L)))</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">crible</span>(<span class="dv">10</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>crible <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Reduce</span>(<span class="st">`</span><span class="at">&amp;</span><span class="st">`</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">lapply</span>(<span class="dv">2</span>L<span class="sc">:</span><span class="fu">sqrt</span>(n), \(i) <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">==</span> i <span class="sc">|</span> <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">%%</span> i <span class="sc">!=</span> <span class="dv">0</span>L),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">init =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="fu">rep</span>(<span class="cn">TRUE</span>, n <span class="sc">-</span> <span class="dv">1</span>L)))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">crible</span>(<span class="dv">10</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE</code></pre>
 </div>
