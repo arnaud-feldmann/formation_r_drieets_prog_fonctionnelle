@@ -8,6 +8,8 @@ On a vu dans le point précédent deux fonctions qui s'appliquent sur des foncti
 
 On a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d'appliquer des fonctions de différentes manières. Nous verrons ici `lapply`, `vapply`, `Map`, `replicate`, `apply`, `do.call`, `Reduce`.
 
+![Schéma des différentes fonctions de manipulation](dessin_fonctions_manipulation.svg)
+
 ## lapply : appliquer une fonction à chaque élément d'une liste ou d'un vecteur
 
 ```{webr-r}
