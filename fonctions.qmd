@@ -163,7 +163,7 @@ fact(10)
 
 :::
 
-## Quizz
+## Exercices
 
 **Question 1**
 
@@ -174,6 +174,7 @@ Réécrire la fonction `super_somme` en utilisant une syntaxe récursive. On pou
 ```
 
 ::: {.callout-tip collapse="true"}
+
 ## Proposition de solution
 
 ```{r}
@@ -198,8 +199,6 @@ print(super_somme(2, 3, 7, 1))
 :::
 
 **Question 2**
-
-
 
 Ecrire une fonction `...` `super_produit` qui calcule le produit de tous les arguments, et l'utiliser pour écrire une nouvelle version de la fonction `fact`.
 

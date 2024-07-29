@@ -151,7 +151,7 @@ print(typeof(vecteur))
 print(class(vecteur))
 ```
 
-Lorsque l'on veut faire vite dans la console et que l'on n'a pas le temps de réfléchir, un raccourci pour `vapply` existe sans la `FUN.VALUE`. La fonction `sapply` devine automatiquement les dimensions et le type requis. Utiliser un `vapply` explicite est cependant une meilleure pratique à l'intérieur d'un programme.
+Comme on le voit ci-dessous, lorsque l'on veut écrire vite dans la console, un raccourci pour `vapply` existe sans la `FUN.VALUE`. La fonction `sapply` devine automatiquement les dimensions et le type requis. Utiliser un `vapply` explicite est cependant *en général* une meilleure pratique à l'intérieur d'un programme.
 
 ```{webr-r}
 matrice <-
@@ -192,7 +192,7 @@ Que se passe-t-il ? Pourquoi ? Peut-on résoudre ce problème avec un vapply ?
 
 La liste en entrée du `sapply` est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en **sortie** seront donc de tailles variables également ; et c'est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate. Il laisse donc le résultat sous la forme d'une liste.
 
-On ne peut pas résoudre ce problème structurel avec un `vapply`, mais vapply a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée.
+On ne peut pas résoudre ce problème structurel avec un `vapply`, mais vapply a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée. `vapply` est *en général* une meilleur pratique.
 
 :::
 
@@ -312,9 +312,17 @@ La fonction `Reduce` permet d'appliquer consécutivement une opération binaire.
 Reduce(`+`, c(1, 2, 8, -7))
 ```
 
-Cet exemple (que l'on a déjà vu dans le chapitre précédent) correspond à `((1 + 2) + 8) + (-7)`. Chaque étape utilise l'opération binaire `+`. Mais `Reduce` peut être employé dans des calculs plus complexes.
+Cet exemple (que l'on a déjà vu dans le chapitre précédent) correspond à `((1 + 2) + 8) + (-7)`. Chaque étape utilise l'opération binaire `+`.
 
-```{web-r}
+```{webr-r}
+Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)
+```
+
+Comme on le voit ci-dessus, on peut éventuellement, à l'aide de `accumulate = TRUE`, conserver les résultats intermédiaires de la réduction. À savoir ici `1`, puis `1 + 2`, puis `1 + 2 + 8` et enfin `1 + 2 + 8 - 7`.
+
+Mais `Reduce` peut être employé dans des calculs plus complexes.
+
+```{webr-r}
 liste_fonctions <- list(
   \(x) x + 1,
   \(x) x / 3,
@@ -337,7 +345,7 @@ print(atan(pi) / 3 + 1)
 
 Dans l'exemple précédent, on a appliqué sur une liste de fonctions l'opérateur `Reduce` au sens de la composition. C'est un joli exemple pour montrer la richesse d'un langage fonctionnel et illustrer l'idée que `Reduce` n'est pas restreint à des opérations numériques. En général, cependant, on préfèrera éviter d'empiler des fonctions non-évaluées. On préfèrera donc une notation intermédiaire comme employé ci-dessous.
 
-```{web-r}
+```{webr-r}
 liste_fonctions <- list(
   \(x) x + 1,
   \(x) x / 3,
@@ -353,3 +361,163 @@ Reduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)
 ```
 
 Ici, plutôt que d'empiler des fonctions en mémoire, on les applique successivement. `applique_fonction` reste une opération binaire, mais est une loi de composition externe, dans la mesure où `f` est une fonction tandis que `accumulateur` est un résultat numérique. On remarque aussi qu'on a utilisé l'argument `init` de `Reduce` qui permet d'initialiser l'accumulateur. En effet si on veut obtenir `atan(pi) / 3 + 1` il faut bien renseigner qu'on commence à `pi` quelque part. L'argument `right = TRUE` permet de parcourir la liste de droite à gauche plutôt que de gauche à droite.
+
+## Exercices
+
+**Question 1**
+
+À l'aide de la fonction `pmax` (sans utiliser la fonction `max`), calculer le maximum de cette liste.
+
+```{webr-r}
+liste <- list(1, -7, 8, 0)
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+liste <- list(1, -7, 8, 0)
+do.call(pmax, liste)
+```
+
+:::
+
+**Question 2**
+
+Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d'espérance 3 et d'écart-type 0.5. Vous pouvez consulter l'aide de la fonction `rnorm` via `?rnorm`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+replicate(10, rnorm(n=60,mean = 3,sd = 0.5), simplify = FALSE)
+```
+
+:::
+
+**Question 3**
+
+À l'aide de la fonction `paste0` (qui est comme la fonction `paste` mais avec l'argument par défaut `sep = ""`), produire la chaine de caractère `"aabbccddeeffgg (...) xxyyzz"`. Les lettres en minuscules sont accessibles via `letters`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Propositions de solution
+
+```{r}
+do.call(paste0, Map(paste0, letters, letters))
+
+# ou
+
+do.call(paste0, as.list(rep(letters, each = 2)))
+
+# ou plus simplement
+
+paste0(rep(letters, each = 2), collapse = "")
+```
+
+:::
+
+**Question 4**
+
+Observer cette matrice des permutations en colonnes de `1L:5L` :
+
+```{r}
+vecteur <- 1L:5L
+matrix(
+  c(tail(vecteur, 5L),
+    tail(vecteur, 4L), head(vecteur, 1L),
+    tail(vecteur, 3L), head(vecteur, 2L),
+    tail(vecteur, 2L), head(vecteur, 3L),
+    tail(vecteur, 1L), head(vecteur, 4L)),
+  nrow = length(vecteur),
+  ncol = length(vecteur))
+```
+
+Pouvez-vous généraliser cette création de matrice à n'importe quel vecteur d'entiers ? Pour ce faire, construisez une fonction `super_matrice` dont l'unique paramètre est `vecteur`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+vecteur <- 1L:5L
+super_matrice <- function(vecteur) {
+  longueur <- length(vecteur)
+  vapply(0L:(longueur - 1L),
+         \(n) c(tail(vecteur, longueur - n), head(vecteur, n)),
+         rep(0L,longueur))
+}
+super_matrice(vecteur)
+```
+
+:::
+
+**Question 5**
+
+Proposer une version du [https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne](crible d'Eratosthène) faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l'entier i.
+
+Par exemple, `crible(10)` donne `c(FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE)`. En effet `1` n'est pas premier, `2` est premier, `3` est premier...
+
+On pourra utiliser la fonction `Reduce`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Aide (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
+
+Essayer, dans un premier temps, d'obtenir une fonction avec `i` pour argument et un `n` fixé à l'avance dans l'environnement global, un vecteur :
+
+* de taille n
+* valant `FALSE` sur les multiples de i à l'exception de i lui-même
+* valant `TRUE` ailleurs
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+n <- 10L
+est_multiple <- function(i) 1L:n == i | 1L:n %% i != 0L
+est_multiple(2L)
+```
+
+:::
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+crible <- function(n) {
+  Reduce(`&`,
+       lapply(2L:sqrt(n), \(i) 1L:n == i | 1L:n %% i != 0L),
+       init = c(FALSE, rep(TRUE, n - 1L)))
+}
+crible(10L)
+```
+
+:::

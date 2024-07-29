@@ -51,7 +51,9 @@ La syntaxe fonctionnelle étant proche d'une écriture mathématique, elle convi
 -   la forte parallélisabilité des calculs : les résultats ne dépendant **que** de leurs entrées, il est potentiellement possible de calculer plusieurs choses en même temps si l'on dispose de plusieurs CPU. C'est notamment cet aspect qui permet par exemple au package arrow d'être extrêmement rapide ; les calculs sont faits de manière possiblement concourrante plutôt que consécutive.
 
 ::: callout-note
+
 Outre R, Haskell, Scala et Lisp sont des langages fonctionnels.
+
 :::
 
 ## R : un langage fonctionnel, vectoriel, avec quelques éléments de POO
