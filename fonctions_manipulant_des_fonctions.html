@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"warning":"true","label":"unnamed-chunk-1","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":1},{"options":{"warning":"true","label":"unnamed-chunk-2","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"tripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":2},{"options":{"warning":"true","label":"unnamed-chunk-3","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"tripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":3},{"options":{"warning":"true","label":"unnamed-chunk-4","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"begaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))","id":4},{"options":{"warning":"true","label":"unnamed-chunk-5","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":5},{"options":{"warning":"true","label":"unnamed-chunk-6","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":6},{"options":{"warning":"true","label":"unnamed-chunk-7","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":7},{"options":{"warning":"true","label":"unnamed-chunk-8","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":8},{"options":{"warning":"true","label":"unnamed-chunk-9","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"vecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":9},{"options":{"warning":"true","label":"unnamed-chunk-10","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":10},{"options":{"warning":"true","label":"unnamed-chunk-11","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"# Vous pouvez essayer ici.","id":11},{"options":{"warning":"true","label":"unnamed-chunk-12","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":12},{"options":{"warning":"true","label":"unnamed-chunk-13","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))","id":13},{"options":{"warning":"true","label":"unnamed-chunk-14","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"Map(\\(x) paste(x, sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":14},{"options":{"warning":"true","label":"unnamed-chunk-15","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))","id":15},{"options":{"warning":"true","label":"unnamed-chunk-16","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))","id":16},{"options":{"warning":"true","label":"unnamed-chunk-17","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"lapply(rep(2L, 4L),\n       function(n) runif(n))","id":17},{"options":{"warning":"true","label":"unnamed-chunk-18","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"replicate(4L, runif(2L), simplify = FALSE)","id":18},{"options":{"warning":"true","label":"unnamed-chunk-19","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)","id":19},{"options":{"warning":"true","label":"unnamed-chunk-20","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","id":20},{"options":{"warning":"true","label":"unnamed-chunk-21","read-only":"false","results":"markup","output":"true","fig-width":7,"dpi":72,"editor-word-wrap":"true","comment":"","context":"interactive","fig-cap":"","out-height":"","fig-height":5,"classes":"","editor-quick-suggestions":"false","message":"true","autorun":"false","out-width":"700px","editor-font-scale":"1","editor-max-height":""},"code":"Reduce(`+`, c(1, 2, 8, -7))","id":21}];
+globalThis.qwebrCellDetails = [{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-1","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":1},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-2","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"tripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":2},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-3","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"tripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":3},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-4","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"begaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))","id":4},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-5","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":5},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-6","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":6},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-7","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":7},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-8","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":8},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-9","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"vecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":9},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-10","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":10},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-11","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"# Vous pouvez essayer ici.","id":11},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-12","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":12},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-13","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))","id":13},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-14","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Map(\\(x) paste(x, sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":14},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-15","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))","id":15},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-16","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))","id":16},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-17","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"lapply(rep(2L, 4L),\n       function(n) runif(n))","id":17},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-18","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"replicate(4L, runif(2L), simplify = FALSE)","id":18},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-19","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)","id":19},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-20","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","id":20},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-21","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Reduce(`+`, c(1, 2, 8, -7))","id":21},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-22","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)","id":22},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-23","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"liste <- list(1, -7, 8, 0)\n# Vous pouvez faire l'exercice ici.","id":23},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-24","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"# Vous pouvez faire l'exercice ici.","id":24},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-25","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"# Vous pouvez faire l'exercice ici.","id":25},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-26","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"# Vous pouvez faire l'exercice ici.","id":26},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-27","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"# Vous pouvez faire l'exercice ici.","id":27},{"options":{"context":"interactive","editor-font-scale":"1","autorun":"false","warning":"true","results":"markup","message":"true","dpi":72,"editor-max-height":"","fig-width":7,"output":"true","fig-height":5,"editor-quick-suggestions":"false","classes":"","fig-cap":"","label":"unnamed-chunk-28","read-only":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","comment":""},"code":"# Vous pouvez faire l'exercice ici.","id":28}];
 
 </script>
 <script type="module">
@@ -1655,6 +1655,7 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#apply-appliquer-une-fonction-sur-les-colonnes-ou-les-lignes-dune-matrice" id="toc-apply-appliquer-une-fonction-sur-les-colonnes-ou-les-lignes-dune-matrice" class="nav-link" data-scroll-target="#apply-appliquer-une-fonction-sur-les-colonnes-ou-les-lignes-dune-matrice">apply&nbsp;: appliquer une fonction sur les colonnes ou les lignes d’une matrice</a></li>
   <li><a href="#do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments" id="toc-do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments" class="nav-link" data-scroll-target="#do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments">do.call&nbsp;: appliquer une fonction multi-paramètres sur une liste d’arguments</a></li>
   <li><a href="#reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire" id="toc-reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire" class="nav-link" data-scroll-target="#reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire">Reduce&nbsp;: réduire une liste ou un vecteur d’arguments par application successive d’un opérateur binaire</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices">Exercices</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2036,7 +2037,7 @@ Note
 <p>Là encore, on remarque que les valeurs de l’argument <code>FUN.VALUE</code> sont purement arbitraires. Seules sa longueur et son type importent.</p>
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Lorsque l’on veut faire vite dans la console et que l’on n’a pas le temps de réfléchir, un raccourci pour <code>vapply</code> existe sans la <code>FUN.VALUE</code>. La fonction <code>sapply</code> devine automatiquement les dimensions et le type requis. Utiliser un <code>vapply</code> explicite est cependant une meilleure pratique à l’intérieur d’un programme.</p>
+<p>Comme on le voit ci-dessous, lorsque l’on veut écrire vite dans la console, un raccourci pour <code>vapply</code> existe sans la <code>FUN.VALUE</code>. La fonction <code>sapply</code> devine automatiquement les dimensions et le type requis. Utiliser un <code>vapply</code> explicite est cependant <em>en général</em> une meilleure pratique à l’intérieur d’un programme.</p>
 <div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -2074,7 +2075,7 @@ Réponse
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>La liste en entrée du <code>sapply</code> est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en <strong>sortie</strong> seront donc de tailles variables également&nbsp;; et c’est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate. Il laisse donc le résultat sous la forme d’une liste.</p>
-<p>On ne peut pas résoudre ce problème structurel avec un <code>vapply</code>, mais vapply a le mérite d’être plus strict&nbsp;: il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée.</p>
+<p>On ne peut pas résoudre ce problème structurel avec un <code>vapply</code>, mais vapply a le mérite d’être plus strict&nbsp;: il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée. <code>vapply</code> est <em>en général</em> une meilleur pratique.</p>
 </div>
 </div>
 </div>
@@ -2148,7 +2149,11 @@ Note
 <p>La fonction <code>Reduce</code> permet d’appliquer consécutivement une opération binaire.</p>
 <div id="qwebr-insertion-location-21"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Cet exemple (que l’on a déjà vu dans le chapitre précédent) correspond à <code>((1 + 2) + 8) + (-7)</code>. Chaque étape utilise l’opération binaire <code>+</code>. Mais <code>Reduce</code> peut être employé dans des calculs plus complexes.</p>
+<p>Cet exemple (que l’on a déjà vu dans le chapitre précédent) correspond à <code>((1 + 2) + 8) + (-7)</code>. Chaque étape utilise l’opération binaire <code>+</code>.</p>
+<div id="qwebr-insertion-location-22"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Comme on le voit ci-dessus, on peut éventuellement, à l’aide de <code>accumulate = TRUE</code>, conserver les résultats intermédiaires de la réduction. À savoir ici <code>1</code>, puis <code>1 + 2</code>, puis <code>1 + 2 + 8</code> et enfin <code>1 + 2 + 8 - 7</code>.</p>
+<p>Mais <code>Reduce</code> peut être employé dans des calculs plus complexes.</p>
 <pre class="{web-r}"><code>liste_fonctions &lt;- list(
   \(x) x + 1,
   \(x) x / 3,
@@ -2181,6 +2186,330 @@ appliquer_fonction &lt;- function(f, accumulateur) {
 
 Reduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)</code></pre>
 <p>Ici, plutôt que d’empiler des fonctions en mémoire, on les applique successivement. <code>applique_fonction</code> reste une opération binaire, mais est une loi de composition externe, dans la mesure où <code>f</code> est une fonction tandis que <code>accumulateur</code> est un résultat numérique. On remarque aussi qu’on a utilisé l’argument <code>init</code> de <code>Reduce</code> qui permet d’initialiser l’accumulateur. En effet si on veut obtenir <code>atan(pi) / 3 + 1</code> il faut bien renseigner qu’on commence à <code>pi</code> quelque part. L’argument <code>right = TRUE</code> permet de parcourir la liste de droite à gauche plutôt que de gauche à droite.</p>
+</section>
+<section id="exercices" class="level2">
+<h2 class="anchored" data-anchor-id="exercices">Exercices</h2>
+<p><strong>Question 1</strong></p>
+<p>À l’aide de la fonction <code>pmax</code> (sans utiliser la fonction <code>max</code>), calculer le maximum de cette liste.</p>
+<div id="qwebr-insertion-location-23"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">0</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(pmax, liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Question 2</strong></p>
+<p>Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d’espérance 3 et d’écart-type 0.5. Vous pouvez consulter l’aide de la fonction <code>rnorm</code> via <code>?rnorm</code>.</p>
+<div id="qwebr-insertion-location-24"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">60</span>,<span class="at">mean =</span> <span class="dv">3</span>,<span class="at">sd =</span> <span class="fl">0.5</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+ [1] 3.287412 2.784901 3.147159 2.507736 3.043123 3.152172 3.095501 2.901022
+ [9] 2.539971 3.603728 2.644355 2.469132 2.637171 3.777328 3.002346 2.218596
+[17] 2.218211 2.012854 2.676518 2.993758 3.531657 3.068870 3.100064 2.686035
+[25] 3.380081 3.410651 3.757007 3.249189 2.621483 3.701279 2.686455 2.749304
+[33] 2.646583 3.104963 3.322545 2.862405 3.022092 2.411505 3.143045 3.266836
+[41] 3.374963 3.304805 2.827929 3.218008 2.974410 2.314523 3.207378 3.530047
+[49] 2.555405 3.242660 2.284272 2.699538 3.506473 2.618138 3.036250 3.206165
+[57] 3.684914 3.840617 2.711098 1.587545
+
+[[2]]
+ [1] 1.595827 2.636119 3.758105 2.960970 2.814302 3.479631 3.506366 3.324787
+ [9] 3.023563 3.129576 2.256230 2.881009 2.973923 2.822970 2.877981 2.394861
+[17] 1.840834 2.400071 3.248875 3.089852 3.766387 3.383568 3.419522 3.697686
+[25] 2.149941 1.884442 2.651887 2.340447 2.559160 2.715149 2.070380 3.116282
+[33] 3.004398 2.902705 3.367102 2.760855 3.571943 3.903681 2.904522 2.577720
+[41] 4.115595 1.783298 3.558059 2.197632 3.312387 4.211415 2.231081 2.431589
+[49] 3.092381 2.487132 3.469784 2.958641 3.457867 3.302068 2.921066 2.920871
+[57] 2.842480 2.086503 2.506537 2.862873
+
+[[3]]
+ [1] 2.302684 3.112398 2.240648 3.178899 2.817032 3.731413 3.560169 2.751677
+ [9] 2.903803 2.800796 3.255787 3.420411 2.315829 2.673435 2.990549 3.343336
+[17] 3.615942 2.450015 3.634848 3.880409 2.998718 3.031120 3.212463 2.131490
+[25] 3.060545 2.494083 2.787393 3.156009 3.580932 3.113086 4.066359 3.534777
+[33] 2.620079 2.836931 2.414241 3.129700 3.182312 2.336385 3.060961 3.853442
+[41] 2.823366 2.895939 2.781196 3.413609 2.997282 2.878644 1.826710 3.157610
+[49] 2.786904 1.517896 2.979618 2.869600 2.643223 3.296674 3.577464 2.958904
+[57] 3.018173 3.353673 2.480660 3.020386
+
+[[4]]
+ [1] 3.194078 3.208728 3.022362 2.905260 3.016644 3.318391 2.913797 2.432021
+ [9] 2.444428 3.196915 3.459621 3.125975 2.027179 2.975796 2.853031 3.477209
+[17] 4.136930 2.962979 2.314662 3.407483 3.193165 2.607314 2.998084 2.402614
+[25] 3.172925 2.342183 2.692162 2.995284 3.642507 3.027712 1.886654 3.329338
+[33] 3.238954 1.811929 3.635967 2.991135 3.214324 2.839677 2.679905 3.452953
+[41] 2.714231 3.395721 2.588336 1.672579 3.046319 2.681823 2.295262 2.963093
+[49] 3.979061 2.804493 3.084735 3.023219 2.328445 3.341215 4.168811 2.208873
+[57] 2.463806 2.271309 3.412782 2.600770
+
+[[5]]
+ [1] 3.489364 2.993581 2.504020 3.088491 3.232076 2.776286 3.451896 3.404692
+ [9] 3.012652 4.158166 2.766782 3.221406 3.133530 4.586419 3.665132 2.967902
+[17] 3.911392 3.748569 3.668861 3.645456 3.325420 3.889839 4.130129 2.392391
+[25] 2.935098 2.808698 3.628410 1.979852 2.419351 3.589711 3.123893 2.625015
+[33] 3.499399 3.031628 3.189377 2.882601 2.536218 3.590186 2.195058 3.039911
+[41] 3.192801 2.361211 1.974283 2.888664 3.197587 3.126319 3.280445 3.892889
+[49] 3.596419 2.300502 3.063145 2.517090 3.826038 3.303027 3.231052 2.298051
+[57] 3.083120 3.659634 2.589696 3.746332
+
+[[6]]
+ [1] 3.935174 2.218732 3.953844 3.086395 3.821530 2.979436 2.737663 3.581618
+ [9] 2.656255 3.062349 2.529152 3.776802 2.943746 3.108744 2.619277 2.916775
+[17] 2.656087 3.187678 2.626291 3.241930 2.552523 2.692938 3.494367 2.579199
+[25] 3.058050 2.921783 2.705072 3.184296 3.093492 2.340164 2.530049 2.428243
+[33] 3.655218 2.835838 1.800796 2.471297 3.676128 3.074082 2.261702 2.724050
+[41] 3.179507 2.907836 3.714838 3.164126 3.157237 2.416758 3.181721 3.124617
+[49] 3.156990 2.854509 2.676224 3.189263 3.164821 3.116232 2.412359 2.934690
+[57] 2.726831 2.840580 3.166859 3.088549
+
+[[7]]
+ [1] 3.000571 3.067275 2.425325 3.540361 3.071970 2.418466 2.863143 2.623736
+ [9] 3.530488 3.059241 3.322807 3.416659 3.759093 2.703522 3.980279 2.716798
+[17] 3.102148 3.196130 3.258069 2.726134 3.185529 2.960055 3.116002 2.064196
+[25] 3.039729 3.350555 3.215003 3.610003 4.032847 3.092772 2.668793 2.964123
+[33] 3.267887 2.658637 2.441652 3.868014 2.245538 2.414871 3.439803 2.808308
+[41] 2.950710 2.647824 3.108112 2.724801 3.112186 3.172462 2.549458 2.705322
+[49] 3.178858 4.004750 3.443592 2.759590 2.810091 3.310751 2.931965 2.952656
+[57] 3.088482 3.293661 3.265207 3.530514
+
+[[8]]
+ [1] 2.477613 3.949931 2.815583 3.624334 2.671530 3.535282 3.821913 3.603370
+ [9] 3.224790 3.089366 2.341755 3.681339 3.157052 4.106485 3.639505 2.820612
+[17] 2.809069 3.060287 3.183019 2.781805 2.983219 3.135842 2.940350 3.090205
+[25] 3.604837 3.200944 3.367023 2.115053 3.896782 3.179562 2.448695 2.846066
+[33] 3.623250 2.085081 1.743137 3.496148 3.415738 3.678513 3.233855 3.442683
+[41] 2.033381 2.641106 3.610134 3.434348 3.584769 3.458083 2.194790 2.276797
+[49] 2.602454 3.095600 3.445986 2.956687 2.161585 2.816218 3.221884 3.764347
+[57] 3.142373 3.193880 2.841208 2.364479
+
+[[9]]
+ [1] 2.374393 2.814644 2.749940 3.734621 2.669690 3.203710 3.294980 2.730303
+ [9] 2.802623 2.697462 2.573465 2.778434 3.508441 2.639577 2.583882 2.304288
+[17] 2.496597 3.330552 2.764674 3.127603 2.866142 3.102287 3.668753 3.506755
+[25] 3.826016 2.498004 3.350896 2.892247 3.216846 2.980597 3.017583 2.336980
+[33] 3.052219 2.706357 3.762852 3.076114 3.541392 3.625857 3.196216 3.500929
+[41] 3.189230 3.366813 2.955340 3.093549 3.073286 3.021780 2.649668 3.547334
+[49] 2.169182 2.997123 2.851663 3.988187 3.517385 3.932863 3.219934 3.386217
+[57] 2.566037 3.765052 2.103978 2.951861
+
+[[10]]
+ [1] 1.923163 2.765583 2.598933 3.368577 3.889150 3.030894 2.955502 4.058451
+ [9] 3.103342 2.852425 2.596005 3.066900 3.861867 3.359367 3.119708 2.642452
+[17] 2.841670 2.228951 2.741710 3.110170 2.973339 2.948547 3.547201 3.109784
+[25] 3.875942 2.615638 2.380938 2.818899 2.660290 3.051677 2.556475 3.140418
+[33] 1.701642 4.179494 2.999437 2.779053 2.626308 2.982406 2.624697 2.617695
+[41] 3.135824 2.673787 2.927042 3.033493 2.679760 2.288153 2.935156 3.178084
+[49] 2.156402 3.548526 3.369931 3.759554 2.916811 3.620523 3.593213 3.465657
+[57] 2.279740 2.625520 3.341068 4.038871</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Question 2</strong></p>
+<p>À l’aide de la fonction <code>paste0</code> (qui est comme la fonction <code>paste</code> mais avec l’argument par défaut <code>sep = ""</code>), produire la chaine de caractère <code>"aabbccddeeffgg (...) xxyyzz"</code>. Les lettres en minuscules sont accessibles via <code>letters</code>.</p>
+<div id="qwebr-insertion-location-25"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propositions de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(paste0, <span class="fu">Map</span>(paste0, letters, letters))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(paste0, <span class="fu">as.list</span>(<span class="fu">rep</span>(letters, <span class="at">each =</span> <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou plus simplement</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">rep</span>(letters, <span class="at">each =</span> <span class="dv">2</span>), <span class="at">collapse =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Question 3</strong></p>
+<p>Observer cette matrice des permutations en colonnes de <code>1L:5L</code>&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="dv">1</span>L<span class="sc">:</span><span class="dv">5</span>L</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">tail</span>(vecteur, <span class="dv">5</span>L),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">4</span>L), <span class="fu">head</span>(vecteur, <span class="dv">1</span>L),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">3</span>L), <span class="fu">head</span>(vecteur, <span class="dv">2</span>L),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">2</span>L), <span class="fu">head</span>(vecteur, <span class="dv">3</span>L),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tail</span>(vecteur, <span class="dv">1</span>L), <span class="fu">head</span>(vecteur, <span class="dv">4</span>L)),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="fu">length</span>(vecteur),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="fu">length</span>(vecteur))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    2    3    4    5    1
+[3,]    3    4    5    1    2
+[4,]    4    5    1    2    3
+[5,]    5    1    2    3    4</code></pre>
+</div>
+</div>
+<p>Pouvez-vous généraliser cette création de matrice à n’importe quel vecteur d’entiers&nbsp;? Pour ce faire, construisez une fonction <code>super_matrice</code> dont l’unique paramètre est <code>vecteur</code>.</p>
+<div id="qwebr-insertion-location-26"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="dv">1</span>L<span class="sc">:</span><span class="dv">5</span>L</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>super_matrice <span class="ot">&lt;-</span> <span class="cf">function</span>(vecteur) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">length</span>(vecteur)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vapply</span>(<span class="dv">0</span>L<span class="sc">:</span>(longueur <span class="sc">-</span> <span class="dv">1</span>L),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>         \(n) <span class="fu">c</span>(<span class="fu">tail</span>(vecteur, longueur <span class="sc">-</span> n), <span class="fu">head</span>(vecteur, n)),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">rep</span>(<span class="dv">0</span>L,longueur))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">super_matrice</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    2    3    4    5    1
+[3,]    3    4    5    1    2
+[4,]    4    5    1    2    3
+[5,]    5    1    2    3    4</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Question 4</strong></p>
+<p>Proposer une version du <a href="crible d'Eratosthène">https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne</a> faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l’entier i.</p>
+<p>Par exemple, <code>crible(10)</code> donne <code>c(FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE)</code>. En effet <code>1</code> n’est pas premier, <code>2</code> est premier, <code>3</code> est premier…</p>
+<p>On pourra utiliser la fonction <code>Reduce</code>.</p>
+<div id="qwebr-insertion-location-27"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aide (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Essayer, dans un premier temps, d’obtenir une fonction avec <code>i</code> pour argument et un <code>n</code> fixé à l’avance dans l’environnement global, un vecteur&nbsp;:</p>
+<ul>
+<li>de taille n</li>
+<li>valant <code>FALSE</code> sur les multiples de i à l’exception de i lui-même</li>
+<li>valant <code>TRUE</code> ailleurs</li>
+</ul>
+<div id="qwebr-insertion-location-28"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span>L</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>est_multiple <span class="ot">&lt;-</span> <span class="cf">function</span>(i) <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">==</span> i <span class="sc">|</span> <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">%%</span> i <span class="sc">!=</span> <span class="dv">0</span>L</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">est_multiple</span>(<span class="dv">2</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>crible <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Reduce</span>(<span class="st">`</span><span class="at">&amp;</span><span class="st">`</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">lapply</span>(<span class="dv">2</span>L<span class="sc">:</span><span class="fu">sqrt</span>(n), \(i) <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">==</span> i <span class="sc">|</span> <span class="dv">1</span>L<span class="sc">:</span>n <span class="sc">%%</span> i <span class="sc">!=</span> <span class="dv">0</span>L),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">init =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="fu">rep</span>(<span class="cn">TRUE</span>, n <span class="sc">-</span> <span class="dv">1</span>L)))</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">crible</span>(<span class="dv">10</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
