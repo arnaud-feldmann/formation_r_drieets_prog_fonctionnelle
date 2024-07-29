@@ -134,7 +134,7 @@
     "href": "fonctions_manipulant_des_fonctions.html",
     "title": "Fonctions manipulant des fonctions",
     "section": "",
-    "text": "On a vu dans le point précédent deux fonctions qui s’appliquent sur des fonctions. do.call nous a permis d’appliquer une fonction ... sur une liste, tandis que Reduce nous a permis d’écrire 2 + 3 + 7 + 1 de manière un peu plus jolie qu’à la main.\nOn a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d’appliquer des fonctions de différentes manières. Nous verrons ici lapply, vapply, Map, replicate, apply, do.call, Reduce.",
+    "text": "On a vu dans le point précédent deux fonctions qui s’appliquent sur des fonctions. do.call nous a permis d’appliquer une fonction ... sur une liste, tandis que Reduce nous a permis d’écrire 2 + 3 + 7 + 1 de manière un peu plus jolie qu’à la main.\nOn a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d’appliquer des fonctions de différentes manières. Nous verrons ici lapply, vapply, Map, replicate, apply, do.call, Reduce.\n\n\n\nSchéma des différentes fonctions de manipulation",
     "crumbs": [
       "Fonctions manipulant des fonctions"
     ]
@@ -144,7 +144,7 @@
     "href": "fonctions_manipulant_des_fonctions.html#manipuler-des-fonctions-avec-des-fonctions",
     "title": "Fonctions manipulant des fonctions",
     "section": "",
-    "text": "On a vu dans le point précédent deux fonctions qui s’appliquent sur des fonctions. do.call nous a permis d’appliquer une fonction ... sur une liste, tandis que Reduce nous a permis d’écrire 2 + 3 + 7 + 1 de manière un peu plus jolie qu’à la main.\nOn a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d’appliquer des fonctions de différentes manières. Nous verrons ici lapply, vapply, Map, replicate, apply, do.call, Reduce.",
+    "text": "On a vu dans le point précédent deux fonctions qui s’appliquent sur des fonctions. do.call nous a permis d’appliquer une fonction ... sur une liste, tandis que Reduce nous a permis d’écrire 2 + 3 + 7 + 1 de manière un peu plus jolie qu’à la main.\nOn a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d’appliquer des fonctions de différentes manières. Nous verrons ici lapply, vapply, Map, replicate, apply, do.call, Reduce.\n\n\n\nSchéma des différentes fonctions de manipulation",
     "crumbs": [
       "Fonctions manipulant des fonctions"
     ]
