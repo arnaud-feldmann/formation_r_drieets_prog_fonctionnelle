@@ -448,3 +448,110 @@ Faux
 Vrai, l'assignation remontante `<<-` remonte les environnements parents jusqu'à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par `fonction`. Mais il ne contient aucun objet de nom `x`. On remonte donc encore les environnements jusqu'à l'environnement global, et donc le `x` global est modifié.
 
 :::
+
+## Exercice
+
+Supposons que l'on ait une fonction qui mette longtemps à répondre, par exemple :
+
+```{r}
+#| eval: false
+calcul_de_dingue <- function(arg) {
+  Sys.sleep(3L) # Une attente de 3 secondes pour simuler un long calcul.
+  return(2 * arg)
+}
+```
+
+Où `arg` est un vecteur numérique.
+
+Comment utiliser une closure pour faire une fonction `calcul_moins_dingue` qui renvoie les **mêmes valeurs** que `calcul_de_dingue` pour les **mêmes entrées** mais stocke les résultats dans une liste pour éviter de relancer les calculs plus d'une fois (on appelle cela un cache) ?
+
+```{webr-r}
+calcul_de_dingue <- function(arg) {
+  Sys.sleep(3L) # Une attente de 3 secondes pour simuler un long calcul.
+  return(2 * arg)
+}
+# Vous pouvez faire l'exercice ici. La fonction calcul_de_dingue n'est pas à modifier.
+# Elle doit être appelée dans le code suivant
+```
+
+::: {.callout-tip collapse="true"}
+
+## Aide (à consulter après s'être un peu creusé la tête)
+
+```{r}
+#| eval: false
+calcul_de_dingue <- function(arg) {
+  Sys.sleep(3L) # Une attente de 3 secondes pour simuler un long calcul.
+  return(2 * arg)
+}
+
+calcul_de_dingue_cache <- function(taille_cache = 10L) {
+  cache <- vector("list",taille_cache)
+  cache_suivant <- 1L
+  function(arg) {
+    index_en_cache <- which(vapply(cache, \(x) identical(x$arg,arg), TRUE))[1L]
+    # Cette ligne précédente peut être remplacée par
+    # index_en_cache <- Position(\(x) identical(x$arg,arg), cache)
+    # Qui fait la même chose (mais on n'a pas vu Position)
+    if (is.na(index_en_cache)) {
+      # Remplir ici
+      # C'est le cas où l'on ne retrouve pas la bonne entrée dans la cache.
+    }
+    else {
+      # Remplir ici 
+      # C'est le cas où index_en_cache contient le numéro de cache et donc on
+      # n'a pas à refaire le calcul.
+    }
+  }
+}
+
+calcul_moins_dingue <- calcul_de_dingue_cache()
+calcul_moins_dingue(c(1, 3))
+calcul_moins_dingue(c(1, 3)) # Pas besoin de calcul, déjà en cache
+calcul_moins_dingue(c(4, 7))
+calcul_moins_dingue(c(4, 7)) # Pas besoin de calcul, déjà en cache
+calcul_moins_dingue(c(1, 3)) # Pas besoin de calcul, déjà en cache
+calcul_moins_dingue(c(4, 7)) # Pas besoin de calcul, déjà en cache
+```
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+calcul_de_dingue <- function(arg) {
+  Sys.sleep(3L) # Une attente de 3 secondes pour simuler un long calcul.
+  return(2 * arg)
+}
+
+calcul_de_dingue_cache <- function(taille_cache = 10L) {
+  cache <- vector("list",taille_cache)
+  cache_suivant <- 1L
+  function(arg) {
+    index_en_cache <- which(vapply(cache, \(x) identical(x$arg,arg), TRUE))[1L]
+    # Cette ligne précédente peut être remplacée par
+    # index_en_cache <- Position(\(x) identical(x$arg,arg), cache)
+    # Qui fait la même chose (mais on n'a pas vu Position)
+    if (is.na(index_en_cache)) {
+      valeur <- calcul_de_dingue(arg)
+      cache[[cache_suivant]] <<- list(arg = arg,
+                                      valeur = valeur)
+      cache_suivant <<- cache_suivant %% taille_cache + 1L
+      valeur
+    }
+    else cache[[index_en_cache]]$valeur
+  }
+}
+
+calcul_moins_dingue <- calcul_de_dingue_cache()
+calcul_moins_dingue(c(1, 3))
+calcul_moins_dingue(c(1, 3)) # Pas besoin de calcul, déjà en cache
+calcul_moins_dingue(c(4, 7))
+calcul_moins_dingue(c(4, 7)) # Pas besoin de calcul, déjà en cache
+calcul_moins_dingue(c(1, 3)) # Pas besoin de calcul, déjà en cache
+calcul_moins_dingue(c(4, 7)) # Pas besoin de calcul, déjà en cache
+```
+
+:::
