@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"output":"true","out-width":"700px","results":"markup","warning":"true","dpi":72,"editor-font-scale":"1","autorun":"false","editor-max-height":"","editor-word-wrap":"true","comment":"","label":"unnamed-chunk-1","editor-quick-suggestions":"false","out-height":"","read-only":"false","fig-cap":"","classes":"","fig-width":7,"fig-height":5,"context":"interactive","message":"true"},"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","id":1},{"options":{"output":"true","out-width":"700px","results":"markup","warning":"true","dpi":72,"editor-font-scale":"1","autorun":"false","editor-max-height":"","editor-word-wrap":"true","comment":"","label":"unnamed-chunk-2","editor-quick-suggestions":"false","out-height":"","read-only":"false","fig-cap":"","classes":"","fig-width":7,"fig-height":5,"context":"interactive","message":"true"},"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","id":2},{"options":{"output":"true","out-width":"700px","results":"markup","warning":"true","dpi":72,"editor-font-scale":"1","autorun":"false","editor-max-height":"","editor-word-wrap":"true","comment":"","label":"unnamed-chunk-3","editor-quick-suggestions":"false","out-height":"","read-only":"false","fig-cap":"","classes":"","fig-width":7,"fig-height":5,"context":"interactive","message":"true"},"code":"# Vous pouvez essayer ici.","id":3},{"options":{"output":"true","out-width":"700px","results":"markup","warning":"true","dpi":72,"editor-font-scale":"1","autorun":"false","editor-max-height":"","editor-word-wrap":"true","comment":"","label":"unnamed-chunk-4","editor-quick-suggestions":"false","out-height":"","read-only":"false","fig-cap":"","classes":"","fig-width":7,"fig-height":5,"context":"interactive","message":"true"},"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())","id":4},{"options":{"output":"true","out-width":"700px","results":"markup","warning":"true","dpi":72,"editor-font-scale":"1","autorun":"false","editor-max-height":"","editor-word-wrap":"true","comment":"","label":"unnamed-chunk-5","editor-quick-suggestions":"false","out-height":"","read-only":"false","fig-cap":"","classes":"","fig-width":7,"fig-height":5,"context":"interactive","message":"true"},"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())","id":5}];
+globalThis.qwebrCellDetails = [{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"label":"unnamed-chunk-1","message":"true","results":"markup","editor-max-height":"","context":"interactive","read-only":"false","editor-quick-suggestions":"false","warning":"true","output":"true","editor-word-wrap":"true","comment":"","out-height":"","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","classes":"","fig-cap":"","editor-font-scale":"1","dpi":72},"id":1},{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"label":"unnamed-chunk-2","message":"true","results":"markup","editor-max-height":"","context":"interactive","read-only":"false","editor-quick-suggestions":"false","warning":"true","output":"true","editor-word-wrap":"true","comment":"","out-height":"","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","classes":"","fig-cap":"","editor-font-scale":"1","dpi":72},"id":2},{"code":"# Vous pouvez essayer ici.","options":{"label":"unnamed-chunk-3","message":"true","results":"markup","editor-max-height":"","context":"interactive","read-only":"false","editor-quick-suggestions":"false","warning":"true","output":"true","editor-word-wrap":"true","comment":"","out-height":"","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","classes":"","fig-cap":"","editor-font-scale":"1","dpi":72},"id":3},{"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())","options":{"label":"unnamed-chunk-4","message":"true","results":"markup","editor-max-height":"","context":"interactive","read-only":"false","editor-quick-suggestions":"false","warning":"true","output":"true","editor-word-wrap":"true","comment":"","out-height":"","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","classes":"","fig-cap":"","editor-font-scale":"1","dpi":72},"id":4},{"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())","options":{"label":"unnamed-chunk-5","message":"true","results":"markup","editor-max-height":"","context":"interactive","read-only":"false","editor-quick-suggestions":"false","warning":"true","output":"true","editor-word-wrap":"true","comment":"","out-height":"","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","classes":"","fig-cap":"","editor-font-scale":"1","dpi":72},"id":5}];
 
 </script>
 <script type="module">
@@ -1665,10 +1665,7 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
   <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices">Exercices</a>
-  <ul class="collapse">
-  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
-  </ul></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
 </nav>
     </div>
@@ -2423,10 +2420,8 @@ Réponse
 </div>
 </section>
 </section>
-<section id="exercices" class="level2">
-<h2 class="anchored" data-anchor-id="exercices">Exercices</h2>
-<section id="question-1-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<section id="exercice" class="level2">
+<h2 class="anchored" data-anchor-id="exercice">Exercice</h2>
 <p>Supposons que l’on ait une fonction qui mette longtemps à répondre, par exemple&nbsp;:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>calcul_de_dingue <span class="ot">&lt;-</span> <span class="cf">function</span>(arg) {</span>
@@ -2442,7 +2437,7 @@ Réponse
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proposition de solution
+Aide (à consulter après s’être un peu creusé la tête)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2458,40 +2453,92 @@ Proposition de solution
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  cache <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>,taille_cache)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  cache_suivant <span class="ot">&lt;-</span> <span class="dv">1</span>L</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(arg) {</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    cached_index <span class="ot">&lt;-</span> <span class="fu">Position</span>(\(x) <span class="fu">identical</span>(x<span class="sc">$</span>arg,arg),cache)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(cached_index)) {</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      valeur <span class="ot">&lt;-</span> <span class="fu">calcul_de_dingue</span>(arg)</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      cache[[cache_suivant]] <span class="ot">&lt;&lt;-</span> <span class="fu">list</span>(<span class="at">arg =</span> arg,</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">valeur =</span> valeur)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      cache_suivant <span class="ot">&lt;&lt;-</span> cache_suivant <span class="sc">%%</span> taille_cache <span class="sc">+</span> <span class="dv">1</span>L</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>      valeur</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    index_en_cache <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">vapply</span>(cache, \(x) <span class="fu">identical</span>(x<span class="sc">$</span>arg,arg), <span class="cn">TRUE</span>))[<span class="dv">1</span>L]</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cette ligne précédente peut être remplacée par</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># index_en_cache &lt;- Position(\(x) identical(x$arg,arg), cache)</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Qui fait la même chose (mais on n'a pas vu Position)</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(index_en_cache)) {</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Remplir ici</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># C'est le cas où l'on ne retrouve pas la bonne entrée dans la cache.</span></span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> cache[[cached_index]]<span class="sc">$</span>valeur</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>calcul_moins_dingue <span class="ot">&lt;-</span> <span class="fu">calcul_de_dingue_cache</span>()</span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Remplir ici </span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># C'est le cas où index_en_cache contient le numéro de cache et donc on</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># n'a pas à refaire le calcul.</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>calcul_moins_dingue <span class="ot">&lt;-</span> <span class="fu">calcul_de_dingue_cache</span>()</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>))</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition de solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>calcul_de_dingue <span class="ot">&lt;-</span> <span class="cf">function</span>(arg) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">3</span>L) <span class="co"># Une attente de 3 secondes pour simuler un long calcul.</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">2</span> <span class="sc">*</span> arg)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>calcul_de_dingue_cache <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">taille_cache =</span> <span class="dv">10</span>L) {</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  cache <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>,taille_cache)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  cache_suivant <span class="ot">&lt;-</span> <span class="dv">1</span>L</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(arg) {</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    index_en_cache <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">vapply</span>(cache, \(x) <span class="fu">identical</span>(x<span class="sc">$</span>arg,arg), <span class="cn">TRUE</span>))[<span class="dv">1</span>L]</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cette ligne précédente peut être remplacée par</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># index_en_cache &lt;- Position(\(x) identical(x$arg,arg), cache)</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Qui fait la même chose (mais on n'a pas vu Position)</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(index_en_cache)) {</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>      valeur <span class="ot">&lt;-</span> <span class="fu">calcul_de_dingue</span>(arg)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>      cache[[cache_suivant]] <span class="ot">&lt;&lt;-</span> <span class="fu">list</span>(<span class="at">arg =</span> arg,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">valeur =</span> valeur)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>      cache_suivant <span class="ot">&lt;&lt;-</span> cache_suivant <span class="sc">%%</span> taille_cache <span class="sc">+</span> <span class="dv">1</span>L</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>      valeur</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> cache[[index_en_cache]]<span class="sc">$</span>valeur</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>calcul_moins_dingue <span class="ot">&lt;-</span> <span class="fu">calcul_de_dingue_cache</span>()</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 6</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 6</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  8 14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  8 14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 6</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calcul_moins_dingue</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>)) <span class="co"># Pas besoin de calcul, déjà en cache</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  8 14</code></pre>
 </div>
@@ -2501,7 +2548,6 @@ Proposition de solution
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
