@@ -126,10 +126,73 @@ En apparence, les fonctions semblent se comporter à nouveau comme si on utilisa
 
 ![](environnements3.svg)
 
-À la fin de l'exécution on a le graphe ci-dessus. Les `x <- 2L` des différentes instances de mystère ont été ecrasés respectivement par les `x <<- 3L` et `x <<- 4L` de `fun_1` `fun_2`. Ici, comme on n'utilise de toutes manières pas la valeur intermédiaire, ce n'est pas très grave.
-
-De plus, en assignant à l'environnement parent dans la fonction de second ordre, on préserve l'isolation entre instances. Donc tout va bien ; même si ici la notation est inutile.
+À la fin de l'exécution on a le graphe ci-dessus. Les `x <- 2L` des différentes instances de mystère ont été ecrasés respectivement par les `x <<- 3L` et `x <<- 4L` de `fun_1` `fun_2`. Ici, comme on n'utilise de toutes manières pas les valeur `2L`, ce n'est pas très grave. On préserve l'isolation entre instances donc tout va bien ; même si ici la notation est inutile.
 
 :::
 
-:::
+## Closures
+
+On a vu plus que des fonctions peuvent retourner des fonctions, et qu'il s'agit d'un des deux types de fonctions d'ordre supérieur. Dans R, on appelle aussi ces fonctions des *closures* (fermetures en français, mais le terme n'est pas très employé).
+
+Ce nom illustre un aspect de ces fonctions d'ordre supérieur, et une utilisation particulière. On a vu qu'il est possible d'écrire dans l'environnement *parent* tout en préservant l'isolation entre instances. Et bien utilisons cette propriété !
+
+```{webr-r}
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    function() {
+      n <<- n + 1L
+      return(n)
+    }
+  }
+
+compteur_1 <- nouveau_compteur()
+compteur_2 <- nouveau_compteur()
+print(compteur_1())
+print(compteur_1())
+print(compteur_2())
+print(compteur_1())
+print(compteur_1())
+print(compteur_2())
+```
+
+Mais que se passe-t-il ? C'est très étonnant ! Il semble que l'on ait défini des états ; et pourtant il n'y a aucune variable `n` dans l'environnement global !
+
+![](environnements4.svg)
+
+En fait, on appelle ces fonctions des closures parce qu'elles "enferment" leur environnement parent. Elle permettent de maintenir un espace isolé où l'on peut tout-à-fait faire des modifications.
+
+Cette astuce est puissante et permet de maintenir des états à l'intérieur d'un langage fonctionnel. Cela rompt l'axiome maximaliste d'un langage fonctionnel idéal qui ne contiendrait que des fonctions complètement pures, mais cela rompt cette approche de manière maitrisée, la plus locale possible. On doit bien sûr n'user de cette astuce qu'avec parcimonie, quand cela semble nécessaire.
+
+## Closures complexes
+
+Une closure peut renvoyer plusieurs fonctions différentes par exemple dans une liste. On s'approche alors beaucoup de la définition d'un objet en Programmation Orientée Objet. En effet, chaque instance de fonctions a des états, et différentes méthodes qui permettent de modifier ces états.
+
+```{webr-r}
+nouvelle_resolution <-
+  function() {
+    x <- 0L
+    y <- 0L
+    list(
+      setX = function(val) x <<- val,
+      setY = function(val) y <<- val,
+      getX = function() x,
+      getY = function() y
+    )
+  }
+
+resolution_1 <- nouvelle_resolution()
+resolution_2 <- nouvelle_resolution()
+resolution_1$setX(1080)
+resolution_1$setY(1024)
+resolution_2$setX(800)
+resolution_2$setY(600)
+print(resolution_1$getX())
+print(resolution_1$getY())
+print(resolution_2$getX())
+print(resolution_2$getY())
+```
+
+Ici, les deux appels de `nouvelle_resolution()` permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions `setX()`, `setY()`, `getX()` et `getY()` agiront, comme on le voit dans le schéma ci-dessous.
+
+![](environnements5.svg)
