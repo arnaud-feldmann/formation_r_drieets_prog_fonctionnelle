@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-1","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":2,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-2","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":3,"code":"# Vous pouvez essayer ici.","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-3","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":4,"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-4","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":5,"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-5","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"autorun":"false","out-height":"","output":"true","message":"true","label":"unnamed-chunk-1","fig-height":5,"editor-word-wrap":"true","context":"interactive","results":"markup","editor-max-height":"","fig-cap":"","editor-font-scale":"1","read-only":"false","dpi":72,"comment":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","warning":"true","fig-width":7},"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)"},{"id":2,"options":{"autorun":"false","out-height":"","output":"true","message":"true","label":"unnamed-chunk-2","fig-height":5,"editor-word-wrap":"true","context":"interactive","results":"markup","editor-max-height":"","fig-cap":"","editor-font-scale":"1","read-only":"false","dpi":72,"comment":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","warning":"true","fig-width":7},"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)"},{"id":3,"options":{"autorun":"false","out-height":"","output":"true","message":"true","label":"unnamed-chunk-3","fig-height":5,"editor-word-wrap":"true","context":"interactive","results":"markup","editor-max-height":"","fig-cap":"","editor-font-scale":"1","read-only":"false","dpi":72,"comment":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","warning":"true","fig-width":7},"code":"# Vous pouvez essayer ici."},{"id":4,"options":{"autorun":"false","out-height":"","output":"true","message":"true","label":"unnamed-chunk-4","fig-height":5,"editor-word-wrap":"true","context":"interactive","results":"markup","editor-max-height":"","fig-cap":"","editor-font-scale":"1","read-only":"false","dpi":72,"comment":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","warning":"true","fig-width":7},"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())"},{"id":5,"options":{"autorun":"false","out-height":"","output":"true","message":"true","label":"unnamed-chunk-5","fig-height":5,"editor-word-wrap":"true","context":"interactive","results":"markup","editor-max-height":"","fig-cap":"","editor-font-scale":"1","read-only":"false","dpi":72,"comment":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","warning":"true","fig-width":7},"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())"}];
 
 </script>
 <script type="module">
@@ -2214,6 +2214,7 @@ Réponse
 </section>
 <section id="question-3" class="level3">
 <h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<div class="question">
 <p>Dans le code ci-dessous&nbsp;:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
@@ -2226,17 +2227,24 @@ Réponse
 </div>
 <p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
 <div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
 <div class="choice correct-choice">
-<p>Vrai</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Vrai</p><p></p>
 </div>
 <div class="choice">
-<p>Faux</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Faux</p><p></p>
 </div>
 <div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
 
 </div>
 </div>
-<p>:::::</p>
+
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2256,6 +2264,7 @@ Réponse
 </section>
 <section id="question-4" class="level3">
 <h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<div class="question">
 <p>Dans le code ci-dessous&nbsp;:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
@@ -2269,17 +2278,24 @@ Réponse
 </div>
 <p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
 <div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
 <div class="choice correct-choice">
-<p>Vrai</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Vrai</p><p></p>
 </div>
 <div class="choice">
-<p>Faux</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Faux</p><p></p>
 </div>
 <div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
 
 </div>
 </div>
-<p>:::::</p>
+
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2299,6 +2315,7 @@ Réponse
 </section>
 <section id="question-5" class="level3">
 <h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<div class="question">
 <p>Dans le code ci-dessous&nbsp;:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
@@ -2314,17 +2331,24 @@ Réponse
 </div>
 <p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
 <div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
 <div class="choice">
-<p>Vrai</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>Vrai</p><p></p>
 </div>
 <div class="choice correct-choice">
-<p>Faux</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Faux</p><p></p>
 </div>
 <div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
 
 </div>
 </div>
-<p>:::::</p>
+
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2344,6 +2368,7 @@ Réponse
 </section>
 <section id="question-6" class="level3">
 <h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<div class="question">
 <p>Dans le code ci-dessous&nbsp;:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
@@ -2358,17 +2383,24 @@ Réponse
 </div>
 <p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
 <div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
 <div class="choice correct-choice">
-<p>Vrai</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Vrai</p><p></p>
 </div>
 <div class="choice">
-<p>Faux</p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Faux</p><p></p>
 </div>
 <div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
 
 </div>
 </div>
-<p>:::::</p>
+
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
