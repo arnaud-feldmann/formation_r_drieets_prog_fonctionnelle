@@ -10,8 +10,12 @@ website:
         text: Introduction
       - href: fonctions.qmd
         text: Rappel sur les fonctions en R
-      - href: fonctions_manipulant_des_fonctions.qmd
-        text: Fonctions manipulant des fonctions
+      - href: fonctions_ordre_superieur_1.qmd
+        text: Fonctions d'ordre supérieur 1 (arguments)
+      - href: fonctions_ordre_superieur_2.qmd
+        text: Fonctions d'ordre supérieur 2 (retours)
+      - href: environnements.qmd
+        text: Environnements
     search: false
 
 format:

@@ -1,6 +1,17 @@
 ---
-title: "Fonctions manipulant des fonctions"
+title: "Fonctions d'ordre supérieur 1 (arguments)"
 ---
+
+## Fonctions d'ordre supérieur
+
+En informatique, la notion de *fonction d'ordre supérieur* désigne une fonction avec au moins l'une des propriétés suivantes :
+
+* Elle a pour argument une ou des fonctions
+* Elles retournent a minima une fonction
+
+Les fonctions d'ordre supérieur sont un élément central permettant l'expressivité des langages fonctionnels.
+
+Dans cette première partie sur les fonctions d'ordre supérieur, nous abordons la thématique des fonctions avec ayant des *arguments* fonctionnels.
 
 ## Manipuler des fonctions avec des fonctions
 
@@ -8,7 +19,7 @@ On a vu dans le point précédent deux fonctions qui s'appliquent sur des foncti
 
 On a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d'appliquer des fonctions de différentes manières. Nous verrons ici `lapply`, `vapply`, `Map`, `replicate`, `apply`, `do.call`, `Reduce`.
 
-![Schéma des différentes fonctions de manipulation](dessin_fonctions_manipulation.svg)
+![](dessin_fonctions_manipulation.svg)
 
 ## lapply : appliquer une fonction à chaque élément d'une liste ou d'un vecteur
 

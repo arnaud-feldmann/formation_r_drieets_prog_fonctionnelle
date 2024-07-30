@@ -1,0 +1,135 @@
+---
+title: "Fonctions d'ordre supérieur (retours)"
+---
+
+## Les environnements
+
+Que se passe-t-il par exemple quand j'exécute ce code R ? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s'appellent `x` ! Comment cela peut bien se résoudre ?
+
+::: callout-note
+
+On l'a vu dans la partie précédente, ces fonctions retournant des fonctions sont un des deux types de fonction d'ordre supérieur.
+
+:::
+
+```{webr-r}
+x <- 1L
+mystere <-
+  function(arg) {
+    x <- 2L
+    function() {
+      x <- arg
+      return(x)
+    }
+  }
+
+fun_1 <- mystere(3L)
+fun_2 <- mystere(4L)
+print(x)
+print(fun_1())
+print(x)
+print(fun_2())
+print(x)
+```
+
+On se rend compte de quatre choses :
+
+* Aucune des assignations (`<-`) internes aux fonctions n'a modifié l'environnement global ; `print(x)` affiche toujours `1L`.
+* Le `arg` de la fonction mystère semble avoir été passé 
+* Le résultat du x retourné par `fun_1()` est celui défini à l'intérieur de la fonction anonyme, à savoir `3L`.
+* Le résultat du x retourné par `fun_2()` est celui défini à l'intérieur de la fonction anonyme, à savoir `4L`.
+
+Pourquoi donc ?
+
+![](environnements.svg)
+
+Dans R, les objets sont contenus dans des *environnements*. Les environnements sont plus ou moins des petites bulles :
+
+* dans lesquelles on peut assigner des objets (avec`<-`) de manière totalement isolée les unes des autres. Ici il faut bien comprendre que tous les objets `x` existent en même temps dans des environnements différents.
+* à l'exception de l'emptyenv, tous les environnements indiquent un environnement parent.
+* Chaque **appel** de fonction (et non chaque définition) définit un environnement. Ici on crée donc deux environnements différents pour mystere qu'on appelle des *instances*.
+* lorsque l'on recherche un objet dans un environnement et qu'il n'y existe pas, on va chercher dans l'environnement parent (puis à nouveau l'environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, `fun_1` n'a pas connaissance de `arg`. Alors on cherche dans l'environnement au dessus. Surprise ! On y trouve arg et l'on peut donc assigner avec cette valeur. C'est ce qui explique que `fun_1()` et `fun_2()` peuvent renvoyer des résultats différents.
+
+Dans la suite, on s'attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d'information, mais n'est pas vraiment le sujet ici. De notre point de vue, l'environnement le plus bas est donc le globalenv.
+
+## L'assignation remontante (`<<-`)
+
+On remplace les deux assignations intra-fonctionnelles par un nouvel opérateur, l'assignation remontante `<<-`.
+
+```{webr-r}
+x <- 1L
+mystere <-
+  function(arg) {
+    x <<- 2L
+    function() {
+      x <<- arg
+      return(x)
+    }
+  }
+
+fun_1 <- mystere(3L)
+fun_2 <- mystere(4L)
+print(x)
+print(fun_1())
+print(x)
+print(fun_2())
+print(x)
+```
+
+On observe que le `x` global est cette fois-ci modifié par l'assignation remontante. En effet, cet opérateur **remonte les différents environnements jusqu'à trouver un x déjà existant et le modifie**.
+
+Ici, à chaque affectation, on remonte donc jusqu'à l'environnement global et on trouve `x`. On modifie alors celui-ci.
+
+![](environnements2.svg)
+
+À la fin de l'exécution, on a donc le schéma ci-dessus. On n'a pas créé de version locale de `x`.
+
+::: callout-warning
+
+## Ne pas assigner le global
+
+Attention cependant, quand bien même l'opérateur `<<-` peut théoriquement créer des fonctions manipulant l'environnement global comme on vient de le voir, ce n'est pas une bonne pratique. L'utilisation de `<<-` doit être fait de manière circonscrite à des cas que l'on va aborder dans la suite de cette page, mais modifier l'environnement global est une (très) mauvaise pratique. En effet, cela rompt complètement le paradigme fonctionnel dès lors que l'on a des états globaux pouvant mener à des interdépendances, des problèmes d'isolation...
+
+:::
+
+Que se passe-t-il si on n'utilise l'assignation remontante **que** dans la fonction anonyme et plus pour le `x <- 2L` de la fonction de second ordre ? Pourquoi ?
+
+```{webr-r}
+# Vous pouvez essayer ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Réponse
+
+```{r}
+x <- 1L
+mystere <-
+  function(arg) {
+    x <- 2L
+    function() {
+      x <<- arg
+      return(x)
+    }
+  }
+
+fun_1 <- mystere(3L)
+fun_2 <- mystere(4L)
+print(x)
+print(fun_1())
+print(x)
+print(fun_2())
+print(x)
+```
+
+En apparence, les fonctions semblent se comporter à nouveau comme si on utilisait l'assignation locale. Mais, en réalité, le comportement par environnements est différent.
+
+![](environnements3.svg)
+
+À la fin de l'exécution on a le graphe ci-dessus. Les `x <- 2L` des différentes instances de mystère ont été ecrasés respectivement par les `x <<- 3L` et `x <<- 4L` de `fun_1` `fun_2`. Ici, comme on n'utilise de toutes manières pas la valeur intermédiaire, ce n'est pas très grave.
+
+De plus, en assignant à l'environnement parent dans la fonction de second ordre, on préserve l'isolation entre instances. Donc tout va bien ; même si ici la notation est inutile.
+
+:::
+
+:::
