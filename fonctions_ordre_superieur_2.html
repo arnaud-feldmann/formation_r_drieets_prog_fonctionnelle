@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-width":7,"editor-quick-suggestions":"false","out-height":"","comment":"","out-width":"700px","message":"true","fig-height":5,"editor-word-wrap":"true","warning":"true","editor-max-height":"","autorun":"false","classes":"","dpi":72,"read-only":"false","fig-cap":"","context":"interactive","label":"unnamed-chunk-1","editor-font-scale":"1","results":"markup","output":"true"}},{"id":2,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-width":7,"editor-quick-suggestions":"false","out-height":"","comment":"","out-width":"700px","message":"true","fig-height":5,"editor-word-wrap":"true","warning":"true","editor-max-height":"","autorun":"false","classes":"","dpi":72,"read-only":"false","fig-cap":"","context":"interactive","label":"unnamed-chunk-2","editor-font-scale":"1","results":"markup","output":"true"}},{"id":3,"code":"# Vous pouvez essayer ici.","options":{"fig-width":7,"editor-quick-suggestions":"false","out-height":"","comment":"","out-width":"700px","message":"true","fig-height":5,"editor-word-wrap":"true","warning":"true","editor-max-height":"","autorun":"false","classes":"","dpi":72,"read-only":"false","fig-cap":"","context":"interactive","label":"unnamed-chunk-3","editor-font-scale":"1","results":"markup","output":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-cap":"","context":"interactive","read-only":"false","dpi":72,"output":"true","label":"unnamed-chunk-1","editor-max-height":"","comment":"","out-width":"700px","editor-font-scale":"1","results":"markup","warning":"true","message":"true","classes":"","out-height":"","autorun":"false","fig-height":5,"fig-width":7,"editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":1},{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-cap":"","context":"interactive","read-only":"false","dpi":72,"output":"true","label":"unnamed-chunk-2","editor-max-height":"","comment":"","out-width":"700px","editor-font-scale":"1","results":"markup","warning":"true","message":"true","classes":"","out-height":"","autorun":"false","fig-height":5,"fig-width":7,"editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":2},{"code":"# Vous pouvez essayer ici.","options":{"fig-cap":"","context":"interactive","read-only":"false","dpi":72,"output":"true","label":"unnamed-chunk-3","editor-max-height":"","comment":"","out-width":"700px","editor-font-scale":"1","results":"markup","warning":"true","message":"true","classes":"","out-height":"","autorun":"false","fig-height":5,"fig-width":7,"editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":3}];
 
 </script>
 <script type="module">
@@ -1640,12 +1640,6 @@ globalThis.qwebrExecuteCode = async function (
   <div class="sidebar-item-container"> 
   <a href="./fonctions_ordre_superieur_2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Fonctions d’ordre supérieur 2 (retours)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environnements.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Environnements</span></a>
   </div>
 </li>
     </ul>
