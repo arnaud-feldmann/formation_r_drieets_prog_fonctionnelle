@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-1","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":1},{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-2","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":2},{"code":"# Vous pouvez essayer ici.","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-3","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":3},{"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-4","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":4},{"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-5","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":5}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-1","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":2,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-2","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":3,"code":"# Vous pouvez essayer ici.","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-3","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":4,"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-4","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}},{"id":5,"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())","options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-5","dpi":72,"results":"markup","editor-max-height":"","read-only":"false","out-height":"","context":"interactive","message":"true","fig-width":7,"warning":"true","autorun":"false","output":"true","fig-height":5,"classes":"","out-width":"700px","comment":"","editor-font-scale":"1"}}];
 
 </script>
 <script type="module">
@@ -1656,6 +1656,15 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#lassignation-remontante--" id="toc-lassignation-remontante--" class="nav-link" data-scroll-target="#lassignation-remontante--">L’assignation remontante (<code>&lt;&lt;-</code>)</a></li>
   <li><a href="#closures" id="toc-closures" class="nav-link" data-scroll-target="#closures">Closures</a></li>
   <li><a href="#closures-complexes" id="toc-closures-complexes" class="nav-link" data-scroll-target="#closures-complexes">Closures complexes</a></li>
+  <li><a href="#quizz" id="toc-quizz" class="nav-link" data-scroll-target="#quizz">Quizz</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2006,7 +2015,7 @@ Note
 <p>On remplace les deux assignations intra-fonctionnelles par un nouvel opérateur, l’assignation remontante <code>&lt;&lt;-</code>.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>On observe que le <code>x</code> global est cette fois-ci modifié par l’assignation remontante. En effet, cet opérateur <strong>remonte les différents environnements jusqu’à trouver un x déjà existant et le modifie</strong>.</p>
+<p>On observe que le <code>x</code> global est cette fois-ci modifié par l’assignation remontante. En effet, cet opérateur <strong>remonte les différents environnements parents jusqu’à trouver un x déjà existant et le modifie</strong>.</p>
 <p>Ici, à chaque affectation, on remonte donc jusqu’à l’environnement global et on trouve <code>x</code>. On modifie alors celui-ci.</p>
 <p><img src="environnements2.svg" class="img-fluid"></p>
 <p>À la fin de l’exécution, on a donc le schéma ci-dessus. On n’a pas créé de version locale de <code>x</code>.</p>
@@ -2023,11 +2032,24 @@ Ne pas assigner le global
 <p>Attention cependant, quand bien même l’opérateur <code>&lt;&lt;-</code> peut théoriquement créer des fonctions manipulant l’environnement global comme on vient de le voir, ce n’est pas une bonne pratique. L’utilisation de <code>&lt;&lt;-</code> doit être fait de manière circonscrite à des cas que l’on va aborder dans la suite de cette page, mais modifier l’environnement global est une (très) mauvaise pratique. En effet, cela rompt complètement le paradigme fonctionnel dès lors que l’on a des états globaux pouvant mener à des interdépendances, des problèmes d’isolation…</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Par défaut, si la remontée des environnements ne donne rien, l’assignation remontante assignera dans l’environnement global.</p>
+</div>
+</div>
 <p>Que se passe-t-il si on n’utilise l’assignation remontante <strong>que</strong> dans la fonction anonyme et plus pour le <code>x &lt;- 2L</code> de la fonction de second ordre&nbsp;? Pourquoi&nbsp;?</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2036,7 +2058,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span>L</span>
@@ -2097,8 +2119,275 @@ Réponse
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Ici, les deux appels de <code>nouvelle_resolution()</code> permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions <code>setX()</code>, <code>setY()</code>, <code>getX()</code> et <code>getY()</code> agiront, comme on le voit dans le schéma ci-dessous.</p>
 <p><img src="environnements5.svg" class="img-fluid"></p>
+</section>
+<section id="quizz" class="level2">
+<h2 class="anchored" data-anchor-id="quizz">Quizz</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<div class="question">
+<p>C’est lors de la <em>définition</em> de la fonction que l’on détermine son environnement.</p>
+<div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>Vrai</p><p></p>
+</div>
+<div class="choice correct-choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Faux</p><p></p>
+</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
 
 
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>C’est lors de l’<strong>appel</strong> d’une fonction que l’on détermine un environnement.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<div class="question">
+<p>Dans le code ci-dessous&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fonction <span class="ot">&lt;-</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(val) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> val</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fonction</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
+<div class="choices">
+<div x-data="{ answer: '' , clear() { this.answer = '' }}">
+
+<div class="choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no1"> <span id="no1" x-show="answer == $el.id" class="badge">✗</span>Vrai</p><p></p>
+</div>
+<div class="choice correct-choice">
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Faux</p><p></p>
+</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Non, l’assignation simple affecte des valeurs dans l’environnement créé lors de l’appel d’une fonction et il n’y a strictement aucun danger de conflit.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>Dans le code ci-dessous&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fonction <span class="ot">&lt;-</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(val) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> val</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fonction</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
+<div class="choices">
+<div class="choice correct-choice">
+<p>Vrai</p>
+</div>
+<div class="choice">
+<p>Faux</p>
+</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+
+</div>
+</div>
+<p>:::::</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vrai, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements parents jusqu’à retrouver un objet de même nom. Ici, elle va donc modifier le <code>x</code> de l’environnement global.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p>Dans le code ci-dessous&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fonction <span class="ot">&lt;-</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(val) {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> val</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fonction</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
+<div class="choices">
+<div class="choice correct-choice">
+<p>Vrai</p>
+</div>
+<div class="choice">
+<p>Faux</p>
+</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+
+</div>
+</div>
+<p>:::::</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vrai, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements <strong>parents</strong> jusqu’à retrouver un objet de même nom. Ici, elle va donc modifier le <code>x</code> de l’environnement global.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>Dans le code ci-dessous&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fonction <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(val) {</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> val</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">fonction</span>()(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
+<div class="choices">
+<div class="choice">
+<p>Vrai</p>
+</div>
+<div class="choice correct-choice">
+<p>Faux</p>
+</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+
+</div>
+</div>
+<p>:::::</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Faux, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements parents jusqu’à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par <code>fonction</code>. Et il s’avère qu’il contient un objet de nom <code>x</code>. Donc le <code>x</code> de l’environnement global n’est pas écrasé.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p>Dans le code ci-dessous&nbsp;:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fonction <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(val) {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> val</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">fonction</span>()(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le <code>x</code> dans l’environnement global est effacé de manière irrémédiable.</p>
+<div class="choices">
+<div class="choice correct-choice">
+<p>Vrai</p>
+</div>
+<div class="choice">
+<p>Faux</p>
+</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+
+</div>
+</div>
+<p>:::::</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vrai, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements parents jusqu’à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par <code>fonction</code>. Mais il ne contient aucun objet de nom <code>x</code>. On remonte donc encore les environnements jusqu’à l’environnement global, et donc le <code>x</code> global est modifié.</p>
+</div>
+</div>
+</div>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->

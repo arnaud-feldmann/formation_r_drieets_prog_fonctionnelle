@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-height":"","dpi":72,"context":"interactive","label":"unnamed-chunk-1","fig-cap":"","classes":"","out-width":"700px","autorun":"false","warning":"true","read-only":"false","fig-height":5,"editor-word-wrap":"true","comment":"","fig-width":7,"output":"true","results":"markup","message":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false"},"id":1,"code":"resultat <- sin(sqrt(1:10))\nresultat"},{"options":{"out-height":"","dpi":72,"context":"interactive","label":"unnamed-chunk-2","fig-cap":"","classes":"","out-width":"700px","autorun":"false","warning":"true","read-only":"false","fig-height":5,"editor-word-wrap":"true","comment":"","fig-width":7,"output":"true","results":"markup","message":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false"},"id":2,"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat"}];
+globalThis.qwebrCellDetails = [{"code":"resultat <- sin(sqrt(1:10))\nresultat","id":1,"options":{"label":"unnamed-chunk-1","context":"interactive","fig-cap":"","classes":"","out-height":"","editor-font-scale":"1","fig-height":5,"comment":"","fig-width":7,"warning":"true","output":"true","autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","read-only":"false","dpi":72,"out-width":"700px","message":"true","editor-max-height":""}},{"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","id":2,"options":{"label":"unnamed-chunk-2","context":"interactive","fig-cap":"","classes":"","out-height":"","editor-font-scale":"1","fig-height":5,"comment":"","fig-width":7,"warning":"true","output":"true","autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","read-only":"false","dpi":72,"out-width":"700px","message":"true","editor-max-height":""}}];
 
 </script>
 <script type="module">
@@ -1623,7 +1623,17 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#la-programmation-orientée-objet-poo" id="toc-la-programmation-orientée-objet-poo" class="nav-link" data-scroll-target="#la-programmation-orientée-objet-poo">La programmation orientée objet (POO)</a></li>
   <li><a href="#la-programmation-fonctionnelle" id="toc-la-programmation-fonctionnelle" class="nav-link" data-scroll-target="#la-programmation-fonctionnelle">La programmation fonctionnelle</a></li>
   <li><a href="#r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo" id="toc-r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo" class="nav-link" data-scroll-target="#r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo">R&nbsp;: un langage fonctionnel, vectoriel, avec quelques éléments de POO</a></li>
-  <li><a href="#quizz" id="toc-quizz" class="nav-link" data-scroll-target="#quizz">Quizz</a></li>
+  <li><a href="#quizz" id="toc-quizz" class="nav-link" data-scroll-target="#quizz">Quizz</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2048,7 +2058,8 @@ Note
 </section>
 <section id="quizz" class="level2">
 <h2 class="anchored" data-anchor-id="quizz">Quizz</h2>
-<p><strong>Question 1</strong></p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <div class="question">
 <p>Dans un langage fonctionnel idéal&nbsp;:</p>
 <div class="choices">
@@ -2066,11 +2077,19 @@ Note
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no4"> <span id="no4" x-show="answer == $el.id" class="badge">✗</span>Différentes étapes successives qu’on appelle fonctions. On les applique sur des objets qu’elles modifient progressivement.</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 2</strong></p>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <div class="question">
 <p>Quel est le rapport entretenu entre R et la Programmation Orientée Objet ?</p>
 <div class="choices">
@@ -2088,11 +2107,19 @@ Note
 <div class="choice correct-choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 3</strong></p>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <div class="question">
 <p>Un langage de bas niveau est un langage caractérisé par sa simplicité.</p>
 <div class="choices">
@@ -2110,11 +2137,19 @@ Note
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no4"> <span id="no4" x-show="answer == $el.id" class="badge">✗</span>Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 4</strong></p>
+</section>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <div class="question">
 <p>Analysons ce pseudo-code&nbsp;:</p>
 <blockquote class="blockquote">
@@ -2136,11 +2171,19 @@ classeur_ods.enregistrer(“/home/tintin/mon_classeur.ods”)</div>
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Langage fonctionnel</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 5</strong></p>
+</section>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
 <div class="question">
 <p>Analysons ce pseudo-code&nbsp;:</p>
 <blockquote class="blockquote">
@@ -2164,11 +2207,19 @@ while a[i] != ’ ’ {<br>
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Langage fonctionnel</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 6</strong></p>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <div class="question">
 <p>Analysons ce pseudo-code&nbsp;:</p>
 <blockquote class="blockquote">
@@ -2187,11 +2238,19 @@ while a[i] != ’ ’ {<br>
 <div class="choice correct-choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>Un langage fonctionnel ! Et vectoriel en plus ! C’est presque R !</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 7</strong></p>
+</section>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
 <div class="question">
 <p>On a vu qu’un langage objet permet notamment d’éviter les dépendances à l’implémentation.</p>
 <p>On préfère écrire&nbsp;:</p>
@@ -2218,11 +2277,19 @@ while a[i] != ’ ’ {<br>
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no4"> <span id="no4" x-show="answer == $el.id" class="badge">✗</span>On a vraiment envie que le programme de peinture dépende du programme de la palette. Il faut que les gens travaillent en équipe et donc qu’ils soient chacun au courant de tout ce qu’il se passe dans l’intégralité du projet.</p><p></p>
 </div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
+
+</div>
 </div>
 
 </div>
 </div>
-<p><strong>Question 8</strong></p>
+</section>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
 <div class="question">
 <p>Combien de méthodes différentes de la classe discman ce pseudo-code utilise-t-il&nbsp;?</p>
 <blockquote class="blockquote">
@@ -2258,12 +2325,19 @@ discman.retirer_cd()</div>
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no7"> <span id="no7" x-show="answer == $el.id" class="badge">✗</span>7</p><p></p>
 </div>
-</div>
+<div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
+<button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
+
+
 
 </div>
 </div>
 
+</div>
+</div>
 
+
+</section>
 </section>
 
 </main> <!-- /main -->
