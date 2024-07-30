@@ -109,13 +109,13 @@ L'opérateur pipe `%>%` repose sur les axiomes de la programmation fonctionnelle
 
 ## Quizz
 
-**Question 1**
+### Question 1
 
-::: question
+::::: {.question}
 Dans un langage fonctionnel idéal :
 
-::: choices
-::: choice
+:::: {.choices}
+::: {.choice}
 On n'utilise que des procédures (des fonctions sans valeur de retour).
 :::
 
@@ -123,67 +123,79 @@ On n'utilise que des procédures (des fonctions sans valeur de retour).
 On n'utilise que des fonctions dites pures, c'est-à-dire des fonctions purement combinatoires.
 :::
 
-::: choice
+::: {.choice}
 On n'utilise que des fonctions, pures, ou non.
 :::
 
-::: choice
+::: {.choice}
 Différentes étapes successives qu'on appelle fonctions. On les applique sur des objets qu'elles modifient progressivement.
 :::
-:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 2**
+::::
+:::::
 
-::: question
+### Question 2
+
+::::: {.question}
 Quel est le rapport entretenu entre R et la Programmation Orientée Objet ?
 
-::: choices
-::: choice
+:::: {.choices}
+::: {.choice}
 R est un archétype de langage de POO.
 :::
 
-::: choice
+::: {.choice}
 On ne peut pas du tout faire de POO en R.
 :::
 
-::: choice
+::: {.choice}
 Objection votre honneur !
 :::
 
 ::: {.choice .correct-choice}
 R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.
 :::
-:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 3**
+::::
+:::::
 
-::: question
+### Question 3
+
+::::: {.question}
 Un langage de bas niveau est un langage caractérisé par sa simplicité.
 
-::: choices
+:::: {.choices}
 ::: {.choice .correct-choice}
 Non, c'est un langage proche du langage machine, donc souvent assez complexe et verbieux.
 :::
 
-::: choice
+::: {.choice}
 Exactement ! C'est un langage prévu pour être facile d'appréhension, d'où de "bas niveau".
 :::
 
-::: choice
+::: {.choice}
 Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.
 :::
 
-::: choice
+::: {.choice}
 Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.
 :::
-:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 4**
+::::
+:::::
 
-::: question
+### Question 4
+
+::::: {.question}
 Analysons ce pseudo-code :
 
 > | classeur_ods = nouveau_classeur_ods()
@@ -193,8 +205,8 @@ Analysons ce pseudo-code :
 
 À quel paradigme de programmation cela ressemble ?
 
-::: choices
-::: choice
+:::: {.choices}
+::: {.choice}
 Langage procédural
 :::
 
@@ -202,16 +214,19 @@ Langage procédural
 Langage objet
 :::
 
-::: choice
+::: {.choice}
 Langage fonctionnel
 :::
 
-:::
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 5**
+::::
+:::::
 
-::: question
+### Question 5
+
+::::: {.question}
 Analysons ce pseudo-code :
 
 > | a = ['b', 'o', 'n', 'j', 'o', 'u', 'r', ' ']
@@ -223,37 +238,40 @@ Analysons ce pseudo-code :
 
 À quel paradigme de programmation cela ressemble ?
 
-::: choices
+:::: {.choices}
 ::: {.choice .correct-choice}
 Langage procédural
 :::
 
-::: choice
+::: {.choice}
 Langage objet
 :::
 
-::: choice
+::: {.choice}
 Langage fonctionnel
 :::
 
-:::
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 6**
+::::
+:::::
 
-::: question
+### Question 6
+
+::::: {.question}
 Analysons ce pseudo-code :
 
 > | racine_carrée(multiplier_par(entiers de 1 à 10, 3))
 
 À quel paradigme de programmation cela ressemble ?
 
-::: choices
-::: choice
+:::: {.choices}
+::: {.choice}
 Langage procédural
 :::
 
-::: choice
+::: {.choice}
 Langage objet
 :::
 
@@ -261,12 +279,15 @@ Langage objet
 Un langage fonctionnel ! Et vectoriel en plus ! C'est presque R !
 :::
 
-:::
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 7**
+::::
+:::::
 
-::: question
+### Question 7
+
+::::: {.question}
 On a vu qu'un langage objet permet notamment d'éviter les dépendances à l'implémentation.
 
 On préfère écrire :
@@ -279,8 +300,8 @@ Que :
 
 Quel intérêt cela présente ?
 
-::: choices
-::: choice
+:::: {.choices}
+::: {.choice}
 Aucun, c'est purement esthétique.
 :::
 
@@ -288,20 +309,23 @@ Aucun, c'est purement esthétique.
 Cela permet à un collègue d'être libre de modifier le fonctionnement interne de la palette sans faire bugger le programme de peinture.
 :::
 
-::: choice
+::: {.choice}
 Compter jusqu'à 3 est difficile car un ordinateur repose sur des nombres binaires. On préfère donc enlever le 3.
 :::
 
-::: choice
+::: {.choice}
 On a vraiment envie que le programme de peinture dépende du programme de la palette. Il faut que les gens travaillent en équipe et donc qu'ils soient chacun au courant de tout ce qu'il se passe dans l'intégralité du projet.
 :::
 
-:::
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
 
-**Question 8**
+::::
+:::::
 
-::: question
+### Question 8
+
+::::: {.question}
 Combien de méthodes différentes de la classe discman ce pseudo-code utilise-t-il ?
 
 > | discman.brancher_ecouteurs(ecouteurs)
@@ -312,16 +336,16 @@ Combien de méthodes différentes de la classe discman ce pseudo-code utilise-t-
 > | discman.ecouter_cd()
 > | discman.retirer_cd()
 
-::: choices
-::: choice
+:::: {.choices}
+::: {.choice}
 1
 :::
 
-::: choice
+::: {.choice}
 2
 :::
 
-::: choice
+::: {.choice}
 3
 :::
 
@@ -329,17 +353,20 @@ Combien de méthodes différentes de la classe discman ce pseudo-code utilise-t-
 4
 :::
 
-::: choice
+::: {.choice}
 5
 :::
 
-::: choice
+::: {.choice}
 6
 :::
 
-::: choice
+::: {.choice}
 7
 :::
 
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
 :::
-:::
+
+::::
+:::::

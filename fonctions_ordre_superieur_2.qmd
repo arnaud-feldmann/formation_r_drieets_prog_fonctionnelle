@@ -76,7 +76,7 @@ print(fun_2())
 print(x)
 ```
 
-On observe que le `x` global est cette fois-ci modifié par l'assignation remontante. En effet, cet opérateur **remonte les différents environnements jusqu'à trouver un x déjà existant et le modifie**.
+On observe que le `x` global est cette fois-ci modifié par l'assignation remontante. En effet, cet opérateur **remonte les différents environnements parents jusqu'à trouver un x déjà existant et le modifie**.
 
 Ici, à chaque affectation, on remonte donc jusqu'à l'environnement global et on trouve `x`. On modifie alors celui-ci.
 
@@ -89,6 +89,12 @@ Ici, à chaque affectation, on remonte donc jusqu'à l'environnement global et o
 ## Ne pas assigner le global
 
 Attention cependant, quand bien même l'opérateur `<<-` peut théoriquement créer des fonctions manipulant l'environnement global comme on vient de le voir, ce n'est pas une bonne pratique. L'utilisation de `<<-` doit être fait de manière circonscrite à des cas que l'on va aborder dans la suite de cette page, mais modifier l'environnement global est une (très) mauvaise pratique. En effet, cela rompt complètement le paradigme fonctionnel dès lors que l'on a des états globaux pouvant mener à des interdépendances, des problèmes d'isolation...
+
+:::
+
+::: callout-note
+
+Par défaut, si la remontée des environnements ne donne rien, l'assignation remontante assignera dans l'environnement global.
 
 :::
 
@@ -196,3 +202,249 @@ print(resolution_2$getY())
 Ici, les deux appels de `nouvelle_resolution()` permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions `setX()`, `setY()`, `getX()` et `getY()` agiront, comme on le voit dans le schéma ci-dessous.
 
 ![](environnements5.svg)
+
+## Quizz
+
+### Question 1
+
+::::: {.question}
+C'est lors de la *définition* de la fonction que l'on détermine son environnement.
+
+:::: {.choices}
+
+::: {.choice}
+Vrai
+:::
+
+::: {.choice .correct-choice}
+Faux
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+C'est lors de l'**appel** d'une fonction que l'on détermine un environnement.
+
+:::
+
+### Question 2
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+x <- 4
+fonction <-
+  function(val) {
+    x <- val
+    return(x)
+  }
+fonction(3)
+```
+
+Le `x` dans l'environnement global est effacé de manière irrémédiable.
+
+:::: {.choices}
+
+::: {.choice}
+Vrai
+:::
+
+::: {.choice .correct-choice}
+Faux
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+Non, l'assignation simple affecte des valeurs dans l'environnement créé lors de l'appel d'une fonction et il n'y a strictement aucun danger de conflit.
+
+:::
+
+### Question 3
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+x <- 4
+fonction <-
+  function(val) {
+    x <<- val
+    return(x)
+  }
+fonction(3)
+```
+
+Le `x` dans l'environnement global est effacé de manière irrémédiable.
+
+:::: {.choices}
+
+::: {.choice .correct-choice}
+Vrai
+:::
+
+::: {.choice}
+Faux
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+Vrai, l'assignation remontante `<<-` remonte les environnements parents jusqu'à retrouver un objet de même nom. Ici, elle va donc modifier le `x` de l'environnement global.
+
+:::
+
+### Question 4
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+x <- 4
+fonction <-
+  function(val) {
+    x <- 0
+    x <<- val
+    return(x)
+  }
+fonction(3)
+```
+
+Le `x` dans l'environnement global est effacé de manière irrémédiable.
+
+:::: {.choices}
+
+::: {.choice .correct-choice}
+Vrai
+:::
+
+::: {.choice}
+Faux
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+Vrai, l'assignation remontante `<<-` remonte les environnements **parents** jusqu'à retrouver un objet de même nom. Ici, elle va donc modifier le `x` de l'environnement global.
+
+:::
+
+### Question 5
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+x <- 4
+fonction <- function() {
+  x <- 0
+  function(val) {
+    x <<- val
+    return(x)
+  }
+}
+
+fonction()(3)
+```
+
+Le `x` dans l'environnement global est effacé de manière irrémédiable.
+
+:::: {.choices}
+
+::: {.choice}
+Vrai
+:::
+
+::: {.choice .correct-choice}
+Faux
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+Faux, l'assignation remontante `<<-` remonte les environnements parents jusqu'à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par `fonction`. Et il s'avère qu'il contient un objet de nom `x`. Donc le `x` de l'environnement global n'est pas écrasé.
+
+:::
+
+### Question 6
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+x <- 4
+fonction <- function() {
+  function(val) {
+    x <<- val
+    return(x)
+  }
+}
+
+fonction()(3)
+```
+
+Le `x` dans l'environnement global est effacé de manière irrémédiable.
+
+:::: {.choices}
+
+::: {.choice .correct-choice}
+Vrai
+:::
+
+::: {.choice}
+Faux
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+Vrai, l'assignation remontante `<<-` remonte les environnements parents jusqu'à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par `fonction`. Mais il ne contient aucun objet de nom `x`. On remonte donc encore les environnements jusqu'à l'environnement global, et donc le `x` global est modifié.
+
+:::

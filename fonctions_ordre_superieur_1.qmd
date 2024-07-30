@@ -375,7 +375,7 @@ Ici, plutôt que d'empiler des fonctions en mémoire, on les applique successive
 
 ## Exercices
 
-**Question 1**
+### Question 1
 
 À l'aide de la fonction `pmax` (sans utiliser la fonction `max`), calculer le maximum de cette liste.
 
@@ -395,7 +395,7 @@ do.call(pmax, liste)
 
 :::
 
-**Question 2**
+### Question 2
 
 Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d'espérance 3 et d'écart-type 0.5. Vous pouvez consulter l'aide de la fonction `rnorm` via `?rnorm`.
 
@@ -413,7 +413,7 @@ replicate(10, rnorm(n=60,mean = 3,sd = 0.5), simplify = FALSE)
 
 :::
 
-**Question 3**
+### Question 3
 
 À l'aide de la fonction `paste0` (qui est comme la fonction `paste` mais avec l'argument par défaut `sep = ""`), produire la chaine de caractère `"aabbccddeeffgg (...) xxyyzz"`. Les lettres en minuscules sont accessibles via `letters`.
 
@@ -439,7 +439,7 @@ paste0(rep(letters, each = 2), collapse = "")
 
 :::
 
-**Question 4**
+### Question 4
 
 Observer cette matrice des permutations en colonnes de `1L:5L` :
 
@@ -478,7 +478,7 @@ super_matrice(vecteur)
 
 :::
 
-**Question 5**
+### Question 5
 
 Proposer une version du [https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne](crible d'Eratosthène) faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l'entier i.
 
