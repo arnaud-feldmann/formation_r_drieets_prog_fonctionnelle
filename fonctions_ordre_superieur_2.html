@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-cap":"","context":"interactive","read-only":"false","dpi":72,"output":"true","label":"unnamed-chunk-1","editor-max-height":"","comment":"","out-width":"700px","editor-font-scale":"1","results":"markup","warning":"true","message":"true","classes":"","out-height":"","autorun":"false","fig-height":5,"fig-width":7,"editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":1},{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-cap":"","context":"interactive","read-only":"false","dpi":72,"output":"true","label":"unnamed-chunk-2","editor-max-height":"","comment":"","out-width":"700px","editor-font-scale":"1","results":"markup","warning":"true","message":"true","classes":"","out-height":"","autorun":"false","fig-height":5,"fig-width":7,"editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":2},{"code":"# Vous pouvez essayer ici.","options":{"fig-cap":"","context":"interactive","read-only":"false","dpi":72,"output":"true","label":"unnamed-chunk-3","editor-max-height":"","comment":"","out-width":"700px","editor-font-scale":"1","results":"markup","warning":"true","message":"true","classes":"","out-height":"","autorun":"false","fig-height":5,"fig-width":7,"editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":3}];
+globalThis.qwebrCellDetails = [{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-1","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":1},{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-2","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":2},{"code":"# Vous pouvez essayer ici.","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-3","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":3},{"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_2 <- nouveau_compteur()\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())\nprint(compteur_1())\nprint(compteur_1())\nprint(compteur_2())","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-4","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":4},{"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nprint(resolution_1$getX())\nprint(resolution_1$getY())\nprint(resolution_2$getX())\nprint(resolution_2$getY())","options":{"read-only":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","context":"interactive","out-height":"","output":"true","results":"markup","comment":"","classes":"","editor-quick-suggestions":"false","fig-width":7,"message":"true","editor-font-scale":"1","label":"unnamed-chunk-5","fig-cap":"","autorun":"false","editor-max-height":"","dpi":72},"id":5}];
 
 </script>
 <script type="module">
@@ -1654,6 +1654,8 @@ globalThis.qwebrExecuteCode = async function (
   <ul>
   <li><a href="#les-environnements" id="toc-les-environnements" class="nav-link active" data-scroll-target="#les-environnements">Les environnements</a></li>
   <li><a href="#lassignation-remontante--" id="toc-lassignation-remontante--" class="nav-link" data-scroll-target="#lassignation-remontante--">L’assignation remontante (<code>&lt;&lt;-</code>)</a></li>
+  <li><a href="#closures" id="toc-closures" class="nav-link" data-scroll-target="#closures">Closures</a></li>
+  <li><a href="#closures-complexes" id="toc-closures-complexes" class="nav-link" data-scroll-target="#closures-complexes">Closures complexes</a></li>
   </ul>
 </nav>
     </div>
@@ -2072,12 +2074,29 @@ Réponse
 </div>
 <p>En apparence, les fonctions semblent se comporter à nouveau comme si on utilisait l’assignation locale. Mais, en réalité, le comportement par environnements est différent.</p>
 <p><img src="environnements3.svg" class="img-fluid"></p>
-<p>À la fin de l’exécution on a le graphe ci-dessus. Les <code>x &lt;- 2L</code> des différentes instances de mystère ont été ecrasés respectivement par les <code>x &lt;&lt;- 3L</code> et <code>x &lt;&lt;- 4L</code> de <code>fun_1</code> <code>fun_2</code>. Ici, comme on n’utilise de toutes manières pas la valeur intermédiaire, ce n’est pas très grave.</p>
-<p>De plus, en assignant à l’environnement parent dans la fonction de second ordre, on préserve l’isolation entre instances. Donc tout va bien&nbsp;; même si ici la notation est inutile.</p>
+<p>À la fin de l’exécution on a le graphe ci-dessus. Les <code>x &lt;- 2L</code> des différentes instances de mystère ont été ecrasés respectivement par les <code>x &lt;&lt;- 3L</code> et <code>x &lt;&lt;- 4L</code> de <code>fun_1</code> <code>fun_2</code>. Ici, comme on n’utilise de toutes manières pas les valeur <code>2L</code>, ce n’est pas très grave. On préserve l’isolation entre instances donc tout va bien&nbsp;; même si ici la notation est inutile.</p>
 </div>
 </div>
 </div>
-<p>:::</p>
+</section>
+<section id="closures" class="level2">
+<h2 class="anchored" data-anchor-id="closures">Closures</h2>
+<p>On a vu plus que des fonctions peuvent retourner des fonctions, et qu’il s’agit d’un des deux types de fonctions d’ordre supérieur. Dans R, on appelle aussi ces fonctions des <em>closures</em> (fermetures en français, mais le terme n’est pas très employé).</p>
+<p>Ce nom illustre un aspect de ces fonctions d’ordre supérieur, et une utilisation particulière. On a vu qu’il est possible d’écrire dans l’environnement <em>parent</em> tout en préservant l’isolation entre instances. Et bien utilisons cette propriété&nbsp;!</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Mais que se passe-t-il&nbsp;? C’est très étonnant&nbsp;! Il semble que l’on ait défini des états&nbsp;; et pourtant il n’y a aucune variable <code>n</code> dans l’environnement global&nbsp;!</p>
+<p><img src="environnements4.svg" class="img-fluid"></p>
+<p>En fait, on appelle ces fonctions des closures parce qu’elles “enferment” leur environnement parent. Elle permettent de maintenir un espace isolé où l’on peut tout-à-fait faire des modifications.</p>
+<p>Cette astuce est puissante et permet de maintenir des états à l’intérieur d’un langage fonctionnel. Cela rompt l’axiome maximaliste d’un langage fonctionnel idéal qui ne contiendrait que des fonctions complètement pures, mais cela rompt cette approche de manière maitrisée, la plus locale possible. On doit bien sûr n’user de cette astuce qu’avec parcimonie, quand cela semble nécessaire.</p>
+</section>
+<section id="closures-complexes" class="level2">
+<h2 class="anchored" data-anchor-id="closures-complexes">Closures complexes</h2>
+<p>Une closure peut renvoyer plusieurs fonctions différentes par exemple dans une liste. On s’approche alors beaucoup de la définition d’un objet en Programmation Orientée Objet. En effet, chaque instance de fonctions a des états, et différentes méthodes qui permettent de modifier ces états.</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Ici, les deux appels de <code>nouvelle_resolution()</code> permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions <code>setX()</code>, <code>setY()</code>, <code>getX()</code> et <code>getY()</code> agiront, comme on le voit dans le schéma ci-dessous.</p>
+<p><img src="environnements5.svg" class="img-fluid"></p>
 
 
 </section>
