@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"context":"interactive","dpi":72,"comment":"","classes":"","output":"true","results":"markup","editor-max-height":"","label":"unnamed-chunk-1","read-only":"false","fig-height":5,"out-height":"","fig-width":7,"message":"true","fig-cap":"","editor-font-scale":"1","out-width":"700px","autorun":"false","warning":"true","editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":1,"code":"resultat <- sin(sqrt(1:10))\nresultat"},{"options":{"context":"interactive","dpi":72,"comment":"","classes":"","output":"true","results":"markup","editor-max-height":"","label":"unnamed-chunk-2","read-only":"false","fig-height":5,"out-height":"","fig-width":7,"message":"true","fig-cap":"","editor-font-scale":"1","out-width":"700px","autorun":"false","warning":"true","editor-quick-suggestions":"false","editor-word-wrap":"true"},"id":2,"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat"}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"context":"interactive","fig-width":7,"label":"unnamed-chunk-1","editor-word-wrap":"true","comment":"","fig-height":5,"message":"true","dpi":72,"warning":"true","editor-font-scale":"1","editor-quick-suggestions":"false","autorun":"false","read-only":"false","output":"true","results":"markup","classes":"","out-height":"","fig-cap":"","editor-max-height":"","out-width":"700px"},"code":"resultat <- sin(sqrt(1:10))\nresultat"},{"id":2,"options":{"context":"interactive","fig-width":7,"label":"unnamed-chunk-2","editor-word-wrap":"true","comment":"","fig-height":5,"message":"true","dpi":72,"warning":"true","editor-font-scale":"1","editor-quick-suggestions":"false","autorun":"false","read-only":"false","output":"true","results":"markup","classes":"","out-height":"","fig-cap":"","editor-max-height":"","out-width":"700px"},"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat"}];
 
 </script>
 <script type="module">
@@ -2439,7 +2439,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/arnaud-feldmann\.github\.io\/formation_r_drieets_paradigmes\/");
+      var filterRegex = new RegExp("https:\/\/arnaud-feldmann\.github\.io\/formation_r_drieets_prog_fonctionnelle\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

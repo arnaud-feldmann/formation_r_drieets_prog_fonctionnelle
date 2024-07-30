@@ -1,1 +1,1 @@
-Sitemap: https://arnaud-feldmann.github.io/formation_r_drieets_paradigmes/sitemap.xml
+Sitemap: https://arnaud-feldmann.github.io/formation_r_drieets_prog_fonctionnelle/sitemap.xml
