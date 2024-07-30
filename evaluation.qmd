@@ -1,0 +1,9 @@
+---
+title: "Évaluation des fonctions en R"
+---
+
+## Évaluation paresseuse
+
+## Évaluation standard
+
+## tidyeval

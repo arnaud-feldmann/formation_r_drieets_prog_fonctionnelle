@@ -14,6 +14,8 @@ website:
         text: Fonctions d'ordre supérieur 1 (arguments)
       - href: fonctions_ordre_superieur_2.qmd
         text: Fonctions d'ordre supérieur 2 (retours)
+      - href: evaluation.qmd
+        text: Évaluation des fonctions en R
     search: false
 
 format:
