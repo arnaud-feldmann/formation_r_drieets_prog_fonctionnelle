@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Rappel sur les fonctions en R – Fonctions et programmation fonctionnelle</title>
+<title>Fonctions d’ordre supérieur (retours) – Fonctions et programmation fonctionnelle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\n\n# Calcul 1\nprint(super_calcul(2, 3, TRUE))\n\n# Calcul 2\n# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut\nprint(super_calcul(2, 3))\n\n# Calcul 3\nprint(super_calcul(2, 3, FALSE))\n\n# Calcul 4\n# Même valeur que le calcul 3, on a juste nommé explicitement\nprint(super_calcul(a = 2, b = 3, FALSE))\n\n# Calcul 5\n# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments\nprint(super_calcul(b = 3, a = 2, FALSE))\n\n# Calcul 6\n# Même valeur que le calcul 3, cas extrême d'interversion\nprint(super_calcul(b = 3, 2, FALSE))","id":1,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-1","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"super_calcul <- function(a, b, multiplication = TRUE) {\n  if (multiplication) a * b\n  else a + b\n}\nprint(super_calcul(2))","id":2,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-2","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"calcula <- function() {\n  1L\n  return(2L)\n  3L\n}\nprint(calcula())\n\ncalculb <- function() {\n  1L\n  2L\n  3L\n}\nprint(calculb())","id":3,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-3","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"super_somme <- function(...) {\n  dots <- list(...)\n  Reduce(`+`, dots)\n}\nprint(super_somme(2, 3, 7, 1))","id":4,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-4","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"liste <- list(2, 3, 7, 1)\nsuper_somme <- function(...) {\n  dots <- list(...)\n  Reduce(`+`, dots)\n}\nprint(do.call(super_somme, liste))","id":5,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-5","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","id":6,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-6","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"fact <- function(n) {\n  if (n == 1L) 1L\n  else n * fact(n - 1L)\n}\nfact(10)","id":7,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-7","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"fact <- function(n) {\n  if (n == 1L) 1L\n  else n * Recall(n - 1L)\n}\nfact(10)","id":8,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-8","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"fact <- function(n, acc = 1) {\n  if (n == 1L) acc\n  else {\n    acc <- acc * n\n    Tailcall(fact, n - 1L, acc)\n  }\n}\nfact(10)","id":9,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-9","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"# Vous pouvez faire l'exercice ici.","id":10,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-10","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"# Vous pouvez faire l'exercice ici.","id":11,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-11","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}},{"code":"# Vous pouvez faire l'exercice ici.","id":12,"options":{"results":"markup","warning":"true","out-height":"","autorun":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","dpi":72,"classes":"","context":"interactive","read-only":"false","editor-font-scale":"1","output":"true","editor-max-height":"","label":"unnamed-chunk-12","fig-height":5,"comment":"","message":"true","editor-quick-suggestions":"false","out-width":"700px"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-width":7,"editor-quick-suggestions":"false","out-height":"","comment":"","out-width":"700px","message":"true","fig-height":5,"editor-word-wrap":"true","warning":"true","editor-max-height":"","autorun":"false","classes":"","dpi":72,"read-only":"false","fig-cap":"","context":"interactive","label":"unnamed-chunk-1","editor-font-scale":"1","results":"markup","output":"true"}},{"id":2,"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nprint(x)\nprint(fun_1())\nprint(x)\nprint(fun_2())\nprint(x)","options":{"fig-width":7,"editor-quick-suggestions":"false","out-height":"","comment":"","out-width":"700px","message":"true","fig-height":5,"editor-word-wrap":"true","warning":"true","editor-max-height":"","autorun":"false","classes":"","dpi":72,"read-only":"false","fig-cap":"","context":"interactive","label":"unnamed-chunk-2","editor-font-scale":"1","results":"markup","output":"true"}},{"id":3,"code":"# Vous pouvez essayer ici.","options":{"fig-width":7,"editor-quick-suggestions":"false","out-height":"","comment":"","out-width":"700px","message":"true","fig-height":5,"editor-word-wrap":"true","warning":"true","editor-max-height":"","autorun":"false","classes":"","dpi":72,"read-only":"false","fig-cap":"","context":"interactive","label":"unnamed-chunk-3","editor-font-scale":"1","results":"markup","output":"true"}}];
 
 </script>
 <script type="module">
@@ -1601,7 +1601,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions.html">Rappel sur les fonctions en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions_ordre_superieur_2.html">Fonctions d’ordre supérieur 2 (retours)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1626,7 +1626,7 @@ globalThis.qwebrExecuteCode = async function (
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./fonctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rappel sur les fonctions en R</span></a>
   </div>
 </li>
@@ -1638,7 +1638,7 @@ globalThis.qwebrExecuteCode = async function (
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions_ordre_superieur_2.html" class="sidebar-item-text sidebar-link">
+  <a href="./fonctions_ordre_superieur_2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Fonctions d’ordre supérieur 2 (retours)</span></a>
   </div>
 </li>
@@ -1658,11 +1658,8 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#définition-de-fonction" id="toc-définition-de-fonction" class="nav-link active" data-scroll-target="#définition-de-fonction">Définition de fonction</a></li>
-  <li><a href="#dots" id="toc-dots" class="nav-link" data-scroll-target="#dots">Dots</a></li>
-  <li><a href="#appeler-une-fonction-dots-sur-une-liste" id="toc-appeler-une-fonction-dots-sur-une-liste" class="nav-link" data-scroll-target="#appeler-une-fonction-dots-sur-une-liste">Appeler une fonction dots sur une liste</a></li>
-  <li><a href="#fonction-récursives" id="toc-fonction-récursives" class="nav-link" data-scroll-target="#fonction-récursives">Fonction récursives</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices">Exercices</a></li>
+  <li><a href="#les-environnements" id="toc-les-environnements" class="nav-link active" data-scroll-target="#les-environnements">Les environnements</a></li>
+  <li><a href="#lassignation-remontante--" id="toc-lassignation-remontante--" class="nav-link" data-scroll-target="#lassignation-remontante--">L’assignation remontante (<code>&lt;&lt;-</code>)</a></li>
   </ul>
 </nav>
     </div>
@@ -1955,7 +1952,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Rappel sur les fonctions en R</h1>
+<h1 class="title">Fonctions d’ordre supérieur (retours)</h1>
 </div>
 
 
@@ -1972,278 +1969,121 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="définition-de-fonction" class="level2">
-<h2 class="anchored" data-anchor-id="définition-de-fonction">Définition de fonction</h2>
-<p>En R, on définit une fonction de cette manière&nbsp;:</p>
+<section id="les-environnements" class="level2">
+<h2 class="anchored" data-anchor-id="les-environnements">Les environnements</h2>
+<p>Que se passe-t-il par exemple quand j’exécute ce code R&nbsp;? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s’appellent <code>x</code>&nbsp;! Comment cela peut bien se résoudre&nbsp;?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On l’a vu dans la partie précédente, ces fonctions retournant des fonctions sont un des deux types de fonction d’ordre supérieur.</p>
+</div>
+</div>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>La fonction <code>super_calcul</code> a plusieurs <strong>paramètres</strong>&nbsp;: <code>a</code>, <code>b</code> et <code>multiplication</code>. On donne à ces paramètres des valeurs qu’on appelle <strong>arguments</strong>. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.</p>
-<p>On remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera <code>TRUE</code>.</p>
-<p>On remarque aussi que, lorsque l’on fait des appels de fonctions, l’on peut choisir d’utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.</p>
+<p>On se rend compte de quatre choses&nbsp;:</p>
+<ul>
+<li>Aucune des assignations (<code>&lt;-</code>) internes aux fonctions n’a modifié l’environnement global&nbsp;; <code>print(x)</code> affiche toujours <code>1L</code>.</li>
+<li>Le <code>arg</code> de la fonction mystère semble avoir été passé</li>
+<li>Le résultat du x retourné par <code>fun_1()</code> est celui défini à l’intérieur de la fonction anonyme, à savoir <code>3L</code>.</li>
+<li>Le résultat du x retourné par <code>fun_2()</code> est celui défini à l’intérieur de la fonction anonyme, à savoir <code>4L</code>.</li>
+</ul>
+<p>Pourquoi donc&nbsp;?</p>
+<p><img src="environnements.svg" class="img-fluid"></p>
+<p>Dans R, les objets sont contenus dans des <em>environnements</em>. Les environnements sont plus ou moins des petites bulles&nbsp;:</p>
+<ul>
+<li>dans lesquelles on peut assigner des objets (avec<code>&lt;-</code>) de manière totalement isolée les unes des autres. Ici il faut bien comprendre que tous les objets <code>x</code> existent en même temps dans des environnements différents.</li>
+<li>à l’exception de l’emptyenv, tous les environnements indiquent un environnement parent.</li>
+<li>Chaque <strong>appel</strong> de fonction (et non chaque définition) définit un environnement. Ici on crée donc deux environnements différents pour mystere qu’on appelle des <em>instances</em>.</li>
+<li>lorsque l’on recherche un objet dans un environnement et qu’il n’y existe pas, on va chercher dans l’environnement parent (puis à nouveau l’environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, <code>fun_1</code> n’a pas connaissance de <code>arg</code>. Alors on cherche dans l’environnement au dessus. Surprise&nbsp;! On y trouve arg et l’on peut donc assigner avec cette valeur. C’est ce qui explique que <code>fun_1()</code> et <code>fun_2()</code> peuvent renvoyer des résultats différents.</li>
+</ul>
+<p>Dans la suite, on s’attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d’information, mais n’est pas vraiment le sujet ici. De notre point de vue, l’environnement le plus bas est donc le globalenv.</p>
+</section>
+<section id="lassignation-remontante--" class="level2">
+<h2 class="anchored" data-anchor-id="lassignation-remontante--">L’assignation remontante (<code>&lt;&lt;-</code>)</h2>
+<p>On remplace les deux assignations intra-fonctionnelles par un nouvel opérateur, l’assignation remontante <code>&lt;&lt;-</code>.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Le code ci-dessus renvoie une erreur. En effet, si un paramètre n’a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l’appel de fonction.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>On observe que le <code>x</code> global est cette fois-ci modifié par l’assignation remontante. En effet, cet opérateur <strong>remonte les différents environnements jusqu’à trouver un x déjà existant et le modifie</strong>.</p>
+<p>Ici, à chaque affectation, on remonte donc jusqu’à l’environnement global et on trouve <code>x</code>. On modifie alors celui-ci.</p>
+<p><img src="environnements2.svg" class="img-fluid"></p>
+<p>À la fin de l’exécution, on a donc le schéma ci-dessus. On n’a pas créé de version locale de <code>x</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Ne pas assigner le global
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La dernière remarque n’est pas complètement vraie. Du vieux code persiste dans R, renseignant des arguments par défaut dans le code même de la fonction, à l’aide de <code>if (missing(argument)) {}</code>. Ceci est toutefois, en général, <a href="https://design.tidyverse.org/def-magical.html">considéré comme une mauvaise pratique</a>.</p>
+<p>Attention cependant, quand bien même l’opérateur <code>&lt;&lt;-</code> peut théoriquement créer des fonctions manipulant l’environnement global comme on vient de le voir, ce n’est pas une bonne pratique. L’utilisation de <code>&lt;&lt;-</code> doit être fait de manière circonscrite à des cas que l’on va aborder dans la suite de cette page, mais modifier l’environnement global est une (très) mauvaise pratique. En effet, cela rompt complètement le paradigme fonctionnel dès lors que l’on a des états globaux pouvant mener à des interdépendances, des problèmes d’isolation…</p>
 </div>
 </div>
-<p>On vient de constater de manière implicite un aspect de R&nbsp;: par défaut, la valeur retournée par une fonction est la dernière valeur évaluée lors de son exécution (qui dépend éventuellement de structures telles que <code>if () else {}</code>). Une manière explicite de renvoyer une valeur de retour est d’invoquer <code>return()</code>. Appeler <code>return()</code> met fin à l’exécution de la fonction. Tout ce qui vient après n’est jamais rappelé.</p>
+<p>Que se passe-t-il si on n’utilise l’assignation remontante <strong>que</strong> dans la fonction anonyme et plus pour le <code>x &lt;- 2L</code> de la fonction de second ordre&nbsp;? Pourquoi&nbsp;?</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><code>calcula()</code> renvoie 2L, tandis que <code>calculb()</code> renvoie 3L. On aurait pu également constater que, dans <code>calcula</code>, si on remplace 3L par <code>stop()</code>, le stop n’empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.</p>
-</section>
-<section id="dots" class="level2">
-<h2 class="anchored" data-anchor-id="dots">Dots</h2>
-<p>Lorsque le nombre de paramètres d’une fonction peut être variable, on peut utiliser les <code>...</code> qu’on appelle “dots”. <code>list(...)</code> permet de retrouver ces arguments sous forme de liste dans le corps de la fonction.</p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Dans le code précédent, on a pu faire une fonction de somme sans figer à l’avance le nombre de termes de la somme.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>On a utilisé dans <code>super_somme</code> une fonction particulière, <code>Reduce</code>, qui est typique des langages fonctionnels. L’idée est ici que l’on calcule <code>2 + 3 + 7 + 1</code>. On verra plus en détail ce type d’opérations dans la partie dédiée au paradigme fonctionnel.</p>
-<p>Dans le cas présent, <code>sum</code> existe déjà et peut déjà s’appliquer à un vecteur. On n’a écrit <code>super_somme</code> qu’à fin d’illustration.</p>
-</div>
-</div>
-</section>
-<section id="appeler-une-fonction-dots-sur-une-liste" class="level2">
-<h2 class="anchored" data-anchor-id="appeler-une-fonction-dots-sur-une-liste">Appeler une fonction dots sur une liste</h2>
-<p>Imaginons que l’on veuille appeler une fonction <code>...</code> sur une liste. On souhaite que chaque élément de la liste devienne un argument. On peut par exemple faire, sur notre fonction <code>super_somme</code>.</p>
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La fonction <code>do.call</code> est en réalité plus générale que cela. Elle permet également d’utiliser des arguments nommés, comme on peut le voir dans l’exemple suivant&nbsp;:</p>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</section>
-<section id="fonction-récursives" class="level2">
-<h2 class="anchored" data-anchor-id="fonction-récursives">Fonction récursives</h2>
-<p>Les fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si <code>factorial()</code> existe déjà dans R, on pourrait très bien la redéfinir via&nbsp;:</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>R permet également une petite astuce pour éviter d’avoir à utiliser le nom d’une fonction dans son propre corps (cela permet de pouvoir renommer la fonction à un seul endroit). Le code précédent est équivalent à&nbsp;:</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque optionnelle
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Depuis la dernière version de R (pas avant !), on peut utiliser la fonction <code>Tailcall</code> pour faire des <strong>récursivités terminales</strong>&nbsp;; qui sont moins pratiques à lire mais plus efficaces. L’interface n’est pas encore figée mais cela ressemble aujourd’hui à cela.</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</section>
-<section id="exercices" class="level2">
-<h2 class="anchored" data-anchor-id="exercices">Exercices</h2>
-<p><strong>Question 1</strong></p>
-<p>Réécrire la fonction <code>super_somme</code> en utilisant une syntaxe récursive. On pourra, par exemple, s’aider de la fonction <code>head</code>, qui permet de retourner une sous-liste contenant les n premiers éléments d’une liste.</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proposition de solution
+Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>super_somme <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  dots <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">length</span>(dots)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">==</span> <span class="dv">0</span>L) <span class="dv">0</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> dots[[longueur]] <span class="sc">+</span> <span class="fu">do.call</span>(super_somme, <span class="fu">head</span>(dots, longueur <span class="sc">-</span> <span class="dv">1</span>L))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">super_somme</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span>L</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mystere <span class="ot">&lt;-</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(arg) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span>L</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">function</span>() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;&lt;-</span> arg</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(x)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fun_1 <span class="ot">&lt;-</span> <span class="fu">mystere</span>(<span class="dv">3</span>L)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>fun_2 <span class="ot">&lt;-</span> <span class="fu">mystere</span>(<span class="dv">4</span>L)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>La récursivité est ici très bourrine ! On le fait juste pour l’exercice.</li>
-<li>Quelques petites astuces permettent, si besoin, d’éviter de convertir tous les arguments d’une fonction dots en liste. On dispose par exemple de <code>...length()</code> en tant que substitut pour <code>length(list(...))</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Question 2</strong></p>
-<p>Ecrire une fonction <code>...</code> <code>super_produit</code> qui calcule le produit de tous les arguments, et l’utiliser pour écrire une nouvelle version de la fonction <code>fact</code>.</p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proposition de solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>super_produit <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dots <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Reduce</span>(<span class="st">`</span><span class="at">*</span><span class="st">`</span>, dots)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fact <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(super_produit, <span class="fu">as.list</span>(<span class="dv">1</span>L<span class="sc">:</span>n))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fact</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3628800</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Question 3</strong></p>
-<p>Ecrire une fonction dots <code>usine_a_gaz</code> qui renvoie&nbsp;:</p>
-<ul>
-<li><code>NULL</code> s’il n’y a aucun argument.</li>
-<li>Le nombre d’arguments s’il y en a deux ou plus.</li>
-<li><code>"bonjour"</code> si on lui soumet en unique argument un vecteur de type character.</li>
-<li>La somme du vecteur si on lui soumet en unique argument un vecteur numérique au sens de <code>is.numeric</code>.</li>
-<li><code>"échec"</code> dans tous les autres cas.</li>
-</ul>
-<p>On pourra <em>éventuellement</em> s’aider des petites astuces, dont <code>...length()</code>, lisibles dans la page d’aide des <code>...</code>. Celle-ci est accessible en tapant <code>?dots</code>.</p>
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proposition de solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usine_a_gaz <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">...length</span>()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">==</span> <span class="dv">0</span>) <span class="cn">NULL</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (longueur <span class="sc">&gt;=</span> <span class="dv">2</span>L) longueur</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.character</span>(..<span class="dv">1</span>)) <span class="st">"bonjour"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(..<span class="dv">1</span>)) <span class="fu">sum</span>(..<span class="dv">1</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="st">"échec"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "bonjour"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">fun_1</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>L, <span class="dv">2</span>L)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">list</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">fun_2</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "échec"</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
-</div>
-<p>On peut également utiliser des <code>return()</code>, auquel cas les <code>else</code> deviennent inutiles puisque <code>return</code> fait directement retourner la fonction.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>usine_a_gaz <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  longueur <span class="ot">&lt;-</span> <span class="fu">...length</span>()</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (longueur <span class="sc">&gt;=</span> <span class="dv">2</span>L) <span class="fu">return</span>(longueur)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.character</span>(..<span class="dv">1</span>)) <span class="fu">return</span>(<span class="st">"bonjour"</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.numeric</span>(..<span class="dv">1</span>)) <span class="fu">return</span>(<span class="fu">sum</span>(..<span class="dv">1</span>))</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"échec"</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "bonjour"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">c</span>(<span class="dv">1</span>L, <span class="dv">2</span>L)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">usine_a_gaz</span>(<span class="fu">list</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "échec"</code></pre>
+<p>En apparence, les fonctions semblent se comporter à nouveau comme si on utilisait l’assignation locale. Mais, en réalité, le comportement par environnements est différent.</p>
+<p><img src="environnements3.svg" class="img-fluid"></p>
+<p>À la fin de l’exécution on a le graphe ci-dessus. Les <code>x &lt;- 2L</code> des différentes instances de mystère ont été ecrasés respectivement par les <code>x &lt;&lt;- 3L</code> et <code>x &lt;&lt;- 4L</code> de <code>fun_1</code> <code>fun_2</code>. Ici, comme on n’utilise de toutes manières pas la valeur intermédiaire, ce n’est pas très grave.</p>
+<p>De plus, en assignant à l’environnement parent dans la fonction de second ordre, on préserve l’isolation entre instances. Donc tout va bien&nbsp;; même si ici la notation est inutile.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
+<p>:::</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fonctions manipulant des fonctions – Fonctions et programmation fonctionnelle</title>
+<title>Fonctions d’ordre supérieur&nbsp;1 (arguments) – Fonctions et programmation fonctionnelle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-1","classes":"","editor-font-scale":"1","dpi":72},"id":1},{"code":"tripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-2","classes":"","editor-font-scale":"1","dpi":72},"id":2},{"code":"tripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-3","classes":"","editor-font-scale":"1","dpi":72},"id":3},{"code":"begaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-4","classes":"","editor-font-scale":"1","dpi":72},"id":4},{"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-5","classes":"","editor-font-scale":"1","dpi":72},"id":5},{"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-6","classes":"","editor-font-scale":"1","dpi":72},"id":6},{"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-7","classes":"","editor-font-scale":"1","dpi":72},"id":7},{"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-8","classes":"","editor-font-scale":"1","dpi":72},"id":8},{"code":"vecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-9","classes":"","editor-font-scale":"1","dpi":72},"id":9},{"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-10","classes":"","editor-font-scale":"1","dpi":72},"id":10},{"code":"# Vous pouvez essayer ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-11","classes":"","editor-font-scale":"1","dpi":72},"id":11},{"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-12","classes":"","editor-font-scale":"1","dpi":72},"id":12},{"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-13","classes":"","editor-font-scale":"1","dpi":72},"id":13},{"code":"Map(\\(x) paste(x, sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-14","classes":"","editor-font-scale":"1","dpi":72},"id":14},{"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-15","classes":"","editor-font-scale":"1","dpi":72},"id":15},{"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-16","classes":"","editor-font-scale":"1","dpi":72},"id":16},{"code":"lapply(rep(2L, 4L),\n       function(n) runif(n))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-17","classes":"","editor-font-scale":"1","dpi":72},"id":17},{"code":"replicate(4L, runif(2L), simplify = FALSE)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-18","classes":"","editor-font-scale":"1","dpi":72},"id":18},{"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-19","classes":"","editor-font-scale":"1","dpi":72},"id":19},{"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-20","classes":"","editor-font-scale":"1","dpi":72},"id":20},{"code":"Reduce(`+`, c(1, 2, 8, -7))","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-21","classes":"","editor-font-scale":"1","dpi":72},"id":21},{"code":"Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-22","classes":"","editor-font-scale":"1","dpi":72},"id":22},{"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\ncomposer_fonctions <- function(e1, e2) {\n  e1 <- match.fun(e1)\n  e2 <- match.fun(e2)\n  function(...) {\n    e1(e2(...))\n  }\n}\n\nfonction_composee <- Reduce(composer_fonctions, liste_fonctions)\n\nprint(fonction_composee(pi))\nprint(atan(pi) / 3 + 1)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-23","classes":"","editor-font-scale":"1","dpi":72},"id":23},{"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\nappliquer_fonction <- function(f, accumulateur) {\n  f <- match.fun(f)\n  f(accumulateur)\n}\n\nReduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-24","classes":"","editor-font-scale":"1","dpi":72},"id":24},{"code":"liste <- list(1, -7, 8, 0)\n# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-25","classes":"","editor-font-scale":"1","dpi":72},"id":25},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-26","classes":"","editor-font-scale":"1","dpi":72},"id":26},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-27","classes":"","editor-font-scale":"1","dpi":72},"id":27},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-28","classes":"","editor-font-scale":"1","dpi":72},"id":28},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-29","classes":"","editor-font-scale":"1","dpi":72},"id":29},{"code":"# Vous pouvez faire l'exercice ici.","options":{"editor-max-height":"","context":"interactive","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","autorun":"false","fig-height":5,"results":"markup","output":"true","fig-cap":"","editor-word-wrap":"true","comment":"","warning":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-30","classes":"","editor-font-scale":"1","dpi":72},"id":30}];
+globalThis.qwebrCellDetails = [{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-1","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":1},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-2","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"tripler_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":2},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-3","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"tripler <- function(x) c(x, x, x)\n\ntripler_les_elements <- function(liste) {\n  lapply(liste, tripler)\n}\nbegaiement <-\n  tripler_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nprint(begaiement)\nprint(typeof(begaiement))\nprint(class(begaiement))","id":3},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-4","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"begaiement_bis <-\n  tripler_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nprint(begaiement_bis)\nprint(typeof(begaiement_bis))\nprint(class(begaiement_bis))","id":4},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-5","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 0L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":5},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-6","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"vecteur <- vapply(list(3L, 7L, -1L), \\(x) x + 1L, 133123128L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":6},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-7","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":7},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-8","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":8},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-9","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"vecteur <- sapply(list(3L, 7L, -1L), \\(x) x + 1L)\nprint(vecteur)\nprint(typeof(vecteur))\nprint(class(vecteur))","id":9},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-10","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nprint(matrice)\nprint(typeof(matrice))\nprint(class(matrice))","id":10},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-11","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"# Vous pouvez essayer ici.","id":11},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-12","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":12},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-13","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))","id":13},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-14","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Map(\\(x) paste(x, sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":14},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-15","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))","id":15},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-16","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))","id":16},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-17","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"lapply(rep(2L, 4L),\n       function(n) runif(n))","id":17},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-18","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"replicate(4L, runif(2L), simplify = FALSE)","id":18},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-19","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)","id":19},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-20","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","id":20},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-21","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Reduce(`+`, c(1, 2, 8, -7))","id":21},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-22","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)","id":22},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-23","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\ncomposer_fonctions <- function(e1, e2) {\n  e1 <- match.fun(e1)\n  e2 <- match.fun(e2)\n  function(...) {\n    e1(e2(...))\n  }\n}\n\nfonction_composee <- Reduce(composer_fonctions, liste_fonctions)\n\nprint(fonction_composee(pi))\nprint(atan(pi) / 3 + 1)","id":23},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-24","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\nappliquer_fonction <- function(f, accumulateur) {\n  f <- match.fun(f)\n  f(accumulateur)\n}\n\nReduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)","id":24},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-25","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"liste <- list(1, -7, 8, 0)\n# Vous pouvez faire l'exercice ici.","id":25},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-26","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"# Vous pouvez faire l'exercice ici.","id":26},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-27","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"# Vous pouvez faire l'exercice ici.","id":27},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-28","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"# Vous pouvez faire l'exercice ici.","id":28},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-29","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"# Vous pouvez faire l'exercice ici.","id":29},{"options":{"message":"true","context":"interactive","out-height":"","output":"true","results":"markup","label":"unnamed-chunk-30","dpi":72,"fig-cap":"","warning":"true","fig-width":7,"out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","classes":"","fig-height":5,"comment":"","editor-font-scale":"1"},"code":"# Vous pouvez faire l'exercice ici.","id":30}];
 
 </script>
 <script type="module">
@@ -1601,7 +1601,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions_manipulant_des_fonctions.html">Fonctions manipulant des fonctions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fonctions_ordre_superieur_1.html">Fonctions d’ordre supérieur 1 (arguments)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1632,8 +1632,20 @@ globalThis.qwebrExecuteCode = async function (
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions_manipulant_des_fonctions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Fonctions manipulant des fonctions</span></a>
+  <a href="./fonctions_ordre_superieur_1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fonctions d’ordre supérieur 1 (arguments)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fonctions_ordre_superieur_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fonctions d’ordre supérieur 2 (retours)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environnements.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Environnements</span></a>
   </div>
 </li>
     </ul>
@@ -1646,7 +1658,8 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#manipuler-des-fonctions-avec-des-fonctions" id="toc-manipuler-des-fonctions-avec-des-fonctions" class="nav-link active" data-scroll-target="#manipuler-des-fonctions-avec-des-fonctions">Manipuler des fonctions avec des fonctions</a></li>
+  <li><a href="#fonctions-dordre-supérieur" id="toc-fonctions-dordre-supérieur" class="nav-link active" data-scroll-target="#fonctions-dordre-supérieur">Fonctions d’ordre supérieur</a></li>
+  <li><a href="#manipuler-des-fonctions-avec-des-fonctions" id="toc-manipuler-des-fonctions-avec-des-fonctions" class="nav-link" data-scroll-target="#manipuler-des-fonctions-avec-des-fonctions">Manipuler des fonctions avec des fonctions</a></li>
   <li><a href="#lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" id="toc-lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" class="nav-link" data-scroll-target="#lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur">lapply&nbsp;: appliquer une fonction à chaque élément d’une liste ou d’un vecteur</a></li>
   <li><a href="#vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice." id="toc-vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice." class="nav-link" data-scroll-target="#vapply-une-sorte-de-lapply-mais-avec-une-sortie-sous-forme-dun-vecteur-ou-dune-matrice.">vapply&nbsp;: une sorte de lapply mais avec une sortie sous forme d’un vecteur ou d’une matrice.</a>
   <ul class="collapse">
@@ -1949,7 +1962,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Fonctions manipulant des fonctions</h1>
+<h1 class="title">Fonctions d’ordre supérieur&nbsp;1 (arguments)</h1>
 </div>
 
 
@@ -1966,16 +1979,21 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
+<section id="fonctions-dordre-supérieur" class="level2">
+<h2 class="anchored" data-anchor-id="fonctions-dordre-supérieur">Fonctions d’ordre supérieur</h2>
+<p>En informatique, la notion de <em>fonction d’ordre supérieur</em> désigne une fonction avec au moins l’une des propriétés suivantes&nbsp;:</p>
+<ul>
+<li>Elle a pour argument une ou des fonctions</li>
+<li>Elles retournent a minima une fonction</li>
+</ul>
+<p>Les fonctions d’ordre supérieur sont un élément central permettant l’expressivité des langages fonctionnels.</p>
+<p>Dans cette première partie sur les fonctions d’ordre supérieur, nous abordons la thématique des fonctions avec ayant des <em>arguments</em> fonctionnels.</p>
+</section>
 <section id="manipuler-des-fonctions-avec-des-fonctions" class="level2">
 <h2 class="anchored" data-anchor-id="manipuler-des-fonctions-avec-des-fonctions">Manipuler des fonctions avec des fonctions</h2>
 <p>On a vu dans le point précédent deux fonctions qui s’appliquent sur des fonctions. <code>do.call</code> nous a permis d’appliquer une fonction <code>...</code> sur une liste, tandis que Reduce nous a permis d’écrire <code>2 + 3 + 7 + 1</code> de manière un peu plus jolie qu’à la main.</p>
 <p>On a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d’appliquer des fonctions de différentes manières. Nous verrons ici <code>lapply</code>, <code>vapply</code>, <code>Map</code>, <code>replicate</code>, <code>apply</code>, <code>do.call</code>, <code>Reduce</code>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="dessin_fonctions_manipulation.svg" class="img-fluid figure-img"></p>
-<figcaption>Schéma des différentes fonctions de manipulation</figcaption>
-</figure>
-</div>
+<p><img src="dessin_fonctions_manipulation.svg" class="img-fluid"></p>
 </section>
 <section id="lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" class="level2">
 <h2 class="anchored" data-anchor-id="lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur">lapply&nbsp;: appliquer une fonction à chaque élément d’une liste ou d’un vecteur</h2>
@@ -2209,104 +2227,104 @@ Proposition de solution
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">60</span>,<span class="at">mean =</span> <span class="dv">3</span>,<span class="at">sd =</span> <span class="fl">0.5</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
- [1] 2.945190 3.689774 2.834709 2.675219 3.373121 2.280165 2.296460 2.201929
- [9] 2.975534 2.930515 3.456482 3.377843 2.738632 3.377906 3.316418 3.620004
-[17] 2.910195 3.214161 3.283914 3.155467 3.485684 3.102626 2.184568 3.112141
-[25] 3.095935 3.525561 3.209564 3.012670 3.279944 3.734326 3.383275 2.712052
-[33] 2.549636 2.967407 3.456160 3.329602 2.684705 3.108149 2.995610 2.753371
-[41] 2.855713 3.030279 1.973138 2.370600 3.216329 3.000944 3.832782 3.203346
-[49] 2.454869 3.238868 2.112340 3.110525 2.984646 3.167227 3.032527 2.644053
-[57] 2.822058 2.652624 1.701097 3.653376
+ [1] 2.370146 3.262828 2.763291 2.686184 2.604916 2.771424 3.018524 2.004576
+ [9] 3.015142 2.792934 3.812547 2.626474 2.096940 2.947610 1.998409 3.097037
+[17] 2.950695 2.768606 3.105138 2.660424 3.074069 2.188164 2.522771 3.922110
+[25] 2.354544 2.421405 3.332006 2.475457 2.707242 2.036337 2.901434 3.532151
+[33] 2.033982 2.909746 2.659962 2.728220 2.758358 3.371283 2.378492 3.120731
+[41] 3.248294 2.980137 2.731370 1.904591 3.817861 2.190075 2.619385 2.857702
+[49] 3.425335 2.500552 2.450450 2.939068 4.004288 2.876728 3.445715 2.966630
+[57] 3.011738 2.844817 2.876044 2.640377
 
 [[2]]
- [1] 2.700733 3.175546 3.222453 2.756638 2.882133 2.531906 2.967691 3.001449
- [9] 2.765007 2.522784 3.015504 2.817449 3.549796 2.931609 2.545157 2.124304
-[17] 3.194720 2.362288 2.915612 2.295578 3.443964 3.257206 3.646187 3.319236
-[25] 3.257530 3.289501 2.470275 2.948116 3.750068 3.047629 2.931829 3.028832
-[33] 3.610043 1.356037 2.358965 2.344329 4.062540 3.158011 3.363879 2.732560
-[41] 2.866943 2.649896 2.695793 2.987785 3.303133 2.276929 2.863690 2.853631
-[49] 2.842360 2.901706 3.300580 2.747383 2.442608 2.115980 2.654710 3.232925
-[57] 2.597433 3.580980 3.033270 2.455633
+ [1] 2.855416 2.426451 3.319321 4.271252 3.436606 2.438704 3.001839 3.038729
+ [9] 2.224970 3.175674 3.747471 3.240056 2.860965 3.601988 3.726540 2.943856
+[17] 2.305304 2.916165 3.330673 3.636054 2.620736 3.528038 2.534974 3.022138
+[25] 3.439592 3.147794 2.555402 3.586026 3.695867 2.816758 3.215402 3.319625
+[33] 2.676167 3.266928 3.412885 3.395210 3.127531 2.624134 3.224861 3.701690
+[41] 3.619717 3.311643 3.359030 3.928485 2.935640 3.498239 3.760179 2.898250
+[49] 2.270553 3.501598 2.997125 2.518089 2.963692 3.387896 2.799643 3.200317
+[57] 2.433674 2.786205 3.123759 3.613634
 
 [[3]]
- [1] 2.965665 2.337071 3.286953 1.978672 2.645645 3.647392 3.371573 2.290401
- [9] 3.899753 2.660074 1.699275 3.541451 3.013324 2.922042 3.371702 2.949716
-[17] 2.063790 3.083304 3.386527 2.627046 3.078610 3.043802 2.519999 2.447171
-[25] 2.631938 2.589618 3.094190 3.318430 3.013931 2.916234 2.615722 2.658454
-[33] 2.223172 2.840353 3.011267 3.955952 2.843009 2.932922 2.367985 2.751579
-[41] 2.601571 3.340378 3.770561 3.036170 2.989003 3.412837 2.706429 2.882474
-[49] 2.651799 3.241494 2.520012 2.528300 3.892664 3.892818 2.863842 3.274836
-[57] 2.803749 2.857929 3.517121 3.650169
+ [1] 2.411144 3.623378 3.138997 3.941169 2.920377 2.862622 2.816264 2.051318
+ [9] 2.612717 3.377799 3.068269 1.971130 2.593013 3.158049 3.484656 2.538202
+[17] 3.800165 3.452505 3.774575 3.954823 3.368778 2.475400 2.887125 2.856530
+[25] 3.315506 2.250651 3.163873 2.238281 2.647391 2.955322 2.784454 3.557325
+[33] 3.672512 3.010054 3.040430 2.867844 3.213498 3.019973 3.222618 2.834912
+[41] 4.065857 2.245785 2.678545 2.800417 2.393334 2.276666 4.033482 3.261431
+[49] 3.694472 2.633768 2.870054 3.677931 2.850950 3.056014 2.614176 3.352775
+[57] 3.485401 3.632023 2.918808 3.623611
 
 [[4]]
- [1] 3.067890 3.926129 3.218663 2.539130 2.422542 3.732739 2.422095 3.445316
- [9] 3.001726 2.249829 3.168816 3.132606 3.756343 3.858855 2.679064 2.934370
-[17] 2.325845 3.066202 3.064843 3.566040 3.546680 3.253415 2.653988 2.904436
-[25] 3.084129 2.696063 3.434859 2.348696 2.540915 3.206894 2.998248 2.810290
-[33] 2.833012 3.693509 3.772737 3.158415 1.734699 2.258199 2.501934 4.215443
-[41] 3.153358 3.276138 2.449788 3.013814 3.266682 2.837973 2.579594 2.731997
-[49] 2.707841 2.065409 1.829452 2.676403 3.114086 2.997162 3.004715 3.985534
-[57] 3.833934 2.441828 2.825845 3.774873
+ [1] 2.928287 2.806230 3.057174 2.658543 3.542307 2.888473 2.773950 2.814755
+ [9] 3.628797 2.526310 2.938191 2.996135 2.577022 2.764999 2.530241 2.569515
+[17] 3.734033 2.379220 2.493383 2.959213 2.442834 2.925013 3.384702 3.852721
+[25] 3.113998 3.422251 2.169083 3.403468 2.844835 2.865424 3.282295 3.401358
+[33] 2.902537 2.192596 3.599037 3.144432 2.698360 3.760512 3.174650 2.884784
+[41] 2.532495 3.888827 4.172780 3.727963 3.017567 3.141971 3.323411 3.385514
+[49] 2.961843 3.639150 2.796017 3.163777 2.869902 3.524504 3.601050 2.746486
+[57] 2.726324 2.465208 2.963285 3.250889
 
 [[5]]
- [1] 2.506134 3.262829 2.919872 3.375525 2.047295 2.524776 3.146332 3.615658
- [9] 3.389791 3.347057 2.933058 3.057442 2.896028 4.164673 3.129289 2.879989
-[17] 2.560946 3.661774 1.939778 2.601968 2.223647 1.004420 3.281113 2.730517
-[25] 3.066030 3.606713 3.557001 3.509972 2.911045 2.984831 1.530075 3.284495
-[33] 2.910263 3.817430 4.323413 3.537865 3.436432 2.287610 3.307696 3.581217
-[41] 3.388144 2.675607 2.402101 3.438010 2.428335 3.636887 3.061773 3.722320
-[49] 3.331042 2.999251 2.302596 3.531252 3.374166 3.307852 2.536472 2.479843
-[57] 2.898213 3.275301 3.583549 2.958568
+ [1] 2.930299 3.468797 2.783289 2.556179 3.779609 3.411803 2.481815 3.144227
+ [9] 2.754412 4.309388 2.488384 2.669110 2.453329 2.983594 2.463819 3.044441
+[17] 2.593724 3.014678 3.088978 2.765183 2.891056 3.154427 3.056325 2.300785
+[25] 3.331147 2.908347 2.993595 3.420784 2.739661 2.257813 2.853130 2.799756
+[33] 2.582150 2.981479 3.433278 2.579052 2.795631 3.353136 2.383158 3.250350
+[41] 2.858984 2.854526 2.961082 2.791431 2.604578 3.135313 3.153102 3.603586
+[49] 3.157696 3.222577 2.725945 2.708001 2.698599 2.628393 2.562522 1.813767
+[57] 2.657789 2.681922 3.063649 3.719442
 
 [[6]]
- [1] 2.759983 2.717782 2.512593 2.454632 2.945590 2.803374 3.496802 2.734772
- [9] 3.023617 2.860714 3.281477 2.851923 3.068824 3.734996 3.378505 3.096408
-[17] 2.633449 2.643478 3.567651 2.854408 2.777484 2.902738 2.608742 3.048947
-[25] 2.787693 3.568748 1.660080 3.153358 2.905809 2.938890 3.597832 2.792837
-[33] 2.095198 2.883654 3.306552 3.268411 3.491499 2.834339 4.094669 2.978060
-[41] 2.636511 2.292607 3.445217 2.723549 3.510750 2.805820 2.806650 3.912339
-[49] 3.517209 2.842602 3.820475 2.943491 3.514937 3.011756 3.370315 2.124887
-[57] 2.609504 2.626293 3.947644 2.406152
+ [1] 3.444303 1.983915 3.304528 2.488434 2.494385 3.109373 2.585605 2.944195
+ [9] 3.761678 4.010670 3.042734 2.952097 2.259538 2.454741 3.229710 3.086777
+[17] 3.521752 2.278155 2.729365 3.066688 3.137805 1.899992 3.567384 4.232602
+[25] 3.080624 2.994341 2.539727 3.492300 3.273228 2.703146 3.334442 3.617261
+[33] 3.358550 3.391972 2.217749 2.910153 3.346436 3.325614 3.673958 2.175518
+[41] 2.723343 2.972632 3.243388 2.733392 3.340362 2.948020 2.959371 2.296202
+[49] 2.788161 2.953863 3.915794 3.390333 1.561832 3.290956 2.413288 3.388614
+[57] 2.605411 3.241985 3.179118 3.405703
 
 [[7]]
- [1] 2.503619 3.321371 3.196114 2.521041 2.795934 3.089677 2.883284 2.412295
- [9] 2.954451 3.260039 3.121776 2.888902 3.066562 3.330178 3.122737 3.201653
-[17] 3.766212 2.377866 3.134883 1.807507 2.876118 3.322443 3.469065 2.258656
-[25] 3.369697 3.788339 3.106770 2.826779 3.479992 3.243653 2.195606 3.407323
-[33] 2.717495 2.588082 3.241171 2.423053 2.632692 3.405072 2.983763 3.348769
-[41] 3.959177 2.332042 3.510909 2.029554 3.492103 2.779038 3.106756 1.668766
-[49] 2.995226 2.172279 3.712460 1.764258 1.827221 2.627713 2.636046 3.503488
-[57] 2.763703 2.634675 2.920670 2.331616
+ [1] 3.070882 2.388843 4.028171 3.722964 3.185195 3.578766 2.409980 2.720908
+ [9] 3.311172 3.300183 3.629968 2.383174 2.954369 1.755282 2.995271 3.344668
+[17] 2.773331 3.083335 3.273461 2.771311 3.644600 2.184925 2.777556 2.958026
+[25] 2.879533 2.773075 3.408658 3.225655 3.640639 2.647190 3.176729 4.288763
+[33] 3.284356 2.211979 2.873108 3.214557 4.061442 3.648194 3.129995 3.132466
+[41] 3.343268 4.087268 2.950878 3.194272 3.076715 2.577039 3.576554 3.079635
+[49] 4.160233 3.060596 2.803438 1.655159 2.874975 2.978642 3.142025 3.434809
+[57] 3.566271 2.627425 2.407964 3.080213
 
 [[8]]
- [1] 3.007616 3.185895 3.123852 2.711697 3.990874 3.546854 3.309876 2.682229
- [9] 3.609715 2.586623 1.984525 2.529217 2.964609 2.930071 2.794104 3.182096
-[17] 3.321844 3.739183 3.648427 3.894031 2.854401 3.154684 2.795359 2.681974
-[25] 1.943180 3.494868 2.795288 2.973098 2.856899 1.468333 3.691191 2.178916
-[33] 3.215456 2.689033 3.546938 2.743230 3.058907 3.360415 3.271022 2.961366
-[41] 3.127955 2.891277 3.287970 3.832766 3.482794 2.394684 2.497038 2.788962
-[49] 3.646429 2.627803 2.520767 2.964422 3.417782 2.403738 2.830667 3.081242
-[57] 3.193275 3.315166 3.347737 2.996504
+ [1] 2.258336 2.826198 2.717985 3.005703 3.785186 4.044544 2.623268 2.509630
+ [9] 2.088045 3.356736 3.573923 2.836448 2.641140 2.964509 3.295266 3.330117
+[17] 2.567656 2.672419 3.271351 2.272520 2.804187 3.261322 3.546399 2.590895
+[25] 3.515348 2.700060 2.831882 3.003774 2.790129 2.499487 2.656298 2.683432
+[33] 2.931754 2.782153 2.208759 3.115842 3.169606 2.293195 2.697881 2.996041
+[41] 2.971753 3.639223 3.661636 2.600429 3.331697 3.739298 2.574232 3.397156
+[49] 2.806277 4.027868 2.567843 2.643426 3.080940 2.551753 3.894816 2.157884
+[57] 3.346771 3.346075 2.723353 2.739866
 
 [[9]]
- [1] 3.304540 3.652960 3.258424 3.890154 4.147979 2.820627 2.495024 3.987663
- [9] 2.778394 3.190001 3.202533 3.468961 3.349873 2.262447 2.138251 3.715904
-[17] 2.750250 3.145551 3.459964 2.525392 3.339949 2.360416 3.054152 2.690851
-[25] 2.761095 4.323387 3.563038 3.186422 3.607526 3.655162 3.043336 3.183650
-[33] 2.836099 2.798422 4.316947 3.937180 3.082113 2.290776 1.856219 3.058601
-[41] 3.044540 3.291709 3.306013 3.119446 3.058468 2.734612 3.702347 3.059364
-[49] 3.543672 2.037150 2.480581 3.846442 2.272261 2.949264 3.079672 2.710041
-[57] 2.430404 2.684815 3.262095 2.724790
+ [1] 2.628745 3.192060 2.860172 2.870638 2.664751 2.632548 2.446241 3.074247
+ [9] 4.354828 3.004852 2.503508 3.479399 3.054694 3.282546 3.223641 2.065142
+[17] 2.395519 2.818088 3.167184 3.048951 3.478901 3.177729 2.980459 2.280595
+[25] 3.217043 2.922239 2.994505 3.267896 2.985091 2.444129 1.557777 3.000996
+[33] 2.304511 2.660533 3.563766 3.338263 3.459020 3.359563 2.995089 2.871788
+[41] 3.348412 3.628447 3.301033 2.998806 2.958938 2.948100 3.595914 3.867726
+[49] 3.419748 2.856717 2.571199 3.671124 2.775145 3.605812 2.600289 3.496574
+[57] 2.838918 3.104158 2.878885 3.321495
 
 [[10]]
- [1] 3.757303 3.207300 3.133512 2.700407 2.711993 3.621752 2.186890 2.294711
- [9] 3.450972 2.875661 3.455074 2.826353 2.673484 2.171630 2.541035 2.701082
-[17] 3.488592 2.421358 3.333854 3.508501 3.237116 2.547915 2.332988 3.003912
-[25] 3.018399 2.202544 2.155630 3.590317 2.494840 3.406011 2.044224 3.653661
-[33] 2.579729 3.675547 3.150110 3.276930 3.504760 3.091101 3.284369 2.577347
-[41] 2.482618 4.386510 4.075329 2.527134 2.719699 3.849078 3.501329 3.036208
-[49] 2.518480 2.506948 2.514735 3.065467 3.022085 2.001137 2.518736 2.710365
-[57] 2.977204 3.117520 2.774776 2.277688</code></pre>
+ [1] 2.728809 2.751258 3.192246 3.023458 3.644595 2.906662 1.861412 3.752656
+ [9] 2.480916 2.940160 3.449012 3.039403 3.054999 3.327919 3.304727 3.618562
+[17] 2.888345 3.295824 3.383948 4.166556 2.077612 3.351122 3.276683 3.390330
+[25] 3.014997 2.770678 3.641298 2.417656 2.916197 3.449011 3.416493 3.839089
+[33] 3.090735 3.591272 2.682806 3.478596 2.698643 3.278829 3.387441 1.788142
+[41] 3.241027 2.412428 2.138663 3.304694 3.620101 2.681947 4.252144 2.622675
+[49] 3.967442 2.767841 3.633062 2.724611 2.724359 2.628273 2.915302 3.152832
+[57] 2.824918 2.857073 2.787096 1.995351</code></pre>
 </div>
 </div>
 </div>
