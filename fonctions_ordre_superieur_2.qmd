@@ -88,7 +88,7 @@ Ici, à chaque affectation, on remonte donc jusqu'à l'environnement global et o
 
 ## Ne pas assigner le global
 
-Attention cependant, quand bien même l'opérateur `<<-` peut théoriquement créer des fonctions manipulant l'environnement global comme on vient de le voir, ce n'est pas une bonne pratique. L'utilisation de `<<-` doit être fait de manière circonscrite à des cas que l'on va aborder dans la suite de cette page, mais modifier l'environnement global est une (très) mauvaise pratique. En effet, cela rompt complètement le paradigme fonctionnel dès lors que l'on a des états globaux pouvant mener à des interdépendances, des problèmes d'isolation...
+Attention cependant, quand bien même l'opérateur `<<-` peut créer des fonctions manipulant l'environnement global comme on vient de le voir, ce n'est pas une bonne pratique. L'utilisation de `<<-` doit être fait de manière circonscrite à des cas que l'on va aborder dans la suite de cette page. Modifier l'environnement global est le plus souvent une (très) mauvaise pratique. En effet, cela rompt complètement le paradigme fonctionnel dès lors que l'on a des états globaux pouvant mener à des interdépendances, des problèmes d'isolation...
 
 :::
 
@@ -229,7 +229,7 @@ Faux
 ::: {.callout-note collapse="true" icon="false"}
 ## Réponse
 
-C'est lors de l'**appel** d'une fonction que l'on détermine un environnement.
+C'est lors de l'**appel** d'une fonction que l'on détermine un environnement. La nuance est importante car une même fonction appelée plusieurs fois définit plusieurs environnements différents.
 
 :::
 
@@ -463,7 +463,9 @@ calcul_de_dingue <- function(arg) {
 
 Où `arg` est un vecteur numérique.
 
-Comment utiliser une closure pour faire une fonction `calcul_moins_dingue` qui renvoie les **mêmes valeurs** que `calcul_de_dingue` pour les **mêmes entrées** mais stocke les résultats dans une liste pour éviter de relancer les calculs plus d'une fois (on appelle cela un cache) ?
+Comment utiliser une closure pour définir une fonction `calcul_moins_dingue` qui renvoie les **mêmes valeurs** que `calcul_de_dingue` pour les **mêmes entrées** mais stocke les résultats pour éviter de relancer les calculs plus d'une fois ?
+
+L'idée est que `calcul_moins_dingue` appelle `calcul_de_dingue` si elle n'a pas été déjà appelée, et stocke le résultat dans une liste. Tout appel subséquent de `calcul_moins_dingue` doit alors restituer le résultat stocké plutôt que de réappeler `calcul_de_dingue`. On appelle ce principe un cache ; l'axiome sous-jacent est que calcul_de_dingue est une fonction pure (on peut complètement prévoir son résultat à partir de ses arguments).
 
 ```{webr-r}
 calcul_de_dingue <- function(arg) {
@@ -471,7 +473,7 @@ calcul_de_dingue <- function(arg) {
   return(2 * arg)
 }
 # Vous pouvez faire l'exercice ici. La fonction calcul_de_dingue n'est pas à modifier.
-# Elle doit être appelée dans le code suivant
+# Elle doit être appelée dans le code que vous rajoutez.
 ```
 
 ::: {.callout-tip collapse="true"}
