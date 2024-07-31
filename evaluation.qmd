@@ -182,7 +182,7 @@ library(disaggR)
 print(exists("disaggR"))
 ```
 
-Lorsque l'on charge un package, on utilise `library()` avec à l'intérieur un nom qui n'existe pourtant pas dans l'environnement global. Ici l'environnement global ne contient pas d'objet `disaggR`. C'est une forme d'évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n'est pas une évaluation non-standard des plus utiles en soi.
+Lorsque l'on charge un package, par exemple [disaggR](https://github.com/InseeFr/disaggR), on utilise `library()` avec à l'intérieur un nom qui n'existe pourtant pas dans l'environnement global. Ici l'environnement global ne contient pas d'objet `disaggR`. C'est une forme d'évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n'est pas une évaluation non-standard des plus utiles en soi.
 
 La plus utilisée de ces NSE est la tidyeval régnant dans le tidyverse.
 
