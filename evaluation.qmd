@@ -2,7 +2,168 @@
 title: "Évaluation des fonctions en R"
 ---
 
-## Évaluation paresseuse
+## Expression
+
+R repose (comme beaucoup de langages fonctionnels) sur des expressions. Une expression est comme une phrase en français mais en R. Une expression est simplement un ensemble **non-évalué** de code R syntaxiquement correct, même si ce sens peut être farfelu ou produire une erreur à l'évaluation dans un environnement (voire dans n'importe quel environnement).
+
+```{r}
+#| eval: false
+1 + 2
+function(x) sin(2*x)
+round(exp(3) + 1, 5)
+arnaud <- (bonjour + "voiture") ^ sqrt(2 + "train")
+1 <- 2
+```
+
+Tout ce qui est au dessus est une expression avant d'être évalué, possiblement par une erreur. A contrario, les lignes ci-dessous ne peuvent pas correspondre à une expression. Elles sont syntaxiquement incorrectes.
+
+```{r}
+#| eval: false
+2 *
+exp(
+<- 3
+```
+
+Pour ne pas évaluer du code R *syntaxiquement correct* et le laisser sous forme d'expression, on peut utiliser `quote()`.
+
+```{webr-r}
+quote(1 + 2)
+quote(function(x) sin(2*x))
+quote(round(exp(3) + 1, 5))
+quote(arnaud <- (bonjour + "voiture") ^ sqrt(2 + "train"))
+quote(1 <- 2)
+```
+
+Le code syntaxiquement incorrect ne peut lui pas former une expression :
+
+```{webr-r}
+quote(2*)
+quote(<- 3)
+quote(1***5)
+```
+
+## Évaluation paresseuse et court-circuit
+
+R est fainéant. Il n'évaluera les arguments d'une fonction qu'au dernier moment s'il en a besoin (*évaluation paresseuse des arguments*). Les expressions employant des contrôle (`if`, `else`...) définissent elles aussi une forme de paresse dans la mesure où leurs sous-parties non-retenues ne sont pas évaluées (*évaluation paresseuse des structures de contrôle*). À l'intérieur même des expressions, les expressions faites d'opérateurs logiques unitaires (`&&` et `||` mais pas `&` ni `|` qui sont vectoriels) évaluent elles aussi le moins possible de leurs sous-parties (*court-circuit*).
+
+::: callout-note
+
+## Remarque
+
+Dans le monde de R, quand on parle d'évaluation paresseuse, on se réfère surtout à l'évaluation paresseuse des arguments. Mais l'évaluation paresseuse est un concept assez général. L'idée de base est de n'évaluer que ce dont on a absolument besoin.
+
+:::
+
+```{webr-r}
+lazy_eval <-
+  function(x = stop("C'est une erreur !"),
+           y = matrix(1:9, nrow = -3L)) {
+    TRUE
+  }
+lazy_eval()
+```
+
+Dans l'exemple précédent, si les arguments n'étaient pas évalués de manière paresseuse, autant l'évaluation de `x` que celle de `y` précipiterait une erreur :
+
+* celle de `x` car `stop()` est la fonction de R permettant de stopper l'exécution et de retourner une erreur avec le message fourni.
+* celle de `y` car une matrice avec un nombre de lignes négatifs, ça n'existe pas.
+
+Mais le corps de la fonction `lazy_eval` étant réduit à son plus simple appareil, à savoir simplement `TRUE`, il ne requiert pas d'en évaluer les arguments. Il n'y a donc aucune erreur d'exécution et la fonction retourne bien `TRUE` !
+
+```{webr-r}
+lazy_eval <-
+  function(choix) {
+    if (choix) TRUE
+    else stop("C'est une erreur !")
+  }
+# Testez
+# lazy_eval(choix = TRUE)
+# et
+# lazy_eval(choix = FALSE)
+```
+
+Dans l'exemple ci-dessus, on illustre le bon fonctionnement paresseux d'une structure de contrôle. La partie `else` n'est évaluée que si `choix` est `FALSE`.
+
+```{webr-r}
+lazy_eval <-
+  function(choix, x = stop(), y = TRUE) {
+    if (choix) y
+    else x
+  }
+# Testez
+# lazy_eval(choix = TRUE)
+# et
+# lazy_eval(choix = FALSE)
+```
+
+L'exemple ci-dessus repose à la fois sur la paresse des structures de contrôle et sur celle des arguments. L'argument x n'est évalué que dans le cas où `choix` vaut `FALSE`.
+
+::: callout-warning
+
+```{r}
+lazy_eval_1 <-
+  function(x = stop("C'est une erreur !"),
+           y = matrix(1:9, nrow = -3L)) {
+    truc <- x
+    TRUE
+  }
+lazy_eval_2 <-
+  function(x = stop("C'est une erreur !"),
+           y = matrix(1:9, nrow = -3L)) {
+    x
+    TRUE
+  }
+# Essayer lazy_eval_1() et lazy_eval_2()
+```
+
+L'assignation, de même que simplement écrire une ligne avec pour seul code le nom d'un des arguments, force son évaluation. C'est pourquoi les deux exécutions de fonctions ci-dessus précipitent une erreur
+
+:::
+
+```{webr-r}
+court_circuit_1 <-
+  function(choix) {
+    choix && stop("C'est une erreur !")
+  }
+
+court_circuit_2 <-
+  function(choix) {
+    choix || stop("C'est une erreur !")
+  }
+# Testez
+# court_circuit_1(choix = TRUE)
+# court_circuit_1(choix = FALSE)
+# court_circuit_2(choix = TRUE)
+# court_circuit_2(choix = FALSE)
+```
+
+On voit ci-dessus que :
+
+* Dans le cas de cas de `court_circuit_1`, le `stop()` n'est pas évalué si choix vaut `FALSE`. En effet, peu importe la valeur du deuxième terme, on peut bien deviner que si le premier est faux, la valeur du `&&` doit être `FALSE`. Pas besoin donc de continuer.
+* Dans le cas de cas de `court_circuit_2`, le `stop()` n'est pas évalué si choix vaut `TRUE`. En effet, peu importe la valeur du deuxième terme, on peut bien deviner que si le premier est vrai, la valeur du `||` doit être `TRUE`. Pas besoin donc de continuer.
+
+::: callout-warning
+
+```{webr-r}
+pas_court_circuit_1 <-
+  function(choix) {
+    choix & stop("C'est une erreur !")
+  }
+
+pas_court_circuit_2 <-
+  function(choix) {
+    choix | stop("C'est une erreur !")
+  }
+# Testez
+# pas_court_circuit_1(choix = TRUE)
+# pas_court_circuit_1(choix = FALSE)
+# pas_court_circuit_2(choix = TRUE)
+# pas_court_circuit_2(choix = FALSE)
+```
+
+Attention, les opérateurs logiques `&` et `|`, qui sont normalement prévus pour de la logique vectorielle, ne sont pas court-circuités.
+
+:::
 
 ## Évaluation standard
 
