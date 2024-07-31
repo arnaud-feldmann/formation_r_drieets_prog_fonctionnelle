@@ -1,5 +1,8 @@
 ---
 title: "Évaluation des fonctions en R"
+webr:
+  packages: ["dplyr", "disaggR"]
+  autoload: false
 ---
 
 ## Expression
@@ -17,11 +20,10 @@ arnaud <- (bonjour + "voiture") ^ sqrt(2 + "train")
 
 Tout ce qui est au dessus est une expression avant d'être évalué, possiblement par une erreur. A contrario, les lignes ci-dessous ne peuvent pas correspondre à une expression. Elles sont syntaxiquement incorrectes.
 
-```{r}
-#| eval: false
-2 *
+```{=html}
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy">2 *
 exp(
-<- 3
+<- 3</div>
 ```
 
 Pour ne pas évaluer du code R *syntaxiquement correct* et le laisser sous forme d'expression, on peut utiliser `quote()`.
@@ -161,10 +163,231 @@ pas_court_circuit_2 <-
 # pas_court_circuit_2(choix = FALSE)
 ```
 
-Attention, les opérateurs logiques `&` et `|`, qui sont normalement prévus pour de la logique vectorielle, ne sont pas court-circuités.
+Attention, les opérateurs logiques `&` et `|`, qui sont normalement prévus pour de la logique vectorielle, ne sont pas court-circuités comme on peut le voir dans l'exemple précédent.
 
 :::
 
 ## Évaluation standard
 
-## tidyeval
+On a vu dans le classeur précédent que les appels de fonctions définissent de nouveaux environnements, et que les différents noms d'objets utilisés sont évalués en remontant l'arbre des environnements jusqu'à trouver le bon nom.
+
+On a vient également de voir que les expressions sont évaluées au dernier moment, ce que l'on appelle l'évaluation paresseuse. Les expressions sont évaluées dans leur environnement, par exemple celui de leur fonction.
+
+La somme de ces deux propriétés définit l'évaluation standard en R.
+
+R permet cependant des bâtir des exceptions à cette "évaluation standard". On appelle ces évaluations irrégulières des... Évaluations non-standard (Non-Standard Evaluation, NSE).
+
+```{webr-r}
+library(disaggR)
+print(exists("disaggR"))
+```
+
+Lorsque l'on charge un package, on utilise `library()` avec à l'intérieur un nom qui n'existe pourtant pas dans l'environnement global. Ici l'environnement global ne contient pas d'objet `disaggR`. C'est une forme d'évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n'est pas une évaluation non-standard des plus utiles en soi.
+
+La plus utilisée de ces NSE est la tidyeval régnant dans le tidyverse.
+
+## tidyeval : les bases
+
+```{webr-r}
+library(dplyr)
+print(exists("height"))
+print(exists("name"))
+dplyr::starwars %>%
+  filter(height > 200) %>%
+  select(name)
+
+# Rappel : cette syntaxe avec pipe (%>%)
+# est équivalente à
+# select(filter(dplyr::starwars, height > 200), name)
+```
+
+Lorsque l'on exécute le code précédent, on peut se rendre compte que celui-ci n'est pas exécuté par évaluation standard : en effet, le nom `height` comme le nom `name` n'existent pas dans l'environnement global. Ils ne remontent pas les environnements. Ils sont évalués *dans le contexte du premier argument*, en l'occurence `dplyr::starwars` pour ce qui est de l'appel à `filter()`, puis `filter(dplyr::starwars, height > 200)` en ce qui concerne l'appel à `select()`.
+
+`dplyr` évite une syntaxe verbieuse et peu lisible. Pour écrire quelque chose de rigoureusement équivalent dans base, on aurait dû écrire le code ci-dessous (on a rajouté `! is.na()` car `filter()` enlève les `NA` par défaut, et `drop = FALSE` car sinon R convertit les data.frame d'une seule unique colonne en vecteur).
+
+```{webr-r}
+starwars_df <- as.data.frame(dplyr::starwars) # Juste une ligne pour obtenir le tibble au format data.frame de base
+starwars_df[starwars_df$height > 200 &
+              ! is.na(starwars_df$height > 200),
+            "name",
+            drop = FALSE]
+```
+
+La tidyeval aide à cette syntaxe plus légère. En effet, dans dplyr, on n'a pas à répéter systématiquement qu'on se trouve dans le tibble `starwars`. C'est implicite ! Les arguments de `filter()` et `select()` sont tous deux évalués dans le contexte de starwars.
+
+## tidyeval : comportement des expressions et des quosures 
+
+Lorsque l'on donne pour argument `height > 200` à dplyr, cela ressemble à ce que l'on a vu plus haut, une expression. En réalité, le tidyverse utilise des **quosures**, une notion similaire aux expressions mais au comportement différent.
+
+```{webr-r}
+height <- "un truc qui ne sera lu par aucune evaluation"
+x <- 2
+ma_quosure <- rlang::quo(x * height)
+mon_expression <- quote(x * height)
+quosure_resultat <- function(quo) {
+  x <- 1
+  rlang::eval_tidy(quo, data = dplyr::starwars)
+}
+expression_resultat <- function(expr) {
+  x <- 1
+  eval(expr, envir = dplyr::starwars)
+}
+print(quosure_resultat(ma_quosure))
+print(expression_resultat(mon_expression))
+```
+
+On voit ici que l'évaluation de `x * height` n'est pas interprétée de la même manière selon que l'on définisse une quosure ou une expression. On note deux choses :
+
+* **`height` est évalué de la même manière** dans les deux cas. Elles cherchent tout d'abord dans la donnée qui leur est spécifiée, à savoir `dplyr::starwars`. Dans la mesure où le nom `height` existe dans ces données, aucune n'a besoin d'aller voir ailleurs.
+* Par contre, **l'évaluation de `x` est différente**. Dans le cas de l'expression, puisque le nom n'existe pas dans `dplyr::starwars`, l'évaluation standard va dérouler les environnements à partir de l'environnement d'*appel du `eval`*. Ici on trouve directement une valeur, le `1`. Et hop ! À contrario, la quosure va dérouler les environnements à partir de l'environnement de création de la quosure. C'est pour cela que x vaut 2.
+
+::: callout-important
+
+## Important : Ce n'est pas une distinction futile !
+
+Cela peut sembler futile, mais cette particularité rend l'utilisation de quosure beaucoup plus sécurisée et moins surprenante à l'utilisateur. L'utilisateur n'est pas censé connaitre le code interne des fonctions qu'il utilise (`filter`, etc.). Si celles-ci évaluaient bêtement les expressions, imaginons que leur code interne contienne une variable `x`, et que l'utilisateur évalue une expression avec un `x`, il y aurait conflit quand bien même celui-ci aurait défini un `x` dans l'environnement global. Ce n'est vraisemblablement pas ce que l'utilisateur attend.
+
+:::
+
+## tidyeval : sous le chapeau des quosures
+
+Lorsque l'on définit une quosure, on ne définit en fait rien de plus qu'un couple entre une expression et l'environnement d'appel.
+
+```{webr-r}
+height <- "un truc qui ne sera lu par aucune evaluation"
+x <- 2
+ma_quosure <- rlang::quo(x * height)
+print(ma_quosure)
+```
+
+Si j'affiche en effet le contenu de `ma_quosure`, je vois que celle-ci contient deux éléments :
+
+* L'expression `x * height`
+* Un lien vers l'environnement global
+
+C'est cet environnement global qui permet, lors de la tidyeval, de remonter au bon environnement.
+
+Un comportement tout-à-fait équivalent à celui des quosures est possible avec des expressions, mais il faut alors spécifier **une expression et un environnement**.
+
+```{webr-r}
+height <- "un truc qui ne sera lu par aucune evaluation"
+x <- 2
+ma_quosure <- rlang::quo(x * height)
+mon_expression <- quote(x * height)
+quosure_resultat <- function(quo) {
+  x <- 1
+  rlang::eval_tidy(quo, data = dplyr::starwars)
+}
+expression_resultat <- function(expr, envir) {
+  x <- 1
+  eval(expr, envir = dplyr::starwars, enclos = envir)
+}
+print(quosure_resultat(ma_quosure))
+print(expression_resultat(mon_expression, environment()))
+```
+
+On a rajouté ci-dessus à `eval()` un argument `enclos` qui spécifie le lieu où les noms qui ne sont pas trouvés dans les données de `envir` vont être évaluées. Grâce à cela, l'évaluation de `x` se fait par rapport à la variable de l'environnement global dans les deux cas !
+
+La quosure n'est autre qu'une expression complétée par un environnement de closure, d'où son nom.
+
+## tidyeval : évaluation avec le bang (`!!`) !
+
+On a donc vu les :
+
+* **noms** (également appelés symboles), les mots désignant des objets à évaluer dans des environnements.
+* **quosures**, un couple entre expression et environnement d'appel.
+
+L'usage des deux en même temps est une caractéristique particulière de la programmation dans le tidyverse, particulièrement dans dplyr.
+
+```{webr-r}
+library(dplyr)
+x <- 200
+filtre_et_select <- function(tbl, filtre, colonne_selection){
+  filtre <- enquo(filtre)
+  colonne_selection <- ensym(colonne_selection)
+  tbl %>%
+    filter(!! filtre) %>%
+    select(!! colonne_selection)
+}
+filtre_et_select(dplyr::starwars,
+                 height > x,
+                 name)
+```
+
+Dans l'exemple ci-dessus, on a programmé avec dplyr ! On a fait une fonction à qui on peut suggérer un `filtre` et un nom de colonne, et ces éléments vont être évalués dans le contexte des données de `tbl`.
+
+Comment est-ce que cela fonctionne ? L'idée de base est que `enquo()` et `ensym()` empêchent l'évaluation (sous la forme d'une quosure et d'un symbole, respectivement), tandis que les bang `!!` vont au contraire demander *évalue-moi cela ici*.
+
+Plus spécifiquement, avec le couple `arg <- enquo(arg)` / `!!`, on va :
+
+* Éviter l'évaluation d'un argument et le transformer en objet de type quosure s'il n'est pas déjà une quosure, en enfermant l'environnement parent.
+* S'il est déjà une quosure, il va passer la quosure telle quelle, en conservant l'environnement déjà enfermé dedans.
+
+De cette manière, d'appel de fonction en appel de fonction, on transmet l'environnement dans lequel la quosure a été effectivement saisie (ici `height > x`) .
+
+Ici, il n'y a qu'un unique appel de fonction. L'environnement contenu dans la quosure transmise à filter n'est autre que l'environnement global dans lequel le `x` peut s'évaluer.
+
+L'effet  du couple `arg <- ensym(arg)` / `!!` est plus simple puisque les symboles n'enferment pas de lien à un environnement :
+
+* On évite l'évaluation du symbole avec `ensym()`
+* On dit de l'évaluer avec `!!` dans une nouvelle fonction (qui à son tour peut en fait stopper l'évaluation avec un nouveau `ensym()` et la passer à nouveau  plus bas avec `!!`)
+
+```{webr-r}
+library(dplyr)
+x <- 200
+filtre_et_summarise <- function(tbl, filtre, nom_summarise, calcul_summarise){
+  filtre <- enquo(filtre)
+  calcul_summarise <- enquo(calcul_summarise)
+  nom_summarise <- ensym(nom_summarise)
+  tbl %>%
+    filter(!! filtre) %>%
+    summarise(!! nom_summarise := !! calcul_summarise)
+}
+filtre_et_summarise(dplyr::starwars,
+                    height > x,
+                    nouveau_nom,
+                    x * sum(height))
+# Le calcul ci-dessus vaut bien la même chose que
+# starwars %>% filter(height > 200) %>% summarise(nouveau_nom = x * sum(height))
+```
+
+On voit ci-dessus que l'on peut même utiliser les bang `!!` avant le `=` dans une fonction qui utilise des `=` comme summarise. Mais il faut alors modifier le `=` par un `:=` pour que ça marche.
+
+## tidyeval : dots et bang bang (`!!!`) !
+
+Parfois, on a besoin non pas d'un seul argument symbole/quosure mais d'un nombre indéfini. Des variantes de `enquo()` et `ensym()` existent au pluriel. Ces variantes sont `enquos()` et `ensyms()` et s'utilisent avec l'opérateur `!!!`.
+
+```{webr-r}
+library(dplyr)
+x <- 200
+filtre_et_select <- function(tbl, filtre, ...){
+  filtre <- enquo(filtre)
+  colonnes_selection <- ensyms(...)
+  tbl %>%
+    filter(!! filtre) %>%
+    select(!!! colonnes_selection)
+}
+filtre_et_select(dplyr::starwars,
+                 height > x,
+                 name, height)
+```
+
+Tout d'abord, l'exemple ci-dessus reprend le filtre_et_select mais en acceptant plusieurs sélections dans les dots, car on a utilisé `ensyms()`. On a donc de manière conjointe utilisé `!!!`.
+
+```{webr-r}
+library(dplyr)
+x <- 200
+filtre_et_select <- function(tbl, colonne_selection, ...){
+  filtres <- enquos(...)
+  colonne_selection <- ensym(colonne_selection)
+  tbl %>%
+    filter(!!! filtres) %>%
+    select(!! colonne_selection)
+}
+filtre_et_select(dplyr::starwars,
+                 name,
+                 height > x,
+                 height < 230)
+```
+
+Inversement, dans ce dernier exemple, on a laissé la possibilité de spécifier plusieurs filtres en utilisant `enquos()` et en les faisant évaluer par `!!!` dans le `filter()`.
