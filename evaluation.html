@@ -369,7 +369,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = [''];
+globalThis.qwebrInstallRPackagesList = ['dplyr', 'disaggR'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -379,7 +379,7 @@ globalThis.qwebrSetupRPackages = !(qwebrInstallRPackagesList.indexOf("") !== -1)
 globalThis.qwebrAutoloadRPackages = true;
 
 // Display a startup message?
-globalThis.qwebrShowStartupMessage = false;
+globalThis.qwebrShowStartupMessage = true;
 globalThis.qwebrShowHeaderMessage = false;
 
 // Describe the webR settings that should be used
@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-1","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":1,"code":"quote(1 + 2)\nquote(function(x) sin(2*x))\nquote(round(exp(3) + 1, 5))\nquote(arnaud <- (bonjour + \"voiture\") ^ sqrt(2 + \"train\"))\nquote(1 <- 2)"},{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-2","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":2,"code":"quote(2*)\nquote(<- 3)\nquote(1***5)"},{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-3","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":3,"code":"lazy_eval <-\n  function(x = stop(\"C'est une erreur !\"),\n           y = matrix(1:9, nrow = -3L)) {\n    TRUE\n  }\nlazy_eval()"},{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-4","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":4,"code":"lazy_eval <-\n  function(choix) {\n    if (choix) TRUE\n    else stop(\"C'est une erreur !\")\n  }\n# Testez\n# lazy_eval(choix = TRUE)\n# et\n# lazy_eval(choix = FALSE)"},{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-5","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":5,"code":"lazy_eval <-\n  function(choix, x = stop(), y = TRUE) {\n    if (choix) y\n    else x\n  }\n# Testez\n# lazy_eval(choix = TRUE)\n# et\n# lazy_eval(choix = FALSE)"},{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-6","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":6,"code":"court_circuit_1 <-\n  function(choix) {\n    choix && stop(\"C'est une erreur !\")\n  }\n\ncourt_circuit_2 <-\n  function(choix) {\n    choix || stop(\"C'est une erreur !\")\n  }\n# Testez\n# court_circuit_1(choix = TRUE)\n# court_circuit_1(choix = FALSE)\n# court_circuit_2(choix = TRUE)\n# court_circuit_2(choix = FALSE)"},{"options":{"results":"markup","autorun":"false","dpi":72,"warning":"true","context":"interactive","editor-word-wrap":"true","read-only":"false","label":"unnamed-chunk-7","classes":"","editor-max-height":"","output":"true","fig-cap":"","fig-width":7,"fig-height":5,"comment":"","message":"true","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-width":"700px"},"id":7,"code":"pas_court_circuit_1 <-\n  function(choix) {\n    choix & stop(\"C'est une erreur !\")\n  }\n\npas_court_circuit_2 <-\n  function(choix) {\n    choix | stop(\"C'est une erreur !\")\n  }\n# Testez\n# pas_court_circuit_1(choix = TRUE)\n# pas_court_circuit_1(choix = FALSE)\n# pas_court_circuit_2(choix = TRUE)\n# pas_court_circuit_2(choix = FALSE)"}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"quote(1 + 2)\nquote(function(x) sin(2*x))\nquote(round(exp(3) + 1, 5))\nquote(arnaud <- (bonjour + \"voiture\") ^ sqrt(2 + \"train\"))\nquote(1 <- 2)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-1","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":2,"code":"quote(2*)\nquote(<- 3)\nquote(1***5)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-2","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":3,"code":"lazy_eval <-\n  function(x = stop(\"C'est une erreur !\"),\n           y = matrix(1:9, nrow = -3L)) {\n    TRUE\n  }\nlazy_eval()","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-3","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":4,"code":"lazy_eval <-\n  function(choix) {\n    if (choix) TRUE\n    else stop(\"C'est une erreur !\")\n  }\n# Testez\n# lazy_eval(choix = TRUE)\n# et\n# lazy_eval(choix = FALSE)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-4","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":5,"code":"lazy_eval <-\n  function(choix, x = stop(), y = TRUE) {\n    if (choix) y\n    else x\n  }\n# Testez\n# lazy_eval(choix = TRUE)\n# et\n# lazy_eval(choix = FALSE)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-5","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":6,"code":"court_circuit_1 <-\n  function(choix) {\n    choix && stop(\"C'est une erreur !\")\n  }\n\ncourt_circuit_2 <-\n  function(choix) {\n    choix || stop(\"C'est une erreur !\")\n  }\n# Testez\n# court_circuit_1(choix = TRUE)\n# court_circuit_1(choix = FALSE)\n# court_circuit_2(choix = TRUE)\n# court_circuit_2(choix = FALSE)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-6","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":7,"code":"pas_court_circuit_1 <-\n  function(choix) {\n    choix & stop(\"C'est une erreur !\")\n  }\n\npas_court_circuit_2 <-\n  function(choix) {\n    choix | stop(\"C'est une erreur !\")\n  }\n# Testez\n# pas_court_circuit_1(choix = TRUE)\n# pas_court_circuit_1(choix = FALSE)\n# pas_court_circuit_2(choix = TRUE)\n# pas_court_circuit_2(choix = FALSE)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-7","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":8,"code":"library(dplyr)\nprint(exists(\"height\"))\nprint(exists(\"name\"))\ndplyr::starwars %>%\n  filter(height > 200) %>%\n  select(name)\n\n# Rappel : cette syntaxe avec pipe (%>%)\n# est équivalente à\n# select(filter(dplyr::starwars, height > 200), name)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-8","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":9,"code":"starwars_df <- as.data.frame(dplyr::starwars) # Juste une ligne pour obtenir le tibble au format data.frame de base\nstarwars_df[starwars_df$height > 200 &\n              ! is.na(starwars_df$height > 200),\n            \"name\",\n            drop = FALSE]","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-9","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":10,"code":"height <- \"un truc qui ne sera lu par aucune evaluation\"\nx <- 2\nma_quosure <- rlang::quo(x * height)\nmon_expression <- quote(x * height)\nquosure_resultat <- function(quo) {\n  x <- 1\n  rlang::eval_tidy(quo, data = dplyr::starwars)\n}\nexpression_resultat <- function(expr) {\n  x <- 1\n  eval(expr, envir = dplyr::starwars)\n}\nprint(quosure_resultat(ma_quosure))\nprint(expression_resultat(mon_expression))","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-10","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":11,"code":"height <- \"un truc qui ne sera lu par aucune evaluation\"\nx <- 2\nma_quosure <- rlang::quo(x * height)\nprint(ma_quosure)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-11","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":12,"code":"height <- \"un truc qui ne sera lu par aucune evaluation\"\nx <- 2\nma_quosure <- rlang::quo(x * height)\nmon_expression <- quote(x * height)\nquosure_resultat <- function(quo) {\n  x <- 1\n  rlang::eval_tidy(quo, data = dplyr::starwars)\n}\nexpression_resultat <- function(expr, envir) {\n  x <- 1\n  eval(expr, envir = dplyr::starwars, enclos = envir)\n}\nprint(quosure_resultat(ma_quosure))\nprint(expression_resultat(mon_expression, environment()))","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-12","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":13,"code":"library(dplyr)\nx <- 200\nfiltre_et_select <- function(tbl, filtre, colonne_selection){\n  filtre <- enquo(filtre)\n  colonne_selection <- ensym(colonne_selection)\n  tbl %>%\n    filter(!! filtre) %>%\n    select(!! colonne_selection)\n}\nfiltre_et_select(dplyr::starwars,\n                 height > x,\n                 name)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-13","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":14,"code":"library(dplyr)\nx <- 200\nfiltre_et_summarise <- function(tbl, filtre, nom_summarise, calcul_summarise){\n  filtre <- enquo(filtre)\n  calcul_summarise <- enquo(calcul_summarise)\n  nom_summarise <- ensym(nom_summarise)\n  tbl %>%\n    filter(!! filtre) %>%\n    summarise(!! nom_summarise := !! calcul_summarise)\n}\nfiltre_et_summarise(dplyr::starwars,\n                    height > x,\n                    nouveau_nom,\n                    x * sum(height))\n# Le calcul ci-dessus vaut bien la même chose que\n# starwars %>% filter(height > 200) %>% summarise(nouveau_nom = x * sum(height))","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-14","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":15,"code":"library(dplyr)\nx <- 200\nfiltre_et_select <- function(tbl, filtre, ...){\n  filtre <- enquo(filtre)\n  colonnes_selection <- ensyms(...)\n  tbl %>%\n    filter(!! filtre) %>%\n    select(!!! colonnes_selection)\n}\nfiltre_et_select(dplyr::starwars,\n                 height > x,\n                 name, height)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-15","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}},{"id":16,"code":"library(dplyr)\nx <- 200\nfiltre_et_select <- function(tbl, colonne_selection, ...){\n  filtres <- enquos(...)\n  colonne_selection <- ensym(colonne_selection)\n  tbl %>%\n    filter(!!! filtres) %>%\n    select(!! colonne_selection)\n}\nfiltre_et_select(dplyr::starwars,\n                 name,\n                 height > x,\n                 height < 230)","options":{"context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","out-width":"700px","warning":"true","output":"true","fig-width":7,"read-only":"false","label":"unnamed-chunk-16","fig-height":5,"message":"true","editor-quick-suggestions":"false","fig-cap":"","classes":"","autorun":"false","out-height":"","editor-word-wrap":"true","comment":"","editor-max-height":""}}];
 
 </script>
 <script type="module">
@@ -1661,7 +1661,11 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#expression" id="toc-expression" class="nav-link active" data-scroll-target="#expression">Expression</a></li>
   <li><a href="#évaluation-paresseuse-et-court-circuit" id="toc-évaluation-paresseuse-et-court-circuit" class="nav-link" data-scroll-target="#évaluation-paresseuse-et-court-circuit">Évaluation paresseuse et court-circuit</a></li>
   <li><a href="#évaluation-standard" id="toc-évaluation-standard" class="nav-link" data-scroll-target="#évaluation-standard">Évaluation standard</a></li>
-  <li><a href="#tidyeval" id="toc-tidyeval" class="nav-link" data-scroll-target="#tidyeval">tidyeval</a></li>
+  <li><a href="#tidyeval-les-bases" id="toc-tidyeval-les-bases" class="nav-link" data-scroll-target="#tidyeval-les-bases">tidyeval : les bases</a></li>
+  <li><a href="#tidyeval-comportement-des-expressions-et-des-quosures" id="toc-tidyeval-comportement-des-expressions-et-des-quosures" class="nav-link" data-scroll-target="#tidyeval-comportement-des-expressions-et-des-quosures">tidyeval : comportement des expressions et des quosures</a></li>
+  <li><a href="#tidyeval-sous-le-chapeau-des-quosures" id="toc-tidyeval-sous-le-chapeau-des-quosures" class="nav-link" data-scroll-target="#tidyeval-sous-le-chapeau-des-quosures">tidyeval : sous le chapeau des quosures</a></li>
+  <li><a href="#tidyeval-évaluation-avec-le-bang" id="toc-tidyeval-évaluation-avec-le-bang" class="nav-link" data-scroll-target="#tidyeval-évaluation-avec-le-bang">tidyeval : évaluation avec le bang (<code>!!</code>) !</a></li>
+  <li><a href="#tidyeval-dots-et-bang-bang" id="toc-tidyeval-dots-et-bang-bang" class="nav-link" data-scroll-target="#tidyeval-dots-et-bang-bang">tidyeval : dots et bang bang (<code>!!!</code>) !</a></li>
   </ul>
 </nav>
     </div>
@@ -1982,11 +1986,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Tout ce qui est au dessus est une expression avant d’être évalué, possiblement par une erreur. A contrario, les lignes ci-dessous ne peuvent pas correspondre à une expression. Elles sont syntaxiquement incorrectes.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy">2 *
+exp(
+&lt;- 3<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Pour ne pas évaluer du code R <em>syntaxiquement correct</em> et le laisser sous forme d’expression, on peut utiliser <code>quote()</code>.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -2035,19 +2037,19 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lazy_eval_1 <span class="ot">&lt;-</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(<span class="at">x =</span> <span class="fu">stop</span>(<span class="st">"C'est une erreur !"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="sc">-</span><span class="dv">3</span>L)) {</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    truc <span class="ot">&lt;-</span> x</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>lazy_eval_2 <span class="ot">&lt;-</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(<span class="at">x =</span> <span class="fu">stop</span>(<span class="st">"C'est une erreur !"</span>),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="sc">-</span><span class="dv">3</span>L)) {</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    x</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Essayer lazy_eval_1() et lazy_eval_2()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lazy_eval_1 <span class="ot">&lt;-</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(<span class="at">x =</span> <span class="fu">stop</span>(<span class="st">"C'est une erreur !"</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="sc">-</span><span class="dv">3</span>L)) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    truc <span class="ot">&lt;-</span> x</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>lazy_eval_2 <span class="ot">&lt;-</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(<span class="at">x =</span> <span class="fu">stop</span>(<span class="st">"C'est une erreur !"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="sc">-</span><span class="dv">3</span>L)) {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    x</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Essayer lazy_eval_1() et lazy_eval_2()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>L’assignation, de même que simplement écrire une ligne avec pour seul code le nom d’un des arguments, force son évaluation. C’est pourquoi les deux exécutions de fonctions ci-dessus précipitent une erreur</p>
 </div>
@@ -2071,15 +2073,109 @@ Warning
 <div class="callout-body-container callout-body">
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Attention, les opérateurs logiques <code>&amp;</code> et <code>|</code>, qui sont normalement prévus pour de la logique vectorielle, ne sont pas court-circuités.</p>
+<p>Attention, les opérateurs logiques <code>&amp;</code> et <code>|</code>, qui sont normalement prévus pour de la logique vectorielle, ne sont pas court-circuités comme on peut le voir dans l’exemple précédent.</p>
 </div>
 </div>
 </section>
 <section id="évaluation-standard" class="level2">
 <h2 class="anchored" data-anchor-id="évaluation-standard">Évaluation standard</h2>
+<p>On a vu dans le classeur précédent que les appels de fonctions définissent de nouveaux environnements, et que les différents noms d’objets utilisés sont évalués en remontant l’arbre des environnements jusqu’à trouver le bon nom.</p>
+<p>On a vient également de voir que les expressions sont évaluées au dernier moment, ce que l’on appelle l’évaluation paresseuse. Les expressions sont évaluées dans leur environnement, par exemple celui de leur fonction.</p>
+<p>La somme de ces deux propriétés définit l’évaluation standard en R.</p>
+<p>R permet cependant des bâtir des exceptions à cette “évaluation standard”. On appelle ces évaluations irrégulières des… Évaluations non-standard (Non-Standard Evaluation, NSE).</p>
+<pre class="{web-r}"><code>library(disaggR)
+print(exists("disaggR"))</code></pre>
+<p>Lorsque l’on charge un package, on utilise <code>library()</code> avec à l’intérieur un nom qui n’existe pourtant pas dans l’environnement global. Ici l’environnement global ne contient pas d’objet <code>disaggR</code>. C’est une forme d’évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n’est pas une évaluation non-standard des plus utiles en soi.</p>
+<p>La plus utilisée de ces NSE est la tidyeval régnant dans le tidyverse.</p>
 </section>
-<section id="tidyeval" class="level2">
-<h2 class="anchored" data-anchor-id="tidyeval">tidyeval</h2>
+<section id="tidyeval-les-bases" class="level2">
+<h2 class="anchored" data-anchor-id="tidyeval-les-bases">tidyeval : les bases</h2>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Lorsque l’on exécute le code précédent, on peut se rendre compte que celui-ci n’est pas exécuté par évaluation standard&nbsp;: en effet, le nom <code>height</code> comme le nom <code>name</code> n’existent pas dans l’environnement global. Ils ne remontent pas les environnements. Ils sont évalués <em>dans le contexte du premier argument</em>, en l’occurence <code>dplyr::starwars</code> pour ce qui est de l’appel à <code>filter()</code>, puis <code>filter(dplyr::starwars, height &gt; 200)</code> en ce qui concerne l’appel à <code>select()</code>.</p>
+<p><code>dplyr</code> évite une syntaxe verbieuse et peu lisible. Pour écrire quelque chose de rigoureusement équivalent dans base, on aurait dû écrire le code ci-dessous (on a rajouté <code>! is.na()</code> car <code>filter()</code> enlève les <code>NA</code> par défaut, et <code>drop = FALSE</code> car sinon R convertit les data.frame d’une seule unique colonne en vecteur).</p>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>La tidyeval aide à cette syntaxe plus légère. En effet, dans dplyr, on n’a pas à répéter systématiquement qu’on se trouve dans le tibble <code>starwars</code>. C’est implicite&nbsp;! Les arguments de <code>filter()</code> et <code>select()</code> sont tous deux évalués dans le contexte de starwars.</p>
+</section>
+<section id="tidyeval-comportement-des-expressions-et-des-quosures" class="level2">
+<h2 class="anchored" data-anchor-id="tidyeval-comportement-des-expressions-et-des-quosures">tidyeval : comportement des expressions et des quosures</h2>
+<p>Lorsque l’on donne pour argument <code>height &gt; 200</code> à dplyr, cela ressemble à ce que l’on a vu plus haut, une expression. En réalité, le tidyverse utilise des <strong>quosures</strong>, une notion similaire aux expressions mais au comportement différent.</p>
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>On voit ici que l’évaluation de <code>x * height</code> n’est pas interprétée de la même manière selon que l’on définisse une quosure ou une expression. On note deux choses&nbsp;:</p>
+<ul>
+<li><strong><code>height</code> est évalué de la même manière</strong> dans les deux cas. Elles cherchent tout d’abord dans la donnée qui leur est spécifiée, à savoir <code>dplyr::starwars</code>. Dans la mesure où le nom <code>height</code> existe dans ces données, aucune n’a besoin d’aller voir ailleurs.</li>
+<li>Par contre, <strong>l’évaluation de <code>x</code> est différente</strong>. Dans le cas de l’expression, puisque le nom n’existe pas dans <code>dplyr::starwars</code>, l’évaluation standard va dérouler les environnements à partir de l’environnement d’<em>appel du <code>eval</code></em>. Ici on trouve directement une valeur, le <code>1</code>. Et hop&nbsp;! À contrario, la quosure va dérouler les environnements à partir de l’environnement de création de la quosure. C’est pour cela que x vaut 2.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important : Ce n’est pas une distinction futile !
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cela peut sembler futile, mais cette particularité rend l’utilisation de quosure beaucoup plus sécurisée et moins surprenante à l’utilisateur. L’utilisateur n’est pas censé connaitre le code interne des fonctions qu’il utilise (<code>filter</code>, etc.). Si celles-ci évaluaient bêtement les expressions, imaginons que leur code interne contienne une variable <code>x</code>, et que l’utilisateur évalue une expression avec un <code>x</code>, il y aurait conflit quand bien même celui-ci aurait défini un <code>x</code> dans l’environnement global. Ce n’est vraisemblablement pas ce que l’utilisateur attend.</p>
+</div>
+</div>
+</section>
+<section id="tidyeval-sous-le-chapeau-des-quosures" class="level2">
+<h2 class="anchored" data-anchor-id="tidyeval-sous-le-chapeau-des-quosures">tidyeval : sous le chapeau des quosures</h2>
+<p>Lorsque l’on définit une quosure, on ne définit en fait rien de plus qu’un couple entre une expression et l’environnement d’appel.</p>
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Si j’affiche en effet le contenu de <code>ma_quosure</code>, je vois que celle-ci contient deux éléments&nbsp;:</p>
+<ul>
+<li>L’expression <code>x * height</code></li>
+<li>Un lien vers l’environnement global</li>
+</ul>
+<p>C’est cet environnement global qui permet, lors de la tidyeval, de remonter au bon environnement.</p>
+<p>Un comportement tout-à-fait équivalent à celui des quosures est possible avec des expressions, mais il faut alors spécifier <strong>une expression et un environnement</strong>.</p>
+<div id="qwebr-insertion-location-12"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>On a rajouté ci-dessus à <code>eval()</code> un argument <code>enclos</code> qui spécifie le lieu où les noms qui ne sont pas trouvés dans les données de <code>envir</code> vont être évaluées. Grâce à cela, l’évaluation de <code>x</code> se fait par rapport à la variable de l’environnement global dans les deux cas&nbsp;!</p>
+<p>La quosure n’est autre qu’une expression complétée par un environnement de closure, d’où son nom.</p>
+</section>
+<section id="tidyeval-évaluation-avec-le-bang" class="level2">
+<h2 class="anchored" data-anchor-id="tidyeval-évaluation-avec-le-bang">tidyeval : évaluation avec le bang (<code>!!</code>) !</h2>
+<p>On a donc vu les&nbsp;:</p>
+<ul>
+<li><strong>noms</strong> (également appelés symboles), les mots désignant des objets à évaluer dans des environnements.</li>
+<li><strong>quosures</strong>, un couple entre expression et environnement d’appel.</li>
+</ul>
+<p>L’usage des deux en même temps est une caractéristique particulière de la programmation dans le tidyverse, particulièrement dans dplyr.</p>
+<div id="qwebr-insertion-location-13"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Dans l’exemple ci-dessus, on a programmé avec dplyr&nbsp;! On a fait une fonction à qui on peut suggérer un <code>filtre</code> et un nom de colonne, et ces éléments vont être évalués dans le contexte des données de <code>tbl</code>.</p>
+<p>Comment est-ce que cela fonctionne&nbsp;? L’idée de base est que <code>enquo()</code> et <code>ensym()</code> empêchent l’évaluation (sous la forme d’une quosure et d’un symbole, respectivement), tandis que les bang <code>!!</code> vont au contraire demander <em>évalue-moi cela ici</em>.</p>
+<p>Plus spécifiquement, avec le couple <code>arg &lt;- enquo(arg)</code> / <code>!!</code>, on va&nbsp;:</p>
+<ul>
+<li>Éviter l’évaluation d’un argument et le transformer en objet de type quosure s’il n’est pas déjà une quosure, en enfermant l’environnement parent.</li>
+<li>S’il est déjà une quosure, il va passer la quosure telle quelle, en conservant l’environnement déjà enfermé dedans.</li>
+</ul>
+<p>De cette manière, d’appel de fonction en appel de fonction, on transmet l’environnement dans lequel la quosure a été effectivement saisie (ici <code>height &gt; x</code>) .</p>
+<p>Ici, il n’y a qu’un unique appel de fonction. L’environnement contenu dans la quosure transmise à filter n’est autre que l’environnement global dans lequel le <code>x</code> peut s’évaluer.</p>
+<p>L’effet du couple <code>arg &lt;- ensym(arg)</code> / <code>!!</code> est plus simple puisque les symboles n’enferment pas de lien à un environnement&nbsp;:</p>
+<ul>
+<li>On évite l’évaluation du symbole avec <code>ensym()</code></li>
+<li>On dit de l’évaluer avec <code>!!</code> dans une nouvelle fonction (qui à son tour peut en fait stopper l’évaluation avec un nouveau <code>ensym()</code> et la passer à nouveau plus bas avec <code>!!</code>)</li>
+</ul>
+<div id="qwebr-insertion-location-14"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>On voit ci-dessus que l’on peut même utiliser les bang <code>!!</code> avant le <code>=</code> dans une fonction qui utilise des <code>=</code> comme summarise. Mais il faut alors modifier le <code>=</code> par un <code>:=</code> pour que ça marche.</p>
+</section>
+<section id="tidyeval-dots-et-bang-bang" class="level2">
+<h2 class="anchored" data-anchor-id="tidyeval-dots-et-bang-bang">tidyeval : dots et bang bang (<code>!!!</code>) !</h2>
+<p>Parfois, on a besoin non pas d’un seul argument symbole/quosure mais d’un nombre indéfini. Des variantes de <code>enquo()</code> et <code>ensym()</code> existent au pluriel. Ces variantes sont <code>enquos()</code> et <code>ensyms()</code> et s’utilisent avec l’opérateur <code>!!!</code>.</p>
+<div id="qwebr-insertion-location-15"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Tout d’abord, l’exemple ci-dessus reprend le filtre_et_select mais en acceptant plusieurs sélections dans les dots, car on a utilisé <code>ensyms()</code>. On a donc de manière conjointe utilisé <code>!!!</code>.</p>
+<div id="qwebr-insertion-location-16"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Inversement, dans ce dernier exemple, on a laissé la possibilité de spécifier plusieurs filtres en utilisant <code>enquos()</code> et en les faisant évaluer par <code>!!!</code> dans le <code>filter()</code>.</p>
 
 
 </section>
