@@ -44,9 +44,32 @@ quote(<- 3)
 quote(1***5)
 ```
 
+## Évaluation à temps d'exécution
+
+Le code n'est interprêté qu'à temps d'exécution du code. Contrairement à des langages plus formels qui donnent une importance plus grande au temps de définition, notamment les langages compilés, R attend le dernier moment pour vérifier si quelque chose a un sens.
+
+```{webr-r}
+setMachin <- function() assign("machin", 1, parent.frame())
+  # Le code précédent écrit 1 dans l'environnement
+  # parent de la fonction ; c'est une bidouille pour
+  # l'exemple mais n'est pas à reproduire en prod
+
+bizarre <- function() {
+  setMachin()
+  return(machin)
+  arnaud <- (bonjour + "voiture") ^ sqrt(2 + "train")
+}
+
+bizarre()
+```
+
+Dans la petite bidouille ci-dessus, il serait bien difficile à un compilateur de prévoir que l'objet `machin` existe au moment de l'appel à `machin`. De même, dans certains langages de programmation, l'expression `arnaud <- (bonjour + "voiture") ^ sqrt(2 + "train")` pourrait être refusée dès qu'on la propose.
+
+Mais R ne bronche pas. R n'essaye pas de donner un sens au corps des fonctions à l'avance. Dès lors que la syntaxe est correcte, ça lui suffit et on verra plus tard !
+
 ## Évaluation paresseuse et court-circuit
 
-R est fainéant. Il n'évaluera les arguments d'une fonction qu'au dernier moment s'il en a besoin (*évaluation paresseuse des arguments*). Les expressions employant des contrôle (`if`, `else`...) définissent elles aussi une forme de paresse dans la mesure où leurs sous-parties non-retenues ne sont pas évaluées (*évaluation paresseuse des structures de contrôle*). À l'intérieur même des expressions, les expressions faites d'opérateurs logiques unitaires (`&&` et `||` mais pas `&` ni `|` qui sont vectoriels) évaluent elles aussi le moins possible de leurs sous-parties (*court-circuit*).
+R est fainéant. Il n'évaluera les *arguments* d'une fonction qu'au dernier moment s'il en a besoin (*évaluation paresseuse des arguments*). Les expressions employant des contrôle (`if`, `else`...) définissent elles aussi une forme de paresse dans la mesure où leurs sous-parties non-retenues ne sont pas évaluées (*évaluation paresseuse des structures de contrôle*). À l'intérieur même des expressions, les expressions faites d'opérateurs logiques unitaires (`&&` et `||` mais pas `&` ni `|` qui sont vectoriels) évaluent elles aussi le moins possible de leurs sous-parties (*court-circuit*).
 
 ::: callout-note
 
@@ -484,6 +507,7 @@ doit retourner :
 
 ```{r}
 #| echo: false
+library(dplyr)
 tibble(hello = 0.5,
        super = 0,
        bonjour = 0.25)
@@ -540,7 +564,10 @@ tbl %>%
 
 Dans la partie précédente, on a vu comment on peut faire un compteur avec des closures.
 
+On avait :
+
 ```{r}
+#| eval: false
 nouveau_compteur <-
   function() {
     n <- 0L
@@ -549,8 +576,103 @@ nouveau_compteur <-
       return(n)
     }
   }
+
 compteur <- nouveau_compteur()
 print(compteur())
 print(compteur())
 print(compteur())
 ```
+
+On veut maintenant modifier ce compteur, de sorte à pouvoir permettre des enchaînements d'incrémentations.
+
+```{r}
+#| eval: false
+compteur$
+  suivant()$
+  suivant()$
+  suivant()
+```
+
+doit incrémenter 3 fois l'état interne, mais ne doit pas en afficher sa valeur.
+
+```{r}
+#| eval: false
+compteur$get()
+```
+
+doit afficher la valeur de l'état interne (donc `3` après 3 incrémentations).
+
+Pour cela, on va, comme on l'a vu au chapiter précédent, utiliser une liste de fonctions. Et on doit aussi utiliser la propriété de R d'évaluation au temps d'exécution. Complétez le modèle suivant de sorte à obtenir les bons résultats.
+
+```{webr-r}
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    this <-
+      list(
+        suivant = function() {
+          # A remplir
+        },
+        get = function() {
+          # A remplir
+        }
+      )
+    this
+  }
+
+compteur_1 <- nouveau_compteur()
+compteur_2 <- nouveau_compteur()
+compteur_1$
+  suivant()$
+  suivant()$
+  suivant()
+compteur_1$get() # doit afficher 3
+compteur_2$get() # doit afficher 0
+compteur_1$suivant()
+compteur_2$suivant()
+compteur_1$get() # doit afficher 4
+compteur_2$get() # doit afficher 1
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    this <-
+      list(
+        suivant = function() {
+          n <<- n + 1L
+          this
+        },
+        get = function() {
+          n
+        }
+      )
+    this
+  }
+
+compteur_1 <- nouveau_compteur()
+compteur_2 <- nouveau_compteur()
+compteur_1$
+  suivant()$
+  suivant()$
+  suivant()
+compteur_1$get() # doit afficher 3
+compteur_2$get() # doit afficher 0
+compteur_1$suivant()
+compteur_2$suivant()
+compteur_1$get() # doit afficher 4
+compteur_2$get() # doit afficher 1
+```
+
+Le code ci-dessus peut sembler étonnant ; this est en quelque-sorte auto-référentiel. Mais : 
+
+* Au moment où `nouveau_compteur()` s'exécute, R se moque de savoir si la fonction anonyme sous `suivant` a un sens.
+* Au moment où `nouveau_compteur()` retourne, `this` existe dans l'environnement de l'instance considérée.
+* `suivant()` est ne peut être appelé qu'après le retour de `nouveau_compteur()` donc this existe bel et bien.
+
+:::
