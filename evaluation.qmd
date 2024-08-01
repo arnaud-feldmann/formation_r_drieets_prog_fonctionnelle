@@ -372,7 +372,7 @@ filtre_et_summarise(dplyr::starwars,
                     x * sum(height))
 ```
 
-Cela à l'avantage d'être plus succint ; cela a le désavantage d'être moins explicite. C'est au choix.
+Cela à l'avantage d'être plus succinct ; cela a le désavantage d'être moins explicite. C'est au choix.
 
 :::
 
@@ -428,7 +428,7 @@ Les `!!!` passent aussi les noms d'arguments dans les `...`, donc sont aussi sol
 Écrire une fonction `filtre_et_summarise` de la forme `function(tbl, filtre, ...)` et qui :
 
 * applique le filtre fourni sur le tibble.
-* retourne des calculs de summarise renseignés dans les `...`.
+* puis passe à summarise les éléments du `...`.
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
@@ -459,8 +459,98 @@ filtre_et_summarise(dplyr::starwars,
 
 ### Exercice 2
 
-Écrire une fonction `filtre_et_summarise` de la forme `function(tbl, filtre, ...)` et qui :
+On souhaite écrire une fonction `faire_taux(tbl, ...)` qui prend dans les `...` des conditions booléennes et retourne des taux avec les mêmes noms que ceux des arguments fournis.
 
-* applique le filtre fourni sur le tibble.
-* retourne des calculs de summarise renseignés dans les `...`.
+Par exemple, dans :
 
+```{r}
+#| echo: false
+library(dplyr)
+tbl <-
+  tibble(moyen = c("voiture", "voiture", "voiture", "train"),
+         prenom = c("arnaud", "arnaud", "raphael", "arnaud"),
+         bonjour = c(FALSE, FALSE, FALSE, TRUE))
+```
+
+```{r}
+#| eval: false
+tbl %>%
+  faire_taux(hello = moyen == "voiture" & prenom == "arnaud",
+             super = bonjour & moyen == "voiture",
+             bonjour = bonjour)
+```
+
+doit retourner :
+
+```{r}
+#| echo: false
+tibble(hello = 0.5,
+       super = 0,
+       bonjour = 0.25)
+```
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Aide 1 (optionnel)
+
+On pourra s'aider d'une première étape de pipe avec `transmute`. `transmute` ressemble à `mutate` mais abandonne toutes les colonnes non-transformées.
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Aide 2 (optionnel mais à ne pas consulter avant minimum 15 minutes de brainstorming !)
+
+Penser à `across()` qui permet d'appliquer, dans un `mutate()`, un `transmute()` ou un `summarise()`, une fonction à plusieurs colonnes en même temps.
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{webr-r}
+library(dplyr)
+
+tbl <-
+  tibble(moyen = c("voiture", "voiture", "voiture", "train"),
+         prenom = c("arnaud", "arnaud", "raphael", "arnaud"),
+         bonjour = c(FALSE, FALSE, FALSE, TRUE))
+
+faire_taux <- function(tbl, ...) {
+  summar <- enquos(...)
+  tbl %>%
+    transmute(!!! summar) %>%
+    summarise(across(everything(), ~sum(as.numeric(.x))/n()))
+}
+
+tbl %>%
+  faire_taux(hello = moyen == "voiture" & prenom == "arnaud",
+             super = bonjour & moyen == "voiture",
+             bonjour = bonjour)
+```
+
+:::
+
+### Exercice 3
+
+Dans la partie précédente, on a vu comment on peut faire un compteur avec des closures.
+
+```{r}
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    function() {
+      n <<- n + 1L
+      return(n)
+    }
+  }
+compteur <- nouveau_compteur()
+print(compteur())
+print(compteur())
+print(compteur())
+```
