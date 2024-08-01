@@ -302,7 +302,7 @@ L'usage des deux en même temps est une caractéristique particulière de la pro
 ```{webr-r}
 library(dplyr)
 x <- 200
-filtre_et_select <- function(tbl, filtre, colonne_selection){
+filtre_et_select <- function(tbl, filtre, colonne_selection) {
   filtre <- enquo(filtre)
   colonne_selection <- ensym(colonne_selection)
   tbl %>%
@@ -335,7 +335,7 @@ L'effet  du couple `arg <- ensym(arg)` / `!!` est plus simple puisque les symbol
 ```{webr-r}
 library(dplyr)
 x <- 200
-filtre_et_summarise <- function(tbl, filtre, nom_summarise, calcul_summarise){
+filtre_et_summarise <- function(tbl, filtre, nom_summarise, calcul_summarise) {
   filtre <- enquo(filtre)
   calcul_summarise <- enquo(calcul_summarise)
   nom_summarise <- ensym(nom_summarise)
@@ -353,6 +353,29 @@ filtre_et_summarise(dplyr::starwars,
 
 On voit ci-dessus que l'on peut même utiliser les bang `!!` avant le `=` dans une fonction qui utilise des `=` comme summarise. Mais il faut alors modifier le `=` par un `:=` pour que ça marche.
 
+::: callout-tip
+
+Il existe un raccourci pour `enquo()` et `!!` qui allège un peu, mais est sans doute un peu moins clair et ne permet pas de faire une distinction entre symboles et quosures. On aurait pu écrire :
+
+
+```{webr-r}
+library(dplyr)
+x <- 200
+filtre_et_summarise <- function(tbl, filtre, nom_summarise, calcul_summarise) {
+  tbl %>%
+    filter({{filtre}}) %>%
+    summarise({{nom_summarise}} := {{calcul_summarise}})
+}
+filtre_et_summarise(dplyr::starwars,
+                    height > x,
+                    nouveau_nom,
+                    x * sum(height))
+```
+
+Cela à l'avantage d'être plus succint ; cela a le désavantage d'être moins explicite. C'est au choix.
+
+:::
+
 ## tidyeval : dots et bang bang (`!!!`) !
 
 Parfois, on a besoin non pas d'un seul argument symbole/quosure mais d'un nombre indéfini. Des variantes de `enquo()` et `ensym()` existent au pluriel. Ces variantes sont `enquos()` et `ensyms()` et s'utilisent avec l'opérateur `!!!`.
@@ -360,7 +383,7 @@ Parfois, on a besoin non pas d'un seul argument symbole/quosure mais d'un nombre
 ```{webr-r}
 library(dplyr)
 x <- 200
-filtre_et_select <- function(tbl, filtre, ...){
+filtre_et_select <- function(tbl, filtre, ...) {
   filtre <- enquo(filtre)
   colonnes_selection <- ensyms(...)
   tbl %>%
@@ -391,3 +414,53 @@ filtre_et_select(dplyr::starwars,
 ```
 
 Inversement, dans ce dernier exemple, on a laissé la possibilité de spécifier plusieurs filtres en utilisant `enquos()` et en les faisant évaluer par `!!!` dans le `filter()`.
+
+::: callout-tip
+
+Les `!!!` passent aussi les noms d'arguments dans les `...`, donc sont aussi solubles avec les fonctions de type `rename` ou `summarise`.
+
+:::
+
+## Exercices
+
+### Exercice 1
+
+Écrire une fonction `filtre_et_summarise` de la forme `function(tbl, filtre, ...)` et qui :
+
+* applique le filtre fourni sur le tibble.
+* retourne des calculs de summarise renseignés dans les `...`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{webr-r}
+library(dplyr)
+x <- 200
+filtre_et_summarise <- function(tbl, filtre, ...) {
+  filtre <- enquo(filtre)
+  summar <- enquos(...)
+  tbl %>%
+    filter(!! filtre) %>%
+    summarise(!!! summar)
+}
+filtre_et_summarise(dplyr::starwars,
+                    height > x,
+                    sum_height = sum(height, na.rm = TRUE),
+                    mean_mass = mean(mass, na.rm = TRUE),
+                    compte = n())
+```
+
+:::
+
+### Exercice 2
+
+Écrire une fonction `filtre_et_summarise` de la forme `function(tbl, filtre, ...)` et qui :
+
+* applique le filtre fourni sur le tibble.
+* retourne des calculs de summarise renseignés dans les `...`.
+
