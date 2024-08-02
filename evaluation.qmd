@@ -669,7 +669,7 @@ compteur_1$get() # doit afficher 4
 compteur_2$get() # doit afficher 1
 ```
 
-Le code ci-dessus peut sembler étonnant ; this est en quelque-sorte auto-référentiel. Mais : 
+Le code ci-dessus peut sembler étonnant ; this est en quelque-sorte auto-référentiel. Mais :
 
 * Au moment où `nouveau_compteur()` s'exécute, R se moque de savoir si la fonction anonyme sous `suivant` a un sens.
 * Au moment où `nouveau_compteur()` retourne, `this` existe dans l'environnement de l'instance considérée.

@@ -26,7 +26,7 @@ Usuellement, un système de Programmation Orientée Objet structure le code en f
 On remarque que S3 préserve un peu cette structuration générale, mais l'adapte. Les éléments de POO sont tordus pour correspondre au paradigme prédominant qui est le paradigme fonctionnel. Voici les changements notables :
 
 * On centre sur **les fonctions plutôt que les classes**. Au lieu de s'attarder sur une classe et de décrire les méthodes que l'on peut appliquer dessus, dans S3 on énonce un nom de fonction, mettons `faire_pleuvoir(objet)`, puis on ajoute `faire_pleuvoir.baguette_magique(objet)` qui est la méthode `faire_pleuvoir()` adaptée aux baguettes magiques. On peut ensuite ajouter également `faire_pleuvoir.robot_chanteur(objet)` si on veut prévoir une méthode pour les robots chanteurs.
-* Il n'y a **pas de notion d'instance d'objet**. La notion d'instance d'objet induit une notion d'unicité (il n'y a qu'une seule baguette magique d'Harry Potter) et d'état interne (on a besoin d'états internes pour incrémenter, comme on l'a fait dans les chapitres précédents avec des closures). Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. C'est une notion complexe, on l'abordera un peu plus en détail dans la suite.
+* Il n'y a **pas de notion d'instance d'objet**. La notion d'instance d'objet induit une notion d'unicité (il n'y a qu'une seule baguette magique d'Harry Potter) et d'état interne. Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. Si on veut des *instances*, il faut les créer manu-militari, comme on l'a fait au chapitre précédent (c'est l'objet de l'exercice 2 de ce classeur).
 
 ## S3 en pratique
 
@@ -339,20 +339,12 @@ Tester ensuite cette fonction par `get_titre(mon_vecteur)` et `get_titre(dplyr::
 ## Proposition de solution
 
 ```{r}
+#| error: true
 get_titre <- function(x) UseMethod("get_titre")
 get_titre.vecteur_avec_titre <- function(x) attr(x, "titre")
 get_titre.tbl_df <- function(x) stop("Un tibble n'a pas de titre !")
 get_titre(mon_vecteur)
-```
-
-```{r}
-#| eval: false
 get_titre(dplyr::starwars)
-```
-
-```{r}
-#| echo: false
-cat("Erreur dans get_titre.tbl_df(dplyr::starwars) : Un tibble n'a pas de titre !",  file = stderr())
 ```
 
 On a donc ici créé une fonction générique, et on l'a implémenté par deux méthodes. Une pour `vecteur_avec_titre`, et une autre plus succinte pour les tibble, qui dirige vers une erreur.
@@ -419,6 +411,10 @@ On voit que :
 
 On voit qu'il suffit de renseigner un attribut `dim` à un vecteur pour définir une matrice. À l'aide de la fonction `structure()`, définir un vecteur `m` de valeur `1:12` muni d'un attribut dim qui signale une dimension de 3*4. Vérifier avec `inherits(m, "matrix")` et `is.matrix(m)` que le vecteur est bien pleinement reconnu comme une matrice.
 
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
 ::: {.callout-tip collapse="true"}
 
 ## Proposition de solution
@@ -432,5 +428,85 @@ print(is.matrix(m))
 On a vérifié qu'il suffit de définir un attribut de dimension pour dire qu'un vecteur est une matrice. Une matrice n'est rien de plus qu'un vecteur auquel on a rajouté une dimension.
 
 :::
+
+### Exercice 2 : Simuler des instances
+
+Dans le chapitre sur l'évaluation, on était parvenu à ce compteur :
+
+```{r}
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    this <-
+      list(
+        suivant = function() {
+          n <<- n + 1L
+          this
+        },
+        get = function() {
+          n
+        }
+      )
+    this
+  }
+
+compteur_1 <- nouveau_compteur()
+compteur_2 <- nouveau_compteur()
+compteur_1$
+  suivant()$
+  suivant()$
+  suivant()
+compteur_1$get()
+compteur_2$get()
+compteur_1$suivant()
+compteur_2$suivant()
+compteur_1$get()
+compteur_2$get()
+```
+
+On demande dans cette exercice de :
+
+* Modifier le code de la fonction `nouveau_compteur()` pour que le compteur renvoie une liste de classe "super_compteur".
+* Implémenter une méthode de la fonction générique `print()` qui affiche `Super Compteur : 3\n` si le compteur en est à 3 (on rappelle que \n est une manière d'indiquer un saut de ligne).
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+```{r}
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    this <-
+      list(
+        suivant = function() {
+          n <<- n + 1L
+          this
+        },
+        get = function() {
+          n
+        }
+      )
+    class(this) <- "super_compteur"
+    this
+  }
+print.super_compteur <- function(x, ...) {
+  cat("Super Compteur : ", x$get(), "\n", sep = "")
+}
+compteur_1 <- nouveau_compteur()
+compteur_2 <- nouveau_compteur()
+compteur_1$
+  suivant()$
+  suivant()$
+  suivant()
+print(compteur_1)
+print(compteur_2)
+compteur_1$suivant()
+compteur_2$suivant()
+print(compteur_1)
+print(compteur_2)
+```
 
 :::
