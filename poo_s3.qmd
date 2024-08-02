@@ -28,4 +28,104 @@ On remarque que S3 garde un peu cette structuration générale, mais les adapte.
 * On centre sur **les fonctions plutôt que les classes**. Au lieu de s'attarder sur une classe et de décrire les méthodes que l'on peut appliquer dessus, dans S3 on énonce un nom de fonction, mettons `faire_pleuvoir(objet)`, puis on ajoute `faire_pleuvoir.baguette_magique(objet)` qui est la méthode `faire_pleuvoir()` adaptée aux baguettes magiques. On peut ensuite ajouter également `faire_pleuvoir.robot_chanteur(objet)` si on veut prévoir une méthode pour les robots chanteurs.
 * Il n'y a **pas de notion d'instance** d'objet. La notion d'instance d'objet induit une notion d'unicité et d'état interne. Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. C'est une notion complexe, mais on abordera plus en détail ce point dans la suite.
 
+## S3 en pratique
 
+Pour voir les classes d'un objet, on utilise la fonction `class()`.
+
+```{webr-r}
+library(disaggR)
+library(dplyr)
+benchmark <- twoStepsBenchmark(turnover, construction)
+print(class(benchmark)) # On ignorera ici ce qui est écrit sous attr(,"package")
+print(class(dplyr::starwars))
+```
+
+On vérifie bien que :
+
+* Un objet créé par `twoStepsBenchmark()` est de classe `"twoStepsBenchmark"`.
+* Un tibble est de classe `"tbl_df"`, hérite de `"tbl"` et de `"data.frame"`.
+
+On identifie une fonction générique S3 par le fait que son corps se limite à un `UseMethod("nom_de_la_fonction")`.
+
+```{webr-r}
+summary
+```
+
+Dans l'exemple ci-dessus, on voit que la fonction summary n'est définie par rien d'autre que :
+
+```{r}
+#| eval: false
+summary <- function(object, ...) UseMethod("summary")
+```
+
+C'est assez succinct ! Cela déclare summary comme une fonction générique, et dit d'aller chercher la bonne méthode selon la classe du premier argument (ici `object`).
+
+Pour voir les méthodes proposées par une fonction générique, on utilise `methods()` :
+
+```{webr-r}
+methods(summary)
+```
+
+Il y a un paquet de méthodes implémentées pour `summary()` dites-donc ! Certaines méthodes n'ont pas d'étoiles derrière leur nom. Pour consulter le code de l'une d'elle, il suffit de taper leur nom.
+
+```{webr-r}
+summary.data.frame
+```
+
+Ces méthodes correspondent à des fonctions *exportées* par les packages (ou par r-base). Elles peuvent très bien être utilisées telles quelles si on ne souhaite pas passer par la générique.
+
+```{webr-r}
+summary.data.frame(dplyr::starwars)
+```
+
+Certaines méthodes apparaissent avec une * après leur nom. Elles correspondent à des méthodes non-exportées par un package, c'est-à-dire que l'auteur du package n'a pas jugé utile de rendre directement disponible le nom de méthode à l'utilisateur et privilégie l'emploi de la générique. C'est aujourd'hui le comportement par défaut.
+
+```{web-r}
+library(disaggR)
+benchmark <- twoStepsBenchmark(turnover, construction)
+summary.twoStepsBenchmark(benchmark) # Renvoie une erreur car le nom summary.data.frame n'est pas exporté.
+```
+
+On peut toutefois lire ces méthodes et savoir d'où elles viennent en utilisant `getAnywhere()`.
+
+```{web-r}
+getAnywhere(summary.twoStepsBenchmark)
+```
+
+Ici, on lit que la méthode `summary.twoStepsBenchmark` existe de manière interne au package `disaggR`, et son code est :
+
+```{r}
+#| eval: false
+summary.twoStepsBenchmark <- function (object, ...) {
+    summary.praislm(prais(object), ...)
+}
+```
+
+Autrement dit, elle renvoie encore à une autre méthode de `summary`.
+
+::: callout-note
+
+On peut accéder à toutes les fonctions non-exportées (fonctions internes) d'un package à l'aide des triples doubles-points (`:::`). Par exemple, on peut ici accéder à `summary.twoStepsBenchmark` en écrivant :
+
+```{webr-r}
+library(disaggR)
+benchmark <- twoStepsBenchmark(turnover, construction)
+disaggR:::summary.twoStepsBenchmark(benchmark)
+```
+
+Bien sûr, même si c'est utile à savoir pour comprendre le fonctionnement de R, inutile de vous prévenir que ce n'est pas une bonne pratique dans du code de production. R est très permissif, mais c'est à l'utilisateur de se discipliner. Les fonctions internes d'un package peuvent changer complètement d'une version à une autre sans prévenir l'utilisateur qui n'est normalement pas censé les utiliser directement.
+
+:::
+
+On peut également utiliser `methods()` pour chercher toutes les méthodes associées *directement* à une classe :
+
+```{webr-r}
+library(disaggR)
+library(dplyr)
+print(methods(class = "twoStepsBenchmark"))
+print(methods(class = "tbl_df"))
+print(methods(class = "tbl"))
+print(methods(class = "data.frame"))
+```
+
+## Attributs
