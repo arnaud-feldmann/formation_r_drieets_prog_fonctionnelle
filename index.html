@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"resultat <- sin(sqrt(1:10))\nresultat","options":{"comment":"","fig-height":5,"out-width":"700px","dpi":72,"fig-cap":"","label":"unnamed-chunk-1","output":"true","editor-word-wrap":"true","context":"interactive","warning":"true","out-height":"","read-only":"false","message":"true","classes":"","autorun":"false","editor-quick-suggestions":"false","editor-max-height":"","results":"markup","editor-font-scale":"1","fig-width":7},"id":1},{"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","options":{"comment":"","fig-height":5,"out-width":"700px","dpi":72,"fig-cap":"","label":"unnamed-chunk-2","output":"true","editor-word-wrap":"true","context":"interactive","warning":"true","out-height":"","read-only":"false","message":"true","classes":"","autorun":"false","editor-quick-suggestions":"false","editor-max-height":"","results":"markup","editor-font-scale":"1","fig-width":7},"id":2}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"resultat <- sin(sqrt(1:10))\nresultat","options":{"dpi":72,"out-width":"700px","output":"true","read-only":"false","editor-quick-suggestions":"false","label":"unnamed-chunk-1","editor-word-wrap":"true","comment":"","fig-height":5,"out-height":"","warning":"true","autorun":"false","fig-width":7,"message":"true","context":"interactive","editor-max-height":"","classes":"","fig-cap":"","results":"markup","editor-font-scale":"1"}},{"id":2,"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","options":{"dpi":72,"out-width":"700px","output":"true","read-only":"false","editor-quick-suggestions":"false","label":"unnamed-chunk-2","editor-word-wrap":"true","comment":"","fig-height":5,"out-height":"","warning":"true","autorun":"false","fig-width":7,"message":"true","context":"interactive","editor-max-height":"","classes":"","fig-cap":"","results":"markup","editor-font-scale":"1"}}];
 
 </script>
 <script type="module">
@@ -1963,14 +1963,14 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="la-programmation-procédurale" class="level2">
 <h2 class="anchored" data-anchor-id="la-programmation-procédurale">La programmation procédurale</h2>
 <p>La <strong>programmation procédurale</strong> est le plus ancien paradigme de programmation. Il s’agit d’une séquence de <em>procédures</em>, c’est-à-dire une série d’étapes à réaliser pour faire quelque chose. On peut voir cela comme une recette de cuisine.</p>
-<p>Supposons que l’on veuille peindre un mur en vert, on pourrait faire&nbsp;:</p>
+<p>Supposons que l’on veuille peindre un mur en vert, et que la procédure <code>mélanger_couleurs_sur_palette(palette)</code> mélange les deux premières couleurs de la palette et stocke le résulat au troisième emplacement, on pourrait faire&nbsp;:</p>
 <blockquote class="blockquote">
 <div class="line-block">mettre_sur_palette(palette, bleu)<br>
 mettre_sur_palette(palette, jaune)<br>
 mélanger_couleurs_sur_palette(palette)<br>
 peindre_mur(mur, palette[3])</div>
 </blockquote>
-<p>Il faut bien noter ce qui se passe à la fin de la dernière ligne&nbsp;: on a sélectionné la couleur de la palette en appelant son emplacement numéro 3 avec <code>palette[3]</code>. Cela suppose d’une part que l’on connait le fonctionnement interne des palettes, et d’autre part que cette structure interne ne change jamais. Si l’on change le code interne de la palette, il faudra aussi changer notre code. Notre programme dépend de l’<em>implémentation</em> de la palette.</p>
+<p>Il faut bien mesurer ce qui se passe à la fin de la dernière ligne&nbsp;: on a sélectionné la couleur de la palette en appelant son emplacement numéro 3 avec <code>palette[3]</code>. Cela suppose d’une part que l’on connait le fonctionnement interne des palettes, et d’autre part que cette structure interne ne change jamais. Si l’on change le code interne de la palette, il faudra aussi changer notre code. Notre programme dépend de l’<em>implémentation</em> de la palette.</p>
 <p>Toutefois, la programmation purement procédurale n’est pas sans intérêt dans les langages proches du matériel (on les appelle “de bas niveau”). Elle est par exemple utilisée dans le langage C. Le véritable langage des machines est en effet en lui-même procédural&nbsp;; un processeur est essentiellement un composant électronique qui manipule des états de manière séquentielle. La programmation procédurale pour autant pas restreinte aux langages de bas-niveau&nbsp;; Python notamment est un peu fourre-tout, mais reste relativement procédural.</p>
 </section>
 <section id="la-programmation-orientée-objet-poo" class="level2">
@@ -1982,7 +1982,7 @@ palette.ajouter(jaune)<br>
 palette.mélanger()<br>
 mur.peindre(palette.get_couleur())</div>
 </blockquote>
-<p>On voit que <code>palette</code>, une <em>instance</em> de palette, possède a minima trois méthodes (<code>ajouter</code>, <code>mélanger</code>, et <code>get_couleur</code>). Puisqu’on s’est astreints à ne jamais accéder aux états internes de la palette, on a découplé le programme de peinture de celui des palettes. On n’a plus besoin de savoir comment est structurée intérieurement une palette (on ne sélectionne plus son 3ème élément). La différence est de taille&nbsp;: la personne qui s’occupe de la maintenance des <em>palettes</em> peut maintenant les changer comme elle veut sans risquer de causer une erreur dans le programme de <em>peinture</em> (par exemple un mur jaune fluo à poids mauves). La seule chose qui doit être respectée, c’est le comportement des différentes méthodes.</p>
+<p>On voit que <code>palette</code>, une <em>instance d’objets</em> de classe palette, possède a minima trois méthodes (<code>ajouter</code>, <code>mélanger</code>, et <code>get_couleur</code>). Puisqu’on s’est astreints à ne jamais accéder aux états internes de la palette, on a découplé le programme de peinture de celui des palettes. On n’a plus besoin de savoir comment est structurée intérieurement une palette (on ne sélectionne plus son troisième élément). La différence est de taille&nbsp;: la personne qui s’occupe de la maintenance des <em>palettes</em> peut maintenant les changer comme elle veut sans risquer de causer une erreur dans le programme de <em>peinture</em> (par exemple un mur jaune fluo à poids mauves). La seule chose qui doit être respectée, c’est le comportement des différentes méthodes.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2025,28 +2025,7 @@ Note
 </section>
 <section id="r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo" class="level2">
 <h2 class="anchored" data-anchor-id="r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo">R&nbsp;: un langage fonctionnel, vectoriel, avec quelques éléments de POO</h2>
-<p>R est très majoritairement un langage <strong>fonctionnel</strong>. Dans la mesure où aucun langage n’est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation <strong>objet</strong> tordus pour correspondre au coeur d’un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n’a rien à voir avec le protocole de stockage même s’il s’appelle pareil), adapte les principes de la POO dans le contexte de la programmation fonctionnelle. Grosso modo, dans R, on définit des classes d’objets de manière beaucoup moins formelle que dans la POO (par exemple des <code>tibble</code>, des <code>ggplot</code>…), et on applique des fonctions pures dessus. Contrairement à ce qu’il se passe dans un langage POO, les objets de R sont <em>immutables</em>.</p>
-<p>D’accord, mais qu’est-ce que l’immutabilité ?</p>
-<p>Dans presque tous les langages de programmation objet, si on fait :</p>
-<blockquote class="blockquote">
-<div class="line-block">mur_a = nouveau_mur()<br>
-mur_a.peindre(rouge)<br>
-mur_b = mur_a<br>
-mur_b.peindre(vert)<br>
-mur_a.get_couleur() –&gt; renvoie vert<br>
-mur_b.get_couleur() –&gt; renvoie vert</div>
-</blockquote>
-<p>La couleur de <code>mur_a</code> a aussi changé ! En fait, dans un langage de POO, on crée des <em>instances</em> avec un constructeur (ici <strong>nouveau_mur</strong>). <code>mur_a</code> et <code>mur_b</code> correspondent au même mur. Si on modifie l’un, on modifie l’autre.</p>
-<p>A contrario, dans R, on aura plutôt :</p>
-<blockquote class="blockquote">
-<div class="line-block">mur_a = nouveau_mur()<br>
-mur_a.peindre(rouge)<br>
-mur_b = mur_a<br>
-mur_b.peindre(vert)<br>
-mur_a.get_couleur() –&gt; renvoie rouge<br>
-mur_b.get_couleur() –&gt; renvoie vert</div>
-</blockquote>
-<p>Dans R, en fait, tout se passe comme si on ne manipulait que des valeurs, même quand on manipule des objets. On ne crée pas vraiment d’instances de murs.</p>
+<p>R est très majoritairement un langage <strong>fonctionnel</strong>. Dans la mesure où aucun langage n’est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation <strong>objet</strong> tordus pour correspondre au coeur d’un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n’a rien à voir avec le protocole de stockage même s’il s’appelle pareil), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.</p>
 <p>Un autre aspect particulier de R est qu’il est vectoriel. Si je fais&nbsp;:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
