@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"message":"true","warning":"true","editor-word-wrap":"true","results":"markup","output":"true","dpi":72,"read-only":"false","out-width":"700px","context":"interactive","classes":"","comment":"","fig-height":5,"editor-font-scale":"1","label":"unnamed-chunk-1","autorun":"false","fig-width":7,"fig-cap":"","out-height":"","editor-quick-suggestions":"false","editor-max-height":""},"code":"resultat <- sin(sqrt(1:10))\nresultat"},{"id":2,"options":{"message":"true","warning":"true","editor-word-wrap":"true","results":"markup","output":"true","dpi":72,"read-only":"false","out-width":"700px","context":"interactive","classes":"","comment":"","fig-height":5,"editor-font-scale":"1","label":"unnamed-chunk-2","autorun":"false","fig-width":7,"fig-cap":"","out-height":"","editor-quick-suggestions":"false","editor-max-height":""},"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat"}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"resultat <- sin(sqrt(1:10))\nresultat","options":{"autorun":"false","fig-cap":"","label":"unnamed-chunk-1","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true","editor-word-wrap":"true","fig-height":5,"comment":"","context":"interactive","classes":"","results":"markup","fig-width":7,"dpi":72,"read-only":"false","message":"true","out-width":"700px","editor-quick-suggestions":"false"}},{"id":2,"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","options":{"autorun":"false","fig-cap":"","label":"unnamed-chunk-2","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true","editor-word-wrap":"true","fig-height":5,"comment":"","context":"interactive","classes":"","results":"markup","fig-width":7,"dpi":72,"read-only":"false","message":"true","out-width":"700px","editor-quick-suggestions":"false"}}];
 
 </script>
 <script type="module">
@@ -1612,6 +1612,12 @@ globalThis.qwebrExecuteCode = async function (
   <div class="sidebar-item-container"> 
   <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Évaluation des fonctions en R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./poo_s3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programmation fonctionnelle objet en R (S3)</span></a>
   </div>
 </li>
     </ul>
