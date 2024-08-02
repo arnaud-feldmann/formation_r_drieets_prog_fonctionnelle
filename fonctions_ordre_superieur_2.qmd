@@ -47,7 +47,7 @@ Dans R, les objets sont contenus dans des *environnements*. Les environnements s
 
 * dans lesquelles on peut assigner des objets (avec`<-`) de manière totalement isolée les unes des autres. Ici il faut bien comprendre que tous les objets `x` existent en même temps dans des environnements différents.
 * à l'exception de l'emptyenv, tous les environnements indiquent un environnement parent.
-* Chaque **appel** de fonction (et non chaque définition) définit un environnement. Ici on crée donc deux environnements différents pour mystere qu'on appelle des *instances*.
+* Chaque **appel** de fonction (et non chaque définition) définit un environnement. Ici on crée donc deux environnements différents pour mystere.
 * lorsque l'on recherche un objet dans un environnement et qu'il n'y existe pas, on va chercher dans l'environnement parent (puis à nouveau l'environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, `fun_1` n'a pas connaissance de `arg`. Alors on cherche dans l'environnement au dessus. Surprise ! On y trouve arg et l'on peut donc assigner avec cette valeur. C'est ce qui explique que `fun_1()` et `fun_2()` peuvent renvoyer des résultats différents.
 
 Dans la suite, on s'attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d'information, mais n'est pas vraiment le sujet ici. De notre point de vue, l'environnement le plus bas est donc le globalenv.
@@ -132,7 +132,7 @@ En apparence, les fonctions semblent se comporter à nouveau comme si on utilisa
 
 ![](environnements3.svg)
 
-À la fin de l'exécution on a le graphe ci-dessus. Les `x <- 2L` des différentes instances de mystère ont été ecrasés respectivement par les `x <<- 3L` et `x <<- 4L` de `fun_1` `fun_2`. Ici, comme on n'utilise de toutes manières pas les valeur `2L`, ce n'est pas très grave. On préserve l'isolation entre instances donc tout va bien ; même si ici la notation est inutile.
+À la fin de l'exécution on a le graphe ci-dessus. Les `x <- 2L` des différentes environnements de mystère ont été ecrasés respectivement par les `x <<- 3L` et `x <<- 4L` de `fun_1` `fun_2`. Ici, comme on n'utilise de toutes manières pas les valeur `2L`, ce n'est pas très grave. On préserve l'isolation entre environnements donc tout va bien ; même si ici la notation est inutile.
 
 :::
 
@@ -140,7 +140,7 @@ En apparence, les fonctions semblent se comporter à nouveau comme si on utilisa
 
 On a vu plus que des fonctions peuvent retourner des fonctions, et qu'il s'agit d'un des deux types de fonctions d'ordre supérieur. Dans R, on appelle aussi ces fonctions des *closures* (fermetures en français, mais le terme n'est pas très employé).
 
-Ce nom illustre un aspect de ces fonctions d'ordre supérieur, et une utilisation particulière. On a vu qu'il est possible d'écrire dans l'environnement *parent* tout en préservant l'isolation entre instances. Et bien utilisons cette propriété !
+Ce nom illustre un aspect de ces fonctions d'ordre supérieur, et une utilisation particulière. On a vu qu'il est possible d'écrire dans les environnements *parents* qui apparaissent comme isolés les uns des autres. Et bien utilisons cette propriété !
 
 ```{webr-r}
 nouveau_compteur <-
@@ -153,6 +153,7 @@ nouveau_compteur <-
   }
 
 compteur_1 <- nouveau_compteur()
+compteur_1_bis <- compteur_1
 compteur_2 <- nouveau_compteur()
 print(compteur_1())
 print(compteur_1())
@@ -160,6 +161,7 @@ print(compteur_2())
 print(compteur_1())
 print(compteur_1())
 print(compteur_2())
+print(compteur_1_bis())
 ```
 
 Mais que se passe-t-il ? C'est très étonnant ! Il semble que l'on ait défini des états ; et pourtant il n'y a aucune variable `n` dans l'environnement global !
@@ -168,7 +170,9 @@ Mais que se passe-t-il ? C'est très étonnant ! Il semble que l'on ait défin
 
 En fait, on appelle ces fonctions des closures parce qu'elles "enferment" leur environnement parent. Elle permettent de maintenir un espace isolé où l'on peut tout-à-fait faire des modifications.
 
-Cette astuce est puissante et permet de maintenir des états à l'intérieur d'un langage fonctionnel. Cela rompt l'axiome maximaliste d'un langage fonctionnel idéal qui ne contiendrait que des fonctions complètement pures, mais cela rompt cette approche de manière maitrisée, la plus locale possible. On doit bien sûr n'user de cette astuce qu'avec parcimonie, quand cela semble nécessaire.
+Seul `nouveau_compteur()` permet de créer un nouvel espace isolé. On appelle un tel espace **instance** et l'appel à `nouveau_compteur()` est appelée instanciation. **`compteur_1bis` réfère exactement au même compteur que 4**.
+
+Cette astuce est puissante et permet de maintenir des états à l'intérieur d'un langage fonctionnel. Cela rompt l'approche maximaliste d'un langage fonctionnel idéal qui ne contiendrait que des fonctions complètement pures, mais cela la rompt de manière maitrisée, la plus locale possible. On ne doit bien sûr user de cette astuce qu'avec parcimonie, quand cela semble nécessaire.
 
 ## Closures complexes
 
@@ -446,6 +450,120 @@ Faux
 ## Réponse
 
 Vrai, l'assignation remontante `<<-` remonte les environnements parents jusqu'à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par `fonction`. Mais il ne contient aucun objet de nom `x`. On remonte donc encore les environnements jusqu'à l'environnement global, et donc le `x` global est modifié.
+
+:::
+
+### Question 7
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    function() {
+      n <<- n + 1L
+      return(n)
+    }
+  }
+
+compteur_a <- nouveau_compteur()
+compteur_b <- compteur_a
+print(compteur_a())
+print(compteur_a())
+print(compteur_b())
+```
+
+Combien va afficher le résultats de `compteur_b()` ?
+
+:::: {.choices}
+
+::: {.choice}
+0
+:::
+
+::: {.choice}
+1
+:::
+
+::: {.choice}
+2
+:::
+
+::: {.choice .correct-choice}
+3
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+La réponse vaut 3. Un compteur a été instancié dans `compteur_a` par `nouveau_compteur()`, puis il a été recopié dans `compteur_b`, mais n'a pas été réinstancié. On désigne donc le même compteur.
+
+:::
+
+### Question 8
+
+::::: {.question}
+
+Dans le code ci-dessous :
+
+```{r}
+#| eval: false
+nouveau_compteur <-
+  function() {
+    n <- 0L
+    function() {
+      n <<- n + 1L
+      return(n)
+    }
+  }
+
+compteur_a <- nouveau_compteur()
+compteur_b <- nouveau_compteur()
+print(compteur_a())
+print(compteur_a())
+print(compteur_b())
+```
+
+Combien va afficher le résultats de `compteur_b()` ?
+
+:::: {.choices}
+
+::: {.choice}
+0
+:::
+
+::: {.choice .correct-choice}
+1
+:::
+
+::: {.choice}
+2
+:::
+
+::: {.choice}
+3
+:::
+
+:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::: {.callout-note collapse="true" icon="false"}
+## Réponse
+
+La réponse vaut 1. Deux compteurs différents ont été instanciés dans `compteur_a` et `compteur_b`.
 
 :::
 

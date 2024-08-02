@@ -23,10 +23,10 @@ Usuellement, un système de Programmation Orientée Objet structure le code en f
 * Des **méthodes**, à savoir les choses que l'on peut faire avec une classe d'objets. Par exemple en ce qui concerne les baguettes magiques, considérons `jeter_boule_de_feu()`, et `faire_pleuvoir()`.
 * Un **héritage**, à savoir que chaque classe a une classe parente dont elle étend les possibilités. Une baguette magique est un type particulier de bâton de bois. La classe des "baguettes magiques" hérite de l'ensemble des méthodes des "bâtons de bois". On peut toujours `taper_sur_un_ennemi()`, `faire_un_feu_de_camp()`, `casser_en_deux()` avec une baguette magique.
 
-On remarque que S3 garde un peu cette structuration générale, mais les adapte. Les éléments de POO sont tordus pour correspondre au paradigme prédominant qui est le paradigme fonctionnel. Voici les changements notables :
+On remarque que S3 préserve un peu cette structuration générale, mais l'adapte. Les éléments de POO sont tordus pour correspondre au paradigme prédominant qui est le paradigme fonctionnel. Voici les changements notables :
 
 * On centre sur **les fonctions plutôt que les classes**. Au lieu de s'attarder sur une classe et de décrire les méthodes que l'on peut appliquer dessus, dans S3 on énonce un nom de fonction, mettons `faire_pleuvoir(objet)`, puis on ajoute `faire_pleuvoir.baguette_magique(objet)` qui est la méthode `faire_pleuvoir()` adaptée aux baguettes magiques. On peut ensuite ajouter également `faire_pleuvoir.robot_chanteur(objet)` si on veut prévoir une méthode pour les robots chanteurs.
-* Il n'y a **pas de notion d'instance** d'objet. La notion d'instance d'objet induit une notion d'unicité et d'état interne. Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. C'est une notion complexe, mais on abordera plus en détail ce point dans la suite.
+* Il n'y a **pas de notion d'instance d'objet**. La notion d'instance d'objet induit une notion d'unicité (il n'y a qu'une seule baguette magique d'Harry Potter) et d'état interne (on a besoin d'états internes pour incrémenter, comme on l'a fait dans les chapitres précédents avec des closures). Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. C'est une notion complexe, on l'abordera un peu plus en détail dans la suite.
 
 ## S3 en pratique
 
