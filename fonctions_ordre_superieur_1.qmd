@@ -78,7 +78,6 @@ begaiement_bis <-
   tripler_les_elements(c("a", "b", "c", "d"))
 begaiement_bis
 typeof(begaiement_bis)
-class(begaiement_bis)
 ```
 
 Dans ce dernier calcul, on remarque que l'on peut appliquer `lapply` sur un vecteur.
@@ -122,7 +121,6 @@ matrice <-
   )
 matrice
 typeof(matrice)
-class(matrice)
 ```
 
 Dans le cas où, comme ici, chaque *application unitaire* de la fonction utilisée retourne plusieurs valeurs, alors l'argument `FUN.VALUE` doit être un vecteur de même taille.

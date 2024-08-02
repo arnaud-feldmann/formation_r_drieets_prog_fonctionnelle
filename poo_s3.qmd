@@ -51,7 +51,7 @@ S3 est une étiquette apposée sur des données dont le type peut être consult�
 library(disaggR)
 library(dplyr)
 benchmark <- twoStepsBenchmark(turnover, construction)
-(typeof(benchmark)
+typeof(benchmark)
 typeof(dplyr::starwars)
 ```
 
@@ -106,7 +106,7 @@ summary.data.frame(dplyr::starwars)
 
 Certaines méthodes apparaissent avec une * après leur nom. Elles correspondent à des méthodes non-exportées par un package, c'est-à-dire que l'auteur du package n'a pas jugé utile de rendre directement disponible le nom de méthode à l'utilisateur et privilégie l'emploi de la générique. C'est aujourd'hui le comportement par défaut.
 
-```{web-r}
+```{webr-r}
 library(disaggR)
 benchmark <- twoStepsBenchmark(turnover, construction)
 summary.twoStepsBenchmark(benchmark) # Renvoie une erreur car le nom summary.data.frame n'est pas exporté.
@@ -114,7 +114,7 @@ summary.twoStepsBenchmark(benchmark) # Renvoie une erreur car le nom summary.dat
 
 On peut toutefois lire ces méthodes et savoir d'où elles viennent en utilisant `getAnywhere()`.
 
-```{web-r}
+```{webr-r}
 getAnywhere(summary.twoStepsBenchmark)
 ```
 
