@@ -434,6 +434,7 @@ On a vérifié qu'il suffit de définir un attribut de dimension pour dire qu'un
 Dans le chapitre sur l'évaluation, on était parvenu à ce compteur :
 
 ```{r}
+#| eval: false
 nouveau_compteur <-
   function() {
     n <- 0L
@@ -508,5 +509,7 @@ compteur_2$suivant()
 print(compteur_1)
 print(compteur_2)
 ```
+
+On a maintenant un objet S3 qui se comporte avec des instances, comme en Programmation Orientée Objet classique.
 
 :::
