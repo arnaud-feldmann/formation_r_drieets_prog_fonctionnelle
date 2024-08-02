@@ -16,6 +16,8 @@ website:
         text: Fonctions d'ordre supérieur 2 (retours)
       - href: evaluation.qmd
         text: Évaluation des fonctions en R
+      - href: poo_s3.qmd
+        text: Programmation fonctionnelle objet en R (S3)
     search: false
 
 format:

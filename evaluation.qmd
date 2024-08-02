@@ -46,7 +46,7 @@ quote(1***5)
 
 ## Évaluation à temps d'exécution
 
-Le code n'est interprêté qu'à temps d'exécution du code. Contrairement à des langages plus formels qui donnent une importance plus grande au temps de définition, notamment les langages compilés, R attend le dernier moment pour vérifier si quelque chose a un sens.
+Le code n'est interprêté qu'à son temps d'exécution. Contrairement à des langages plus formels qui donnent une importance plus grande au temps de "définition", notamment les langages compilés, R attend le dernier moment pour vérifier si quelque chose a un sens.
 
 ```{webr-r}
 setMachin <- function() assign("machin", 1, parent.frame())

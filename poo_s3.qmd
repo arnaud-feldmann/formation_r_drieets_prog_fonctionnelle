@@ -1,0 +1,31 @@
+---
+title: "Programmation fonctionnelle objet en R (S3)"
+webr:
+  packages: ["dplyr", "disaggR"]
+  autoload: false
+---
+
+## Introduction : S3 et la Programmation Orientée Objet
+
+Comme on l'a vu dans la page d'introduction, S3 est un système de programmation orientée objet qui existe dans R, adapté par rapport aux autres langages pour être soluble au paradigme prédominant dans R, à savoir la programmation fonctionnelle.
+
+Dans R, S3 est structuré par :
+
+* des **fonction génériques** qui sont simplement des noms de fonctions munis d'une description abstraite en langage naturel. Par exemple `summary()` est une fonction générique. Sa description abstraite est décrite par l'aide accessible via `?summary`. On y lit "`summary` is a generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument.". Pour l'instant `summary()` n'est qu'une abstraction, elle n'a pas de code. À charge des différents concepteurs d'objets de lui donner un sens particulier, conforme à sa description abstraite.
+* des **classes d'objets** qui sont simplement des étiquettes portées par l'objet et montrées à la fonction générique. Par exemple, si `objet` est un objet de classe `twoStepsBenchmark` du package [disaggR](https://github.com/InseeFr/disaggR), il montrera une étiquette `"twoStepsBenchmark"` à la fonction `summary()`. Un objet `tibble` montrera une étiquette `"tbl_df"` à la fonction `summary()` (`"tbl_df"` est le vrai nom de classe tibbles).
+* des **méthodes** qui écrivent explicitement le code utilisé pour une fonction dans le cas d'une classe d'objet (on peut dire qu'on *implémente* `summary()` quand on en écrit explicitement son code pour une classe précise). Par exemple `summary()` renverra vers `summary.twoStepsBenchmark()` pour un objet de classe `twoStepsBenchmark`, tandis qu'elle essayera en premier de renvoyer vers `summary.tbl_df()` pour un tibble.
+* Un **héritage** entre classes d'objets qui dit simplement que si une méthode n'existe pas pour une fonction générique, alors on en cherche une autre, puis une autre, et ainsi de suite. Par exemple un tibble a en fait 3 étiquettes, `c("tbl_df", "tbl", "data.frame")`. En ce qui concerne la fonction `summary()`, elle cherche d'abord une fonction `summary.tbl_df()` (qui n'existe pas), puis une fonction `summary.tbl()` (qui n'existe pas non plus), et enfin une fonction `summary.data.frame()` (qui existe ! Bingo ! C'est la méthode utilisée.).
+
+Usuellement, un système de Programmation Orientée Objet structure le code en faisant appel à des *instances d'objets* sur lesquelles on appelle des *méthodes*. Plus spécifiquement, on a :
+
+* Une **instance d'objet**, par exemple *la* baguette magique que j'ai en main en écrivant ces lignes.
+* Une **classe d'objet**, par exemple celle des *baguettes magiques*. Toutes les instances de baguettes magiques se comportent exactement de la même manière, mais peuvent avoir différents attibuts (longueur, bois utilisé...).
+* Des **méthodes**, à savoir les choses que l'on peut faire avec une classe d'objets. Par exemple en ce qui concerne les baguettes magiques, considérons `jeter_boule_de_feu()`, et `faire_pleuvoir()`.
+* Un **héritage**, à savoir que chaque classe a une classe parente dont elle étend les possibilités. Une baguette magique est un type particulier de bâton de bois. La classe des "baguettes magiques" hérite de l'ensemble des méthodes des "bâtons de bois". On peut toujours `taper_sur_un_ennemi()`, `faire_un_feu_de_camp()`, `casser_en_deux()` avec une baguette magique.
+
+On remarque que S3 garde un peu cette structuration générale, mais les adapte. Les éléments de POO sont tordus pour correspondre au paradigme prédominant qui est le paradigme fonctionnel. Voici les changements notables :
+
+* On centre sur **les fonctions plutôt que les classes**. Au lieu de s'attarder sur une classe et de décrire les méthodes que l'on peut appliquer dessus, dans S3 on énonce un nom de fonction, mettons `faire_pleuvoir(objet)`, puis on ajoute `faire_pleuvoir.baguette_magique(objet)` qui est la méthode `faire_pleuvoir()` adaptée aux baguettes magiques. On peut ensuite ajouter également `faire_pleuvoir.robot_chanteur(objet)` si on veut prévoir une méthode pour les robots chanteurs.
+* Il n'y a **pas de notion d'instance** d'objet. La notion d'instance d'objet induit une notion d'unicité et d'état interne. Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. C'est une notion complexe, mais on abordera plus en détail ce point dans la suite.
+
+
