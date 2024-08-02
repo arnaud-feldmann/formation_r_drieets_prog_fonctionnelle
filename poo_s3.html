@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-1","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":1,"code":"library(disaggR)\nlibrary(dplyr)\nbenchmark <- twoStepsBenchmark(turnover, construction)\nclass(benchmark) # On ignorera ici ce qui est écrit sous attr(,\"package\")\nclass(dplyr::starwars)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-2","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":2,"code":"library(disaggR)\nlibrary(dplyr)\nbenchmark <- twoStepsBenchmark(turnover, construction)\n(typeof(benchmark)\ntypeof(dplyr::starwars)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-3","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":3,"code":"library(disaggR)\nlibrary(dplyr)\nbenchmark <- twoStepsBenchmark(turnover, construction)\ninherits(benchmark, \"twoStepsBenchmark\") # Vrai\ninherits(benchmark, \"data.frame\") # Faux\ninherits(dplyr::starwars, \"twoStepsBenchmark\") # Faux\ninherits(dplyr::starwars, \"tbl_df\") # Vrai\ninherits(dplyr::starwars, \"tbl\") # Vrai\ninherits(dplyr::starwars, \"data.frame\") # Vrai"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-4","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":4,"code":"summary"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-5","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":5,"code":"methods(summary)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-6","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":6,"code":"summary.data.frame"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-7","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":7,"code":"summary.data.frame(dplyr::starwars)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-8","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":8,"code":"library(disaggR)\nbenchmark <- twoStepsBenchmark(turnover, construction)\ndisaggR:::summary.twoStepsBenchmark(benchmark)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-9","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":9,"code":"library(disaggR)\nlibrary(dplyr)\nmethods(class = \"twoStepsBenchmark\")\nmethods(class = \"tbl_df\")\nmethods(class = \"tbl\")\nmethods(class = \"data.frame\")"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-10","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":10,"code":"attributes(dplyr::starwars)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-11","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":11,"code":"objet <-\n  structure(\n    1L:10L,\n    class = \"mon_vecteur\",\n    mon_attribut = list(\"bonjour\", \"le\", \"monde\")\n  )\nclass(objet)\nattr(objet, \"class\")\nattr(objet, \"mon_attribut\")\nattributes(objet)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-12","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":12,"code":"objet <- 1L:10L\nattr(objet, \"class\") <- \"mon_vecteur\" # complètement équivalent à class(objet) <- \"mon_vecteur\"\nattr(objet, \"mon_attribut\") <- list(\"bonjour\", \"le\", \"monde\")\nclass(objet))\nattr(objet, \"class\")\nattr(objet, \"mon_attribut\")\nattributes(objet)"},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-13","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":13,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-14","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":14,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-15","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":15,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-16","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":16,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-17","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":17,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-18","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":18,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-19","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":19,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-20","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":20,"code":"# Vous pouvez faire l'exercice ici."},{"options":{"fig-width":7,"fig-height":5,"comment":"","message":"true","label":"unnamed-chunk-21","out-width":"700px","output":"true","results":"markup","autorun":"false","classes":"","read-only":"false","editor-max-height":"","editor-font-scale":"1","dpi":72,"fig-cap":"","warning":"true","context":"interactive","editor-quick-suggestions":"false","out-height":"","editor-word-wrap":"true"},"id":21,"code":"# Vous pouvez faire l'exercice ici."}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-1","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"library(disaggR)\nlibrary(dplyr)\nbenchmark <- twoStepsBenchmark(turnover, construction)\nclass(benchmark) # On ignorera ici ce qui est écrit sous attr(,\"package\")\nclass(dplyr::starwars)"},{"id":2,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-2","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"library(disaggR)\nlibrary(dplyr)\nbenchmark <- twoStepsBenchmark(turnover, construction)\ntypeof(benchmark)\ntypeof(dplyr::starwars)"},{"id":3,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-3","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"library(disaggR)\nlibrary(dplyr)\nbenchmark <- twoStepsBenchmark(turnover, construction)\ninherits(benchmark, \"twoStepsBenchmark\") # Vrai\ninherits(benchmark, \"data.frame\") # Faux\ninherits(dplyr::starwars, \"twoStepsBenchmark\") # Faux\ninherits(dplyr::starwars, \"tbl_df\") # Vrai\ninherits(dplyr::starwars, \"tbl\") # Vrai\ninherits(dplyr::starwars, \"data.frame\") # Vrai"},{"id":4,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-4","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"summary"},{"id":5,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"methods(summary)"},{"id":6,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-6","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"summary.data.frame"},{"id":7,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-7","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"summary.data.frame(dplyr::starwars)"},{"id":8,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-8","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"library(disaggR)\nbenchmark <- twoStepsBenchmark(turnover, construction)\nsummary.twoStepsBenchmark(benchmark) # Renvoie une erreur car le nom summary.data.frame n'est pas exporté."},{"id":9,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-9","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"getAnywhere(summary.twoStepsBenchmark)"},{"id":10,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-10","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"library(disaggR)\nbenchmark <- twoStepsBenchmark(turnover, construction)\ndisaggR:::summary.twoStepsBenchmark(benchmark)"},{"id":11,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-11","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"library(disaggR)\nlibrary(dplyr)\nmethods(class = \"twoStepsBenchmark\")\nmethods(class = \"tbl_df\")\nmethods(class = \"tbl\")\nmethods(class = \"data.frame\")"},{"id":12,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-12","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"attributes(dplyr::starwars)"},{"id":13,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-13","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"objet <-\n  structure(\n    1L:10L,\n    class = \"mon_vecteur\",\n    mon_attribut = list(\"bonjour\", \"le\", \"monde\")\n  )\nclass(objet)\nattr(objet, \"class\")\nattr(objet, \"mon_attribut\")\nattributes(objet)"},{"id":14,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-14","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"objet <- 1L:10L\nattr(objet, \"class\") <- \"mon_vecteur\" # complètement équivalent à class(objet) <- \"mon_vecteur\"\nattr(objet, \"mon_attribut\") <- list(\"bonjour\", \"le\", \"monde\")\nclass(objet))\nattr(objet, \"class\")\nattr(objet, \"mon_attribut\")\nattributes(objet)"},{"id":15,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-15","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":16,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-16","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":17,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-17","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":18,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-18","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":19,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-19","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":20,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-20","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":21,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-21","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":22,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-22","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."},{"id":23,"options":{"fig-cap":"","output":"true","fig-width":7,"message":"true","results":"markup","classes":"","editor-word-wrap":"true","comment":"","context":"interactive","editor-max-height":"","out-height":"","autorun":"false","label":"unnamed-chunk-23","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","warning":"true","editor-font-scale":"1","dpi":72,"out-width":"700px"},"code":"# Vous pouvez faire l'exercice ici."}];
 
 </script>
 <script type="module">
@@ -2040,16 +2040,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Certaines méthodes apparaissent avec une * après leur nom. Elles correspondent à des méthodes non-exportées par un package, c’est-à-dire que l’auteur du package n’a pas jugé utile de rendre directement disponible le nom de méthode à l’utilisateur et privilégie l’emploi de la générique. C’est aujourd’hui le comportement par défaut.</p>
-<pre class="{web-r}"><code>library(disaggR)
-benchmark &lt;- twoStepsBenchmark(turnover, construction)
-summary.twoStepsBenchmark(benchmark) # Renvoie une erreur car le nom summary.data.frame n'est pas exporté.</code></pre>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>On peut toutefois lire ces méthodes et savoir d’où elles viennent en utilisant <code>getAnywhere()</code>.</p>
-<pre class="{web-r}"><code>getAnywhere(summary.twoStepsBenchmark)</code></pre>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Ici, on lit que la méthode <code>summary.twoStepsBenchmark</code> existe de manière interne au package <code>disaggR</code>, et son code est&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>summary.twoStepsBenchmark <span class="ot">&lt;-</span> <span class="cf">function</span> (object, ...) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary.praislm</span>(<span class="fu">prais</span>(object), ...)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>summary.twoStepsBenchmark <span class="ot">&lt;-</span> <span class="cf">function</span> (object, ...) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary.praislm</span>(<span class="fu">prais</span>(object), ...)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Autrement dit, elle renvoie encore à une autre méthode de <code>summary</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2063,19 +2063,19 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>On peut accéder à toutes les fonctions non-exportées (fonctions internes) d’un package à l’aide des triples doubles-points (<code>:::</code>). Par exemple, on peut ici accéder à <code>summary.twoStepsBenchmark</code> en écrivant&nbsp;:</p>
-<div id="qwebr-insertion-location-8"></div>
+<div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Bien sûr, même si c’est utile à savoir pour comprendre le fonctionnement de R, inutile de vous prévenir que ce n’est pas une bonne pratique dans du code de production. R est très permissif, mais c’est à l’utilisateur de se discipliner. Les fonctions internes d’un package peuvent changer complètement d’une version à une autre sans prévenir l’utilisateur qui n’est normalement pas censé les utiliser directement.</p>
 </div>
 </div>
 <p>On peut également utiliser <code>methods()</code> pour chercher toutes les méthodes associées <em>directement</em> à une classe&nbsp;:</p>
-<div id="qwebr-insertion-location-9"></div>
+<div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="attributs" class="level2">
 <h2 class="anchored" data-anchor-id="attributs">Attributs</h2>
 <p>N’importe quel objet peut avoir un nombre quelquonque d’autres objets nommés appelés <em>attributs</em>. Ceux-ci peuvent être accedés à l’aide de la fonction <code>attributes()</code> qui renvoie une liste nommée.</p>
-<div id="qwebr-insertion-location-10"></div>
+<div id="qwebr-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Le tibble <code>starwars</code> a trois attributs&nbsp;:</p>
 <ul>
@@ -2085,11 +2085,11 @@ Note
 </ul>
 <p>On voit donc qu’un objet classé n’est rien d’autre qu’un objet avec un attribut “class”.</p>
 <p>Les attributs peuvent être accedés et affectés de différentes manières.</p>
-<div id="qwebr-insertion-location-11"></div>
+<div id="qwebr-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Ci-dessus, on a affecté en un coup les deux attributs <code>class</code> et <code>mon_attribut</code> à l’aide de la fonction <code>structure()</code>.</p>
 <p>On aurait pu également les affecter un par un comme on le voit ci-dessous.</p>
-<div id="qwebr-insertion-location-12"></div>
+<div id="qwebr-insertion-location-14"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="ma-première-classe-s3" class="level2">
@@ -2099,7 +2099,7 @@ Note
 <li>Prend deux arguments, à savoir un vecteur <code>x</code> et un argument <code>titre</code> (qui est un <code>character</code> de taille 1).</li>
 <li>Retourne le vecteur x, à qui on a affecté la classe <code>vecteur_avec_titre</code> ainsi qu’un attribut <code>titre</code> égal à l’argument <code>titre</code>.</li>
 </ul>
-<div id="qwebr-insertion-location-13"></div>
+<div id="qwebr-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -2114,11 +2114,11 @@ Proposition de solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vecteur_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, titre) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">structure</span>(x,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">class =</span> <span class="st">"vecteur_avec_titre"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">titre =</span> titre)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vecteur_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, titre) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">structure</span>(x,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">class =</span> <span class="st">"vecteur_avec_titre"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">titre =</span> titre)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2133,7 +2133,7 @@ $titre
 [1] "Les 10 premiers entiers"</code></pre>
 </div>
 </div>
-<div id="qwebr-insertion-location-14"></div>
+<div id="qwebr-insertion-location-16"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -2148,13 +2148,13 @@ Proposition de solution
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vecteur_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, titre) {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">structure</span>(x,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">class =</span> <span class="st">"vecteur_avec_titre"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">titre =</span> titre)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>mon_vecteur <span class="ot">&lt;-</span> <span class="fu">vecteur_titre</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="st">"Les 10 premiers entiers"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(mon_vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vecteur_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, titre) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">structure</span>(x,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">class =</span> <span class="st">"vecteur_avec_titre"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">titre =</span> titre)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>mon_vecteur <span class="ot">&lt;-</span> <span class="fu">vecteur_titre</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="st">"Les 10 premiers entiers"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(mon_vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$class
 [1] "vecteur_avec_titre"
@@ -2177,7 +2177,7 @@ attr(,"titre")
 </div>
 </div>
 <p>La fonction qui est utilisée pour afficher un objet s3 lors de la saisie de celui-ci est la fonction <code>print()</code>. Vérifier que celle-ci correspond à une fonction générique et afficher les méthodes associées.</p>
-<div id="qwebr-insertion-location-15"></div>
+<div id="qwebr-insertion-location-17"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -2193,18 +2193,18 @@ Proposition de solution
 <div class="callout-body-container callout-body">
 <p>Il suffit de taper&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>print</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>print</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (x, ...) 
 UseMethod("print")
-&lt;bytecode: 0x55f0f0ff8628&gt;
+&lt;bytecode: 0x559fb1394430&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
 <p>pour vérifier que la fonction print est bien générique (elle utilise <code>UseMethod("print")</code>).</p>
 <p>On peut en afficher les méthodes en tapant&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(print)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(print)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] print.acf*                                          
   [2] print.activeConcordance*                            
@@ -2453,14 +2453,14 @@ see '?methods' for accessing help and source code</code></pre>
 </div>
 <p>Définir une fonction <code>print.vecteur_avec_titre</code> qui vaut&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>print.vecteur_avec_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) { <span class="co"># Les paramètres doivent être compatibles avec ceux de la fonction générique, d'où les ...</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">attr</span>(x, <span class="st">"titre"</span>), <span class="st">":</span><span class="sc">\n</span><span class="st">"</span>) <span class="co"># \n correspond à un saut de ligne</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">as.vector</span>(x))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cat est une fonction qui permet d'écrire dans la console</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>print.vecteur_avec_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) { <span class="co"># Les paramètres doivent être compatibles avec ceux de la fonction générique, d'où les ...</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">attr</span>(x, <span class="st">"titre"</span>), <span class="st">":</span><span class="sc">\n</span><span class="st">"</span>) <span class="co"># \n correspond à un saut de ligne</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">as.vector</span>(x))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cat est une fonction qui permet d'écrire dans la console</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Puis taper <code>mon_vecteur</code> pour vérifier ce qu’il se passe.</p>
-<div id="qwebr-insertion-location-16"></div>
+<div id="qwebr-insertion-location-18"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -2475,12 +2475,12 @@ Proposition de solution
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>print.vecteur_avec_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) { <span class="co"># Les paramètres doivent être compatibles avec ceux de la fonction générique, d'où les ...</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">attr</span>(x, <span class="st">"titre"</span>), <span class="st">":</span><span class="sc">\n</span><span class="st">"</span>) <span class="co"># \n correspond à un saut de ligne</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">as.vector</span>(x))</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cat est une fonction qui permet d'écrire dans la console</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>mon_vecteur</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>print.vecteur_avec_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) { <span class="co"># Les paramètres doivent être compatibles avec ceux de la fonction générique, d'où les ...</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">attr</span>(x, <span class="st">"titre"</span>), <span class="st">":</span><span class="sc">\n</span><span class="st">"</span>) <span class="co"># \n correspond à un saut de ligne</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">as.vector</span>(x))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cat est une fonction qui permet d'écrire dans la console</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>mon_vecteur</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Les 10 premiers entiers :
 1 2 3 4 5 6 7 8 9 10</code></pre>
@@ -2497,7 +2497,7 @@ Proposition de solution
 <li>Elle doit avoir une méthode <code>get_titre.tbl_df</code> qui lance <code>stop("Un tibble n'a pas de titre !")</code>.</li>
 </ul>
 <p>Tester ensuite cette fonction par <code>get_titre(mon_vecteur)</code> et <code>get_titre(dplyr::starwars)</code>.</p>
-<div id="qwebr-insertion-location-17"></div>
+<div id="qwebr-insertion-location-19"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -2512,14 +2512,14 @@ Proposition de solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>get_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">UseMethod</span>(<span class="st">"get_titre"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>get_titre.vecteur_avec_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">attr</span>(x, <span class="st">"titre"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>get_titre.tbl_df <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">stop</span>(<span class="st">"Un tibble n'a pas de titre !"</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_titre</span>(mon_vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">UseMethod</span>(<span class="st">"get_titre"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>get_titre.vecteur_avec_titre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">attr</span>(x, <span class="st">"titre"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>get_titre.tbl_df <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">stop</span>(<span class="st">"Un tibble n'a pas de titre !"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_titre</span>(mon_vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Les 10 premiers entiers"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_titre</span>(dplyr<span class="sc">::</span>starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_titre</span>(dplyr<span class="sc">::</span>starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in get_titre.tbl_df(dplyr::starwars): Un tibble n'a pas de titre !</code></pre>
 </div>
@@ -2534,7 +2534,7 @@ Proposition de solution
 <section id="exercice-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-1">Exercice 1</h3>
 <p>Utiliser la fonction <code>attributes()</code> pour retourner les attributs d’un vecteur <code>c(arnaud=1, bonjour=2)</code>. Comment sont stockés les noms dans un vecteur nommé&nbsp;?</p>
-<div id="qwebr-insertion-location-18"></div>
+<div id="qwebr-insertion-location-20"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -2549,7 +2549,7 @@ Proposition de solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(<span class="fu">c</span>(<span class="at">arnaud=</span><span class="dv">1</span>, <span class="at">bonjour=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(<span class="fu">c</span>(<span class="at">arnaud=</span><span class="dv">1</span>, <span class="at">bonjour=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$names
 [1] "arnaud"  "bonjour"</code></pre>
@@ -2561,12 +2561,12 @@ Proposition de solution
 </div>
 <p>Soit la matrice définie par&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>matrice <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>L<span class="sc">:</span><span class="dv">12</span>L, <span class="at">nrow =</span> <span class="dv">3</span>L, <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"les"</span>, <span class="st">"noms"</span>, <span class="st">"de"</span>, <span class="st">"colonnes"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"voilà"</span>, <span class="st">"des"</span>, <span class="st">"lignes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>matrice <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>L<span class="sc">:</span><span class="dv">12</span>L, <span class="at">nrow =</span> <span class="dv">3</span>L, <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"les"</span>, <span class="st">"noms"</span>, <span class="st">"de"</span>, <span class="st">"colonnes"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"voilà"</span>, <span class="st">"des"</span>, <span class="st">"lignes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Utiliser la fonction <code>typeof()</code> pour voir le type des données d’une matrice. Utiliser la fonction <code>attributes()</code> pour retourner les attributs de cette matrice. Comment sont stockées les dimensions dans une matrice&nbsp;? Comment sont stockés les noms de colonnes et de dans une matrice&nbsp;? Y a-t-il un attribut class dans une matrice&nbsp;? Est-ce que pour autant <code>inherits(matrice, "matrix")</code> renvoie <code>FALSE</code>&nbsp;?</p>
-<div id="qwebr-insertion-location-19"></div>
+<div id="qwebr-insertion-location-21"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -2581,14 +2581,14 @@ Proposition de solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>matrice <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>L<span class="sc">:</span><span class="dv">12</span>L, <span class="at">nrow =</span> <span class="dv">3</span>L, <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(matrice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>matrice <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>L<span class="sc">:</span><span class="dv">12</span>L, <span class="at">nrow =</span> <span class="dv">3</span>L, <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(matrice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"les"</span>, <span class="st">"noms"</span>, <span class="st">"de"</span>, <span class="st">"colonnes"</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"voilà"</span>, <span class="st">"des"</span>, <span class="st">"lignes"</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(matrice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"les"</span>, <span class="st">"noms"</span>, <span class="st">"de"</span>, <span class="st">"colonnes"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matrice) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"voilà"</span>, <span class="st">"des"</span>, <span class="st">"lignes"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(matrice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$dim
 [1] 3 4
@@ -2612,7 +2612,7 @@ $dimnames[[2]]
 </div>
 </div>
 <p>On voit qu’il suffit de renseigner un attribut <code>dim</code> à un vecteur pour définir une matrice. À l’aide de la fonction <code>structure()</code>, définir un vecteur <code>m</code> de valeur <code>1:12</code> muni d’un attribut dim qui signale une dimension de 3*4. Vérifier avec <code>inherits(m, "matrix")</code> et <code>is.matrix(m)</code> que le vecteur est bien pleinement reconnu comme une matrice.</p>
-<div id="qwebr-insertion-location-20"></div>
+<div id="qwebr-insertion-location-22"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -2627,12 +2627,12 @@ Proposition de solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inherits</span>(m, <span class="st">"matrix"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inherits</span>(m, <span class="st">"matrix"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -2646,41 +2646,41 @@ Proposition de solution
 <h3 class="anchored" data-anchor-id="exercice-2-simuler-des-instances">Exercice 2 : Simuler des instances</h3>
 <p>Dans le chapitre sur l’évaluation, on était parvenu à ce compteur&nbsp;:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>nouveau_compteur <span class="ot">&lt;-</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>() {</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    this <span class="ot">&lt;-</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">suivant =</span> <span class="cf">function</span>() {</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>          n <span class="ot">&lt;&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span>L</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>          this</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">get =</span> <span class="cf">function</span>() {</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>          n</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    this</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>compteur_1 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>compteur_2 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">suivant</span>()</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">suivant</span>()</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>nouveau_compteur <span class="ot">&lt;-</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>() {</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    this <span class="ot">&lt;-</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">suivant =</span> <span class="cf">function</span>() {</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>          n <span class="ot">&lt;&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span>L</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>          this</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">get =</span> <span class="cf">function</span>() {</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>          n</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    this</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>compteur_1 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>compteur_2 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">suivant</span>()</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">suivant</span>()</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>On demande dans cette exercice de&nbsp;:</p>
 <ul>
 <li>Modifier le code de la fonction <code>nouveau_compteur()</code> pour que le compteur renvoie une liste de classe “super_compteur”.</li>
 <li>Implémenter une méthode de la fonction générique <code>print()</code> qui affiche <code>Super Compteur : 3\n</code> si le compteur en est à 3 (on rappelle que est une manière d’indiquer un saut de ligne).</li>
 </ul>
-<div id="qwebr-insertion-location-21"></div>
+<div id="qwebr-insertion-location-23"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -2695,57 +2695,57 @@ Tip
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nouveau_compteur <span class="ot">&lt;-</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>() {</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    this <span class="ot">&lt;-</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">suivant =</span> <span class="cf">function</span>() {</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>          n <span class="ot">&lt;&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span>L</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>          this</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">get =</span> <span class="cf">function</span>() {</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>          n</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">class</span>(this) <span class="ot">&lt;-</span> <span class="st">"super_compteur"</span></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    this</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>print.super_compteur <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Super Compteur : "</span>, x<span class="sc">$</span><span class="fu">get</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>compteur_1 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>compteur_2 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span></span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>nouveau_compteur <span class="ot">&lt;-</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>() {</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    this <span class="ot">&lt;-</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">suivant =</span> <span class="cf">function</span>() {</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>          n <span class="ot">&lt;&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span>L</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>          this</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">get =</span> <span class="cf">function</span>() {</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>          n</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">class</span>(this) <span class="ot">&lt;-</span> <span class="st">"super_compteur"</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    this</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>print.super_compteur <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Super Compteur : "</span>, x<span class="sc">$</span><span class="fu">get</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>compteur_1 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>compteur_2 <span class="ot">&lt;-</span> <span class="fu">nouveau_compteur</span>()</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()<span class="sc">$</span></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suivant</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Super Compteur : 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">suivant</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">suivant</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Super Compteur : 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">suivant</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">suivant</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Super Compteur : 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>compteur_1<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>compteur_2<span class="sc">$</span><span class="fu">get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
