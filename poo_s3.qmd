@@ -45,6 +45,32 @@ On vérifie bien que :
 * Un objet créé par `twoStepsBenchmark()` est de classe `"twoStepsBenchmark"`.
 * Un tibble est de classe `"tbl_df"`, hérite de `"tbl"` et de `"data.frame"`.
 
+S3 est une étiquette apposée sur des données dont le type peut être consulté à l'aide de `typeof()` :
+
+```{webr-r}
+library(disaggR)
+library(dplyr)
+benchmark <- twoStepsBenchmark(turnover, construction)
+print(typeof(benchmark))
+print(typeof(dplyr::starwars))
+```
+
+On vérifie ainsi qu'aussi bien la classe `twoStepsBenchmark` que celle des tibbles sont basées sur des données stockées sous forme de liste.
+
+On peut vérifier si un objet *hérite* d'une classe avec la fonction `inherits()` :
+
+```{webr-r}
+library(disaggR)
+library(dplyr)
+benchmark <- twoStepsBenchmark(turnover, construction)
+print(inherits(benchmark, "twoStepsBenchmark")) # Vrai
+print(inherits(benchmark, "data.frame")) # Faux
+print(inherits(dplyr::starwars, "twoStepsBenchmark")) # Faux
+print(inherits(dplyr::starwars, "tbl_df")) # Vrai
+print(inherits(dplyr::starwars, "tbl")) # Vrai
+print(inherits(dplyr::starwars, "data.frame")) # Vrai
+```
+
 On identifie une fonction générique S3 par le fait que son corps se limite à un `UseMethod("nom_de_la_fonction")`.
 
 ```{webr-r}
@@ -97,7 +123,7 @@ Ici, on lit que la méthode `summary.twoStepsBenchmark` existe de manière inter
 ```{r}
 #| eval: false
 summary.twoStepsBenchmark <- function (object, ...) {
-    summary.praislm(prais(object), ...)
+  summary.praislm(prais(object), ...)
 }
 ```
 
@@ -129,3 +155,282 @@ print(methods(class = "data.frame"))
 ```
 
 ## Attributs
+
+N'importe quel objet peut avoir un nombre quelquonque d'autres objets nommés appelés *attributs*. Ceux-ci peuvent être accedés à l'aide de la fonction `attributes()` qui renvoie une liste nommée.
+
+```{webr-r}
+attributes(dplyr::starwars)
+```
+
+Le tibble `starwars` a trois attributs :
+
+* `names` qui stocke les noms de colonne
+* `row.names` qui stocke les noms de ligne, et qui correspond ici simplement à des numéros car un tibble n'a pas de noms de lignes (l'attribut `row.names` est hérité des objets `data.frame`)
+* `class` qui contient les classes de `dplyr::starwars`.
+
+On voit donc qu'un objet classé n'est rien d'autre qu'un objet avec un attribut "class".
+
+Les attributs peuvent être accedés et affectés de différentes manières.
+
+```{webr-r}
+objet <-
+  structure(
+    1L:10L,
+    class = "mon_vecteur",
+    mon_attribut = list("bonjour", "le", "monde")
+  )
+print(class(objet))
+print(attr(objet, "class"))
+print(attr(objet, "mon_attribut"))
+print(attributes(objet))
+```
+
+Ci-dessus, on a affecté en un coup les deux attributs `class` et `mon_attribut` à l'aide de la fonction `structure()`.
+
+On aurait pu également les affecter un par un comme on le voit ci-dessous.
+
+```{webr-r}
+objet <- 1L:10L
+attr(objet, "class") <- "mon_vecteur" # complètement équivalent à class(objet) <- "mon_vecteur"
+attr(objet, "mon_attribut") <- list("bonjour", "le", "monde")
+print(class(objet))
+print(attr(objet, "class"))
+print(attr(objet, "mon_attribut"))
+print(attributes(objet))
+```
+
+## Ma première classe S3
+
+Définir une fonction `vecteur_titre()` qui :
+
+* Prend deux arguments, à savoir un vecteur `x` et un argument `titre` (qui est un `character` de taille 1).
+* Retourne le vecteur x, à qui on a affecté la classe `vecteur_avec_titre` ainsi qu'un attribut `titre` égal à l'argument `titre`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+vecteur_titre <- function(x, titre) {
+  structure(x,
+            class = "vecteur_avec_titre",
+            titre = titre)
+}
+```
+
+:::
+
+Essayer ce constructeur sur `vecteur_titre(1:10, "Les 10 premiers entiers")` dont les attributs retournés par `attributes` doivent logiquement correspondre à :
+
+```{r}
+#| echo: false
+list(
+  class = "vecteur_avec_titre",
+  titre = "Les 10 premiers entiers"
+)
+```
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+vecteur_titre <- function(x, titre) {
+  structure(x,
+            class = "vecteur_avec_titre",
+            titre = titre)
+}
+mon_vecteur <- vecteur_titre(1:10, "Les 10 premiers entiers")
+print(attributes(mon_vecteur))
+```
+
+:::
+
+Après avoir saisi `mon_vecteur <- vecteur_titre(1:10, "Les 10 premiers entiers")`... Si je tape `mon_vecteur` dans R (ou dans la console si je suis sous RStudio), c'est très moche ! Je lis en effet :
+
+```{r}
+#| echo: false
+vecteur_titre(1:10, "Les 10 premiers entiers")
+```
+
+La fonction qui est utilisée pour afficher un objet s3 lors de la saisie de celui-ci est la fonction `print()`. Vérifier que celle-ci correspond à une fonction générique et afficher les méthodes associées.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+Il suffit de taper :
+
+```{r}
+print
+```
+
+pour vérifier que la fonction print est bien générique (elle utilise `UseMethod("print")`).
+
+On peut en afficher les méthodes en tapant :
+
+```{r}
+methods(print)
+```
+
+Et il y en a beaucoup ! C'est normal, tous les objets veulent définir une manière de s'afficher.
+
+:::
+
+Définir une fonction `print.vecteur_avec_titre` qui vaut :
+
+```{r}
+print.vecteur_avec_titre <- function(x, ...) { # Les paramètres doivent être compatibles avec ceux de la fonction générique, d'où les ...
+  cat(attr(x, "titre"), ":\n") # \n correspond à un saut de ligne
+  cat(as.vector(x))
+  # cat est une fonction qui permet d'écrire dans la console
+}
+```
+
+Puis taper `mon_vecteur` pour vérifier ce qu'il se passe.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+print.vecteur_avec_titre <- function(x, ...) { # Les paramètres doivent être compatibles avec ceux de la fonction générique, d'où les ...
+  cat(attr(x, "titre"), ":\n") # \n correspond à un saut de ligne
+  cat(as.vector(x))
+  # cat est une fonction qui permet d'écrire dans la console
+}
+mon_vecteur
+```
+
+On a *implémenté* print par une *méthode* adaptée à la *classe* "vecteur_avec_titre". Dorénavant, l'affichage est plus propre.
+
+:::
+
+Maintenant, on veut aller plus loin. On veut passer aux fonctions génériques. On veut :
+
+* une fonction générique `get_titre` qui n'ait que pour argument `x`.
+* Elle doit avoir une méthode `get_titre.vecteur_avec_titre` qui retourne le titre.
+* Elle doit avoir une méthode `get_titre.tbl_df` qui lance `stop("Un tibble n'a pas de titre !")`.
+
+Tester ensuite cette fonction par `get_titre(mon_vecteur)` et `get_titre(dplyr::starwars)`.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+get_titre <- function(x) UseMethod("get_titre")
+get_titre.vecteur_avec_titre <- function(x) attr(x, "titre")
+get_titre.tbl_df <- function(x) stop("Un tibble n'a pas de titre !")
+get_titre(mon_vecteur)
+```
+
+```{r}
+#| eval: false
+get_titre(dplyr::starwars)
+```
+
+```{r}
+#| echo: false
+cat("Erreur dans get_titre.tbl_df(dplyr::starwars) : Un tibble n'a pas de titre !",  file = stderr())
+```
+
+On a donc ici créé une fonction générique, et on l'a implémenté par deux méthodes. Une pour `vecteur_avec_titre`, et une autre plus succinte pour les tibble, qui dirige vers une erreur.
+
+:::
+
+## Exercices
+
+### Exercice 1
+
+Utiliser la fonction `attributes()` pour retourner les attributs d'un vecteur `c(arnaud=1, bonjour=2)`. Comment sont stockés les noms dans un vecteur nommé ?
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+attributes(c(arnaud=1, bonjour=2))
+```
+
+On voit qu'un vecteur nommé n'est rien de plus qu'un vecteur avec un attribut `names`.
+
+:::
+
+Soit la matrice définie par :
+
+```{r}
+#| eval: false
+matrice <- matrix(1L:12L, nrow = 3L, ncol = 4L)
+colnames(matrice) <- c("les", "noms", "de", "colonnes")
+rownames(matrice) <- c("voilà", "des", "lignes")
+```
+
+Utiliser la fonction `typeof()` pour voir le type des données d'une matrice. Utiliser la fonction `attributes()` pour retourner les attributs de cette matrice. Comment sont stockées les dimensions dans une matrice ? Comment sont stockés les noms de colonnes et de dans une matrice ? Y a-t-il un attribut class dans une matrice ? Est-ce que pour autant `inherits(matrice, "matrix")` renvoie `FALSE` ?
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+matrice <- matrix(1L:12L, nrow = 3L, ncol = 4L)
+typeof(matrice)
+colnames(matrice) <- c("les", "noms", "de", "colonnes")
+rownames(matrice) <- c("voilà", "des", "lignes")
+attributes(matrice)
+```
+
+On voit que :
+
+* Une matrice n'est rien d'autre qu'un vecteur (ici un vecteur de type `"integer"`)
+* Les dimensions sont stockées sous la forme d'un attribut `dim` qui vaut `c(nrow, ncol)`
+* Les noms sont stockés sous la forme d'un attribut `dimnames`. Une liste de longueur 2 qui vaut `list(noms_lignes, noms_colonnes)`.
+* De manière malheureusmement irrégulière et pour des raisons historiques, les matrices n'ont pas d'attribut class renseigné. La classe est implicite par la présence d'un attribut `dim`. On pourra par cependant vérifier que `inherits(matrice, "matrix")` vaut `TRUE`, de même que `is.matrix(matrice)`. Si les matrices étaient reconstruites aujourd'hui, sans doute qu'elles auraient un attribut `class` comme tout le monde.
+
+:::
+
+On voit qu'il suffit de renseigner un attribut `dim` à un vecteur pour définir une matrice. À l'aide de la fonction `structure()`, définir un vecteur `m` de valeur `1:12` muni d'un attribut dim qui signale une dimension de 3*4. Vérifier avec `inherits(m, "matrix")` et `is.matrix(m)` que le vecteur est bien pleinement reconnu comme une matrice.
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+m <- structure(1:12, dim = c(3, 4))
+print(inherits(m, "matrix"))
+print(is.matrix(m))
+```
+
+On a vérifié qu'il suffit de définir un attribut de dimension pour dire qu'un vecteur est une matrice. Une matrice n'est rien de plus qu'un vecteur auquel on a rajouté une dimension.
+
+:::
+
+:::
