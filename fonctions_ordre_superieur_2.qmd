@@ -25,11 +25,11 @@ mystere <-
 
 fun_1 <- mystere(3L)
 fun_2 <- mystere(4L)
-print(x)
-print(fun_1())
-print(x)
-print(fun_2())
-print(x)
+x
+fun_1()
+x
+fun_2()
+x
 ```
 
 On se rend compte de quatre choses :
@@ -69,11 +69,11 @@ mystere <-
 
 fun_1 <- mystere(3L)
 fun_2 <- mystere(4L)
-print(x)
-print(fun_1())
-print(x)
-print(fun_2())
-print(x)
+x
+fun_1()
+x
+fun_2()
+x
 ```
 
 On observe que le `x` global est cette fois-ci modifié par l'assignation remontante. En effet, cet opérateur **remonte les différents environnements parents jusqu'à trouver un x déjà existant et le modifie**.
@@ -121,11 +121,11 @@ mystere <-
 
 fun_1 <- mystere(3L)
 fun_2 <- mystere(4L)
-print(x)
-print(fun_1())
-print(x)
-print(fun_2())
-print(x)
+x
+fun_1()
+x
+fun_2()
+x
 ```
 
 En apparence, les fonctions semblent se comporter à nouveau comme si on utilisait l'assignation locale. Mais, en réalité, le comportement par environnements est différent.
@@ -155,13 +155,13 @@ nouveau_compteur <-
 compteur_1 <- nouveau_compteur()
 compteur_1_bis <- compteur_1
 compteur_2 <- nouveau_compteur()
-print(compteur_1())
-print(compteur_1())
-print(compteur_2())
-print(compteur_1())
-print(compteur_1())
-print(compteur_2())
-print(compteur_1_bis())
+compteur_1()
+compteur_1()
+compteur_2()
+compteur_1()
+compteur_1()
+compteur_2()
+compteur_1_bis()
 ```
 
 Mais que se passe-t-il ? C'est très étonnant ! Il semble que l'on ait défini des états ; et pourtant il n'y a aucune variable `n` dans l'environnement global !
@@ -197,10 +197,10 @@ resolution_1$setX(1080)
 resolution_1$setY(1024)
 resolution_2$setX(800)
 resolution_2$setY(600)
-print(resolution_1$getX())
-print(resolution_1$getY())
-print(resolution_2$getX())
-print(resolution_2$getY())
+resolution_1$getX()
+resolution_1$getY()
+resolution_2$getX()
+resolution_2$getY()
 ```
 
 Ici, les deux appels de `nouvelle_resolution()` permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions `setX()`, `setY()`, `getX()` et `getY()` agiront, comme on le voit dans le schéma ci-dessous.
@@ -472,9 +472,9 @@ nouveau_compteur <-
 
 compteur_a <- nouveau_compteur()
 compteur_b <- compteur_a
-print(compteur_a())
-print(compteur_a())
-print(compteur_b())
+compteur_a()
+compteur_a()
+compteur_b()
 ```
 
 Combien va afficher le résultats de `compteur_b()` ?
@@ -529,9 +529,9 @@ nouveau_compteur <-
 
 compteur_a <- nouveau_compteur()
 compteur_b <- nouveau_compteur()
-print(compteur_a())
-print(compteur_a())
-print(compteur_b())
+compteur_a()
+compteur_a()
+compteur_b()
 ```
 
 Combien va afficher le résultats de `compteur_b()` ?

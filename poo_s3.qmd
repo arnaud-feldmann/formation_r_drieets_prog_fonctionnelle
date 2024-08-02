@@ -7,11 +7,11 @@ webr:
 
 ## Introduction : S3 et la Programmation Orientée Objet
 
-Comme on l'a vu dans la page d'introduction, S3 est un système de programmation orientée objet qui existe dans R, adapté par rapport aux autres langages pour être soluble au paradigme prédominant dans R, à savoir la programmation fonctionnelle.
+Comme on l'a vu dans la page d'introduction, S3 est un système de programmation orientée objet dans R, adapté par rapport aux autres langages pour être soluble au paradigme prédominant dans R, à savoir la programmation fonctionnelle.
 
-Dans R, S3 est structuré par :
+Dans R, le système de Programmation Orientée Objet S3 est structuré par :
 
-* des **fonction génériques** qui sont simplement des noms de fonctions munis d'une description abstraite en langage naturel. Par exemple `summary()` est une fonction générique. Sa description abstraite est décrite par l'aide accessible via `?summary`. On y lit "`summary` is a generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument.". Pour l'instant `summary()` n'est qu'une abstraction, elle n'a pas de code. À charge des différents concepteurs d'objets de lui donner un sens particulier, conforme à sa description abstraite.
+* des **fonction génériques** qui sont simplement des noms de fonctions munis d'une description abstraite en langage naturel. Par exemple `summary()` est une fonction générique. Sa description abstraite est décrite par l'aide accessible via `?summary`. On y trouve *"`summary` is a generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument."*. À charge des différents concepteurs d'objets de lui donner un sens particulier conforme à cette description abstraite.
 * des **classes d'objets** qui sont simplement des étiquettes portées par l'objet et montrées à la fonction générique. Par exemple, si `objet` est un objet de classe `twoStepsBenchmark` du package [disaggR](https://github.com/InseeFr/disaggR), il montrera une étiquette `"twoStepsBenchmark"` à la fonction `summary()`. Un objet `tibble` montrera une étiquette `"tbl_df"` à la fonction `summary()` (`"tbl_df"` est le vrai nom de classe tibbles).
 * des **méthodes** qui écrivent explicitement le code utilisé pour une fonction dans le cas d'une classe d'objet (on peut dire qu'on *implémente* `summary()` quand on en écrit explicitement son code pour une classe précise). Par exemple `summary()` renverra vers `summary.twoStepsBenchmark()` pour un objet de classe `twoStepsBenchmark`, tandis qu'elle essayera en premier de renvoyer vers `summary.tbl_df()` pour un tibble.
 * Un **héritage** entre classes d'objets qui dit simplement que si une méthode n'existe pas pour une fonction générique, alors on en cherche une autre, puis une autre, et ainsi de suite. Par exemple un tibble a en fait 3 étiquettes, `c("tbl_df", "tbl", "data.frame")`. En ce qui concerne la fonction `summary()`, elle cherche d'abord une fonction `summary.tbl_df()` (qui n'existe pas), puis une fonction `summary.tbl()` (qui n'existe pas non plus), et enfin une fonction `summary.data.frame()` (qui existe ! Bingo ! C'est la méthode utilisée.).
@@ -36,8 +36,8 @@ Pour voir les classes d'un objet, on utilise la fonction `class()`.
 library(disaggR)
 library(dplyr)
 benchmark <- twoStepsBenchmark(turnover, construction)
-print(class(benchmark)) # On ignorera ici ce qui est écrit sous attr(,"package")
-print(class(dplyr::starwars))
+class(benchmark) # On ignorera ici ce qui est écrit sous attr(,"package")
+class(dplyr::starwars)
 ```
 
 On vérifie bien que :
@@ -51,8 +51,8 @@ S3 est une étiquette apposée sur des données dont le type peut être consult�
 library(disaggR)
 library(dplyr)
 benchmark <- twoStepsBenchmark(turnover, construction)
-print(typeof(benchmark))
-print(typeof(dplyr::starwars))
+(typeof(benchmark)
+typeof(dplyr::starwars)
 ```
 
 On vérifie ainsi qu'aussi bien la classe `twoStepsBenchmark` que celle des tibbles sont basées sur des données stockées sous forme de liste.
@@ -63,12 +63,12 @@ On peut vérifier si un objet *hérite* d'une classe avec la fonction `inherits(
 library(disaggR)
 library(dplyr)
 benchmark <- twoStepsBenchmark(turnover, construction)
-print(inherits(benchmark, "twoStepsBenchmark")) # Vrai
-print(inherits(benchmark, "data.frame")) # Faux
-print(inherits(dplyr::starwars, "twoStepsBenchmark")) # Faux
-print(inherits(dplyr::starwars, "tbl_df")) # Vrai
-print(inherits(dplyr::starwars, "tbl")) # Vrai
-print(inherits(dplyr::starwars, "data.frame")) # Vrai
+inherits(benchmark, "twoStepsBenchmark") # Vrai
+inherits(benchmark, "data.frame") # Faux
+inherits(dplyr::starwars, "twoStepsBenchmark") # Faux
+inherits(dplyr::starwars, "tbl_df") # Vrai
+inherits(dplyr::starwars, "tbl") # Vrai
+inherits(dplyr::starwars, "data.frame") # Vrai
 ```
 
 On identifie une fonction générique S3 par le fait que son corps se limite à un `UseMethod("nom_de_la_fonction")`.
@@ -148,10 +148,10 @@ On peut également utiliser `methods()` pour chercher toutes les méthodes assoc
 ```{webr-r}
 library(disaggR)
 library(dplyr)
-print(methods(class = "twoStepsBenchmark"))
-print(methods(class = "tbl_df"))
-print(methods(class = "tbl"))
-print(methods(class = "data.frame"))
+methods(class = "twoStepsBenchmark")
+methods(class = "tbl_df")
+methods(class = "tbl")
+methods(class = "data.frame")
 ```
 
 ## Attributs
@@ -179,10 +179,10 @@ objet <-
     class = "mon_vecteur",
     mon_attribut = list("bonjour", "le", "monde")
   )
-print(class(objet))
-print(attr(objet, "class"))
-print(attr(objet, "mon_attribut"))
-print(attributes(objet))
+class(objet)
+attr(objet, "class")
+attr(objet, "mon_attribut")
+attributes(objet)
 ```
 
 Ci-dessus, on a affecté en un coup les deux attributs `class` et `mon_attribut` à l'aide de la fonction `structure()`.
@@ -193,10 +193,10 @@ On aurait pu également les affecter un par un comme on le voit ci-dessous.
 objet <- 1L:10L
 attr(objet, "class") <- "mon_vecteur" # complètement équivalent à class(objet) <- "mon_vecteur"
 attr(objet, "mon_attribut") <- list("bonjour", "le", "monde")
-print(class(objet))
-print(attr(objet, "class"))
-print(attr(objet, "mon_attribut"))
-print(attributes(objet))
+class(objet))
+attr(objet, "class")
+attr(objet, "mon_attribut")
+attributes(objet)
 ```
 
 ## Ma première classe S3
@@ -249,7 +249,7 @@ vecteur_titre <- function(x, titre) {
             titre = titre)
 }
 mon_vecteur <- vecteur_titre(1:10, "Les 10 premiers entiers")
-print(attributes(mon_vecteur))
+attributes(mon_vecteur)
 ```
 
 :::
@@ -421,8 +421,8 @@ On voit qu'il suffit de renseigner un attribut `dim` à un vecteur pour définir
 
 ```{r}
 m <- structure(1:12, dim = c(3, 4))
-print(inherits(m, "matrix"))
-print(is.matrix(m))
+inherits(m, "matrix")
+is.matrix(m)
 ```
 
 On a vérifié qu'il suffit de définir un attribut de dimension pour dire qu'un vecteur est une matrice. Une matrice n'est rien de plus qu'un vecteur auquel on a rajouté une dimension.
@@ -493,21 +493,23 @@ nouveau_compteur <-
     class(this) <- "super_compteur"
     this
   }
+
 print.super_compteur <- function(x, ...) {
   cat("Super Compteur : ", x$get(), "\n", sep = "")
 }
+
 compteur_1 <- nouveau_compteur()
 compteur_2 <- nouveau_compteur()
 compteur_1$
   suivant()$
   suivant()$
   suivant()
-print(compteur_1)
-print(compteur_2)
+compteur_1$get()
+compteur_2$get()
 compteur_1$suivant()
 compteur_2$suivant()
-print(compteur_1)
-print(compteur_2)
+compteur_1$get()
+compteur_2$get()
 ```
 
 On a maintenant un objet S3 qui se comporte avec des instances, comme en Programmation Orientée Objet classique.

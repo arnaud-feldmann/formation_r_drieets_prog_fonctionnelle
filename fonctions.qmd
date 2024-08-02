@@ -4,52 +4,54 @@ title: "Rappel sur les fonctions en R"
 
 ## Définition de fonction
 
-En R, on définit une fonction de cette manière :
+En R, on *définit* une fonction de cette manière :
 
 ```{webr-r}
 super_calcul <- function(a, b, multiplication = TRUE) {
   if (multiplication) a * b
   else a + b
 }
-
-# Calcul 1
-print(super_calcul(2, 3, TRUE))
-
-# Calcul 2
-# Même valeur que le calcul 1 car multiplication vaut TRUE par défaut
-print(super_calcul(2, 3))
-
-# Calcul 3
-print(super_calcul(2, 3, FALSE))
-
-# Calcul 4
-# Même valeur que le calcul 3, on a juste nommé explicitement
-print(super_calcul(a = 2, b = 3, FALSE))
-
-# Calcul 5
-# Même valeur que le calcul 3, nommer explicitement permet d'intervertir les arguments
-print(super_calcul(b = 3, a = 2, FALSE))
-
-# Calcul 6
-# Même valeur que le calcul 3, cas extrême d'interversion
-print(super_calcul(b = 3, 2, FALSE))
 ```
 
 La fonction `super_calcul` a plusieurs **paramètres** : `a`, `b` et `multiplication`. On donne à ces paramètres des valeurs qu'on appelle **arguments**. Toutefois, dans le langage courant, et peut-être dans cette formation si je ne fais pas trop attention, on utilise parfois indistinctement les deux mots.
 
-On remarque que le paramètre multiplication a un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera `TRUE`.
-
-On remarque aussi que, lorsque l'on fait des appels de fonctions, l'on peut choisir d'utiliser explicitement les noms des différents paramètres. Si on utilise les noms explicites, il est possible de les renseigner dans le désordre.
+On appelle une fonction de cette manière :
 
 ```{webr-r}
-super_calcul <- function(a, b, multiplication = TRUE) {
-  if (multiplication) a * b
-  else a + b
-}
-print(super_calcul(2))
+super_calcul(a = 2, b = 3, multiplication = TRUE)
 ```
 
-Le code ci-dessus renvoie une erreur. En effet, si un paramètre n'a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l'appel de fonction.
+Les arguments s'évaluent dans l'ordre qu'ils sont stipulés lors de la définition, on peut donc écrire de manière équivalente :
+
+```{webr-r}
+super_calcul(2, 3, TRUE)
+```
+
+On remarque que dans la définition de fonction, on avait écrit `multiplication = TRUE`. Cela correspond à un argument par défaut. Si on omet de lui donner une valeur, sa valeur par défaut sera `TRUE` comme on peut le vérifier ci-dessous.
+
+```{webr-r}
+super_calcul(2, 3)
+```
+
+Si la valeur que l'on veut utilise est différente de l'argument par défaut, on est obligé de la saisir.
+
+```{webr-r}
+super_calcul(2, 3, FALSE)
+```
+
+On peut, lors de l'appel, nommer explicitement certains arguments et pas d'autres. Si on procède ainsi, les arguments non-nommés sont attribués de droite à gauche, parmi ceux qui ne sont pas nommés. Ainsi, tous les appels ci-dessous sont équivalents.
+
+```{webr-r}
+super_calcul(a = 2, b = 3, FALSE)
+super_calcul(b = 3, a = 2, FALSE)
+super_calcul(b = 3, 2, FALSE)
+```
+
+Si un paramètre n'a pas de valeur par défaut, une valeur doit obligatoirement être assignée lors de l'appel de fonction. C'est pourquoi le code ci-dessous renvoie une erreur.
+
+```{webr-r}
+super_calcul(2)
+```
 
 ::: callout-note
 
@@ -65,14 +67,14 @@ calcula <- function() {
   return(2L)
   3L
 }
-print(calcula())
+calcula()
 
 calculb <- function() {
   1L
   2L
   3L
 }
-print(calculb())
+calculb()
 ```
 
 `calcula()` renvoie 2L, tandis que `calculb()` renvoie 3L. On aurait pu également constater que, dans `calcula`, si on remplace 3L par `stop()`, le stop n'empêche pas la fonction de retourner convenablement. En effet, il arrive après le return.
@@ -86,10 +88,10 @@ super_somme <- function(...) {
   dots <- list(...)
   Reduce(`+`, dots)
 }
-print(super_somme(2, 3, 7, 1))
+super_somme(2, 3, 7, 1)
 ```
 
-Dans le code précédent, on a pu faire une fonction de somme sans figer à l'avance le nombre de termes de la somme.
+Dans le code précédent, on a pu définir une fonction de somme sans figer à l'avance le nombre de termes de la somme.
 
 ::: callout-note
 
@@ -109,7 +111,7 @@ super_somme <- function(...) {
   dots <- list(...)
   Reduce(`+`, dots)
 }
-print(do.call(super_somme, liste))
+do.call(super_somme, liste)
 ```
 
 ::: callout-note
@@ -184,7 +186,7 @@ super_somme <- function(...) {
   if (longueur == 0L) 0
   else dots[[longueur]] + do.call(super_somme, head(dots, longueur - 1L))
 }
-print(super_somme(2, 3, 7, 1))
+super_somme(2, 3, 7, 1)
 ```
 
 ::: callout-note
@@ -251,12 +253,12 @@ usine_a_gaz <- function(...) {
   else if (is.numeric(..1)) sum(..1)
   else "échec"
 }
-print(usine_a_gaz())
-print(usine_a_gaz(1,3))
-print(usine_a_gaz(c("a","b")))
-print(usine_a_gaz(c(1, 2)))
-print(usine_a_gaz(c(1L, 2L)))
-print(usine_a_gaz(list()))
+usine_a_gaz()
+usine_a_gaz(1,3)
+usine_a_gaz(c("a","b"))
+usine_a_gaz(c(1, 2))
+usine_a_gaz(c(1L, 2L))
+usine_a_gaz(list())
 ```
 
 On peut également utiliser des `return()`, auquel cas les `else` deviennent inutiles puisque `return` fait directement retourner la fonction.
@@ -270,12 +272,12 @@ usine_a_gaz <- function(...) {
   if (is.numeric(..1)) return(sum(..1))
   "échec"
 }
-print(usine_a_gaz())
-print(usine_a_gaz(1,3))
-print(usine_a_gaz(c("a","b")))
-print(usine_a_gaz(c(1, 2)))
-print(usine_a_gaz(c(1L, 2L)))
-print(usine_a_gaz(list()))
+usine_a_gaz()
+usine_a_gaz(1,3)
+usine_a_gaz(c("a","b"))
+usine_a_gaz(c(1, 2))
+usine_a_gaz(c(1L, 2L))
+usine_a_gaz(list())
 ```
 
 :::

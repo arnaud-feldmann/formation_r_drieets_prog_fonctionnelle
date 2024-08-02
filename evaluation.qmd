@@ -46,7 +46,7 @@ quote(1***5)
 
 ## Évaluation à temps d'exécution
 
-Le code n'est interprêté qu'à son temps d'exécution. Contrairement à des langages plus formels qui donnent une importance plus grande au temps de "définition", notamment les langages compilés, R attend le dernier moment pour vérifier si quelque chose a un sens.
+Le code n'est interprêté qu'à son temps d'exécution. Contrairement à des langages plus formels qui donnent une importance plus grande au temps de "définition" ou "compilation". R attend le dernier moment pour vérifier si quelque chose a un sens.
 
 ```{webr-r}
 setMachin <- function() assign("machin", 1, parent.frame())
@@ -75,7 +75,7 @@ R est fainéant. Il n'évaluera les *arguments* d'une fonction qu'au dernier mom
 
 ## Remarque
 
-Dans le monde de R, quand on parle d'évaluation paresseuse, on se réfère surtout à l'évaluation paresseuse des arguments. Mais l'évaluation paresseuse est un concept assez général. L'idée de base est de n'évaluer que ce dont on a absolument besoin.
+Dans le monde de R, quand on parle d'évaluation paresseuse, on se réfère surtout à l'évaluation paresseuse des arguments. Mais l'évaluation paresseuse est un concept assez général. L'idée de base est de n'évaluer que ce dont on a absolument besoin et pile au moment où on en a besoin.
 
 :::
 
@@ -141,7 +141,10 @@ lazy_eval_2 <-
 # Essayer lazy_eval_1() et lazy_eval_2()
 ```
 
-L'assignation, de même que simplement écrire une ligne avec pour seul code le nom d'un des arguments, force son évaluation. C'est pourquoi les deux exécutions de fonctions ci-dessus précipitent une erreur
+* L'assignation `truc <- x` force l'évaluation de `x`.
+* Une ligne avec simplement écrit `x` force l'évaluation de `x`.
+
+C'est pourquoi les deux appels de fonction ci-dessus précipitent une erreur.
 
 :::
 
@@ -202,7 +205,7 @@ R permet cependant des bâtir des exceptions à cette "évaluation standard". On
 
 ```{webr-r}
 library(disaggR)
-print(exists("disaggR"))
+exists("disaggR")
 ```
 
 Lorsque l'on charge un package, par exemple [disaggR](https://github.com/InseeFr/disaggR), on utilise `library()` avec à l'intérieur un nom qui n'existe pourtant pas dans l'environnement global. Ici l'environnement global ne contient pas d'objet `disaggR`. C'est une forme d'évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n'est pas une évaluation non-standard des plus utiles en soi.
@@ -213,8 +216,8 @@ La plus utilisée de ces NSE est la tidyeval régnant dans le tidyverse.
 
 ```{webr-r}
 library(dplyr)
-print(exists("height"))
-print(exists("name"))
+exists("height")
+exists("name")
 dplyr::starwars %>%
   filter(height > 200) %>%
   select(name)
@@ -255,8 +258,8 @@ expression_resultat <- function(expr) {
   x <- 1
   eval(expr, envir = dplyr::starwars)
 }
-print(quosure_resultat(ma_quosure))
-print(expression_resultat(mon_expression))
+quosure_resultat(ma_quosure)
+expression_resultat(mon_expression)
 ```
 
 On voit ici que l'évaluation de `x * height` n'est pas interprétée de la même manière selon que l'on définisse une quosure ou une expression. On note deux choses :
@@ -280,7 +283,7 @@ Lorsque l'on définit une quosure, on ne définit en fait rien de plus qu'un cou
 height <- "un truc qui ne sera lu par aucune evaluation"
 x <- 2
 ma_quosure <- rlang::quo(x * height)
-print(ma_quosure)
+ma_quosure
 ```
 
 Si j'affiche en effet le contenu de `ma_quosure`, je vois que celle-ci contient deux éléments :
@@ -305,8 +308,8 @@ expression_resultat <- function(expr, envir) {
   x <- 1
   eval(expr, envir = dplyr::starwars, enclos = envir)
 }
-print(quosure_resultat(ma_quosure))
-print(expression_resultat(mon_expression, environment()))
+quosure_resultat(ma_quosure)
+expression_resultat(mon_expression, environment())
 ```
 
 On a rajouté ci-dessus à `eval()` un argument `enclos` qui spécifie le lieu où les noms qui ne sont pas trouvés dans les données de `envir` vont être évaluées. Grâce à cela, l'évaluation de `x` se fait par rapport à la variable de l'environnement global dans les deux cas !
@@ -582,9 +585,9 @@ nouveau_compteur <-
   }
 
 compteur <- nouveau_compteur()
-print(compteur())
-print(compteur())
-print(compteur())
+compteur()
+compteur()
+compteur()
 ```
 
 On veut maintenant modifier ce compteur, de sorte à pouvoir permettre des enchaînements d'incrémentations.

@@ -31,9 +31,8 @@ begaiement <-
          c("f", "g")),
     function(x) c(x, x, x)
   )
-print(begaiement)
-print(typeof(begaiement))
-print(class(begaiement))
+begaiement
+typeof(begaiement)
 ```
 
 La fonction `function(x) c(x, x, x)` demande à répéter trois fois un élément. Cette fonction est appliquée terme à terme à chaque élement de la liste.
@@ -51,9 +50,8 @@ begaiement <-
     list(c("a", "b"),
          c("c", "d", "e"),
          c("f", "g")))
-print(begaiement)
-print(typeof(begaiement))
-print(class(begaiement))
+begaiement
+typeof(begaiement)
 ```
 
 Le calcul ci-dessus montre qu'on peut utiliser `lapply` à l'intérieur d'une autre fonction.
@@ -69,9 +67,8 @@ begaiement <-
     list(c("a", "b"),
          c("c", "d", "e"),
          c("f", "g")))
-print(begaiement)
-print(typeof(begaiement))
-print(class(begaiement))
+begaiement
+typeof(begaiement)
 ```
 
 Ce calcul illustre un aspect implicite des deux précédentes syntaxes utilisées : celles-ci utilisent `function(x) c(x, x, x)` en lieu et place d'un nom de fonction à l'intérieur du lapply ! On appelle cela des *fonctions anonymes*. Si une fonction n'a pour vocation que d'être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu'une *fonction nommée*.
@@ -79,9 +76,9 @@ Ce calcul illustre un aspect implicite des deux précédentes syntaxes utilisée
 ```{webr-r}
 begaiement_bis <-
   tripler_les_elements(c("a", "b", "c", "d"))
-print(begaiement_bis)
-print(typeof(begaiement_bis))
-print(class(begaiement_bis))
+begaiement_bis
+typeof(begaiement_bis)
+class(begaiement_bis)
 ```
 
 Dans ce dernier calcul, on remarque que l'on peut appliquer `lapply` sur un vecteur.
@@ -102,18 +99,16 @@ On l'a vu dans les exemples précédents, `lapply` renvoie tous les élements so
 
 ```{webr-r}
 vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 0L)
-print(vecteur)
-print(typeof(vecteur))
-print(class(vecteur))
+vecteur
+typeof(vecteur)
 ```
 
 `vapply` applique la fonction anonyme `\(x) x + 1L` sur chaque élément de la liste `list(3L, 7L, -1L)` et renvoie un vecteur de type similaire à `0L` (c'est-à-dire un `"integer"`)
 
 ```{webr-r}
 vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 133123128L)
-print(vecteur)
-print(typeof(vecteur))
-print(class(vecteur))
+vecteur
+typeof(vecteur)
 ```
 
 Ce calcul est exactement similaire au précédent. Ce qui est mis en avant ici, c'est que seul le type du troisième argument (`FUN.VALUE`) importe, sa valeur n'a aucune importance. Ici, si on veut retourner un vecteur entier, n'importe quel entier de taille 1 fait l'affaire.
@@ -125,9 +120,9 @@ matrice <-
     \(x) c(x, x, x),
     c("", "", "")
   )
-print(matrice)
-print(typeof(matrice))
-print(class(matrice))
+matrice
+typeof(matrice)
+class(matrice)
 ```
 
 Dans le cas où, comme ici, chaque *application unitaire* de la fonction utilisée retourne plusieurs valeurs, alors l'argument `FUN.VALUE` doit être un vecteur de même taille.
@@ -148,18 +143,16 @@ matrice <-
     \(x) c(x, x, x),
     c("je", "suis", "arbitraire")
   )
-print(matrice)
-print(typeof(matrice))
-print(class(matrice))
+matrice
+typeof(matrice)
 ```
 
 Là encore, on remarque que les valeurs de l'argument `FUN.VALUE` sont purement arbitraires. Seules sa longueur et son type importent.
 
 ```{webr-r}
 vecteur <- sapply(list(3L, 7L, -1L), \(x) x + 1L)
-print(vecteur)
-print(typeof(vecteur))
-print(class(vecteur))
+vecteur
+typeof(vecteur)
 ```
 
 Comme on le voit ci-dessous, lorsque l'on veut écrire vite dans la console, un raccourci pour `vapply` existe sans la `FUN.VALUE`. La fonction `sapply` devine automatiquement les dimensions et le type requis. Utiliser un `vapply` explicite est cependant *en général* une meilleure pratique à l'intérieur d'un programme.
@@ -170,9 +163,8 @@ matrice <-
     c("a", "b", "c", "d"),
     \(x) c(x, x, x)
   )
-print(matrice)
-print(typeof(matrice))
-print(class(matrice))
+matrice
+typeof(matrice)
 ```
 
 ::: callout-warning
@@ -350,8 +342,8 @@ composer_fonctions <- function(e1, e2) {
 
 fonction_composee <- Reduce(composer_fonctions, liste_fonctions)
 
-print(fonction_composee(pi))
-print(atan(pi) / 3 + 1)
+fonction_composee(pi)
+atan(pi) / 3 + 1
 ```
 
 Dans l'exemple précédent, on a appliqué sur une liste de fonctions l'opérateur `Reduce` au sens de la composition. C'est un joli exemple pour montrer la richesse d'un langage fonctionnel et illustrer l'idée que `Reduce` n'est pas restreint à des opérations numériques. En général, cependant, on préfèrera éviter d'empiler des fonctions non-évaluées. On préfèrera donc une notation intermédiaire comme employé ci-dessous.
