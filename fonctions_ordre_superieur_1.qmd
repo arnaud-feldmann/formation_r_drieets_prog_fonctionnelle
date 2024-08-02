@@ -221,7 +221,7 @@ Map(paste,
 L'argument `MoreArgs` de `Map` permet de rajouter une liste d'arguments complémentaires, qui restent fixes entre tous les appels.
 
 ```{webr-r}
-Map(\(x) paste(x, sep = ""),
+Map(\(...) paste(..., sep = ""),
     c("a", "b", "c"),
     c("d", "e", "f"))
 ```
