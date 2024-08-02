@@ -487,8 +487,12 @@ On souhaite écrire une fonction `faire_taux(tbl, ...)` qui prend dans les `...`
 Par exemple, dans :
 
 ```{r}
-#| echo: false
+#| include: false
 library(dplyr)
+```
+
+```{r}
+#| echo: false
 tbl <-
   tibble(moyen = c("voiture", "voiture", "voiture", "train"),
          prenom = c("arnaud", "arnaud", "raphael", "arnaud"),
