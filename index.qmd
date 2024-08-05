@@ -12,7 +12,7 @@ Trois principaux paradigmes dominent le monde actuel de la programmation. La **p
 
 La **programmation procédurale** est le plus ancien paradigme de programmation. Il s'agit d'une séquence de *procédures*, c'est-à-dire une série d'étapes à réaliser pour faire quelque chose. On peut voir cela comme une recette de cuisine.
 
-Supposons que l'on veuille peindre un mur en vert, et que la procédure `mélanger_couleurs_sur_palette(palette)` mélange les deux premières couleurs de la palette et stocke le résulat au troisième emplacement, on pourrait faire :
+Supposons que l'on veuille peindre un mur en vert, et que la procédure `mélanger_couleurs_sur_palette(palette)` mélange les deux premières couleurs de la palette pour stocker le résulat de ce mélange au troisième emplacement de la palette, on pourrait faire :
 
 > | mettre_sur_palette(palette, bleu)
 > | mettre_sur_palette(palette, jaune)
@@ -25,7 +25,7 @@ Toutefois, la programmation purement procédurale n'est pas sans intérêt dans 
 
 ## La programmation orientée objet (POO)
 
-La **programmation orientée objet** a émergé du besoin de faire apparaître une syntaxe disciplinée et plus proche d'une perception humaine. Pour ce faire, on s'inspire du monde réel : il n'y a pas besoin de connaitre le fonctionnement électronique d'une télécommande pour appuyer sur ses boutons. Il est pas attendu non plus que l'utilisateur d'une télévision aille bidouiller ses circuits imprimés pour s'en servir. Dans un langage objet, l'exemple précédent pourrait s'écrire :
+La **programmation orientée objet** a émergé du besoin de faire apparaître une syntaxe disciplinée et plus proche d'une perception humaine. Pour ce faire, on s'inspire du monde réel : il n'y a pas besoin de connaitre le fonctionnement électronique d'une télécommande pour appuyer sur ses boutons. Il n'est pas attendu non plus que l'utilisateur d'une télévision aille bidouiller ses circuits imprimés pour s'en servir. Dans un langage objet, l'exemple précédent pourrait s'écrire :
 
 > | palette.ajouter(bleu)
 > | palette.ajouter(jaune)
@@ -48,7 +48,7 @@ La syntaxe fonctionnelle étant proche d'une écriture mathématique, elle convi
 
 -   la grande facilité de déboggage et de test (une entrée doit toujours retourner la même sortie)
 -   la beauté/maintenabilité du code
--   la forte parallélisabilité des calculs : les résultats ne dépendant **que** de leurs entrées, il est potentiellement possible de calculer plusieurs choses en même temps si l'on dispose de plusieurs CPU. C'est notamment cet aspect qui permet par exemple au package arrow d'être extrêmement rapide ; les calculs sont faits de manière possiblement concourrante plutôt que consécutive.
+-   la forte parallélisabilité des calculs : les résultats ne dépendant **que** de leurs entrées, il est potentiellement possible de calculer plusieurs choses en même temps si l'on dispose de plusieurs CPU. C'est notamment cet aspect qui permet par exemple au package `arrow` d'être extrêmement rapide ; les calculs sont faits de manière possiblement concourrante plutôt que consécutive.
 
 ::: callout-note
 
@@ -58,9 +58,9 @@ Outre R, Haskell, Scala et Lisp sont des langages fonctionnels.
 
 ## R : un langage fonctionnel, vectoriel, avec quelques éléments de POO
 
-R est très majoritairement un langage **fonctionnel**. Dans la mesure où aucun langage n'est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation **objet** tordus pour correspondre au coeur d'un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n'a rien à voir avec le protocole de stockage même s'il s'appelle pareil), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.
+R est très majoritairement un langage **fonctionnel**. Dans la mesure où aucun langage n'est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation **objet** et **procédurale** tordus pour correspondre au coeur d'un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n'a rien à voir avec le protocole de stockage même s'il s'appelle similairement), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.
 
-Un autre aspect particulier de R est qu'il est vectoriel. Si je fais :
+Un autre aspect particulier de R est qu'il est **vectoriel**. Si je fais :
 
 ```{webr-r}
 resultat <- sin(sqrt(1:10))
@@ -132,7 +132,7 @@ Objection votre honneur !
 :::
 
 ::: {.choice .correct-choice}
-R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.
+R est surtout un langage fonctionnel, mais il présente quelques aspects de POO et de programmation procédurale.
 :::
 
 :::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
@@ -156,7 +156,7 @@ Exactement ! C'est un langage prévu pour être facile d'appréhension, d'où de
 :::
 
 ::: {.choice}
-Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.
+Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse du chipset de la carte mère (le southbridge), tandis que les langages de haut niveau sont déterminés par sa partie haute (le northbridge).
 :::
 
 ::: {.choice}
@@ -238,7 +238,7 @@ Langage fonctionnel
 ::::: {.question}
 Analysons ce pseudo-code :
 
-> | racine_carrée(multiplier_par(entiers de 1 à 10, 3))
+> | racine_carrée(multiplier_par([entiers de 1 à 10], 3))
 
 À quel paradigme de programmation cela ressemble ?
 
