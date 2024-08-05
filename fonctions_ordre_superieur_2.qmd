@@ -4,13 +4,14 @@ title: "Fonctions d'ordre supérieur (retours)"
 
 ## Les environnements
 
-Que se passe-t-il par exemple quand j'exécute ce code R ? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s'appellent `x` ! Comment cela peut bien se résoudre ?
+On l'a vu dans la partie précédente, la notion de **fonction d'ordre supérieur** désigne une fonction avec au moins l'une des propriétés suivantes :
 
-::: callout-note
+* Elle a pour *argument* une ou des fonctions.
+* Elles *retournent* a minima une fonction.
 
-On l'a vu dans la partie précédente, ces fonctions retournant des fonctions sont un des deux types de fonction d'ordre supérieur.
+Dans cette deuxième partie sur les fonctions d'ordre supérieur, nous abordons la thématique des fonctions avec ayant pour *retour* des fonctions.
 
-:::
+Celles-ci posent un problème vis-à-vis de l'évaluation de leurs *symboles* internes. Que se passe-t-il par exemple quand j'exécute ce code R ? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s'appellent `x` ! Comment cela peut bien se résoudre ?
 
 ```{webr-r}
 x <- 1L
@@ -32,11 +33,11 @@ fun_2()
 x
 ```
 
-On se rend compte de quatre choses :
+On se rend compte en observant les résultats de quatre choses :
 
-* Aucune des assignations (`<-`) internes aux fonctions n'a modifié l'environnement global ; `print(x)` affiche toujours `1L`.
-* Le `arg` de la fonction mystère semble avoir été passé 
-* Le résultat du x retourné par `fun_1()` est celui défini à l'intérieur de la fonction anonyme, à savoir `3L`.
+* Aucune des assignations (`<-`) internes aux fonctions n'a modifié l'environnement global ; le `x` global vaut toujours `1L`.
+* Le `arg` de la fonction mystère semble avoir été passé à la fonction anonyme.
+* Le résultat du `x` retourné par `fun_1()` est celui défini à l'intérieur de la fonction anonyme, à savoir `3L`.
 * Le résultat du x retourné par `fun_2()` est celui défini à l'intérieur de la fonction anonyme, à savoir `4L`.
 
 Pourquoi donc ?
@@ -45,12 +46,18 @@ Pourquoi donc ?
 
 Dans R, les objets sont contenus dans des *environnements*. Les environnements sont plus ou moins des petites bulles :
 
-* dans lesquelles on peut assigner des objets (avec`<-`) de manière totalement isolée les unes des autres. Ici il faut bien comprendre que tous les objets `x` existent en même temps dans des environnements différents.
-* à l'exception de l'emptyenv, tous les environnements indiquent un environnement parent.
-* Chaque **appel** de fonction (et non chaque définition) définit un environnement. Ici on crée donc deux environnements différents pour mystere.
-* lorsque l'on recherche un objet dans un environnement et qu'il n'y existe pas, on va chercher dans l'environnement parent (puis à nouveau l'environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, `fun_1` n'a pas connaissance de `arg`. Alors on cherche dans l'environnement au dessus. Surprise ! On y trouve arg et l'on peut donc assigner avec cette valeur. C'est ce qui explique que `fun_1()` et `fun_2()` peuvent renvoyer des résultats différents.
+* Les environnements sont **isolés en écriture** selon l'assignation standard `<-`. Ici il faut bien comprendre que plusieurs objets `x` existent en même temps dans des environnements différents.
+* à l'exception de l'emptyenv, **tous les environnements ont un environnement parent**. La structure des environnements forme donc un arbre.
+* Chaque **appel de fonction définit un environnement**, et non chaque définition. À chaque fois qu'on appelle une fonction, on crée un nouvel environnement. Ici on crée donc deux environnements différents pour `mystere`.
+* Lorsque l'on cherche à évaluer un symbole recherche un objet dans un environnement et qu'il n'y existe pas, on va **chercher ce symbole dans l'environnement parent** (puis à nouveau l'environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, `fun_1` n'a pas connaissance de `arg`. Alors on cherche dans l'environnement au dessus. Surprise ! On y trouve `arg` et l'on peut donc utiliser cette valeur. C'est ce qui explique que `fun_1()` et `fun_2()` peuvent renvoyer des résultats différents.
 
-Dans la suite, on s'attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d'information, mais n'est pas vraiment le sujet ici. De notre point de vue, l'environnement le plus bas est donc le globalenv.
+Dans la suite, on s'attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d'information, mais n'est pas vraiment le sujet de cette formation. De notre point de vue, l'environnement le plus bas est donc le globalenv.
+
+::: callout-note
+
+R se charge automatiquement de supprimer les environnements relatifs à `fun_1` et `fun_2` si on supprime `fun_1` et `fun_2`. Il dispose pour cela de ce qu'on appelle un *ramasse-miettes*.
+
+:::
 
 ## L'assignation remontante (`<<-`)
 
@@ -138,9 +145,9 @@ En apparence, les fonctions semblent se comporter à nouveau comme si on utilisa
 
 ## Closures
 
-On a vu plus que des fonctions peuvent retourner des fonctions, et qu'il s'agit d'un des deux types de fonctions d'ordre supérieur. Dans R, on appelle aussi ces fonctions des *closures* (fermetures en français, mais le terme n'est pas très employé).
+On a vu que des fonctions peuvent retourner des fonctions, et qu'il s'agit d'un des deux types de *fonctions d'ordre supérieur*. Dans R, on appelle aussi ces fonctions des **function factories** (*fabrique de fonctions* en français, mais le terme n'est pas très employé). Les fonctions renvoyées par les function factories sont appelées **closures** (fermetures en français, mais le terme n'est pas très employé non-plus).
 
-Ce nom illustre un aspect de ces fonctions d'ordre supérieur, et une utilisation particulière. On a vu qu'il est possible d'écrire dans les environnements *parents* qui apparaissent comme isolés les uns des autres. Et bien utilisons cette propriété !
+Le nom de *closure* illustre un aspect de ces fonctions d'ordre supérieur. On a vu qu'il est possible d'écrire dans les environnements *parents* qui apparaissent comme isolés les uns des autres. Et bien utilisons cette propriété !
 
 ```{webr-r}
 nouveau_compteur <-
@@ -168,15 +175,21 @@ Mais que se passe-t-il ? C'est très étonnant ! Il semble que l'on ait défin
 
 ![](environnements4.svg)
 
-En fait, on appelle ces fonctions des closures parce qu'elles "enferment" leur environnement parent. Elle permettent de maintenir un espace isolé où l'on peut tout-à-fait faire des modifications.
+En fait, on appelle ces fonctions des closures parce que **les closures "enferment" leur environnement parent**. Elles le préservent également du ramasse-miette puisque le ramasse-miette ne va jamais supprimer un environnement qui est encore désigné quelque part. Elle permettent de maintenir un espace isolé où l'on peut tout-à-fait faire des modifications qui persistent dans le temps.
 
-Seul `nouveau_compteur()` permet de créer un nouvel espace isolé. On appelle un tel espace **instance** et l'appel à `nouveau_compteur()` est appelée instanciation. **`compteur_1bis` réfère exactement au même compteur que 4**.
+Seul l'appel à la fabrique permet de créer un nouvel environnement. Ici, c'est `nouveau_compteur()` qui crée un nouveau compteur. On appelle un tel espace **instance**.
+
+::: {.callout-warning}
+
+Il est important de noter que `compteur_1bis` réfère exactement au même compteur que `compteur_1`, car il désigne le même environnement. C'est précisément le principe d'une instance.
+
+:::
 
 Cette astuce est puissante et permet de maintenir des états à l'intérieur d'un langage fonctionnel. Cela rompt l'approche maximaliste d'un langage fonctionnel idéal qui ne contiendrait que des fonctions complètement pures, mais cela la rompt de manière maitrisée, la plus locale possible. On ne doit bien sûr user de cette astuce qu'avec parcimonie, quand cela semble nécessaire.
 
 ## Closures complexes
 
-Une closure peut renvoyer plusieurs fonctions différentes par exemple dans une liste. On s'approche alors beaucoup de la définition d'un objet en Programmation Orientée Objet. En effet, chaque instance de fonctions a des états, et différentes méthodes qui permettent de modifier ces états.
+Une closure peut renvoyer plusieurs fonctions différentes par exemple dans une liste. On s'approche alors beaucoup de la définition d'un objet en Programmation Orientée Objet.
 
 ```{webr-r}
 nouvelle_resolution <-
@@ -203,7 +216,7 @@ resolution_2$getX()
 resolution_2$getY()
 ```
 
-Ici, les deux appels de `nouvelle_resolution()` permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions `setX()`, `setY()`, `getX()` et `getY()` agiront, comme on le voit dans le schéma ci-dessous.
+Ici, les deux appels de `nouvelle_resolution()` permettent de définir deux environnement différents. Dans chacun de ces environnements, les fonctions `setX()`, `setY()`, `getX()` et `getY()` agiront de manière isolée, comme on le voit dans le schéma ci-dessous.
 
 ![](environnements5.svg)
 

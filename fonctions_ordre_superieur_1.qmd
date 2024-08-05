@@ -6,8 +6,8 @@ title: "Fonctions d'ordre supérieur 1 (arguments)"
 
 En informatique, la notion de **fonction d'ordre supérieur** désigne une fonction avec au moins l'une des propriétés suivantes :
 
-* Elle a pour *argument* une ou des fonctions
-* Elles *retournent* a minima une fonction
+* Elle a pour *argument* une ou des fonctions.
+* Elles *retournent* a minima une fonction.
 
 Les fonctions d'ordre supérieur sont un élément central permettant l'expressivité des langages fonctionnels.
 
