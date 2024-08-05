@@ -12,9 +12,9 @@ Comme on l'a vu dans la page d'introduction, S3 est un système de programmation
 Dans R, le système de Programmation Orientée Objet S3 est structuré par :
 
 * des **fonction génériques** qui sont simplement des noms de fonctions munis d'une description abstraite en langage naturel. Par exemple `summary()` est une fonction générique. Sa description abstraite est décrite par l'aide accessible via `?summary`. On y trouve *"`summary` is a generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument."*. À charge des différents concepteurs d'objets de lui donner un sens particulier conforme à cette description abstraite.
-* des **classes d'objets** qui sont simplement des étiquettes portées par l'objet et montrées à la fonction générique. Par exemple, si `objet` est un objet de classe `twoStepsBenchmark` du package [disaggR](https://github.com/InseeFr/disaggR), il montrera une étiquette `"twoStepsBenchmark"` à la fonction `summary()`. Un objet `tibble` montrera une étiquette `"tbl_df"` à la fonction `summary()` (`"tbl_df"` est le vrai nom de classe tibbles).
+* des **classes d'objets** qui sont simplement des étiquettes portées par l'objet et montrées à la fonction générique. Par exemple, si `objet` est un objet de classe `twoStepsBenchmark` du package [disaggR](https://github.com/InseeFr/disaggR), il montrera une étiquette `"twoStepsBenchmark"` à la fonction `summary()`. Un objet `tibble` montrera une étiquette `"tbl_df"` à la fonction `summary()` (`"tbl_df"` est le vrai nom de la classe des tibbles).
 * des **méthodes** qui écrivent explicitement le code utilisé pour une fonction dans le cas d'une classe d'objet (on peut dire qu'on *implémente* `summary()` quand on en écrit explicitement son code pour une classe précise). Par exemple `summary()` renverra vers `summary.twoStepsBenchmark()` pour un objet de classe `twoStepsBenchmark`, tandis qu'elle essayera en premier de renvoyer vers `summary.tbl_df()` pour un tibble.
-* Un **héritage** entre classes d'objets qui dit simplement que si une méthode n'existe pas pour une fonction générique, alors on en cherche une autre, puis une autre, et ainsi de suite. Par exemple un tibble a en fait 3 étiquettes, `c("tbl_df", "tbl", "data.frame")`. En ce qui concerne la fonction `summary()`, elle cherche d'abord une fonction `summary.tbl_df()` (qui n'existe pas), puis une fonction `summary.tbl()` (qui n'existe pas non plus), et enfin une fonction `summary.data.frame()` (qui existe ! Bingo ! C'est la méthode utilisée.).
+* Un **héritage** entre classes d'objets qui dit simplement que si une méthode n'existe pas pour une fonction générique, alors on en cherche une autre, puis une autre, et ainsi de suite. Par exemple un tibble a en fait 3 étiquettes, `c("tbl_df", "tbl", "data.frame")`. On cherchera d'abord `truc.tbl_df`, puis `truc.tbl`, puis `truc.data.frame`. En ce qui concerne la fonction `summary()`, on cherche d'abord une fonction `summary.tbl_df()` (qui n'existe pas), puis une fonction `summary.tbl()` (qui n'existe pas non plus), et enfin une fonction `summary.data.frame()` (qui existe ! Bingo ! C'est la méthode utilisée.).
 
 Usuellement, un système de Programmation Orientée Objet structure le code en faisant appel à des *instances d'objets* sur lesquelles on appelle des *méthodes*. Plus spécifiquement, on a :
 
@@ -25,8 +25,8 @@ Usuellement, un système de Programmation Orientée Objet structure le code en f
 
 On remarque que S3 préserve un peu cette structuration générale, mais l'adapte. Les éléments de POO sont tordus pour correspondre au paradigme prédominant qui est le paradigme fonctionnel. Voici les changements notables :
 
-* On centre sur **les fonctions plutôt que les classes**. Au lieu de s'attarder sur une classe et de décrire les méthodes que l'on peut appliquer dessus, dans S3 on énonce un nom de fonction, mettons `faire_pleuvoir(objet)`, puis on ajoute `faire_pleuvoir.baguette_magique(objet)` qui est la méthode `faire_pleuvoir()` adaptée aux baguettes magiques. On peut ensuite ajouter également `faire_pleuvoir.robot_chanteur(objet)` si on veut prévoir une méthode pour les robots chanteurs.
-* Il n'y a **pas de notion d'instance d'objet**. La notion d'instance d'objet induit une notion d'unicité (il n'y a qu'une seule baguette magique d'Harry Potter) et d'état interne. Si on casse la baguette magique d'Harry Potter en deux, c'est définitif. Si on veut des *instances*, il faut les créer manu-militari, comme on l'a fait au chapitre précédent (c'est l'objet de l'exercice 2 de ce classeur).
+* On scentre sur **les fonctions plutôt que les classes d'objets**. Au lieu de s'attarder sur une classe puis de décrire les méthodes/fonctions que l'on peut appliquer dessus, dans S3 on fait *exactement l'inverse* ; on énonce un nom de fonction puis on décrit comment cette fonction s'applique sur différents objets. On a d'abord la fonction générique `faire_pleuvoir(objet)`. On l'implémente en `faire_pleuvoir.baguette_magique(objet)` qui est la méthode `faire_pleuvoir()` adaptée aux baguettes magiques. On peut ensuite implémenter également `faire_pleuvoir.robot_chanteur(objet)` si on veut prévoir une méthode `faire_pleuvoir()` adaptée aux robots chanteurs.
+* Il n'y a **pas de notion d'instance d'objet**. La notion d'instance d'objet induit une notion d'unicité et d'état interne, comme on l'a vu au chapitre précédent. Si on copie `compteur_1` dans `compteur_1bis`, c'est le même compteur. Mais il n'y a pas de système d'instance natif à S3. Si on veut des *instances*, il faut les créer manu-militari de la même manière qu'on l'a déjà fait (c'est l'objet de l'exercice 2 de ce classeur).
 
 ## S3 en pratique
 
@@ -40,12 +40,12 @@ class(benchmark) # On ignorera ici ce qui est écrit sous attr(,"package")
 class(dplyr::starwars)
 ```
 
-On vérifie bien que :
+On remarque que :
 
-* Un objet créé par `twoStepsBenchmark()` est de classe `"twoStepsBenchmark"`.
-* Un tibble est de classe `"tbl_df"`, hérite de `"tbl"` et de `"data.frame"`.
+* Un objet créé par `twoStepsBenchmark()` hérite de la classe `"twoStepsBenchmark"`.
+* Un tibble herite de la classe `"tbl_df"`, puis `"tbl"`, puis `"data.frame"`.
 
-S3 est une étiquette apposée sur des données dont le type peut être consulté à l'aide de `typeof()` :
+Une classe S3 est une étiquette apposée sur des données dont le type peut être consulté à l'aide de `typeof()` :
 
 ```{webr-r}
 library(disaggR)
@@ -92,19 +92,19 @@ Pour voir les méthodes proposées par une fonction générique, on utilise `met
 methods(summary)
 ```
 
-Il y a un paquet de méthodes implémentées pour `summary()` dites-donc ! Certaines méthodes n'ont pas d'étoiles derrière leur nom. Pour consulter le code de l'une d'elle, il suffit de taper leur nom.
+Il y a un paquet de méthodes implémentées pour `summary()` dites-donc ! Certaines méthodes ont une étoile derrière leur nom, certaines n'ont pas d'étoile. Pour consulter le code d'une méthode *sans* étoile, il suffit de taper son nom.
 
 ```{webr-r}
 summary.data.frame
 ```
 
-Ces méthodes correspondent à des fonctions *exportées* par les packages (ou par r-base). Elles peuvent très bien être utilisées telles quelles si on ne souhaite pas passer par la générique.
+Ces méthodes correspondent à des fonctions *exportées* par les packages (ou par r-base). C'est-à-dire que leur concepteur a tenu à les rendre disponibles aux utilisateurs. Elles peuvent très bien être utilisées avec leur propre nom si on ne souhaite pas passer par la générique.
 
 ```{webr-r}
 summary.data.frame(dplyr::starwars)
 ```
 
-Certaines méthodes apparaissent avec une * après leur nom. Elles correspondent à des méthodes non-exportées par un package, c'est-à-dire que l'auteur du package n'a pas jugé utile de rendre directement disponible le nom de méthode à l'utilisateur et privilégie l'emploi de la générique. C'est aujourd'hui le comportement par défaut.
+Les méthodes ans étoiles derrière leur nom correspondent à des méthodes non-exportées par un package, c'est-à-dire que l'auteur du package n'a pas jugé utile de les rendre directement accessibles à l'utilisateur et privilégie l'emploi de la générique.
 
 ```{webr-r}
 library(disaggR)
@@ -112,13 +112,13 @@ benchmark <- twoStepsBenchmark(turnover, construction)
 summary.twoStepsBenchmark(benchmark) # Renvoie une erreur car le nom summary.data.frame n'est pas exporté.
 ```
 
-On peut toutefois lire ces méthodes et savoir d'où elles viennent en utilisant `getAnywhere()`.
+On peut quand même lire ces méthodes et savoir d'où elles viennent en utilisant `getAnywhere()`.
 
 ```{webr-r}
 getAnywhere(summary.twoStepsBenchmark)
 ```
 
-Ici, on lit que la méthode `summary.twoStepsBenchmark` existe de manière interne au package `disaggR`, et son code est :
+Ici, on lit que la méthode `summary.twoStepsBenchmark` existe de manière interne au package `disaggR` et que son code est :
 
 ```{r}
 #| eval: false
@@ -131,7 +131,7 @@ Autrement dit, elle renvoie encore à une autre méthode de `summary`.
 
 ::: callout-note
 
-On peut accéder à toutes les fonctions non-exportées (fonctions internes) d'un package à l'aide des triples doubles-points (`:::`). Par exemple, on peut ici accéder à `summary.twoStepsBenchmark` en écrivant :
+On peut accéder à *toutes* les fonctions d'un package, y compris les fonctions non-exportées, à l'aide des triples doubles-points (`:::`). Par exemple, on peut accéder à `summary.twoStepsBenchmark` en écrivant :
 
 ```{webr-r}
 library(disaggR)
@@ -139,11 +139,11 @@ benchmark <- twoStepsBenchmark(turnover, construction)
 disaggR:::summary.twoStepsBenchmark(benchmark)
 ```
 
-Bien sûr, même si c'est utile à savoir pour comprendre le fonctionnement de R, inutile de vous prévenir que ce n'est pas une bonne pratique dans du code de production. R est très permissif, mais c'est à l'utilisateur de se discipliner. Les fonctions internes d'un package peuvent changer complètement d'une version à une autre sans prévenir l'utilisateur qui n'est normalement pas censé les utiliser directement.
+Bien sûr, inutile de vous prévenir que ce n'est pas une bonne pratique dans du code de production. R est très permissif, mais c'est à l'utilisateur de se discipliner. Si l'auteur d'un package a choisi de ne pas dire à l'utilisateur "tu peux utiliser cette fonction directement", c'est à nos risques et périls si on le fait quand même !
 
 :::
 
-On peut également utiliser `methods()` pour chercher toutes les méthodes associées *directement* à une classe :
+On peut également utiliser `methods()` pour chercher toutes les méthodes associées à une classe :
 
 ```{webr-r}
 library(disaggR)
@@ -156,7 +156,7 @@ methods(class = "data.frame")
 
 ## Attributs
 
-N'importe quel objet peut avoir un nombre quelquonque d'autres objets nommés appelés *attributs*. Ceux-ci peuvent être accedés à l'aide de la fonction `attributes()` qui renvoie une liste nommée.
+N'importe quel objet peut se voir affecter un nombre quelquonque d'autres objets nommés appelés *attributs*. Ceux-ci peuvent être accedés à l'aide de la fonction `attributes()` qui renvoie une liste nommée.
 
 ```{webr-r}
 attributes(dplyr::starwars)
@@ -168,7 +168,7 @@ Le tibble `starwars` a trois attributs :
 * `row.names` qui stocke les noms de ligne, et qui correspond ici simplement à des numéros car un tibble n'a pas de noms de lignes (l'attribut `row.names` est hérité des objets `data.frame`)
 * `class` qui contient les classes de `dplyr::starwars`.
 
-On voit donc qu'un objet classé n'est rien d'autre qu'un objet avec un attribut "class".
+On voit donc qu'un objet classé selon le système S3 n'est rien d'autre qu'un objet avec un attribut "class".
 
 Les attributs peuvent être accedés et affectés de différentes manières.
 
@@ -185,7 +185,7 @@ attr(objet, "mon_attribut")
 attributes(objet)
 ```
 
-Ci-dessus, on a affecté en un coup les deux attributs `class` et `mon_attribut` à l'aide de la fonction `structure()`.
+Ci-dessus, avec la fonction `structure()`, on a créé en un coup l'objet avec ses deux attributs `class` et `mon_attribut`.
 
 On aurait pu également les affecter un par un comme on le voit ci-dessous.
 
@@ -261,7 +261,7 @@ Après avoir saisi `mon_vecteur <- vecteur_titre(1:10, "Les 10 premiers entiers"
 vecteur_titre(1:10, "Les 10 premiers entiers")
 ```
 
-La fonction qui est utilisée pour afficher un objet s3 lors de la saisie de celui-ci est la fonction `print()`. Vérifier que celle-ci correspond à une fonction générique et afficher les méthodes associées.
+La fonction qui est utilisée pour afficher un objet S3 lors de la saisie de celui-ci est la fonction `print()`. Vérifier que `print()` correspond à une fonction générique et afficher les méthodes associées.
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
@@ -318,11 +318,11 @@ print.vecteur_avec_titre <- function(x, ...) { # Les paramètres doivent être c
 mon_vecteur
 ```
 
-On a *implémenté* print par une *méthode* adaptée à la *classe* "vecteur_avec_titre". Dorénavant, l'affichage est plus propre.
+On a *implémenté* la fonction générique `print() par une *méthode* adaptée à la *classe* `"vecteur_avec_titre"`. Dorénavant, l'affichage est plus propre.
 
 :::
 
-Maintenant, on veut aller plus loin. On veut passer aux fonctions génériques. On veut :
+On a donc créé notre propre méthode S3 à une fonction générique pré-existante. On veut aller plus loin et créer notre propre fonction générique. On veut :
 
 * une fonction générique `get_titre` qui n'ait que pour argument `x`.
 * Elle doit avoir une méthode `get_titre.vecteur_avec_titre` qui retourne le titre.
@@ -468,7 +468,7 @@ compteur_2$get()
 On demande dans cette exercice de :
 
 * Modifier le code de la fonction `nouveau_compteur()` pour que le compteur renvoie une liste de classe "super_compteur".
-* Implémenter une méthode de la fonction générique `print()` qui affiche `Super Compteur : 3\n` si le compteur en est à 3 (on rappelle que \n est une manière d'indiquer un saut de ligne).
+* Implémenter une méthode de la fonction générique `print()` qui affiche `Super Compteur : [i]\n` si le compteur en est à `[i]` (on rappelle que \n est une manière d'indiquer un saut de ligne).
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
