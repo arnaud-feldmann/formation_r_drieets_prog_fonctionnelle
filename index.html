@@ -357,7 +357,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"autorun":"false","warning":"true","out-height":"","comment":"","fig-height":5,"editor-font-scale":"1","editor-word-wrap":"true","label":"unnamed-chunk-1","editor-max-height":"","read-only":"false","out-width":"700px","output":"true","results":"markup","message":"true","dpi":72,"context":"interactive","fig-cap":"","editor-quick-suggestions":"false","fig-width":7,"classes":""},"code":"resultat <- sin(sqrt(1:10))\nresultat","id":1},{"options":{"autorun":"false","warning":"true","out-height":"","comment":"","fig-height":5,"editor-font-scale":"1","editor-word-wrap":"true","label":"unnamed-chunk-2","editor-max-height":"","read-only":"false","out-width":"700px","output":"true","results":"markup","message":"true","dpi":72,"context":"interactive","fig-cap":"","editor-quick-suggestions":"false","fig-width":7,"classes":""},"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat","id":2}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-height":5,"fig-cap":"","comment":"","output":"true","editor-word-wrap":"true","message":"true","editor-font-scale":"1","results":"markup","warning":"true","context":"interactive","out-width":"700px","dpi":72,"read-only":"false","fig-width":7,"classes":"","autorun":"false","out-height":"","label":"unnamed-chunk-1","editor-quick-suggestions":"false","editor-max-height":""},"code":"resultat <- sin(sqrt(1:10))\nresultat"},{"id":2,"options":{"fig-height":5,"fig-cap":"","comment":"","output":"true","editor-word-wrap":"true","message":"true","editor-font-scale":"1","results":"markup","warning":"true","context":"interactive","out-width":"700px","dpi":72,"read-only":"false","fig-width":7,"classes":"","autorun":"false","out-height":"","label":"unnamed-chunk-2","editor-quick-suggestions":"false","editor-max-height":""},"code":"resultat <- vector(mode=\"numeric\", length = 10L)\nfor (i in 1:length(resultat)) {\n  resultat[i] <- sin(sqrt(i))\n}\nresultat"}];
 
 </script>
 <script type="module">
@@ -1963,7 +1963,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="la-programmation-procédurale" class="level2">
 <h2 class="anchored" data-anchor-id="la-programmation-procédurale">La programmation procédurale</h2>
 <p>La <strong>programmation procédurale</strong> est le plus ancien paradigme de programmation. Il s’agit d’une séquence de <em>procédures</em>, c’est-à-dire une série d’étapes à réaliser pour faire quelque chose. On peut voir cela comme une recette de cuisine.</p>
-<p>Supposons que l’on veuille peindre un mur en vert, et que la procédure <code>mélanger_couleurs_sur_palette(palette)</code> mélange les deux premières couleurs de la palette et stocke le résulat au troisième emplacement, on pourrait faire&nbsp;:</p>
+<p>Supposons que l’on veuille peindre un mur en vert, et que la procédure <code>mélanger_couleurs_sur_palette(palette)</code> mélange les deux premières couleurs de la palette pour stocker le résulat de ce mélange au troisième emplacement de la palette, on pourrait faire&nbsp;:</p>
 <blockquote class="blockquote">
 <div class="line-block">mettre_sur_palette(palette, bleu)<br>
 mettre_sur_palette(palette, jaune)<br>
@@ -1975,7 +1975,7 @@ peindre_mur(mur, palette[3])</div>
 </section>
 <section id="la-programmation-orientée-objet-poo" class="level2">
 <h2 class="anchored" data-anchor-id="la-programmation-orientée-objet-poo">La programmation orientée objet (POO)</h2>
-<p>La <strong>programmation orientée objet</strong> a émergé du besoin de faire apparaître une syntaxe disciplinée et plus proche d’une perception humaine. Pour ce faire, on s’inspire du monde réel&nbsp;: il n’y a pas besoin de connaitre le fonctionnement électronique d’une télécommande pour appuyer sur ses boutons. Il est pas attendu non plus que l’utilisateur d’une télévision aille bidouiller ses circuits imprimés pour s’en servir. Dans un langage objet, l’exemple précédent pourrait s’écrire&nbsp;:</p>
+<p>La <strong>programmation orientée objet</strong> a émergé du besoin de faire apparaître une syntaxe disciplinée et plus proche d’une perception humaine. Pour ce faire, on s’inspire du monde réel&nbsp;: il n’y a pas besoin de connaitre le fonctionnement électronique d’une télécommande pour appuyer sur ses boutons. Il n’est pas attendu non plus que l’utilisateur d’une télévision aille bidouiller ses circuits imprimés pour s’en servir. Dans un langage objet, l’exemple précédent pourrait s’écrire&nbsp;:</p>
 <blockquote class="blockquote">
 <div class="line-block">palette.ajouter(bleu)<br>
 palette.ajouter(jaune)<br>
@@ -2007,7 +2007,7 @@ Note
 <ul>
 <li>la grande facilité de déboggage et de test (une entrée doit toujours retourner la même sortie)</li>
 <li>la beauté/maintenabilité du code</li>
-<li>la forte parallélisabilité des calculs : les résultats ne dépendant <strong>que</strong> de leurs entrées, il est potentiellement possible de calculer plusieurs choses en même temps si l’on dispose de plusieurs CPU. C’est notamment cet aspect qui permet par exemple au package arrow d’être extrêmement rapide&nbsp;; les calculs sont faits de manière possiblement concourrante plutôt que consécutive.</li>
+<li>la forte parallélisabilité des calculs : les résultats ne dépendant <strong>que</strong> de leurs entrées, il est potentiellement possible de calculer plusieurs choses en même temps si l’on dispose de plusieurs CPU. C’est notamment cet aspect qui permet par exemple au package <code>arrow</code> d’être extrêmement rapide&nbsp;; les calculs sont faits de manière possiblement concourrante plutôt que consécutive.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2025,8 +2025,8 @@ Note
 </section>
 <section id="r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo" class="level2">
 <h2 class="anchored" data-anchor-id="r-un-langage-fonctionnel-vectoriel-avec-quelques-éléments-de-poo">R&nbsp;: un langage fonctionnel, vectoriel, avec quelques éléments de POO</h2>
-<p>R est très majoritairement un langage <strong>fonctionnel</strong>. Dans la mesure où aucun langage n’est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation <strong>objet</strong> tordus pour correspondre au coeur d’un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n’a rien à voir avec le protocole de stockage même s’il s’appelle pareil), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.</p>
-<p>Un autre aspect particulier de R est qu’il est vectoriel. Si je fais&nbsp;:</p>
+<p>R est très majoritairement un langage <strong>fonctionnel</strong>. Dans la mesure où aucun langage n’est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation <strong>objet</strong> et <strong>procédurale</strong> tordus pour correspondre au coeur d’un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n’a rien à voir avec le protocole de stockage même s’il s’appelle similairement), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.</p>
+<p>Un autre aspect particulier de R est qu’il est <strong>vectoriel</strong>. Si je fais&nbsp;:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>La vectorisation est tout-à-fait implicite. Dans un langage procédural non-vectorisé, j’aurais plutôt écrit&nbsp;:</p>
@@ -2096,7 +2096,7 @@ Note
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Objection votre honneur !</p><p></p>
 </div>
 <div class="choice correct-choice">
-<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>R est surtout un langage fonctionnel, mais il présente quelques aspects de POO.</p><p></p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="correct"> <span id="correct" x-show="answer == $el.id" class="badge">✓</span>R est surtout un langage fonctionnel, mais il présente quelques aspects de POO et de programmation procédurale.</p><p></p>
 </div>
 <div class="button-clear" title="Effacer la réponse" data-button-class="btn btn-light btn-xs">
 <button x-on:click="clear()" class="btn btn-light btn-xs">Effacer la réponse</button>
@@ -2123,7 +2123,7 @@ Note
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no2"> <span id="no2" x-show="answer == $el.id" class="badge">✗</span>Exactement ! C’est un langage prévu pour être facile d’appréhension, d’où de “bas niveau”.</p><p></p>
 </div>
 <div class="choice">
-<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse des microprocesseurs, tandis que les langages de haut niveau sont déterminés par la partie haute.</p><p></p>
+<p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no3"> <span id="no3" x-show="answer == $el.id" class="badge">✗</span>Non, un langage de bas-niveau est un langage est un langage qui est calculé dans la partie basse du chipset de la carte mère (le southbridge), tandis que les langages de haut niveau sont déterminés par sa partie haute (le northbridge).</p><p></p>
 </div>
 <div class="choice">
 <p></p><p><input class="form-check-input" type="radio" x-model="answer" value="no4"> <span id="no4" x-show="answer == $el.id" class="badge">✗</span>Non, un langage de bas-niveau est un langage stromosogomique de capacitance inférimitésimale.</p><p></p>
@@ -2214,7 +2214,7 @@ while a[i] != ’ ’ {<br>
 <div class="question">
 <p>Analysons ce pseudo-code&nbsp;:</p>
 <blockquote class="blockquote">
-<div class="line-block">racine_carrée(multiplier_par(entiers de 1 à 10, 3))</div>
+<div class="line-block">racine_carrée(multiplier_par([entiers de 1 à 10], 3))</div>
 </blockquote>
 <p>À quel paradigme de programmation cela ressemble&nbsp;?</p>
 <div class="choices">
