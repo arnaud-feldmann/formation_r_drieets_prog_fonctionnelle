@@ -39,7 +39,7 @@ Si la valeur que l'on veut utilise est différente de l'argument par défaut, on
 super_calcul(2, 3, FALSE)
 ```
 
-On peut, lors de l'appel, nommer explicitement certains arguments et pas d'autres. Si on procède ainsi, les arguments non-nommés sont attribués de droite à gauche, parmi ceux qui ne sont pas nommés. Ainsi, tous les appels ci-dessous sont équivalents.
+On peut, lors de l'appel, nommer explicitement certains arguments et pas d'autres. Si on procède ainsi, les arguments non-nommés sont attribués de gauche à droite, parmi ceux qui ne sont pas nommés. Ainsi, tous les appels ci-dessous sont équivalents.
 
 ```{webr-r}
 super_calcul(a = 2, b = 3, FALSE)
@@ -86,7 +86,7 @@ Lorsque le nombre de paramètres d'une fonction peut être variable, on peut uti
 ```{webr-r}
 super_somme <- function(...) {
   dots <- list(...)
-  Reduce(`+`, dots)
+  Reduce(`+`, dots) # Lire la note ci-dessous !
 }
 super_somme(2, 3, 7, 1)
 ```
@@ -150,7 +150,7 @@ fact(10)
 
 ## Remarque optionnelle
 
-Depuis la dernière version de R (pas avant !), on peut utiliser la fonction `Tailcall` pour faire des **récursivités terminales** ; qui sont moins pratiques à lire mais plus efficaces. L'interface n'est pas encore figée mais cela ressemble aujourd'hui à cela.
+Depuis R 4.4.0 sortie fin avril 2024 (pas avant !), on peut utiliser la fonction `Tailcall` pour faire des **récursivités terminales** ; qui sont moins pratiques à lire mais plus efficaces. L'interface n'est pas encore figée mais cela ressemble aujourd'hui à :
 
 ```{webr-r}
 fact <- function(n, acc = 1) {
@@ -184,7 +184,7 @@ super_somme <- function(...) {
   dots <- list(...)
   longueur <- length(dots)
   if (longueur == 0L) 0
-  else dots[[longueur]] + do.call(super_somme, head(dots, longueur - 1L))
+  else dots[[longueur]] + do.call(Recall, head(dots, longueur - 1L))
 }
 super_somme(2, 3, 7, 1)
 ```
@@ -202,7 +202,7 @@ super_somme(2, 3, 7, 1)
 
 **Question 2**
 
-Ecrire une fonction `...` `super_produit` qui calcule le produit de tous les arguments, et l'utiliser pour écrire une nouvelle version de la fonction `fact`.
+Ecrire une fonction `super_produit <- function(...)` qui calcule le produit de tous les arguments sous les `dots`, et l'utiliser pour écrire une nouvelle version de la fonction `fact`.
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
@@ -226,11 +226,11 @@ fact(10)
 
 **Question 3**
 
-Ecrire une fonction dots `usine_a_gaz` qui renvoie :
+Écrire une fonction dots `usine_a_gaz` qui renvoie :
 
 * `NULL` s'il n'y a aucun argument.
 * Le nombre d'arguments s'il y en a deux ou plus.
-* `"bonjour"` si on lui soumet en unique argument un vecteur de type character.
+* `"bonjour"` si on lui soumet en unique argument un vecteur de type character (`is.character` permet de faire le test).
 * La somme du vecteur si on lui soumet en unique argument un vecteur numérique au sens de `is.numeric`.
 * `"échec"` dans tous les autres cas.
 
