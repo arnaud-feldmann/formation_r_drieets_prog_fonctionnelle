@@ -391,7 +391,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nx\nfun_1()\nx\nfun_2()\nx","options":{"results":"markup","fig-height":5,"editor-word-wrap":"true","message":"true","output":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px","fig-cap":"","editor-max-height":"","editor-font-scale":"1","context":"interactive","autorun":"false","read-only":"false","warning":"true","dpi":72,"out-height":"","classes":"","label":"unnamed-chunk-1","fig-width":7},"id":1},{"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nx\nfun_1()\nx\nfun_2()\nx","options":{"results":"markup","fig-height":5,"editor-word-wrap":"true","message":"true","output":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px","fig-cap":"","editor-max-height":"","editor-font-scale":"1","context":"interactive","autorun":"false","read-only":"false","warning":"true","dpi":72,"out-height":"","classes":"","label":"unnamed-chunk-2","fig-width":7},"id":2},{"code":"# Vous pouvez essayer ici.","options":{"results":"markup","fig-height":5,"editor-word-wrap":"true","message":"true","output":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px","fig-cap":"","editor-max-height":"","editor-font-scale":"1","context":"interactive","autorun":"false","read-only":"false","warning":"true","dpi":72,"out-height":"","classes":"","label":"unnamed-chunk-3","fig-width":7},"id":3},{"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_1_bis <- compteur_1\ncompteur_2 <- nouveau_compteur()\ncompteur_1()\ncompteur_1()\ncompteur_2()\ncompteur_1()\ncompteur_1()\ncompteur_2()\ncompteur_1_bis()","options":{"results":"markup","fig-height":5,"editor-word-wrap":"true","message":"true","output":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px","fig-cap":"","editor-max-height":"","editor-font-scale":"1","context":"interactive","autorun":"false","read-only":"false","warning":"true","dpi":72,"out-height":"","classes":"","label":"unnamed-chunk-4","fig-width":7},"id":4},{"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nresolution_1$getX()\nresolution_1$getY()\nresolution_2$getX()\nresolution_2$getY()","options":{"results":"markup","fig-height":5,"editor-word-wrap":"true","message":"true","output":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px","fig-cap":"","editor-max-height":"","editor-font-scale":"1","context":"interactive","autorun":"false","read-only":"false","warning":"true","dpi":72,"out-height":"","classes":"","label":"unnamed-chunk-5","fig-width":7},"id":5},{"code":"calcul_de_dingue <- function(arg) {\n  Sys.sleep(3L) # Une attente de 3 secondes pour simuler un long calcul.\n  return(2 * arg)\n}\n# Vous pouvez faire l'exercice ici. La fonction calcul_de_dingue n'est pas à modifier.\n# Elle doit être appelée dans le code que vous rajoutez.","options":{"results":"markup","fig-height":5,"editor-word-wrap":"true","message":"true","output":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px","fig-cap":"","editor-max-height":"","editor-font-scale":"1","context":"interactive","autorun":"false","read-only":"false","warning":"true","dpi":72,"out-height":"","classes":"","label":"unnamed-chunk-6","fig-width":7},"id":6}];
+globalThis.qwebrCellDetails = [{"options":{"classes":"","comment":"","message":"true","autorun":"false","context":"interactive","fig-width":7,"label":"unnamed-chunk-1","fig-cap":"","output":"true","editor-quick-suggestions":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","dpi":72,"out-width":"700px","results":"markup","out-height":"","read-only":"false","editor-max-height":"","editor-font-scale":"1"},"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <- 2L\n    function() {\n      x <- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nx\nfun_1()\nx\nfun_2()\nx","id":1},{"options":{"classes":"","comment":"","message":"true","autorun":"false","context":"interactive","fig-width":7,"label":"unnamed-chunk-2","fig-cap":"","output":"true","editor-quick-suggestions":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","dpi":72,"out-width":"700px","results":"markup","out-height":"","read-only":"false","editor-max-height":"","editor-font-scale":"1"},"code":"x <- 1L\nmystere <-\n  function(arg) {\n    x <<- 2L\n    function() {\n      x <<- arg\n      return(x)\n    }\n  }\n\nfun_1 <- mystere(3L)\nfun_2 <- mystere(4L)\nx\nfun_1()\nx\nfun_2()\nx","id":2},{"options":{"classes":"","comment":"","message":"true","autorun":"false","context":"interactive","fig-width":7,"label":"unnamed-chunk-3","fig-cap":"","output":"true","editor-quick-suggestions":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","dpi":72,"out-width":"700px","results":"markup","out-height":"","read-only":"false","editor-max-height":"","editor-font-scale":"1"},"code":"# Vous pouvez essayer ici.","id":3},{"options":{"classes":"","comment":"","message":"true","autorun":"false","context":"interactive","fig-width":7,"label":"unnamed-chunk-4","fig-cap":"","output":"true","editor-quick-suggestions":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","dpi":72,"out-width":"700px","results":"markup","out-height":"","read-only":"false","editor-max-height":"","editor-font-scale":"1"},"code":"nouveau_compteur <-\n  function() {\n    n <- 0L\n    function() {\n      n <<- n + 1L\n      return(n)\n    }\n  }\n\ncompteur_1 <- nouveau_compteur()\ncompteur_1_bis <- compteur_1\ncompteur_2 <- nouveau_compteur()\ncompteur_1()\ncompteur_1()\ncompteur_2()\ncompteur_1()\ncompteur_1()\ncompteur_2()\ncompteur_1_bis()","id":4},{"options":{"classes":"","comment":"","message":"true","autorun":"false","context":"interactive","fig-width":7,"label":"unnamed-chunk-5","fig-cap":"","output":"true","editor-quick-suggestions":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","dpi":72,"out-width":"700px","results":"markup","out-height":"","read-only":"false","editor-max-height":"","editor-font-scale":"1"},"code":"nouvelle_resolution <-\n  function() {\n    x <- 0L\n    y <- 0L\n    list(\n      setX = function(val) x <<- val,\n      setY = function(val) y <<- val,\n      getX = function() x,\n      getY = function() y\n    )\n  }\n\nresolution_1 <- nouvelle_resolution()\nresolution_2 <- nouvelle_resolution()\nresolution_1$setX(1080)\nresolution_1$setY(1024)\nresolution_2$setX(800)\nresolution_2$setY(600)\nresolution_1$getX()\nresolution_1$getY()\nresolution_2$getX()\nresolution_2$getY()","id":5},{"options":{"classes":"","comment":"","message":"true","autorun":"false","context":"interactive","fig-width":7,"label":"unnamed-chunk-6","fig-cap":"","output":"true","editor-quick-suggestions":"false","warning":"true","fig-height":5,"editor-word-wrap":"true","dpi":72,"out-width":"700px","results":"markup","out-height":"","read-only":"false","editor-max-height":"","editor-font-scale":"1"},"code":"calcul_de_dingue <- function(arg) {\n  Sys.sleep(3L) # Une attente de 3 secondes pour simuler un long calcul.\n  return(2 * arg)\n}\n# Vous pouvez faire l'exercice ici. La fonction calcul_de_dingue n'est pas à modifier.\n# Elle doit être appelée dans le code que vous rajoutez.","id":6}];
 
 </script>
 <script type="module">
@@ -1991,7 +1991,32 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <section id="les-environnements" class="level2">
 <h2 class="anchored" data-anchor-id="les-environnements">Les environnements</h2>
-<p>Que se passe-t-il par exemple quand j’exécute ce code R&nbsp;? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s’appellent <code>x</code>&nbsp;! Comment cela peut bien se résoudre&nbsp;?</p>
+<p>On l’a vu dans la partie précédente, la notion de <strong>fonction d’ordre supérieur</strong> désigne une fonction avec au moins l’une des propriétés suivantes&nbsp;:</p>
+<ul>
+<li>Elle a pour <em>argument</em> une ou des fonctions.</li>
+<li>Elles <em>retournent</em> a minima une fonction.</li>
+</ul>
+<p>Dans cette deuxième partie sur les fonctions d’ordre supérieur, nous abordons la thématique des fonctions avec ayant pour <em>retour</em> des fonctions.</p>
+<p>Celles-ci posent un problème vis-à-vis de l’évaluation de leurs <em>symboles</em> internes. Que se passe-t-il par exemple quand j’exécute ce code R&nbsp;? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s’appellent <code>x</code>&nbsp;! Comment cela peut bien se résoudre&nbsp;?</p>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>On se rend compte en observant les résultats de quatre choses&nbsp;:</p>
+<ul>
+<li>Aucune des assignations (<code>&lt;-</code>) internes aux fonctions n’a modifié l’environnement global&nbsp;; le <code>x</code> global vaut toujours <code>1L</code>.</li>
+<li>Le <code>arg</code> de la fonction mystère semble avoir été passé à la fonction anonyme.</li>
+<li>Le résultat du <code>x</code> retourné par <code>fun_1()</code> est celui défini à l’intérieur de la fonction anonyme, à savoir <code>3L</code>.</li>
+<li>Le résultat du x retourné par <code>fun_2()</code> est celui défini à l’intérieur de la fonction anonyme, à savoir <code>4L</code>.</li>
+</ul>
+<p>Pourquoi donc&nbsp;?</p>
+<p><img src="environnements.svg" class="img-fluid"></p>
+<p>Dans R, les objets sont contenus dans des <em>environnements</em>. Les environnements sont plus ou moins des petites bulles&nbsp;:</p>
+<ul>
+<li>Les environnements sont <strong>isolés en écriture</strong> selon l’assignation standard <code>&lt;-</code>. Ici il faut bien comprendre que plusieurs objets <code>x</code> existent en même temps dans des environnements différents.</li>
+<li>à l’exception de l’emptyenv, <strong>tous les environnements ont un environnement parent</strong>. La structure des environnements forme donc un arbre.</li>
+<li>Chaque <strong>appel de fonction définit un environnement</strong>, et non chaque définition. À chaque fois qu’on appelle une fonction, on crée un nouvel environnement. Ici on crée donc deux environnements différents pour <code>mystere</code>.</li>
+<li>Lorsque l’on cherche à évaluer un symbole recherche un objet dans un environnement et qu’il n’y existe pas, on va <strong>chercher ce symbole dans l’environnement parent</strong> (puis à nouveau l’environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, <code>fun_1</code> n’a pas connaissance de <code>arg</code>. Alors on cherche dans l’environnement au dessus. Surprise&nbsp;! On y trouve <code>arg</code> et l’on peut donc utiliser cette valeur. C’est ce qui explique que <code>fun_1()</code> et <code>fun_2()</code> peuvent renvoyer des résultats différents.</li>
+</ul>
+<p>Dans la suite, on s’attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d’information, mais n’est pas vraiment le sujet de cette formation. De notre point de vue, l’environnement le plus bas est donc le globalenv.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2002,28 +2027,9 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On l’a vu dans la partie précédente, ces fonctions retournant des fonctions sont un des deux types de fonction d’ordre supérieur.</p>
+<p>R se charge automatiquement de supprimer les environnements relatifs à <code>fun_1</code> et <code>fun_2</code> si on supprime <code>fun_1</code> et <code>fun_2</code>. Il dispose pour cela de ce qu’on appelle un <em>ramasse-miettes</em>.</p>
 </div>
 </div>
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>On se rend compte de quatre choses&nbsp;:</p>
-<ul>
-<li>Aucune des assignations (<code>&lt;-</code>) internes aux fonctions n’a modifié l’environnement global&nbsp;; <code>print(x)</code> affiche toujours <code>1L</code>.</li>
-<li>Le <code>arg</code> de la fonction mystère semble avoir été passé</li>
-<li>Le résultat du x retourné par <code>fun_1()</code> est celui défini à l’intérieur de la fonction anonyme, à savoir <code>3L</code>.</li>
-<li>Le résultat du x retourné par <code>fun_2()</code> est celui défini à l’intérieur de la fonction anonyme, à savoir <code>4L</code>.</li>
-</ul>
-<p>Pourquoi donc&nbsp;?</p>
-<p><img src="environnements.svg" class="img-fluid"></p>
-<p>Dans R, les objets sont contenus dans des <em>environnements</em>. Les environnements sont plus ou moins des petites bulles&nbsp;:</p>
-<ul>
-<li>dans lesquelles on peut assigner des objets (avec<code>&lt;-</code>) de manière totalement isolée les unes des autres. Ici il faut bien comprendre que tous les objets <code>x</code> existent en même temps dans des environnements différents.</li>
-<li>à l’exception de l’emptyenv, tous les environnements indiquent un environnement parent.</li>
-<li>Chaque <strong>appel</strong> de fonction (et non chaque définition) définit un environnement. Ici on crée donc deux environnements différents pour mystere.</li>
-<li>lorsque l’on recherche un objet dans un environnement et qu’il n’y existe pas, on va chercher dans l’environnement parent (puis à nouveau l’environnement parent si on ne trouve toujours pas et ainsi de suite). Ici, par exemple, <code>fun_1</code> n’a pas connaissance de <code>arg</code>. Alors on cherche dans l’environnement au dessus. Surprise&nbsp;! On y trouve arg et l’on peut donc assigner avec cette valeur. C’est ce qui explique que <code>fun_1()</code> et <code>fun_2()</code> peuvent renvoyer des résultats différents.</li>
-</ul>
-<p>Dans la suite, on s’attardera surtout sur la partie bleue du graphique ci-dessus. La partie orange a été abordée à titre d’information, mais n’est pas vraiment le sujet ici. De notre point de vue, l’environnement le plus bas est donc le globalenv.</p>
 </section>
 <section id="lassignation-remontante--" class="level2">
 <h2 class="anchored" data-anchor-id="lassignation-remontante--">L’assignation remontante (<code>&lt;&lt;-</code>)</h2>
@@ -2118,22 +2124,35 @@ Réponse
 </section>
 <section id="closures" class="level2">
 <h2 class="anchored" data-anchor-id="closures">Closures</h2>
-<p>On a vu plus que des fonctions peuvent retourner des fonctions, et qu’il s’agit d’un des deux types de fonctions d’ordre supérieur. Dans R, on appelle aussi ces fonctions des <em>closures</em> (fermetures en français, mais le terme n’est pas très employé).</p>
-<p>Ce nom illustre un aspect de ces fonctions d’ordre supérieur, et une utilisation particulière. On a vu qu’il est possible d’écrire dans les environnements <em>parents</em> qui apparaissent comme isolés les uns des autres. Et bien utilisons cette propriété&nbsp;!</p>
+<p>On a vu que des fonctions peuvent retourner des fonctions, et qu’il s’agit d’un des deux types de <em>fonctions d’ordre supérieur</em>. Dans R, on appelle aussi ces fonctions des <strong>function factories</strong> (<em>fabrique de fonctions</em> en français, mais le terme n’est pas très employé). Les fonctions renvoyées par les function factories sont appelées <strong>closures</strong> (fermetures en français, mais le terme n’est pas très employé non-plus).</p>
+<p>Le nom de <em>closure</em> illustre un aspect de ces fonctions d’ordre supérieur. On a vu qu’il est possible d’écrire dans les environnements <em>parents</em> qui apparaissent comme isolés les uns des autres. Et bien utilisons cette propriété&nbsp;!</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Mais que se passe-t-il&nbsp;? C’est très étonnant&nbsp;! Il semble que l’on ait défini des états&nbsp;; et pourtant il n’y a aucune variable <code>n</code> dans l’environnement global&nbsp;!</p>
 <p><img src="environnements4.svg" class="img-fluid"></p>
-<p>En fait, on appelle ces fonctions des closures parce qu’elles “enferment” leur environnement parent. Elle permettent de maintenir un espace isolé où l’on peut tout-à-fait faire des modifications.</p>
-<p>Seul <code>nouveau_compteur()</code> permet de créer un nouvel espace isolé. On appelle un tel espace <strong>instance</strong> et l’appel à <code>nouveau_compteur()</code> est appelée instanciation. <strong><code>compteur_1bis</code> réfère exactement au même compteur que 4</strong>.</p>
+<p>En fait, on appelle ces fonctions des closures parce que <strong>les closures “enferment” leur environnement parent</strong>. Elles le préservent également du ramasse-miette puisque le ramasse-miette ne va jamais supprimer un environnement qui est encore désigné quelque part. Elle permettent de maintenir un espace isolé où l’on peut tout-à-fait faire des modifications qui persistent dans le temps.</p>
+<p>Seul l’appel à la fabrique permet de créer un nouvel environnement. Ici, c’est <code>nouveau_compteur()</code> qui crée un nouveau compteur. On appelle un tel espace <strong>instance</strong>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il est important de noter que <code>compteur_1bis</code> réfère exactement au même compteur que <code>compteur_1</code>, car il désigne le même environnement. C’est précisément le principe d’une instance.</p>
+</div>
+</div>
 <p>Cette astuce est puissante et permet de maintenir des états à l’intérieur d’un langage fonctionnel. Cela rompt l’approche maximaliste d’un langage fonctionnel idéal qui ne contiendrait que des fonctions complètement pures, mais cela la rompt de manière maitrisée, la plus locale possible. On ne doit bien sûr user de cette astuce qu’avec parcimonie, quand cela semble nécessaire.</p>
 </section>
 <section id="closures-complexes" class="level2">
 <h2 class="anchored" data-anchor-id="closures-complexes">Closures complexes</h2>
-<p>Une closure peut renvoyer plusieurs fonctions différentes par exemple dans une liste. On s’approche alors beaucoup de la définition d’un objet en Programmation Orientée Objet. En effet, chaque instance de fonctions a des états, et différentes méthodes qui permettent de modifier ces états.</p>
+<p>Une closure peut renvoyer plusieurs fonctions différentes par exemple dans une liste. On s’approche alors beaucoup de la définition d’un objet en Programmation Orientée Objet.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Ici, les deux appels de <code>nouvelle_resolution()</code> permettent de définir deux espaces différents. Dans chacun de ces environnements, les fonctions <code>setX()</code>, <code>setY()</code>, <code>getX()</code> et <code>getY()</code> agiront, comme on le voit dans le schéma ci-dessous.</p>
+<p>Ici, les deux appels de <code>nouvelle_resolution()</code> permettent de définir deux environnement différents. Dans chacun de ces environnements, les fonctions <code>setX()</code>, <code>setY()</code>, <code>getX()</code> et <code>getY()</code> agiront de manière isolée, comme on le voit dans le schéma ci-dessous.</p>
 <p><img src="environnements5.svg" class="img-fluid"></p>
 </section>
 <section id="quizz" class="level2">
@@ -2162,7 +2181,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2171,7 +2190,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>C’est lors de l’<strong>appel</strong> d’une fonction que l’on détermine un environnement. La nuance est importante car une même fonction appelée plusieurs fois définit plusieurs environnements différents.</p>
 </div>
@@ -2212,7 +2231,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2221,7 +2240,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Non, l’assignation simple affecte des valeurs dans l’environnement créé lors de l’appel d’une fonction et il n’y a strictement aucun danger de conflit.</p>
 </div>
@@ -2262,7 +2281,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2271,7 +2290,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Vrai, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements parents jusqu’à retrouver un objet de même nom. Ici, elle va donc modifier le <code>x</code> de l’environnement global.</p>
 </div>
@@ -2313,7 +2332,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2322,7 +2341,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Vrai, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements <strong>parents</strong> jusqu’à retrouver un objet de même nom. Ici, elle va donc modifier le <code>x</code> de l’environnement global.</p>
 </div>
@@ -2366,7 +2385,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2375,7 +2394,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Faux, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements parents jusqu’à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par <code>fonction</code>. Et il s’avère qu’il contient un objet de nom <code>x</code>. Donc le <code>x</code> de l’environnement global n’est pas écrasé.</p>
 </div>
@@ -2418,7 +2437,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2427,7 +2446,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Vrai, l’assignation remontante <code>&lt;&lt;-</code> remonte les environnements parents jusqu’à retrouver un objet de même nom. Ici, le premier environnement parent est celui instancié par <code>fonction</code>. Mais il ne contient aucun objet de nom <code>x</code>. On remonte donc encore les environnements jusqu’à l’environnement global, et donc le <code>x</code> global est modifié.</p>
 </div>
@@ -2481,7 +2500,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2490,7 +2509,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>La réponse vaut 3. Un compteur a été instancié dans <code>compteur_a</code> par <code>nouveau_compteur()</code>, puis il a été recopié dans <code>compteur_b</code>, mais n’a pas été réinstancié. On désigne donc le même compteur.</p>
 </div>
@@ -2544,7 +2563,7 @@ Réponse
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2553,7 +2572,7 @@ Réponse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>La réponse vaut 1. Deux compteurs différents ont été instanciés dans <code>compteur_a</code> et <code>compteur_b</code>.</p>
 </div>
@@ -2576,7 +2595,7 @@ Réponse
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2585,7 +2604,7 @@ Aide (à consulter après s’être un peu creusé la tête)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>calcul_de_dingue <span class="ot">&lt;-</span> <span class="cf">function</span>(arg) {</span>
@@ -2625,7 +2644,7 @@ Aide (à consulter après s’être un peu creusé la tête)
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2634,7 +2653,7 @@ Proposition de solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>calcul_de_dingue <span class="ot">&lt;-</span> <span class="cf">function</span>(arg) {</span>
