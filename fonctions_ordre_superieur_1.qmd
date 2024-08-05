@@ -21,6 +21,14 @@ On a vu dans l'introduction, également, que R est un langage principalement fon
 
 ![](dessin_fonctions_manipulation.svg)
 
+::: callout-note
+
+Un package du tidyverse, `purrr`, donne accès à des fonctions similaires à toutes celles décrites dans cette partie. [Ce lien](https://purrr.tidyverse.org/articles/base.html) donne des équivalents purrristes des fonctions d'ordre supérieur abordées ici.
+
+L'usage est selon les gouts et les couleurs. Utiliser les fonctions de base est suffisant et permet de se débarasser d'une dépendance, mais purrr est plus cohérent avec le reste de l'écosystème tidyverse. Par exemple, il permet de passer facilement au package de parallélisation `furrr`.
+
+:::
+
 ## lapply : appliquer une fonction à chaque élément d'une liste ou d'un vecteur
 
 ```{webr-r}
