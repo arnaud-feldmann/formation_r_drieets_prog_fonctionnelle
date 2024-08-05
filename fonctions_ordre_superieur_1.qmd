@@ -4,10 +4,10 @@ title: "Fonctions d'ordre supérieur 1 (arguments)"
 
 ## Fonctions d'ordre supérieur
 
-En informatique, la notion de *fonction d'ordre supérieur* désigne une fonction avec au moins l'une des propriétés suivantes :
+En informatique, la notion de **fonction d'ordre supérieur** désigne une fonction avec au moins l'une des propriétés suivantes :
 
-* Elle a pour argument une ou des fonctions
-* Elles retournent a minima une fonction
+* Elle a pour *argument* une ou des fonctions
+* Elles *retournent* a minima une fonction
 
 Les fonctions d'ordre supérieur sont un élément central permettant l'expressivité des langages fonctionnels.
 
@@ -15,9 +15,9 @@ Dans cette première partie sur les fonctions d'ordre supérieur, nous abordons 
 
 ## Manipuler des fonctions avec des fonctions
 
-On a vu dans le point précédent deux fonctions qui s'appliquent sur des fonctions. `do.call` nous a permis d'appliquer une fonction `...` sur une liste, tandis que Reduce nous a permis d'écrire `2 + 3 + 7 + 1` de manière un peu plus jolie qu'à la main.
+On a déjà vu dans le point précédent deux fonctions qui s'appliquent sur des fonctions. `do.call` nous a permis d'appliquer une fonction de type `function(...)` sur une liste, tandis que `Reduce` nous a permis d'écrire `2 + 3 + 7 + 1` de manière un peu plus jolie qu'à la main.
 
-On a vu aussi que R est un langage principalement fonctionnel. En fait, R offre un certain nombre de fonctions permettant d'appliquer des fonctions de différentes manières. Nous verrons ici `lapply`, `vapply`, `Map`, `replicate`, `apply`, `do.call`, `Reduce`.
+On a vu dans l'introduction, également, que R est un langage principalement fonctionnel. R offre un certain nombre de fonctions permettant d'appliquer des fonctions de différentes manières. Nous verrons ici `lapply`, `vapply`, `Map`, `replicate`, `apply`, `do.call`, `Reduce`.
 
 ![](dessin_fonctions_manipulation.svg)
 
@@ -42,11 +42,11 @@ La fonction `function(x) c(x, x, x)` demande à répéter trois fois un élémen
 * `c("f", "g")` donne `c("f", "g", "f", "g", "f", "g")`
 
 ```{webr-r}
-tripler_les_elements <- function(liste) {
+repeter_les_elements <- function(liste) {
   lapply(liste, function(x) c(x, x, x))
 }
 begaiement <-
-  tripler_les_elements(
+  repeter_les_elements(
     list(c("a", "b"),
          c("c", "d", "e"),
          c("f", "g")))
@@ -57,13 +57,13 @@ typeof(begaiement)
 Le calcul ci-dessus montre qu'on peut utiliser `lapply` à l'intérieur d'une autre fonction.
 
 ```{webr-r}
-tripler <- function(x) c(x, x, x)
+repeter <- function(x) c(x, x, x)
 
-tripler_les_elements <- function(liste) {
-  lapply(liste, tripler)
+repeter_les_elements <- function(liste) {
+  lapply(liste, repeter)
 }
 begaiement <-
-  tripler_les_elements(
+  repeter_les_elements(
     list(c("a", "b"),
          c("c", "d", "e"),
          c("f", "g")))
@@ -71,46 +71,60 @@ begaiement
 typeof(begaiement)
 ```
 
-Ce calcul illustre un aspect implicite des deux précédentes syntaxes utilisées : celles-ci utilisent `function(x) c(x, x, x)` en lieu et place d'un nom de fonction à l'intérieur du lapply ! On appelle cela des *fonctions anonymes*. Si une fonction n'a pour vocation que d'être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu'une *fonction nommée*.
+On s'est d'ailleurs permis ici de remplacer `function(x) c(x, x, x)` par une fonction nommée qui s'appelle `tripler`. Ce petit changement illustre un aspect implicite des deux précédentes syntaxes utilisées : on utilisait `function(x) c(x, x, x)` en lieu et place d'un nom de fonction à l'intérieur du lapply ! On appelle de telles fonctions, dépourvues de noms, des **fonctions anonymes**. Si une fonction n'a pour vocation que d'être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu'une **fonction nommée**.
 
 ```{webr-r}
 begaiement_bis <-
-  tripler_les_elements(c("a", "b", "c", "d"))
+  repeter_les_elements(c("a", "b", "c", "d"))
 begaiement_bis
 typeof(begaiement_bis)
 ```
 
 Dans ce dernier calcul, on remarque que l'on peut appliquer `lapply` sur un vecteur.
 
-Dans les 4 calculs, on se rend compte que le résultat de lapply est une liste. lapply retourne en effet une liste même dans le cas du quatrième calcul qui lui soumet un vecteur.
+Toutefois, dans les 4 calculs, **le résultat de `lapply` est une liste**. lapply retourne une liste même quand on lui soumet un vecteur.
 
 ::: callout-note
 
 Dans les versions de R récentes, on peut utiliser la notation compacte `\(x) c(x, x, x)` à la place de `function(x) c(x, x, x)` pour désigner une fonction.
 
-À l'intérieur de l'écosystème tidyverse, on peut également utiliser la notation très compacte `~c(.x, .x, .x)`.
+À l'intérieur de l'écosystème tidyverse, on peut également utiliser la notation `~c(.x, .x, .x)`.
 
 :::
 
-# vapply : une sorte de lapply mais avec une sortie sous forme d'un vecteur ou d'une matrice.
+# vapply : une sorte de lapply mais avec un retour sous forme d'un vecteur ou d'une matrice.
 
-On l'a vu dans les exemples précédents, `lapply` renvoie tous les élements sous la forme d'une liste. Mais une liste n'est pas un objet très pratique à manipuler dans un un langage vectoriel ! la fonction `vapply` permet de retourner les résultats sous la forme d'un vecteur ou d'une matrice. La syntaxe est un peu particulière mais on s'y habitue vite !
+On l'a vu dans les exemples précédents, le retour de `lapply` est une liste. Mais une liste n'est pas l'objet le plus pratique à manipuler dans un langage vectoriel ! la fonction `vapply` permet de retourner les résultats sous la forme d'un vecteur ou d'une matrice (lorsque cela a une pertinence). La syntaxe est un peu particulière mais on s'y habitue vite !
 
 ```{webr-r}
-vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 0L)
+vecteur <- vapply(list(c(3L, 3L, 10L),
+                       c(7L, -2L, 11L, 22L),
+                       -1L),
+                  \(x) x[1L] + 1L,
+                  0L)
 vecteur
 typeof(vecteur)
 ```
 
-`vapply` applique la fonction anonyme `\(x) x + 1L` sur chaque élément de la liste `list(3L, 7L, -1L)` et renvoie un vecteur de type similaire à `0L` (c'est-à-dire un `"integer"`)
+`vapply` applique la fonction anonyme `\(x) x[1L] + 1L` sur chaque élément de la liste `list(c(3L, 3L, 10L), c(7L, -2L, 11L, 22L), -1L)` et renvoie un vecteur de type similaire à `0L` (c'est-à-dire un `"integer"`).
+
+::: callout-note
+
+On rappelle que dans R, une variable comme `-1L` n'est rien d'autre qu'un vecteur de taille `1L`. C'est pour cela qu'on a pu appliquer `\(x) x[1L] + 1L` sur -1L.
+
+:::
 
 ```{webr-r}
-vecteur <- vapply(list(3L, 7L, -1L), \(x) x + 1L, 133123128L)
+vecteur <- vapply(list(c(3L, 3L, 10L),
+                       c(7L, -2L, 11L, 22L),
+                       -1L),
+                  \(x) x[1L] + 1L,
+                  133123128L)
 vecteur
 typeof(vecteur)
 ```
 
-Ce calcul est exactement similaire au précédent. Ce qui est mis en avant ici, c'est que seul le type du troisième argument (`FUN.VALUE`) importe, sa valeur n'a aucune importance. Ici, si on veut retourner un vecteur entier, n'importe quel entier de taille 1 fait l'affaire.
+Ce calcul est exactement similaire au précédent. Ce qui est mis en avant ici, c'est que seul le *type* du troisième argument (`FUN.VALUE`) importe, sa valeur n'a aucune importance. Ici, si on veut retourner un vecteur entier, n'importe quel entier de taille `1L` fait l'affaire.
 
 ```{webr-r}
 matrice <-
@@ -130,9 +144,9 @@ Dans le cas où, comme ici, chaque *application unitaire* de la fonction utilis�
 * L'application de `\(x) c(x, x, x)` sur `"c"` donne `c("c", "c", "c")`.
 * L'application de `\(x) c(x, x, x)` sur `"d"` donne `c("d", "d", "d")`.
 
-On attend bien trois objets de taille 3.
+On attend quatre objets de **taille `3L`**. C'est pour cela que nous soumettons à l'argument `FUN.VALUE` un `"character"` de taille `3L`.
 
-Par conséquent, l'objet en retour sera une *matrice* et non plus un vecteur. Comme dans le cas vectoriel, son type est déterminé par celui de `FUN.VALUE`.
+L'objet retourné sera une *matrice* et non plus un vecteur. Comme dans le cas vectoriel, son type est déterminé par celui de `FUN.VALUE`.
 
 ```{webr-r}
 matrice <-
@@ -148,12 +162,15 @@ typeof(matrice)
 Là encore, on remarque que les valeurs de l'argument `FUN.VALUE` sont purement arbitraires. Seules sa longueur et son type importent.
 
 ```{webr-r}
-vecteur <- sapply(list(3L, 7L, -1L), \(x) x + 1L)
+vecteur <- sapply(list(c(3L, 3L, 10L),
+                       c(7L, -2L, 11L, 22L),
+                       -1L),
+                  \(x) x[1L] + 1L)
 vecteur
 typeof(vecteur)
 ```
 
-Comme on le voit ci-dessous, lorsque l'on veut écrire vite dans la console, un raccourci pour `vapply` existe sans la `FUN.VALUE`. La fonction `sapply` devine automatiquement les dimensions et le type requis. Utiliser un `vapply` explicite est cependant *en général* une meilleure pratique à l'intérieur d'un programme.
+Comme on le voit ci-dessous, `sapply` est un raccourci de `vapply` sans la `FUN.VALUE`. `sapply` devine automatiquement les dimensions et le type requis. Utiliser un `vapply` explicite est cependant *en général* une meilleure pratique à l'intérieur d'un programme.
 
 ```{webr-r}
 matrice <-
@@ -191,9 +208,9 @@ Que se passe-t-il ? Pourquoi ? Peut-on résoudre ce problème avec un vapply ?
 
 ## Réponse
 
-La liste en entrée du `sapply` est une liste de vecteurs de tailles variables. On répète trois fois ses éléments. Les vecteurs en **sortie** seront donc de tailles variables également ; et c'est ce qui est rédhibitoire pour que le sapply puisse déterminer une dimension de matrice adéquate. Il laisse donc le résultat sous la forme d'une liste.
+Les **vecteurs retournés** par la fonction `c(x, x, x)` sur ses entrées sont de tailles variables. C'est rédhibitoire pour que `sapply` puisse déterminer une dimension de matrice adéquate. `sapply` laisse donc le résultat sous la forme d'une liste.
 
-On ne peut pas résoudre ce problème structurel avec un `vapply`, mais vapply a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée. `vapply` est *en général* une meilleur pratique.
+On ne peut pas résoudre ce problème structurel avec un `vapply`, mais `vapply` a le mérite d'être plus strict : il renverra une erreur si les valeurs ne sont pas de la dimension explicitement demandée. `vapply` est *en général* une meilleur pratique.
 
 :::
 
@@ -209,7 +226,7 @@ Map(paste,
     c("d", "e", "f"))
 ```
 
-On voit ici que la fonction Map permet d'appliquer termet à terme la fonction paste sur deux vecteurs.
+On voit ici que la fonction `Map` permet d'appliquer termet à terme la fonction `paste` sur plusieurs vecteurs character.
 
 ```{webr-r}
 Map(paste,
@@ -235,7 +252,7 @@ Map(paste,
     c("g", "h", "i"))
 ```
 
-La fonction `Map` peut utiliser autant d'arguments que l'on veut, dès lors que la fonction mappée est compatible avec ce nombre d'arguments.
+On vérifie ci-dessus que la fonction `Map` permet d'utiliser plus que deux arguments.
 
 ```{webr-r}
 Map(`+`,
@@ -251,24 +268,31 @@ La fonction `Map` peut tout-à-fait utiliser des listes. Ici, elle renvoie donc 
 
 ## replicate : une variante commode de lapply pour les générations de nombres aléatoires
 
-Certaines fonctions utiles en statistiques génèrent des nombres aléatoires. Par exemple, `runif(2L)` renvoie 2L nombres entre 0 et 1 selon une loi uniforme. Si on veut générer 4 vecteurs de 2 nombres aléatoires, on voudrait faire un lapply sur `function() runif(2L)`.
+Certaines fonctions utiles en statistiques génèrent des nombres aléatoires. Par exemple, `runif(2L)` renvoie `2L` nombres entre 0 et 1 selon une loi uniforme. Si on veut générer `4L` vecteurs de `2L` nombres aléatoires, on voudrait appliquer un `lapply` sur `function() runif(2L)`.
 
-Le problème, c'est que cette fonction est sans paramètre. Du coup comment lui spécifier un `lapply` ?
+Le problème, c'est que cette fonction est sans paramètre. Du coup comment lui spécifier un `lapply` de bonne longueur ? On voudrait faire un truc du genre :
 
 ```{webr-r}
-lapply(rep(2L, 4L),
-       function(n) runif(n))
+lapply(list(NULL, NULL, NULL, NULL),
+       function() runif(2L))
 ```
 
-L'astuce ci-dessus permet de résoudre le problème ; on a répété 4 fois le 2L. On applique ensuite donc `function(n) runif(n)` sur `c(2L, 2L, 2L, 2L)`. Chaque élément du vecteur renvoie alors un vecteur de deux nombres aléatoires. Ce n'est cependant pas des plus élégants.
+Mais cela n'est pas permis par R. On peut contourner le problème avec la solution ci-dessous :
+
+```{webr-r}
+lapply(1L:4L,
+       function(x) runif(2L))
+```
+
+Ce n'est cependant pas des plus élégants, car on utilise un argument purement fictif. Une alternative un peu plus claire existe donc. C'est la fonction `replicate`.
 
 ```{webr-r}
 replicate(4L, runif(2L), simplify = FALSE)
 ```
 
-`replicate` est une variante de lapply qui permet d'évaluer une *expression* plusieurs fois de suite. Cela n'est, bien entendu, utile que dans le cas où cette expression renvoie des résultats différents à chaque évaluation, ce qui est notamment le cas en ce qui concerne la générations de nombres aléatoires.
+`replicate` est une variante de `lapply` qui permet d'évaluer une *expression* plusieurs fois de suite. Cela n'est, bien entendu, utile que dans le cas où cette expression renvoie des résultats différents à chaque évaluation, ce qui est notamment le cas en ce qui concerne la générations de nombres aléatoires.
 
-On note l'argument `simplify = FALSE` à la fin. Si celui-ci n'est pas spécifié, il est par défaut défini à la valeur `TRUE`, et alors replicate se comporte comme un `sapply` ; il essaye de construire des matrices.
+On note l'argument `simplify = FALSE` à la fin. Si celui-ci n'est pas spécifié, il est par défaut défini à la valeur `TRUE`, et alors `replicate` se comporte comme un `sapply` ; il essaye de construire des matrices.
 
 ## apply : appliquer une fonction sur les colonnes ou les lignes d'une matrice
 
@@ -515,8 +539,8 @@ est_multiple(2L)
 ```{r}
 crible <- function(n) {
   Reduce(`&`,
-       lapply(2L:sqrt(n), \(i) 1L:n == i | 1L:n %% i != 0L),
-       init = c(FALSE, rep(TRUE, n - 1L)))
+         lapply(2L:sqrt(n), \(i) 1L:n == i | 1L:n %% i != 0L),
+         init = c(FALSE, rep(TRUE, n - 1L)))
 }
 crible(10L)
 ```
