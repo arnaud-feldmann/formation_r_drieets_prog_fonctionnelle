@@ -302,7 +302,13 @@ replicate(4L, runif(2L), simplify = FALSE)
 
 On note l'argument `simplify = FALSE` à la fin. Si celui-ci n'est pas spécifié, il est par défaut défini à la valeur `TRUE`, et alors `replicate` se comporte comme un `sapply` ; il essaye de construire des matrices.
 
-## apply : appliquer une fonction sur les colonnes ou les lignes d'une matrice
+::: callout-note
+
+Puisque `replicate` ne prend pas une fonction pour argument mais une expression, elle n'est pas *stricto censu* une fonction d'ordre supérieur. On la fait tout de même figurer ici car elle reste voisine d'un `lapply`.
+
+:::
+
+## apply : appliquer une fonction sur les lignes ou les colonnes d'une matrice
 
 `apply` permet d'appliquer une fonction par ligne ou par colonne.
 
