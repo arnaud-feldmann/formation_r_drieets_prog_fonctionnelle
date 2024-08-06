@@ -4,7 +4,9 @@ title: "Introduction : les paradigmes de programmation"
 
 ## Paradigmes de programmation
 
-Un **paradigme de programmation** peut être vu comme la philosophie d'un langage. Il prédétermine une manière d'écrire propre à celui-ci, influence ses possibilités, définit une idiomatique conventionnelle (c'est-à-dire, par exemple, une manière d'éviter de copier-coller 500 fois le même paragraphe). Ces paradigmes sont des archétypes ; en réalité, les langages modernes permettent souvent plusieurs paradigmes. Ceux-ci ne correspondent donc pas à une sorte de réglement implacable mais énoncent plutôt différentes manières de structurer du code. Ce qui importe, au fond, c'est d'être suffisamment avisé pour pouvoir faire des choix.
+> Un [paradigme de programmation](https://webperso.info.ucl.ac.be/~pvr/jussieuParadigms2008.pdf) est une manière de programmer un ordinateur basé sur un ensemble de principes ou une théorie.
+
+Un **paradigme de programmation** peut être vu comme la philosophie d'un langage. Il prédétermine une manière d'écrire propre à celui-ci, définit une idiomatique conventionnelle (c'est-à-dire, par exemple, une manière d'éviter de copier-coller 500 fois le même paragraphe). Ces paradigmes sont des archétypes ; en réalité, les langages modernes permettent souvent plusieurs paradigmes. Ceux-ci ne correspondent donc pas à une sorte de réglement implacable mais énoncent plutôt différentes manières de structurer du code. Ce qui importe, au fond, c'est d'être suffisamment avisé pour pouvoir faire des choix.
 
 Trois principaux paradigmes dominent le monde actuel de la programmation. La **programmation procédurale**, la **programmation objet**, et la **programmation fonctionnelle** (cette dernière est le paradigme principal de R).
 
