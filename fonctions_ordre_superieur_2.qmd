@@ -11,7 +11,7 @@ On l'a vu dans la partie précédente, la notion de **fonction d'ordre supérieu
 
 Dans cette deuxième partie sur les fonctions d'ordre supérieur, nous abordons la thématique des fonctions avec ayant pour *retour* des fonctions.
 
-Celles-ci posent un problème vis-à-vis de l'évaluation de leurs *symboles* internes. Que se passe-t-il par exemple quand j'exécute ce code R ? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s'appellent `x` ! Comment cela peut bien se résoudre ?
+Celles-ci posent un problème vis-à-vis de l'évaluation de leurs **symboles** internes (aussi appelés *noms*). Que se passe-t-il par exemple quand j'exécute ce code R ? On y appelle une fonction qui renvoie elle-même une fonction. Il y a plein de choses qui s'appellent `x` ! Comment cela peut bien se résoudre ?
 
 ```{webr-r}
 x <- 1L

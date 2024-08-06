@@ -195,7 +195,7 @@ Attention, les opérateurs logiques `&` et `|`, qui sont normalement prévus pou
 
 ## Évaluation standard
 
-On a vu dans le classeur précédent que les appels de fonctions définissent de nouveaux environnements, et que les différents noms d'objets utilisés sont évalués en remontant l'arbre des environnements jusqu'à trouver le bon nom.
+On a vu dans le classeur précédent que les appels de fonctions définissent de nouveaux environnements, et que les différents symboles (noms d'objet) utilisés sont évalués en remontant l'arbre des environnements jusqu'à trouver le bon symbole.
 
 On a vient également de voir que les expressions sont évaluées au dernier moment, ce que l'on appelle l'évaluation paresseuse. Les expressions sont évaluées dans leur environnement, par exemple celui de leur fonction.
 
@@ -208,7 +208,7 @@ library(disaggR)
 exists("disaggR")
 ```
 
-Lorsque l'on charge un package, par exemple [disaggR](https://github.com/InseeFr/disaggR), on utilise `library()` avec à l'intérieur un nom qui n'existe pourtant pas dans l'environnement global. Ici l'environnement global ne contient pas d'objet `disaggR`. C'est une forme d'évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n'est pas une évaluation non-standard des plus utiles en soi.
+Lorsque l'on charge un package, par exemple [disaggR](https://github.com/InseeFr/disaggR), on utilise `library()` avec à l'intérieur un symbole qui n'existe pourtant pas dans l'environnement global. Ici l'environnement global ne contient pas d'objet `disaggR`. C'est une forme d'évaluation non-standard puisque library ne réagit pas comme toutes les fonctions de R. Mais bon, ce n'est pas une évaluation non-standard des plus utiles en soi.
 
 La plus utilisée de ces NSE est la tidyeval régnant dans le tidyverse.
 
@@ -227,7 +227,7 @@ dplyr::starwars %>%
 # select(filter(dplyr::starwars, height > 200), name)
 ```
 
-Lorsque l'on exécute le code précédent, on peut se rendre compte que celui-ci n'est pas exécuté par évaluation standard : en effet, le nom `height` comme le nom `name` n'existent pas dans l'environnement global. Ils ne remontent pas les environnements. Ils sont évalués *dans le contexte du premier argument*, en l'occurence `dplyr::starwars` pour ce qui est de l'appel à `filter()`, puis `filter(dplyr::starwars, height > 200)` en ce qui concerne l'appel à `select()`.
+Lorsque l'on exécute le code précédent, on peut se rendre compte que celui-ci n'est pas exécuté par évaluation standard : en effet, le symbole `height` comme le symbole `name` n'existent pas dans l'environnement global. Ils ne remontent pas les environnements. Ils sont évalués *dans le contexte du premier argument*, en l'occurence `dplyr::starwars` pour ce qui est de l'appel à `filter()`, puis `filter(dplyr::starwars, height > 200)` en ce qui concerne l'appel à `select()`.
 
 `dplyr` évite une syntaxe verbieuse et peu lisible. Pour écrire quelque chose de rigoureusement équivalent dans base, on aurait dû écrire le code ci-dessous (on a rajouté `! is.na()` car `filter()` enlève les `NA` par défaut, et `drop = FALSE` car sinon R convertit les data.frame d'une seule unique colonne en vecteur).
 
@@ -264,8 +264,8 @@ expression_resultat(mon_expression)
 
 On voit ici que l'évaluation de `x * height` n'est pas interprétée de la même manière selon que l'on définisse une quosure ou une expression. On note deux choses :
 
-* **`height` est évalué de la même manière** dans les deux cas. Elles cherchent tout d'abord dans la donnée qui leur est spécifiée, à savoir `dplyr::starwars`. Dans la mesure où le nom `height` existe dans ces données, aucune n'a besoin d'aller voir ailleurs.
-* Par contre, **l'évaluation de `x` est différente**. Dans le cas de l'expression, puisque le nom n'existe pas dans `dplyr::starwars`, l'évaluation standard va dérouler les environnements à partir de l'environnement d'*appel du `eval`*. Ici on trouve directement une valeur, le `1`. Et hop ! À contrario, la quosure va dérouler les environnements à partir de l'environnement de création de la quosure. C'est pour cela que x vaut 2.
+* **`height` est évalué de la même manière** dans les deux cas. Elles cherchent tout d'abord dans la donnée qui leur est spécifiée, à savoir `dplyr::starwars`. Dans la mesure où le symbole `height` existe dans ces données, aucune n'a besoin d'aller voir ailleurs.
+* Par contre, **l'évaluation de `x` est différente**. Dans le cas de l'expression, puisque le symbole n'existe pas dans `dplyr::starwars`, l'évaluation standard va dérouler les environnements à partir de l'environnement d'*appel du `eval`*. Ici on trouve directement une valeur, le `1`. Et hop ! À contrario, la quosure va dérouler les environnements à partir de l'environnement de création de la quosure. C'est pour cela que x vaut 2.
 
 ::: callout-important
 
@@ -312,7 +312,7 @@ quosure_resultat(ma_quosure)
 expression_resultat(mon_expression, environment())
 ```
 
-On a rajouté ci-dessus à `eval()` un argument `enclos` qui spécifie le lieu où les noms qui ne sont pas trouvés dans les données de `envir` vont être évaluées. Grâce à cela, l'évaluation de `x` se fait par rapport à la variable de l'environnement global dans les deux cas !
+On a rajouté ci-dessus à `eval()` un argument `enclos` qui spécifie le lieu où les symboles qui ne sont pas trouvés dans les données de `envir` vont être évaluées. Grâce à cela, l'évaluation de `x` se fait par rapport à la variable de l'environnement global dans les deux cas !
 
 La quosure n'est autre qu'une expression complétée par un environnement de closure, d'où son nom.
 
@@ -320,10 +320,10 @@ La quosure n'est autre qu'une expression complétée par un environnement de clo
 
 On a donc vu les :
 
-* **noms** (également appelés symboles), les mots désignant des objets à évaluer dans des environnements.
+* **symboles** (également appelés *noms*), les mots désignant des objets à évaluer dans des environnements.
 * **quosures**, un couple entre expression et environnement d'appel.
 
-L'usage des deux en même temps est une caractéristique particulière de la programmation dans le tidyverse, particulièrement dans dplyr.
+L'usage intensif de ces éléments est une caractéristique particulière de la programmation dans le tidyverse, particulièrement dans dplyr.
 
 ```{webr-r}
 library(dplyr)
@@ -340,7 +340,7 @@ filtre_et_select(dplyr::starwars,
                  name)
 ```
 
-Dans l'exemple ci-dessus, on a programmé avec dplyr ! On a fait une fonction à qui on peut suggérer un `filtre` et un nom de colonne, et ces éléments vont être évalués dans le contexte des données de `tbl`.
+Dans l'exemple ci-dessus, on a programmé avec dplyr ! On a fait une fonction à qui on peut suggérer un `filtre` et un nom de colonne (sous la forme d'un *symbole*), et ces éléments vont être évalués dans le contexte des données de `tbl`.
 
 Comment est-ce que cela fonctionne ? L'idée de base est que `enquo()` et `ensym()` empêchent l'évaluation (sous la forme d'une quosure et d'un symbole, respectivement), tandis que les bang `!!` vont au contraire demander *évalue-moi cela ici*.
 
