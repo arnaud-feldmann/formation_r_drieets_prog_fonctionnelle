@@ -653,7 +653,7 @@ nouveau_compteur <-
       list(
         suivant = function() {
           n <<- n + 1L
-          invisible(this)
+          this
         },
         get = function() {
           n
@@ -681,13 +681,5 @@ Le code ci-dessus peut sembler étonnant ; this est en quelque-sorte auto-réf�
 * Au moment où `nouveau_compteur()` s'exécute, R se moque de savoir si la fonction anonyme sous `suivant` a un sens.
 * Au moment où `nouveau_compteur()` retourne, `this` existe dans l'environnement de l'instance considérée.
 * `suivant()` est ne peut être appelé qu'après le retour de `nouveau_compteur()` donc this existe bel et bien.
-
-::: callout-tip
-
-## Remarque
-
-L'appel à `invisible()` est dispensable. C'est purement esthétique, il permet de désactiver l'*affichage* du retour. On peut l'enlever.
-
-:::
 
 :::
