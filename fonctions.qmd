@@ -124,7 +124,7 @@ do.call(paste, list("a", "b", "c", sep = "/"))
 
 :::
 
-## Fonction récursives
+## Fonctions récursives
 
 Les fonctions en R peuvent tout-à-fait être récursives. Par exemple, même si `factorial()` existe déjà dans R, on pourrait très bien la redéfinir via :
 
