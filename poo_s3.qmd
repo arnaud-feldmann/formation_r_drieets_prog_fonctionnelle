@@ -468,7 +468,7 @@ compteur_2$get()
 On demande dans cette exercice de :
 
 * Modifier le code de la fonction `nouveau_compteur()` pour que la liste qu'elle renvoie soit de classe "super_compteur".
-* Implémenter une méthode de la fonction générique `print()` qui affiche `Super Compteur : [i]\n` si le compteur en est à `[i]` (on rappelle que \n est une manière d'indiquer un saut de ligne).
+* Implémenter une méthode de la fonction générique `print()` qui affiche `Super Compteur : [i]\n` si le compteur en est à `[i]` (on rappelle que `\n` est une manière d'indiquer un saut de ligne).
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
