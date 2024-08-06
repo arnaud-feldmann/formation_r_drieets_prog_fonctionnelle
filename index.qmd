@@ -60,7 +60,7 @@ Outre R, Haskell, Scala et Lisp sont des langages fonctionnels.
 
 ## R : un langage fonctionnel, vectoriel, avec quelques éléments de POO
 
-R est très majoritairement un langage **fonctionnel**. Dans la mesure où aucun langage n'est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation **objet** et **procédurale** tordus pour correspondre au coeur d'un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n'a rien à voir avec le protocole de stockage même s'il s'appelle similairement), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.
+R est très majoritairement un langage **fonctionnel**. Dans la mesure où aucun langage n'est entièrement soluble dans un paradigme, il présente également quelques petits traits de programmation **objet** tordus pour correspondre au coeur d'un langage fonctionnel. Le principal système de programmation objet en R, S3 (qui n'a rien à voir avec le protocole de stockage même s'il s'appelle similairement), adapte les principes de la POO dans le contexte de la programmation fonctionnelle.
 
 Un autre aspect particulier de R est qu'il est **vectoriel**. Si je fais :
 
