@@ -197,7 +197,7 @@ Attention, les opérateurs logiques `&` et `|`, qui sont normalement prévus pou
 
 On a vu dans le classeur précédent que les appels de fonctions définissent de nouveaux environnements, et que les différents symboles (noms d'objet) utilisés sont évalués en remontant l'arbre des environnements jusqu'à trouver le bon symbole.
 
-On a vient également de voir que les expressions sont évaluées au dernier moment, ce que l'on appelle l'évaluation paresseuse. Les expressions sont évaluées dans leur environnement, par exemple celui de leur fonction.
+On vient également de voir que les expressions sont évaluées au dernier moment, ce que l'on appelle l'évaluation paresseuse. Les expressions sont évaluées dans leur environnement, par exemple celui de leur fonction.
 
 La somme de ces deux propriétés définit l'évaluation standard en R.
 
@@ -653,7 +653,7 @@ nouveau_compteur <-
       list(
         suivant = function() {
           n <<- n + 1L
-          this
+          invisible(this)
         },
         get = function() {
           n
@@ -681,5 +681,13 @@ Le code ci-dessus peut sembler étonnant ; this est en quelque-sorte auto-réf�
 * Au moment où `nouveau_compteur()` s'exécute, R se moque de savoir si la fonction anonyme sous `suivant` a un sens.
 * Au moment où `nouveau_compteur()` retourne, `this` existe dans l'environnement de l'instance considérée.
 * `suivant()` est ne peut être appelé qu'après le retour de `nouveau_compteur()` donc this existe bel et bien.
+
+::: callout-tip
+
+## Remarque
+
+L'appel à `invisible()` est dispensable. C'est purement esthétique, il permet de désactiver l'*affichage* du retour. On peut l'enlever.
+
+:::
 
 :::
