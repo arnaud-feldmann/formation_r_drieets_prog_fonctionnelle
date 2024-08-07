@@ -373,7 +373,7 @@ Faux
 ::: {.callout-note collapse="true" icon="false"}
 ## Réponse
 
-Vrai, l'assignation remontante `<<-` remonte les environnements **parents** jusqu'à retrouver un objet de même nom. Ici, elle va donc modifier le `x` de l'environnement global.
+Vrai, l'assignation remontante `<<-` remonte les environnements **parents** jusqu'à retrouver un objet de même nom. Ici, elle va donc modifier le `x` de l'environnement global en ignorant celui qui est directement dans l'environnement local.
 
 :::
 
@@ -490,7 +490,7 @@ compteur_a()
 compteur_b()
 ```
 
-Combien va afficher le résultats de `compteur_b()` ?
+Combien va afficher le résultat de `compteur_b()` ?
 
 :::: {.choices}
 
@@ -547,7 +547,7 @@ compteur_a()
 compteur_b()
 ```
 
-Combien va afficher le résultats de `compteur_b()` ?
+Combien va afficher le résultat de `compteur_b()` ?
 
 :::: {.choices}
 
@@ -594,9 +594,14 @@ calcul_de_dingue <- function(arg) {
 
 Où `arg` est un vecteur numérique.
 
-Comment utiliser une closure pour définir une fonction `calcul_moins_dingue` qui renvoie les **mêmes valeurs** que `calcul_de_dingue` pour les **mêmes entrées** mais stocke les résultats pour éviter de relancer les calculs plus d'une fois ?
+On souhaite utiliser une closure pour définir une fonction `calcul_moins_dingue`. `calcul_moins_dingue` renvoie les **mêmes valeurs** que `calcul_de_dingue` pour les **mêmes entrées** mais stocke ses résultats pour éviter de relancer les calculs plus d'une fois.
 
-L'idée est que `calcul_moins_dingue` appelle `calcul_de_dingue` si elle n'a pas été déjà appelée, et stocke le résultat dans une liste. Tout appel subséquent de `calcul_moins_dingue` doit alors restituer le résultat stocké plutôt que de réappeler `calcul_de_dingue`. On appelle ce principe un cache ; l'axiome sous-jacent est que calcul_de_dingue est une fonction pure (on peut complètement prévoir son résultat à partir de ses arguments).
+L'idée est que `calcul_moins_dingue` doit :
+
+* **appeler** `calcul_de_dingue` si elle n'a pas été déjà appelée avec une certaine valeur, et **stocker** le résultat dans une liste.
+* Tout appel subséquent de `calcul_moins_dingue` avec une valeur déjà appelée doit **restituer le résultat stocké** plutôt que de réappeler `calcul_de_dingue`.
+
+On appelle ce principe un cache ; l'axiome sous-jacent est que calcul_de_dingue est une fonction pure (on peut complètement prévoir son résultat à partir de ses arguments). On pourra utiliser la fonction `identical(x, y)` qui permet de vérifier que deux objets sont exactement identiques (`identical(1,1L)` est faux).
 
 ```{webr-r}
 calcul_de_dingue <- function(arg) {
@@ -609,7 +614,7 @@ calcul_de_dingue <- function(arg) {
 
 ::: {.callout-tip collapse="true"}
 
-## Aide (à consulter après s'être un peu creusé la tête)
+## Aide (l'exercice est compliqué, ne pas hésiter à consulter)
 
 ```{r}
 #| eval: false
