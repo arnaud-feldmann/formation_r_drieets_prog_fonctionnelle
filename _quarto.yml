@@ -11,9 +11,9 @@ website:
       - href: fonctions.qmd
         text: Rappel sur les fonctions en R
       - href: fonctions_ordre_superieur_1.qmd
-        text: Fonctions d'ordre supérieur 1 (arguments)
+        text: Fonctions d'ordre supérieur (arguments)
       - href: fonctions_ordre_superieur_2.qmd
-        text: Fonctions d'ordre supérieur 2 (retours)
+        text: Fonctions d'ordre supérieur (retours)
       - href: evaluation.qmd
         text: Évaluation des fonctions en R
       - href: poo_s3.qmd

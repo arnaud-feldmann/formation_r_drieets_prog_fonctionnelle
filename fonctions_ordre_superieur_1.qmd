@@ -81,7 +81,7 @@ begaiement
 typeof(begaiement)
 ```
 
-On s'est d'ailleurs permis ici de remplacer `function(x) c(x, x, x)` par une fonction nommée qui s'appelle `tripler`. Ce petit changement illustre un aspect implicite des deux précédentes syntaxes utilisées : on utilisait `function(x) c(x, x, x)` en lieu et place d'un nom de fonction à l'intérieur du lapply ! On appelle de telles fonctions, dépourvues de noms, des **fonctions anonymes**. Si une fonction n'a pour vocation que d'être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu'une **fonction nommée**.
+On s'est d'ailleurs permis ici de remplacer `function(x) c(x, x, x)` par une fonction nommée qui s'appelle `repeter``. Ce petit changement illustre un aspect implicite des deux précédentes syntaxes utilisées : on utilisait `function(x) c(x, x, x)` en lieu et place d'un nom de fonction à l'intérieur du lapply ! On appelle de telles fonctions, dépourvues de noms, des **fonctions anonymes**. Si une fonction n'a pour vocation que d'être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu'une **fonction nommée**.
 
 ```{webr-r}
 begaiement_bis <-
@@ -427,7 +427,7 @@ do.call(pmax, liste)
 
 ### Question 2
 
-Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d'espérance 3 et d'écart-type 0.5. Vous pouvez consulter l'aide de la fonction `rnorm` via `?rnorm`.
+Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d'espérance 3 et d'écart-type 0.5. Vous pouvez consulter l'aide de la fonction `rnorm` via `help(rnorm)`.
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
