@@ -1,5 +1,5 @@
 ---
-title: "Fonctions d'ordre supérieur 1 (arguments)"
+title: "Fonctions d'ordre supérieur (arguments)"
 ---
 
 ## Fonctions d'ordre supérieur

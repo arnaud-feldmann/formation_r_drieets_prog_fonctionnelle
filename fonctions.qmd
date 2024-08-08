@@ -1,5 +1,5 @@
 ---
-title: "Rappel sur les fonctions en R"
+title: "Définition de fonctions en R"
 ---
 
 ## Définition de fonction
@@ -169,39 +169,6 @@ fact(10)
 
 **Question 1**
 
-Réécrire la fonction `super_somme` en utilisant une syntaxe récursive. On pourra, par exemple, s'aider de la fonction `head`, qui permet de retourner une sous-liste contenant les n premiers éléments d'une liste.
-
-```{webr-r}
-# Vous pouvez faire l'exercice ici.
-```
-
-::: {.callout-tip collapse="true"}
-
-## Proposition de solution
-
-```{r}
-super_somme <- function(...) {
-  dots <- list(...)
-  longueur <- length(dots)
-  if (longueur == 0L) 0
-  else dots[[longueur]] + do.call(Recall, head(dots, longueur - 1L))
-}
-super_somme(2, 3, 7, 1)
-```
-
-::: callout-note
-
-## Remarque
-
-- La récursivité est ici très bourrine ! On le fait juste pour l'exercice.
-- Quelques petites astuces permettent, si besoin, d'éviter de convertir tous les arguments d'une fonction dots en liste. On dispose par exemple de `...length()` en tant que substitut pour `length(list(...))`.
-
-:::
-
-:::
-
-**Question 2**
-
 Ecrire une fonction `super_produit <- function(...)` qui calcule le produit de tous les arguments sous les `dots`, et l'utiliser pour écrire une nouvelle version de la fonction `fact`.
 
 ```{webr-r}
@@ -224,7 +191,7 @@ fact(10)
 
 :::
 
-**Question 3**
+**Question 2**
 
 Écrire une fonction dots `usine_a_gaz` qui renvoie :
 
@@ -234,7 +201,7 @@ fact(10)
 * La somme du vecteur si on lui soumet en unique argument un vecteur numérique au sens de `is.numeric`.
 * `"échec"` dans tous les autres cas.
 
-On pourra *éventuellement* s'aider des petites astuces, dont `...length()`, lisibles dans la page d'aide des `...`. Celle-ci est accessible en tapant `?dots`.
+On pourra *éventuellement* s'aider des petites astuces, dont `...length()`, lisibles dans la page d'aide des `...`. Celle-ci est accessible en tapant `help(dots)`.
 
 ```{webr-r}
 # Vous pouvez faire l'exercice ici.
@@ -279,5 +246,58 @@ usine_a_gaz(c(1, 2))
 usine_a_gaz(c(1L, 2L))
 usine_a_gaz(list())
 ```
+
+:::
+
+**Question 3**
+
+Réécrire la fonction `super_somme` en utilisant une syntaxe récursive. On pourra, par exemple, s'aider de la fonction `head`, qui permet de retourner une sous-liste contenant les n premiers éléments d'une liste.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Aide (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
+
+```{r}
+#| eval: false
+super_somme <- function(...) {
+  dots <- list(...)
+  longueur <- length(dots)
+  if (longueur == 0L) 0
+  else dots[[longueur]] + do.call(
+    # Rajouter quelque chose dans le do.call qui rappelle super_somme sur les longueur - 1L premiers éléments 
+  )
+}
+super_somme(2, 3, 7, 1)
+```
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+super_somme <- function(...) {
+  dots <- list(...)
+  longueur <- length(dots)
+  if (longueur == 0L) 0
+  else dots[[longueur]] + do.call(super_somme, head(dots, longueur - 1L))
+}
+super_somme(2, 3, 7, 1)
+```
+
+::: callout-note
+
+## Remarques
+
+* La récursivité est ici très bourrine ! On le fait juste pour l'exercice.
+* Quelques petites astuces permettent, si besoin, d'éviter de convertir tous les arguments d'une fonction dots en liste. On dispose par exemple de `...length()` en tant que substitut pour `length(list(...))`.
+* On peut éventuellement utiliser `Recall` en tant que substitut pour `super_somme` dans le `do.call`.
+
+:::
 
 :::
