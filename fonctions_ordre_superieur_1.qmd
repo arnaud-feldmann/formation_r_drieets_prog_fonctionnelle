@@ -23,6 +23,8 @@ On a vu dans l'introduction, également, que R est un langage principalement fon
 
 ::: callout-note
 
+## Remarque optionnelle
+
 Un package du tidyverse, `purrr`, donne accès à des fonctions similaires à toutes celles décrites dans cette partie. [Ce lien](https://purrr.tidyverse.org/articles/base.html) donne des équivalents purrristes des fonctions d'ordre supérieur abordées ici.
 
 L'usage est selon les gouts et les couleurs. Utiliser les fonctions de base est suffisant et permet de se débarasser d'une dépendance, mais purrr est plus cohérent avec le reste de l'écosystème tidyverse. Par exemple, il permet de passer facilement au package de parallélisation `furrr`.
@@ -310,7 +312,7 @@ Puisque `replicate` ne prend pas une fonction pour argument mais une expression,
 
 ## apply : appliquer une fonction sur les lignes ou les colonnes d'une matrice
 
-`apply` permet d'appliquer une fonction par ligne ou par colonne.
+`apply` permet d'appliquer une fonction par ligne ou par colonne sur une matrice.
 
 ```{webr-r}
 matrice <-
@@ -405,7 +407,7 @@ Ici, plutôt que d'empiler des fonctions en mémoire, on les applique successive
 
 ### Question 1
 
-À l'aide de la fonction `pmax` (sans utiliser la fonction `max`), calculer le maximum de cette liste.
+À l'aide de la fonction `pmax` (sans utiliser la fonction `max`), calculer le maximum de cette liste. Vous pouvez consulter l'aide de la fonction `pmax` avec `help(pmax)`.
 
 ```{webr-r}
 liste <- list(1, -7, 8, 0)
