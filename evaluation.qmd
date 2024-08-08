@@ -2,8 +2,9 @@
 title: "Évaluation des fonctions en R"
 webr:
   packages: ["dplyr", "disaggR"]
-  autoload: false
 ---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 ## Expression
 

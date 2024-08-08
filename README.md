@@ -6,5 +6,5 @@ Elle est auto-publiée par Github Action sur [sa page github](https://arnaud-fel
 
 Deux extensions quarto sont utilisées :
 
-* [quarto-webr](https://github.com/coatless/quarto-webr) de James J Balamuta permet d'utiliser webr avec quarto
+* [quarto-live](https://github.com/r-wasm/quarto-live) qui permet d'utiliser webr avec quarto
 * [naquiz](https://github.com/nareal/naquiz) de Nelson Areal permet de faire des quizz avec quarto
