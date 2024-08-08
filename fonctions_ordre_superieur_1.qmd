@@ -510,7 +510,7 @@ super_matrice(vecteur)
 
 ### Question 5
 
-Proposer une version du [https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne](crible d'Eratosthène) faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l'entier i.
+Proposer une version du [crible d'Eratosthène](https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne) faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l'entier i.
 
 Par exemple, `crible(10)` donne `c(FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE)`. En effet `1` n'est pas premier, `2` est premier, `3` est premier...
 
@@ -522,12 +522,41 @@ On pourra utiliser la fonction `Reduce`.
 
 ::: {.callout-tip collapse="true"}
 
-## Aide (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
+## Aide 1 (conseillée !)
 
-Essayer, dans un premier temps, d'obtenir une fonction avec `i` pour argument et un `n` fixé à l'avance dans l'environnement global, un vecteur :
+Essayer, dans un premier temps, d'obtenir une fonction `est_multiple` avec `i` pour argument et un `n` fixé à l'avance dans l'environnement global, un vecteur :
 
 * de taille n
-* valant `FALSE` sur les multiples de i à l'exception de i lui-même
+* valant `TRUE` sur les multiples de `i`
+* valant `FALSE` ailleurs
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+n <- 10L
+est_multiple <- function(i) 1L:n %% i == 0L
+est_multiple(2L)
+```
+
+:::
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Aide 2 (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
+
+Essayer, dans un premier temps, d'obtenir une fonction `ni_multiple_ni_i` avec `i` pour argument et un `n` fixé à l'avance dans l'environnement global, un vecteur :
+
+* de taille n
+* valant `TRUE` sur i
+* valant `FALSE` sur les **autres** multiples de `i`
 * valant `TRUE` ailleurs
 
 ```{webr-r}
@@ -540,13 +569,14 @@ Essayer, dans un premier temps, d'obtenir une fonction avec `i` pour argument et
 
 ```{r}
 n <- 10L
-est_multiple <- function(i) 1L:n == i | 1L:n %% i != 0L
-est_multiple(2L)
+ni_multiple_ni_i <- function(i) 1L:n == i | 1L:n %% i != 0L
+ni_multiple_ni_i(2L)
 ```
 
 :::
 
 :::
+
 
 ::: {.callout-tip collapse="true"}
 
