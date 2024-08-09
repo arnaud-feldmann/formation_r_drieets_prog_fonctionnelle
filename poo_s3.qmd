@@ -1,9 +1,12 @@
 ---
 title: "Programmation fonctionnelle objet en R (S3)"
-webr:
-  packages: ["dplyr", "disaggR"]
-  autoload: false
+format:
+  live-html:
+    webr:
+      packages: ["dplyr", "disaggR"]
 ---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 ## Introduction : S3 et la Programmation Orientée Objet
 
@@ -475,6 +478,8 @@ On demande dans cette exercice de :
 ```
 
 ::: {.callout-tip collapse="true"}
+
+## Proposition de solution
 
 ```{r}
 nouveau_compteur <-

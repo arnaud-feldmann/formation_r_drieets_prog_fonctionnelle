@@ -2,6 +2,8 @@
 title: "Définition de fonctions en R"
 ---
 
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
 ## Définition de fonction
 
 En R, on *définit* une fonction de cette manière :
