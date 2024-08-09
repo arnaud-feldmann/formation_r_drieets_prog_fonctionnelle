@@ -2,8 +2,6 @@
 title: "Fonctions d'ordre supérieur (arguments)"
 ---
 
-{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
-
 ## Fonctions d'ordre supérieur
 
 En informatique, la notion de **fonction d'ordre supérieur** désigne une fonction avec au moins l'une des propriétés suivantes :

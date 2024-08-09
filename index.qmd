@@ -2,8 +2,6 @@
 title: "Introduction : les paradigmes de programmation"
 ---
 
-{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
-
 ## Paradigmes de programmation
 
 > Un [paradigme de programmation](https://webperso.info.ucl.ac.be/~pvr/jussieuParadigms2008.pdf) est une manière de programmer un ordinateur basé sur un ensemble de principes ou une théorie.
