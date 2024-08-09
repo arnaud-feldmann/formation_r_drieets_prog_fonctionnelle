@@ -73,6 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/alpine-3.12/buttons.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -101,1498 +103,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-<style type="text/css">
-.monaco-editor pre {
-  background-color: unset !important;
-}
-
-.qwebr-editor-toolbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.qwebr-editor-toolbar-left-buttons, .qwebr-editor-toolbar-right-buttons {
-  display: flex;
-}
-
-.qwebr-non-interactive-loading-container.qwebr-cell-needs-evaluation, .qwebr-non-interactive-loading-container.qwebr-cell-evaluated {
-  justify-content: center;
-  display: flex;
-  background-color: rgba(250, 250, 250, 0.65);
-  border: 1px solid rgba(233, 236, 239, 0.65);
-  border-radius: 0.5rem;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.qwebr-r-project-logo {
-  color: #2767B0; /* R Project's blue color */
-}
-
-.qwebr-icon-status-spinner {
-  color: #7894c4;
-}
-
-.qwebr-icon-run-code {
-  color: #0d9c29
-}
-
-body.quarto-light .qwebr-output-code-stdout {
-  color: #111;
-}
-
-body.quarto-dark .qwebr-output-code-stdout {
-  color: #EEE;
-}
-
-.qwebr-output-code-stderr {
-  color: #db4133;
-}
-
-body.quarto-light .qwebr-editor {
-  border: 1px solid #EEEEEE;
-}
-
-body.quarto-light .qwebr-editor-toolbar {
-  background-color: #EEEEEE;
-  padding: 0.2rem 0.5rem;
-}
-
-body.quarto-dark .qwebr-editor {
-  border: 1px solid #111;
-}
-
-body.quarto-dark .qwebr-editor-toolbar {
-  background-color: #111;
-  padding: 0.2rem 0.5rem;
-}
-
-.qwebr-button {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1;
-  text-decoration: none;
-  text-align: center;
-  padding: 0.375rem 0.75rem;
-  font-size: .9rem;
-  border-radius: 0.25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-body.quarto-light .qwebr-button {
-  background-color: #EEEEEE;
-  color: #000;
-  border-color: #dee2e6;
-  border: 1px solid rgba(0,0,0,0);
-}
-
-body.quarto-dark .qwebr-button {
-  background-color: #111;
-  color: #EEE;
-  border-color: #dee2e6;
-  border: 1px solid rgba(0,0,0,0);
-}
-
-body.quarto-light .qwebr-button:hover {
-  color: #000;
-  background-color: #d9dce0;
-  border-color: #c8ccd0;
-}
-
-body.quarto-dark .qwebr-button:hover {
-  color: #d9dce0;
-  background-color: #323232;
-  border-color: #d9dce0;
-}
-
-.qwebr-button:disabled,.qwebr-button.disabled,fieldset:disabled .qwebr-button {
-  pointer-events: none;
-  opacity: .65
-}
-
-.qwebr-button-reset {
-  color: #696969; /*#4682b4;*/
-}
-
-.qwebr-button-copy {
-  color: #696969;
-}
-
-/* Style the code highlight lines */
-body.quarto-light .qwebr-editor-highlight-line {
-  background-color: lightblue;
-}
-
-body.quarto-dark .qwebr-editor-highlight-line {
-  background-color: darkblue;
-}
-
-/* Style the modal pop-up */
-
-/* The Modal (background) */
-.qwebr-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content */
-.qwebr-modal-content {
-  background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.qwebr-modal-content-code {
-  max-height: 50vh;
-  min-height: 5vh;
-  overflow: scroll;
-  border: 1px solid #888;
-}
-
-/* The Close Button */
-.qwebr-modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.qwebr-modal-close:hover,
-.qwebr-modal-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.qwebr-download-btn {
-  margin-top: 10px;
-  text-decoration: none !important;
-}
-
-/* Styling to download image that is created */
-
-.qwebr-canvas-image {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
-}
-
-.qwebr-canvas-image-download-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: none;
-}
-
-figure:hover .qwebr-canvas-image-download-btn {
-  display: block;
-}
-
-/* Custom styling for RevealJS Presentations*/
-
-/* Reset the style of the interactive area */
-.reveal div.qwebr-interactive-area {
-  display: block;
-  box-shadow: none;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0;
-  padding: 0;
-} 
-
-/* Provide space to entries */
-.reveal div.qwebr-output-code-area pre div {
-  margin: 1px 2px 1px 10px;
-}
-
-/* Collapse the inside code tags to avoid extra space between line outputs */
-.reveal pre div code.qwebr-output-code-stdout, .reveal pre div code.qwebr-output-code-stderr {
-  padding: 0;
-  display: contents;
-}
-
-body.reveal.quarto-light pre div code.qwebr-output-code-stdout {
-  color: #111;
-}
-
-body.reveal.quarto-dark pre div code.qwebr-output-code-stdout {
-  color: #EEEEEE;
-}
-
-.reveal pre div code.qwebr-output-code-stderr {
-  color: #db4133;
-}
-
-
-/* Create a border around console and output (does not effect graphs) */
-body.reveal.quarto-light div.qwebr-console-area {
-  border: 1px solid #EEEEEE;
-  box-shadow: 2px 2px 10px #EEEEEE;
-}
-
-body.reveal.quarto-dark div.qwebr-console-area {
-  border: 1px solid #111;
-  box-shadow: 2px 2px 10px #111;
-}
-
-
-/* Cap output height and allow text to scroll */
-/* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
-.reveal div.qwebr-output-code-area pre {
-  max-height: 400px;
-  overflow: scroll;
-}
-
-</style>
-<script type="module">
-// Document level settings ----
-
-// Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = [''];
-
-// Specify possible locations to search for the repository
-globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
-
-// Check to see if we have an empty array, if we do set to skip the installation.
-globalThis.qwebrSetupRPackages = !(qwebrInstallRPackagesList.indexOf("") !== -1);
-globalThis.qwebrAutoloadRPackages = true;
-
-// Display a startup message?
-globalThis.qwebrShowStartupMessage = false;
-globalThis.qwebrShowHeaderMessage = false;
-
-// Describe the webR settings that should be used
-globalThis.qwebrCustomizedWebROptions = {
-  "baseURL": "https://webr.r-wasm.org/v0.4.0/",
-  "serviceWorkerUrl": "",
-  "homedir": "/home/web_user", 
-  "channelType": "ChannelType.Automatic"
-};
-
-// Store cell data
-globalThis.qwebrCellDetails = [{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-1","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"begaiement <-\n  lapply(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")),\n    function(x) c(x, x, x)\n  )\nbegaiement\ntypeof(begaiement)","id":1},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-2","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"repeter_les_elements <- function(liste) {\n  lapply(liste, function(x) c(x, x, x))\n}\nbegaiement <-\n  repeter_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nbegaiement\ntypeof(begaiement)","id":2},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-3","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"repeter <- function(x) c(x, x, x)\n\nrepeter_les_elements <- function(liste) {\n  lapply(liste, repeter)\n}\nbegaiement <-\n  repeter_les_elements(\n    list(c(\"a\", \"b\"),\n         c(\"c\", \"d\", \"e\"),\n         c(\"f\", \"g\")))\nbegaiement\ntypeof(begaiement)","id":3},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-4","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"begaiement_bis <-\n  repeter_les_elements(c(\"a\", \"b\", \"c\", \"d\"))\nbegaiement_bis\ntypeof(begaiement_bis)","id":4},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-5","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"vecteur <- vapply(list(c(3L, 3L, 10L),\n                       c(7L, -2L, 11L, 22L),\n                       -1L),\n                  \\(x) x[1L] + 1L,\n                  0L)\nvecteur\ntypeof(vecteur)","id":5},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-6","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"vecteur <- vapply(list(c(3L, 3L, 10L),\n                       c(7L, -2L, 11L, 22L),\n                       -1L),\n                  \\(x) x[1L] + 1L,\n                  133123128L)\nvecteur\ntypeof(vecteur)","id":6},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-7","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"\", \"\", \"\")\n  )\nmatrice\ntypeof(matrice)","id":7},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-8","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"matrice <-\n  vapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x),\n    c(\"je\", \"suis\", \"arbitraire\")\n  )\nmatrice\ntypeof(matrice)","id":8},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-9","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"vecteur <- sapply(list(c(3L, 3L, 10L),\n                       c(7L, -2L, 11L, 22L),\n                       -1L),\n                  \\(x) x[1L] + 1L)\nvecteur\ntypeof(vecteur)","id":9},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-10","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"matrice <-\n  sapply(\n    c(\"a\", \"b\", \"c\", \"d\"),\n    \\(x) c(x, x, x)\n  )\nmatrice\ntypeof(matrice)","id":10},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-11","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez essayer ici.","id":11},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-12","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":12},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-13","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    MoreArgs = list(sep = \"\"))","id":13},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-14","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Map(\\(...) paste(..., sep = \"\"),\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"))","id":14},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-15","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Map(paste,\n    c(\"a\", \"b\", \"c\"),\n    c(\"d\", \"e\", \"f\"),\n    c(\"g\", \"h\", \"i\"))","id":15},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-16","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Map(`+`,\n    list(c(1L, 2L, 3L), c(4L, 5L, 6L, 7L), c(8L, 9L)),\n    list(c(10L, 11L, 12L), c(13L, 14L, 15L, 16L), c(17L, 18L)))","id":16},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-17","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"lapply(list(NULL, NULL, NULL, NULL),\n       function() runif(2L))","id":17},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-18","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"lapply(1L:4L,\n       function(x) runif(2L))","id":18},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-19","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"replicate(4L, runif(2L), simplify = FALSE)","id":19},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-20","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"matrice <-\n  matrix(1:12,\n         nrow = 3L)\nprint(matrice)\napply(matrice,\n      1L,\n      max)\napply(matrice,\n      2L,\n      max)","id":20},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-21","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"do.call(paste, list(\"a\", \"b\", \"c\", sep = \"/\"))","id":21},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-22","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Reduce(`+`, c(1, 2, 8, -7))","id":22},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-23","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"Reduce(`+`, c(1, 2, 8, -7), accumulate = TRUE)","id":23},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-24","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\ncomposer_fonctions <- function(e1, e2) {\n  e1 <- match.fun(e1)\n  e2 <- match.fun(e2)\n  function(...) {\n    e1(e2(...))\n  }\n}\n\nfonction_composee <- Reduce(composer_fonctions, liste_fonctions)\n\nfonction_composee(pi)\natan(pi) / 3 + 1","id":24},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-25","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"liste_fonctions <- list(\n  \\(x) x + 1,\n  \\(x) x / 3,\n  atan\n)\n\nappliquer_fonction <- function(f, accumulateur) {\n  f <- match.fun(f)\n  f(accumulateur)\n}\n\nReduce(appliquer_fonction, liste_fonctions, init = pi, right = TRUE)","id":25},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-26","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"liste <- list(1, -7, 8, 0)\n# Vous pouvez faire l'exercice ici.","id":26},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-27","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez faire l'exercice ici.","id":27},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-28","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez faire l'exercice ici.","id":28},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-29","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez faire l'exercice ici.","id":29},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-30","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez faire l'exercice ici.","id":30},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-31","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez faire l'exercice ici.","id":31},{"options":{"comment":"","fig-cap":"","autorun":"false","classes":"","out-height":"","label":"unnamed-chunk-32","fig-width":7,"warning":"true","message":"true","out-width":"700px","output":"true","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"results":"markup","editor-word-wrap":"true","context":"interactive","read-only":"false","fig-height":5},"code":"# Vous pouvez faire l'exercice ici.","id":32}];
-
-</script>
-<script type="module">
-// Declare startupMessageQWebR globally
-globalThis.qwebrStartupMessage = document.createElement("p");
-
-// Verify if OffScreenCanvas is supported
-globalThis.qwebrOffScreenCanvasSupport = function() {
-  return typeof OffscreenCanvas !== 'undefined'
-}
-
-// Function to set the button text
-globalThis.qwebrSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
-  document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
-    btn.innerHTML = buttonText;
-    btn.disabled = !enableCodeButton;
-  });
-}
-
-// Function to update the status message in non-interactive cells
-globalThis.qwebrUpdateStatusMessage = function(message) {
-  document.querySelectorAll(".qwebr-status-text.qwebr-cell-needs-evaluation").forEach((elem) => {
-    elem.innerText = message;
-  });
-}
-
-// Function to update the status message
-globalThis.qwebrUpdateStatusHeader = function(message) {
-  qwebrStartupMessage.innerHTML = `
-    <i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i>
-    <span>${message}</span>`;
-}
-
-// Function to return true if element is found, false if not
-globalThis.qwebrCheckHTMLElementExists = function(selector) {
-  const element = document.querySelector(selector);
-  return !!element;
-}
-
-// Function that detects whether reveal.js slides are present
-globalThis.qwebrIsRevealJS = function() {
-  // If the '.reveal .slides' selector exists, RevealJS is likely present
-  return qwebrCheckHTMLElementExists('.reveal .slides');
-}
-
-// Initialize the Quarto sidebar element
-function qwebrSetupQuartoSidebar() {
-  var newSideBarDiv = document.createElement('div');
-  newSideBarDiv.id = 'quarto-margin-sidebar';
-  newSideBarDiv.className = 'sidebar margin-sidebar';
-  newSideBarDiv.style.top = '0px';
-  newSideBarDiv.style.maxHeight = 'calc(0px + 100vh)';
-
-  return newSideBarDiv;
-}
-
-// Position the sidebar in the document
-function qwebrPlaceQuartoSidebar() {
-  // Get the reference to the element with id 'quarto-document-content'
-  var referenceNode = document.getElementById('quarto-document-content');
-
-  // Create the new div element
-  var newSideBarDiv = qwebrSetupQuartoSidebar();
-
-  // Insert the new div before the 'quarto-document-content' element
-  referenceNode.parentNode.insertBefore(newSideBarDiv, referenceNode);
-}
-
-function qwebrPlaceMessageContents(content, html_location = "title-block-header", revealjs_location = "title-slide") {
-
-  // Get references to header elements
-  const headerHTML = document.getElementById(html_location);
-  const headerRevealJS = document.getElementById(revealjs_location);
-
-  // Determine where to insert the quartoTitleMeta element
-  if (headerHTML || headerRevealJS) {
-    // Append to the existing "title-block-header" element or "title-slide" div
-    (headerHTML || headerRevealJS).appendChild(content);
-  } else {
-    // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
-    const monacoScript = document.getElementById("qwebr-monaco-editor-init");
-    const header = document.createElement("header");
-    header.setAttribute("id", "title-block-header");
-    header.appendChild(content);
-    monacoScript.after(header);
-  }
-}
-
-
-
-function qwebrOffScreenCanvasSupportWarningMessage() {
-  
-  // Verify canvas is supported.
-  if(qwebrOffScreenCanvasSupport()) return;
-
-  // Create the main container div
-  var calloutContainer = document.createElement('div');
-  calloutContainer.classList.add('callout', 'callout-style-default', 'callout-warning', 'callout-titled');
-
-  // Create the header div
-  var headerDiv = document.createElement('div');
-  headerDiv.classList.add('callout-header', 'd-flex', 'align-content-center');
-
-  // Create the icon container div
-  var iconContainer = document.createElement('div');
-  iconContainer.classList.add('callout-icon-container');
-
-  // Create the icon element
-  var iconElement = document.createElement('i');
-  iconElement.classList.add('callout-icon');
-
-  // Append the icon element to the icon container
-  iconContainer.appendChild(iconElement);
-
-  // Create the title container div
-  var titleContainer = document.createElement('div');
-  titleContainer.classList.add('callout-title-container', 'flex-fill');
-  titleContainer.innerText = 'Warning: Web Browser Does Not Support Graphing!';
-
-  // Append the icon container and title container to the header div
-  headerDiv.appendChild(iconContainer);
-  headerDiv.appendChild(titleContainer);
-
-  // Create the body container div
-  var bodyContainer = document.createElement('div');
-  bodyContainer.classList.add('callout-body-container', 'callout-body');
-
-  // Create the paragraph element for the body content
-  var paragraphElement = document.createElement('p');
-  paragraphElement.innerHTML = 'This web browser does not have support for displaying graphs through the <code>quarto-webr</code> extension since it lacks an <code>OffScreenCanvas</code>. Please upgrade your web browser to one that supports <code>OffScreenCanvas</code>.';
-
-  // Append the paragraph element to the body container
-  bodyContainer.appendChild(paragraphElement);
-
-  // Append the header div and body container to the main container div
-  calloutContainer.appendChild(headerDiv);
-  calloutContainer.appendChild(bodyContainer);
-
-  // Append the main container div to the document depending on format
-  qwebrPlaceMessageContents(calloutContainer, "title-block-header"); 
-
-}
-
-
-// Function that attaches the document status message and diagnostics
-function displayStartupMessage(showStartupMessage, showHeaderMessage) {
-  if (!showStartupMessage) {
-    return;
-  }
-
-  // Create the outermost div element for metadata
-  const quartoTitleMeta = document.createElement("div");
-  quartoTitleMeta.classList.add("quarto-title-meta");
-
-  // Create the first inner div element
-  const firstInnerDiv = document.createElement("div");
-  firstInnerDiv.setAttribute("id", "qwebr-status-message-area");
-
-  // Create the second inner div element for "WebR Status" heading and contents
-  const secondInnerDiv = document.createElement("div");
-  secondInnerDiv.setAttribute("id", "qwebr-status-message-title");
-  secondInnerDiv.classList.add("quarto-title-meta-heading");
-  secondInnerDiv.innerText = "WebR Status";
-
-  // Create another inner div for contents
-  const secondInnerDivContents = document.createElement("div");
-  secondInnerDivContents.setAttribute("id", "qwebr-status-message-body");
-  secondInnerDivContents.classList.add("quarto-title-meta-contents");
-
-  // Describe the WebR state
-  qwebrStartupMessage.innerText = "🟡 Loading...";
-  qwebrStartupMessage.setAttribute("id", "qwebr-status-message-text");
-  // Add `aria-live` to auto-announce the startup status to screen readers
-  qwebrStartupMessage.setAttribute("aria-live", "assertive");
-
-  // Append the startup message to the contents
-  secondInnerDivContents.appendChild(qwebrStartupMessage);
-
-  // Add a status indicator for COOP and COEP Headers if needed
-  if (showHeaderMessage) {
-    const crossOriginMessage = document.createElement("p");
-    crossOriginMessage.innerText = `${crossOriginIsolated ? '🟢' : '🟡'} COOP & COEP Headers`;
-    crossOriginMessage.setAttribute("id", "qwebr-coop-coep-header");
-    secondInnerDivContents.appendChild(crossOriginMessage);
-  }
-
-  // Combine the inner divs and contents
-  firstInnerDiv.appendChild(secondInnerDiv);
-  firstInnerDiv.appendChild(secondInnerDivContents);
-  quartoTitleMeta.appendChild(firstInnerDiv);
-
-  // Place message on webpage
-  qwebrPlaceMessageContents(quartoTitleMeta); 
-}
-
-function qwebrAddCommandHistoryModal() {
-  // Create the modal div
-  var modalDiv = document.createElement('div');
-  modalDiv.id = 'qwebr-history-modal';
-  modalDiv.className = 'qwebr-modal';
-
-  // Create the modal content div
-  var modalContentDiv = document.createElement('div');
-  modalContentDiv.className = 'qwebr-modal-content';
-
-  // Create the span for closing the modal
-  var closeSpan = document.createElement('span');
-  closeSpan.id = 'qwebr-command-history-close-btn';
-  closeSpan.className = 'qwebr-modal-close';
-  closeSpan.innerHTML = '&times;';
-
-  // Create the h1 element for the modal
-  var modalH1 = document.createElement('h1');
-  modalH1.textContent = 'R History Command Contents';
-
-  // Create an anchor element for downloading the Rhistory file 
-  var downloadLink = document.createElement('a');
-  downloadLink.href = '#';
-  downloadLink.id = 'qwebr-download-history-btn';
-  downloadLink.className = 'qwebr-download-btn';
-
-  // Create an 'i' element for the icon
-  var icon = document.createElement('i');
-  icon.className = 'bi bi-file-code';
-
-  // Append the icon to the anchor element
-  downloadLink.appendChild(icon);
-
-  // Add the text 'Download R History' to the anchor element
-  downloadLink.appendChild(document.createTextNode(' Download R History File'));
-
-  // Create the pre for command history contents
-  var commandContentsPre = document.createElement('pre');
-  commandContentsPre.id = 'qwebr-command-history-contents';
-  commandContentsPre.className = 'qwebr-modal-content-code';
-
-  // Append the close span, h1, and history contents pre to the modal content div
-  modalContentDiv.appendChild(closeSpan);
-  modalContentDiv.appendChild(modalH1);
-  modalContentDiv.appendChild(downloadLink);
-  modalContentDiv.appendChild(commandContentsPre);
-
-  // Append the modal content div to the modal div
-  modalDiv.appendChild(modalContentDiv);
-
-  // Append the modal div to the body
-  document.body.appendChild(modalDiv);
-}
-
-function qwebrRegisterRevealJSCommandHistoryModal() {
-  // Select the <ul> element inside the <div> with data-panel="Custom0"
-  let ulElement = document.querySelector('div[data-panel="Custom0"] > ul.slide-menu-items');
-
-  // Find the last <li> element with class slide-tool-item
-  let lastItem = ulElement.querySelector('li.slide-tool-item:last-child');
-
-  // Calculate the next data-item value
-  let nextItemValue = 0;
-  if (lastItem) {
-      nextItemValue = parseInt(lastItem.dataset.item) + 1;
-  }
-
-  // Create a new <li> element
-  let newListItem = document.createElement('li');
-  newListItem.className = 'slide-tool-item';
-  newListItem.dataset.item = nextItemValue.toString(); // Set the next available data-item value
-
-  // Create the <a> element inside the <li>
-  let newLink = document.createElement('a');
-  newLink.href = '#';
-  newLink.id = 'qwebrRHistoryButton'; // Set the ID for the new link
-  
-  // Create the <kbd> element inside the <a>
-  let newKbd = document.createElement('kbd');
-  newKbd.textContent = ' '; // Set to empty as we are not registering a keyboard shortcut
-
-  // Create text node for the link text
-  let newText = document.createTextNode(' View R History');
-
-  // Append <kbd> and text node to <a>
-  newLink.appendChild(newKbd);
-  newLink.appendChild(newText);
-
-  // Append <a> to <li>
-  newListItem.appendChild(newLink);
-
-  // Append <li> to <ul>
-  ulElement.appendChild(newListItem);
-}
-
-// Handle setting up the R history modal
-function qwebrCodeLinks() {
-
-  if (qwebrIsRevealJS()) {
-    qwebrRegisterRevealJSCommandHistoryModal();
-    return;
-  }
-
-  // Create the container div
-  var containerDiv = document.createElement('div');
-  containerDiv.className = 'quarto-code-links';
-
-  // Create the h2 element
-  var h2 = document.createElement('h2');
-  h2.textContent = 'webR Code Links';
-
-  // Create the ul element
-  var ul = document.createElement('ul');
-
-  // Create the li element
-  var li = document.createElement('li');
-
-  // Create the a_history_btn element
-  var a_history_btn = document.createElement('a');
-  a_history_btn.href = 'javascript:void(0)';
-  a_history_btn.setAttribute('id', 'qwebrRHistoryButton');
-
-  // Create the i_history_btn element
-  var i_history_btn = document.createElement('i');
-  i_history_btn.className = 'bi bi-file-code';
-
-  // Create the text node for the link text
-  var text_history_btn = document.createTextNode('View R History');
-
-  // Append the icon element and link text to the a element
-  a_history_btn.appendChild(i_history_btn);
-  a_history_btn.appendChild(text_history_btn);
-
-  // Append the a element to the li element
-  li.appendChild(a_history_btn);
-
-  // Append the li element to the ul element
-  ul.appendChild(li);
-
-  // Append the h2 and ul elements to the container div
-  containerDiv.appendChild(h2);
-  containerDiv.appendChild(ul);
-
-  // Append the container div to the element with the ID 'quarto-margin-sidebar'
-  var sidebar = document.getElementById('quarto-margin-sidebar');
-    
-  // If the sidebar element is not found, create it
-  if(!sidebar) {
-    qwebrPlaceQuartoSidebar();
-  }
-  
-  // Re-select the sidebar element (if it was just created)
-  sidebar = document.getElementById('quarto-margin-sidebar');   
-
-
-  // If the sidebar element exists, append the container div to it
-  if(sidebar) {
-    // Append the container div to the sidebar
-    sidebar.appendChild(containerDiv);
-    // Force the sidebar to be clickable by removing the 'zindex-bottom' class
-    // added in pre-release: https://github.com/quarto-dev/quarto-cli/commit/f0c53a1ffcaa1de4eccbf07803b096898248adcc
-    sidebar.className = 'sidebar margin-sidebar';
-  } else {
-    // Get a debugger ...
-    console.warn('Element with ID "quarto-margin-sidebar" not found.');
-  }
-}
-
-// Call the function to append the code links for qwebR into the right sidebar
-qwebrCodeLinks();
-
-// Add the command history modal
-qwebrAddCommandHistoryModal();
-
-displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
-qwebrOffScreenCanvasSupportWarningMessage();
-</script>
-<script type="module">
-// Define a global storage and retrieval solution ----
-
-// Store commands executed in R
-globalThis.qwebrRCommandHistory = [];
-
-// Function to retrieve the command history
-globalThis.qwebrFormatRHistory = function() {
-   return qwebrRCommandHistory.join("\n\n");
-}
-
-// Retrieve HTML Elements ----
-
-// Get the command modal
-const command_history_modal = document.getElementById("qwebr-history-modal");
-
-// Get the button that opens the command modal
-const command_history_btn = document.getElementById("qwebrRHistoryButton");
-
-// Get the <span> element that closes the command modal
-const command_history_close_span = document.getElementById("qwebr-command-history-close-btn");
-
-// Get the download button for r history information
-const command_history_download_btn = document.getElementById("qwebr-download-history-btn");
-
-// Plug in command history into modal/download button ----
-
-// Function to populate the modal with command history
-function populateCommandHistoryModal() {
-    document.getElementById("qwebr-command-history-contents").innerHTML = qwebrFormatRHistory() || "No commands have been executed yet.";
-}
-
-// Function to format the current date and time to
-// a string with the format YYYY-MM-DD-HH-MM-SS
-function formatDateTime() {
-    const now = new Date();
-
-    const year = now.getFullYear();
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-
-    return `${year}-${month}-${day}-${hours}-${minutes}-${seconds}`;
-}
-
-
-// Function to convert document title with datetime to a safe filename
-function safeFileName() {
-    // Get the current page title
-    let pageTitle = document.title;
-
-    // Combine the current page title with the current date and time
-    let pageNameWithDateTime = `Rhistory-${pageTitle}-${formatDateTime()}`;
-
-    // Replace unsafe characters with safe alternatives
-    let safeFilename = pageNameWithDateTime.replace(/[\\/:\*\?! "<>\|]/g, '-');
-
-    return safeFilename;
-}
-
-
-// Function to download list contents as text file
-function downloadRHistory() {
-    // Get the current page title + datetime and use it as the filename
-    const filename = `${safeFileName()}.R`;
-
-    // Get the text contents of the R History list
-    const text = qwebrFormatRHistory();
-
-    // Create a new Blob object with the text contents
-    const blob = new Blob([text], { type: 'text/plain' });
-  
-    // Create a new anchor element for the download
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.href = URL.createObjectURL(blob);
-    a.download = filename;
-
-    // Append the anchor to the body, click it, and remove it
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-// Register event handlers ----
-
-// When the user clicks the View R History button, open the command modal
-command_history_btn.onclick = function() {
-    populateCommandHistoryModal();
-    command_history_modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the command modal
-command_history_close_span.onclick = function() {
-    command_history_modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the command modal, close it
-window.onclick = function(event) {
-    if (event.target == command_history_modal) {
-        command_history_modal.style.display = "none";
-    }
-}
-
-// Add an onclick event listener to the download button so that
-// the user can download the R history as a text file
-command_history_download_btn.onclick = function() {
-    downloadRHistory();
-};
-</script>
-<script type="module">
-// Supported Evaluation Types for Context
-globalThis.EvalTypes = Object.freeze({
-  Interactive: 'interactive',
-  Setup: 'setup',
-  Output: 'output',
-});
-
-// Function that obtains the font size for a given element 
-globalThis.qwebrCurrentFontSizeOnElement = function(element, cssProperty = 'font-size') {
-
-  const currentFontSize = parseFloat(
-    window
-    .getComputedStyle(element)
-    .getPropertyValue(cssProperty)
-  );
-  
-  return currentFontSize;
-}
-
-// Function to determine font scaling
-globalThis.qwebrScaledFontSize = function(div, qwebrOptions) {
-  // Determine if we should compute font-size using RevealJS's `--r-main-font-size` 
-  // or if we can directly use the document's `font-size`.
-  const cssProperty = document.body.classList.contains('reveal') ? 
-    "--r-main-font-size" : "font-size";
-  
-  // Get the current font size on the div element
-  const elementFontSize = qwebrCurrentFontSizeOnElement(div, cssProperty);
-
-  // Determine the scaled font size value
-  const scaledFontSize = ((qwebrOptions['editor-font-scale'] ?? 1) * elementFontSize) ?? 17.5;
-
-  return scaledFontSize;
-}
-
-
-// Function that dispatches the creation request
-globalThis.qwebrCreateHTMLElement = function (
-  cellData
-) {
-
-  // Extract key components
-  const evalType = cellData.options.context;
-  const qwebrCounter = cellData.id;
-
-  // We make an assumption that insertion points are defined by the Lua filter as:
-  // qwebr-insertion-location-{qwebrCounter} 
-  const elementLocator = document.getElementById(`qwebr-insertion-location-${qwebrCounter}`);
-
-  // Figure out the routine to use to insert the element.
-  let qwebrElement;
-  switch ( evalType ) {
-    case EvalTypes.Interactive:
-      qwebrElement = qwebrCreateInteractiveElement(qwebrCounter, cellData.options);
-      break;
-    case EvalTypes.Output: 
-      qwebrElement = qwebrCreateNonInteractiveOutputElement(qwebrCounter, cellData.options);
-      break;
-    case EvalTypes.Setup: 
-      qwebrElement = qwebrCreateNonInteractiveSetupElement(qwebrCounter, cellData.options);
-      break;
-    default: 
-      qwebrElement = document.createElement('div');
-      qwebrElement.textContent = 'Error creating `quarto-webr` element';
-  }
-
-  // Insert the dynamically generated object at the document location.
-  elementLocator.appendChild(qwebrElement);
-};
-
-// Function that setups the interactive element creation
-globalThis.qwebrCreateInteractiveElement = function (qwebrCounter, qwebrOptions) {
-
-  // Create main div element
-  var mainDiv = document.createElement('div');
-  mainDiv.id = 'qwebr-interactive-area-' + qwebrCounter;
-  mainDiv.className = `qwebr-interactive-area`;
-  if (qwebrOptions.classes) {
-    mainDiv.className += " " + qwebrOptions.classes
-  }
-
-  // Add a unique cell identifier that users can customize
-  if (qwebrOptions.label) {
-    mainDiv.setAttribute('data-id', qwebrOptions.label);
-  }
-
-  // Create toolbar div
-  var toolbarDiv = document.createElement('div');
-  toolbarDiv.className = 'qwebr-editor-toolbar';
-  toolbarDiv.id = 'qwebr-editor-toolbar-' + qwebrCounter;
-
-  // Create a div to hold the left buttons
-  var leftButtonsDiv = document.createElement('div');
-  leftButtonsDiv.className = 'qwebr-editor-toolbar-left-buttons';
-
-  // Create a div to hold the right buttons
-  var rightButtonsDiv = document.createElement('div');
-  rightButtonsDiv.className = 'qwebr-editor-toolbar-right-buttons';
-
-  // Create Run Code button
-  var runCodeButton = document.createElement('button');
-  runCodeButton.className = 'btn btn-default qwebr-button qwebr-button-run';
-  runCodeButton.disabled = true;
-  runCodeButton.type = 'button';
-  runCodeButton.id = 'qwebr-button-run-' + qwebrCounter;
-  runCodeButton.textContent = '🟡 Loading webR...';
-  runCodeButton.title = `Run code (Shift + Enter)`;
-
-  // Append buttons to the leftButtonsDiv
-  leftButtonsDiv.appendChild(runCodeButton);
-
-  // Create Reset button
-  var resetButton = document.createElement('button');
-  resetButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-reset';
-  resetButton.type = 'button';
-  resetButton.id = 'qwebr-button-reset-' + qwebrCounter;
-  resetButton.title = 'Start over';
-  resetButton.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>';
-
-  // Create Copy button
-  var copyButton = document.createElement('button');
-  copyButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-copy';
-  copyButton.type = 'button';
-  copyButton.id = 'qwebr-button-copy-' + qwebrCounter;
-  copyButton.title = 'Copy code';
-  copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
-
-  // Append buttons to the rightButtonsDiv
-  rightButtonsDiv.appendChild(resetButton);
-  rightButtonsDiv.appendChild(copyButton);
-
-  // Create console area div
-  var consoleAreaDiv = document.createElement('div');
-  consoleAreaDiv.id = 'qwebr-console-area-' + qwebrCounter;
-  consoleAreaDiv.className = 'qwebr-console-area';
-
-  // Create editor div
-  var editorDiv = document.createElement('div');
-  editorDiv.id = 'qwebr-editor-' + qwebrCounter;
-  editorDiv.className = 'qwebr-editor';
-
-  // Create output code area div
-  var outputCodeAreaDiv = document.createElement('div');
-  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
-  outputCodeAreaDiv.className = 'qwebr-output-code-area';
-  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
-
-  // Create pre element inside output code area
-  var preElement = document.createElement('pre');
-  preElement.style.visibility = 'hidden';
-  outputCodeAreaDiv.appendChild(preElement);
-
-  // Create output graph area div
-  var outputGraphAreaDiv = document.createElement('div');
-  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
-  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
-
-  // Append buttons to the toolbar
-  toolbarDiv.appendChild(leftButtonsDiv);
-  toolbarDiv.appendChild(rightButtonsDiv);
-
-  // Append all elements to the main div
-  mainDiv.appendChild(toolbarDiv);
-  consoleAreaDiv.appendChild(editorDiv);
-  consoleAreaDiv.appendChild(outputCodeAreaDiv);
-  mainDiv.appendChild(consoleAreaDiv);
-  mainDiv.appendChild(outputGraphAreaDiv);
-
-  return mainDiv;
-}
-
-// Function that adds output structure for non-interactive output
-globalThis.qwebrCreateNonInteractiveOutputElement = function(qwebrCounter, qwebrOptions) {
-  // Create main div element
-  var mainDiv = document.createElement('div');
-  mainDiv.id = 'qwebr-noninteractive-area-' + qwebrCounter;
-  mainDiv.className = `qwebr-noninteractive-area`;
-  if (qwebrOptions.classes) {
-    mainDiv.className += " " + qwebrOptions.classes
-  }
-  
-  // Add a unique cell identifier that users can customize
-  if (qwebrOptions.label) {
-    mainDiv.setAttribute('data-id', qwebrOptions.label);
-  }
-  
-  // Create a status container div
-  var statusContainer = createLoadingContainer(qwebrCounter);
-
-  // Create output code area div
-  var outputCodeAreaDiv = document.createElement('div');
-  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
-  outputCodeAreaDiv.className = 'qwebr-output-code-area';
-  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
-
-  // Create pre element inside output code area
-  var preElement = document.createElement('pre');
-  preElement.style.visibility = 'hidden';
-  outputCodeAreaDiv.appendChild(preElement);
-
-  // Create output graph area div
-  var outputGraphAreaDiv = document.createElement('div');
-  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
-  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
-
-  // Append all elements to the main div
-  mainDiv.appendChild(statusContainer);
-  mainDiv.appendChild(outputCodeAreaDiv);
-  mainDiv.appendChild(outputGraphAreaDiv);
-
-  return mainDiv;
-};
-
-// Function that adds a stub in the page to indicate a setup cell was used.
-globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter, qwebrOptions) {
-  // Create main div element
-  var mainDiv = document.createElement('div');
-  mainDiv.id = `qwebr-noninteractive-setup-area-${qwebrCounter}`;
-  mainDiv.className = `qwebr-noninteractive-setup-area`;
-  if (qwebrOptions.classes) {
-    mainDiv.className += " " + qwebrOptions.classes
-  }
-
-
-  // Add a unique cell identifier that users can customize
-  if (qwebrOptions.label) {
-    mainDiv.setAttribute('data-id', qwebrOptions.label);
-  }
-
-  // Create a status container div
-  var statusContainer = createLoadingContainer(qwebrCounter);
-
-  // Append status onto the main div
-  mainDiv.appendChild(statusContainer);
-
-  return mainDiv;
-}
-
-
-// Function to create loading container with specified ID
-globalThis.createLoadingContainer = function(qwebrCounter) {
-
-  // Create a status container
-  const container = document.createElement('div');
-  container.id = `qwebr-non-interactive-loading-container-${qwebrCounter}`;
-  container.className = 'qwebr-non-interactive-loading-container qwebr-cell-needs-evaluation';
-
-  // Create an R project logo to indicate its a code space
-  const rProjectIcon = document.createElement('i');
-  rProjectIcon.className = 'fa-brands fa-r-project fa-3x qwebr-r-project-logo';
-
-  // Setup a loading icon from font awesome
-  const spinnerIcon = document.createElement('i');
-  spinnerIcon.className = 'fa-solid fa-spinner fa-spin fa-1x qwebr-icon-status-spinner';
-
-  // Add a section for status text
-  const statusText = document.createElement('p');
-  statusText.id = `qwebr-status-text-${qwebrCounter}`;
-  statusText.className = `qwebr-status-text qwebr-cell-needs-evaluation`;
-  statusText.innerText = 'Loading webR...';
-
-  // Incorporate an inner container
-  const innerContainer = document.createElement('div');
-
-  // Append elements to the inner container
-  innerContainer.appendChild(spinnerIcon);
-  innerContainer.appendChild(statusText);
-
-  // Append elements to the main container
-  container.appendChild(rProjectIcon);
-  container.appendChild(innerContainer);
-
-  return container;
-}
-</script>
-<script type="module">
-// Function to install a single package
-async function qwebrInstallRPackage(packageName) {
-  await mainWebR.evalRVoid(`webr::install('${packageName}');`);
-}
-
-// Function to load a single package
-async function qwebrLoadRPackage(packageName) {
-  await mainWebR.evalRVoid(`require('${packageName}', quietly = TRUE)`);
-}
-
-// Generic function to process R packages
-async function qwebrProcessRPackagesWithStatus(packages, processType, displayStatusMessageUpdate = true) {
-  // Switch between contexts
-  const messagePrefix = processType === 'install' ? 'Installing' : 'Loading';
-
-  // Modify button state
-  qwebrSetInteractiveButtonState(`🟡 ${messagePrefix} package ...`, false);
-
-  // Iterate over packages
-  for (let i = 0; i < packages.length; i++) {
-    const activePackage = packages[i];
-    const formattedMessage = `${messagePrefix} package ${i + 1} out of ${packages.length}: ${activePackage}`;
-
-    // Display the update in header
-    if (displayStatusMessageUpdate) {
-      qwebrUpdateStatusHeader(formattedMessage);
-    }
-
-    // Display the update in non-active areas
-    qwebrUpdateStatusMessage(formattedMessage);
-
-    // Run package installation
-    if (processType === 'install') {
-      await qwebrInstallRPackage(activePackage);
-    } else {
-      await qwebrLoadRPackage(activePackage);
-    }
-  }
-
-  // Clean slate
-  if (processType === 'load') {
-    await mainWebR.flush();
-  }
-}
-
-// Start a timer
-const initializeWebRTimerStart = performance.now();
-
-// Encase with a dynamic import statement
-globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs").then(
-  async ({ WebR, ChannelType }) => {
-    // Populate WebR options with defaults or new values based on `webr` meta
-    globalThis.mainWebR = new WebR(qwebrCustomizedWebROptions);
-
-    // Initialization WebR
-    await mainWebR.init();
-
-    // Setup a shelter
-    globalThis.mainWebRCodeShelter = await new mainWebR.Shelter();
-
-    // Setup a pager to allow processing help documentation 
-    await mainWebR.evalRVoid('webr::pager_install()'); 
-
-    // Override the existing install.packages() to use webr::install()
-    await mainWebR.evalRVoid('webr::shim_install()'); 
-
-    // Specify the repositories to pull from
-    // Note: webR does not use the `repos` option, but instead uses `webr_pkg_repos`
-    // inside of `install()`. However, other R functions still pull from `repos`.
-    await mainWebR.evalRVoid(`
-      options(
-        webr_pkg_repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')}),
-        repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')})
-      )
-    `);
-
-    // Check to see if any packages need to be installed
-    if (qwebrSetupRPackages) {
-      // Obtain only a unique list of packages
-      const uniqueRPackageList = Array.from(new Set(qwebrInstallRPackagesList));
-
-      // Install R packages one at a time (either silently or with a status update)
-      await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'install', qwebrShowStartupMessage);
-
-      if (qwebrAutoloadRPackages) {
-        // Load R packages one at a time (either silently or with a status update)
-        await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'load', qwebrShowStartupMessage);
-      }
-    }
-  }
-);
-
-// Stop timer
-const initializeWebRTimerEnd = performance.now();
-
-</script>
-<script type="module">
-// Function to verify a given JavaScript Object is empty
-globalThis.qwebrIsObjectEmpty = function (arr) {
-    return Object.keys(arr).length === 0;
-}
-
-// Global version of the Escape HTML function that converts HTML 
-// characters to their HTML entities.
-globalThis.qwebrEscapeHTMLCharacters = function(unsafe) {
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  };
-
-// Passthrough results
-globalThis.qwebrIdentity = function(x) {
-    return x;
-};
-
-// Append a comment
-globalThis.qwebrPrefixComment = function(x, comment) {
-    return `${comment}${x}`;
-};
-
-// Function to store the code in the history
-globalThis.qwebrLogCodeToHistory = function(codeToRun, options) {
-    qwebrRCommandHistory.push(
-        `# Ran code in ${options.label} at ${new Date().toLocaleString()} ----\n${codeToRun}`
-    );
-}
-
-// Function to attach a download button onto the canvas
-// allowing the user to download the image.
-function qwebrImageCanvasDownloadButton(canvas, canvasContainer) {
-
-    // Create the download button
-    const downloadButton = document.createElement('button');
-    downloadButton.className = 'qwebr-canvas-image-download-btn';
-    downloadButton.textContent = 'Download Image';
-    canvasContainer.appendChild(downloadButton);
-
-    // Trigger a download of the image when the button is clicked
-    downloadButton.addEventListener('click', function() {
-        const image = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = image;
-        link.download = 'qwebr-canvas-image.png';
-        link.click();
-    });
-  }
-  
-
-// Function to parse the pager results
-globalThis.qwebrParseTypePager = async function (msg) { 
-
-    // Split out the event data
-    const { path, title, deleteFile } = msg.data; 
-
-    // Process the pager data by reading the information from disk
-    const paged_data = await mainWebR.FS.readFile(path).then((data) => {
-        // Obtain the file content
-        let content = new TextDecoder().decode(data);
-
-        // Remove excessive backspace characters until none remain
-        while(content.match(/.[\b]/)){
-        content = content.replace(/.[\b]/g, '');
-        }
-
-        // Returned cleaned data
-        return content;
-    });
-
-    // Unlink file if needed
-    if (deleteFile) { 
-        await mainWebR.FS.unlink(path); 
-    } 
-
-    // Return extracted data with spaces
-    return paged_data;
-} 
-
-// Function to run the code using webR and parse the output
-globalThis.qwebrComputeEngine = async function(
-    codeToRun, 
-    elements, 
-    options) {
-
-    // Call into the R compute engine that persists within the document scope.
-    // To be prepared for all scenarios, the following happens: 
-    // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
-    // 2. We use values inside of the options array to set the figure size.
-    // 3. We capture the output stream information (STDOUT and STERR)
-    // 4. We disable the current device's image creation.
-    // 5. Piece-wise parse the results into the different output areas
-
-    // Create a pager variable for help/file contents
-    let pager = [];
-
-    // Handle how output is processed
-    let showMarkup = options.results === "markup" && options.output !== "asis";
-    let processOutput;
-
-    if (showMarkup) {
-        processOutput = qwebrEscapeHTMLCharacters;
-    } else {
-        processOutput = qwebrIdentity;
-    }
-
-    // ---- 
-    // Convert from Inches to Pixels by using DPI (dots per inch)
-    // for bitmap devices (dpi * inches = pixels)
-    let fig_width = options["fig-width"] * options["dpi"]
-    let fig_height = options["fig-height"] * options["dpi"]
-
-    // Initialize webR
-    await mainWebR.init();
-
-    // Configure capture output
-    let captureOutputOptions = {
-        withAutoprint: true,
-        captureStreams: true,
-        captureConditions: false,
-        // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
-    };
-    
-    // Determine if the browser supports OffScreen
-    if (qwebrOffScreenCanvasSupport()) {
-        // Mirror default options of webr::canvas()
-        // with changes to figure height and width.
-        captureOutputOptions.captureGraphics = {
-            width: fig_width,
-            height: fig_height,
-            bg: "white", // default: transparent
-            pointsize: 12,
-            capture: true
-        };
-    }  else {
-        // Disable generating graphics
-        captureOutputOptions.captureGraphics = false;
-    }
-
-    // Store the code to run in history
-    qwebrLogCodeToHistory(codeToRun, options);
-
-    // Setup a webR canvas by making a namespace call into the {webr} package
-    // Evaluate the R code
-    // Remove the active canvas silently
-    const result = await mainWebRCodeShelter.captureR(
-        `${codeToRun}`,
-        captureOutputOptions
-    );
-
-    // -----
-
-    // Start attempting to parse the result data
-    processResultOutput:try {
-        
-        // Avoid running through output processing
-        if (options.results === "hide" || options.output === "false") { 
-            break processResultOutput; 
-        }
-
-        // Merge output streams of STDOUT and STDErr (messages and errors are combined.)
-        // Require both `warning` and `message` to be true to display `STDErr`. 
-        const out = result.output
-        .filter(
-            evt => evt.type === "stdout" || 
-            ( evt.type === "stderr" && (options.warning === "true" && options.message === "true")) 
-        )
-        .map((evt, index) => {
-            const className = `qwebr-output-code-${evt.type}`;
-            const outputResult = qwebrPrefixComment(processOutput(evt.data), options.comment);
-            return `<code id="${className}-editor-${elements.id}-result-${index + 1}" class="${className}">${outputResult}</code>`;
-        })
-        .join("\n");
-
-
-        // Clean the state
-        // We're now able to process pager events.
-        // As a result, we cannot maintain a true 1-to-1 output order 
-        // without individually feeding each line
-        const msgs = await mainWebR.flush();
-
-        // Use `map` to process the filtered "pager" events asynchronously
-        const pager = await Promise.all(
-            msgs.filter(msg => msg.type === 'pager').map(
-                async (msg) => {
-                    return await qwebrParseTypePager(msg);
-                }
-            )
-        );
-
-        // Nullify the output area of content
-        elements.outputCodeDiv.innerHTML = "";
-        elements.outputGraphDiv.innerHTML = "";
-
-        // Design an output object for messages
-        const pre = document.createElement("pre");
-        if (/\S/.test(out)) {
-            // Display results as HTML elements to retain output styling
-            const div = document.createElement("div");
-            div.innerHTML = out;
-
-            // Calculate a scaled font-size value
-            const scaledFontSize = qwebrScaledFontSize(
-                elements.outputCodeDiv, options);
-
-            // Override output code cell size
-            pre.style.fontSize = `${scaledFontSize}px`;
-            pre.appendChild(div);
-        } else {
-            // If nothing is present, hide the element.
-            pre.style.visibility = "hidden";
-        }
-
-        elements.outputCodeDiv.appendChild(pre);
-
-        // Determine if we have graphs to display
-        if (result.images.length > 0) {
-
-            // Create figure element
-            const figureElement = document.createElement("figure");
-            figureElement.className = "qwebr-canvas-image";
-
-            // Place each rendered graphic onto a canvas element
-            result.images.forEach((img) => {
-
-                // Construct canvas for object
-                const canvas = document.createElement("canvas");
-
-                // Add an image download button
-                qwebrImageCanvasDownloadButton(canvas, figureElement);
-
-                // Set canvas size to image
-                canvas.width = img.width;
-                canvas.height = img.height;
-
-                // Apply output truncations
-                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
-                if (options["out-height"]) {
-                    canvas.style.height = options["out-height"];
-                }
-
-                // Apply styling
-                canvas.style.display = "block";
-                canvas.style.margin = "auto";
-
-                // Draw image onto Canvas
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0, img.width, img.height);
-          
-                // Append canvas to figure output area
-                figureElement.appendChild(canvas);
-
-            });
-            
-            if (options['fig-cap']) {
-                // Create figcaption element
-                const figcaptionElement = document.createElement('figcaption');
-                figcaptionElement.innerText = options['fig-cap'];
-                // Append figcaption to figure
-                figureElement.appendChild(figcaptionElement);    
-            }
-        
-            elements.outputGraphDiv.appendChild(figureElement);
-
-        }
-
-        // Display the pager data
-        if (pager) {
-        // Use the `pre` element to preserve whitespace.
-        pager.forEach((paged_data, index) => {
-            let pre_pager = document.createElement("pre");
-            pre_pager.innerText = paged_data;
-            pre_pager.classList.add("qwebr-output-code-pager");
-            pre_pager.setAttribute("id", `qwebr-output-code-pager-editor-${elements.id}-result-${index + 1}`);
-            elements.outputCodeDiv.appendChild(pre_pager);
-        });
-        }
-    } finally {
-        // Clean up the remaining code
-        mainWebRCodeShelter.purge();
-    }
-}
-
-// Function to execute the code (accepts code as an argument)
-globalThis.qwebrExecuteCode = async function (
-    codeToRun,
-    id,
-    options = {}) {
-
-    // If options are not passed, we fall back on the bare minimum to handle the computation
-    if (qwebrIsObjectEmpty(options)) {
-        options = { 
-            "context": "interactive", 
-            "fig-width": 7, "fig-height": 5, 
-            "out-width": "700px", "out-height": "", 
-            "dpi": 72,
-            "results": "markup", 
-            "warning": "true", "message": "true",
-        };
-    }
-
-    // Next, we access the compute areas values
-    const elements = {
-        runButton: document.getElementById(`qwebr-button-run-${id}`),
-        outputCodeDiv: document.getElementById(`qwebr-output-code-area-${id}`),
-        outputGraphDiv: document.getElementById(`qwebr-output-graph-area-${id}`),
-        id: id,
-    }
-
-    // Disallowing execution of other code cells
-    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
-        btn.disabled = true;
-    });
-
-    if (options.context == EvalTypes.Interactive) {
-        // Emphasize the active code cell
-        elements.runButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i> <span>Run Code</span>';
-    }
-
-    // Evaluate the code and parse the output into the document
-    await qwebrComputeEngine(codeToRun, elements, options);
-
-    // Switch to allowing execution of code
-    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
-        btn.disabled = false;
-    });
-
-    if (options.context == EvalTypes.Interactive) {
-        // Revert to the initial code cell state
-        elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
-    }
-}
-
-</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -1659,319 +176,9 @@ globalThis.qwebrExecuteCode = async function (
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#fonctions-dordre-supérieur" id="toc-fonctions-dordre-supérieur" class="nav-link active" data-scroll-target="#fonctions-dordre-supérieur">Fonctions d’ordre supérieur</a></li>
-  <li><a href="#manipuler-des-fonctions-avec-des-fonctions" id="toc-manipuler-des-fonctions-avec-des-fonctions" class="nav-link" data-scroll-target="#manipuler-des-fonctions-avec-des-fonctions">Manipuler des fonctions avec des fonctions</a></li>
-  <li><a href="#lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" id="toc-lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" class="nav-link" data-scroll-target="#lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur">lapply&nbsp;: appliquer une fonction à chaque élément d’une liste ou d’un vecteur</a></li>
-  <li><a href="#vapply-une-sorte-de-lapply-mais-avec-un-retour-sous-forme-dun-vecteur-ou-dune-matrice." id="toc-vapply-une-sorte-de-lapply-mais-avec-un-retour-sous-forme-dun-vecteur-ou-dune-matrice." class="nav-link" data-scroll-target="#vapply-une-sorte-de-lapply-mais-avec-un-retour-sous-forme-dun-vecteur-ou-dune-matrice.">vapply&nbsp;: une sorte de lapply mais avec un retour sous forme d’un vecteur ou d’une matrice.</a>
-  <ul class="collapse">
-  <li><a href="#map-appliquer-une-fonction-multi-paramètres-termes-à-termes" id="toc-map-appliquer-une-fonction-multi-paramètres-termes-à-termes" class="nav-link" data-scroll-target="#map-appliquer-une-fonction-multi-paramètres-termes-à-termes">Map&nbsp;: appliquer une fonction multi-paramètres termes à termes</a></li>
-  <li><a href="#replicate-une-variante-commode-de-lapply-pour-les-générations-de-nombres-aléatoires" id="toc-replicate-une-variante-commode-de-lapply-pour-les-générations-de-nombres-aléatoires" class="nav-link" data-scroll-target="#replicate-une-variante-commode-de-lapply-pour-les-générations-de-nombres-aléatoires">replicate&nbsp;: une variante commode de lapply pour les générations de nombres aléatoires</a></li>
-  <li><a href="#apply-appliquer-une-fonction-sur-les-lignes-ou-les-colonnes-dune-matrice" id="toc-apply-appliquer-une-fonction-sur-les-lignes-ou-les-colonnes-dune-matrice" class="nav-link" data-scroll-target="#apply-appliquer-une-fonction-sur-les-lignes-ou-les-colonnes-dune-matrice">apply&nbsp;: appliquer une fonction sur les lignes ou les colonnes d’une matrice</a></li>
-  <li><a href="#do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments" id="toc-do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments" class="nav-link" data-scroll-target="#do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments">do.call&nbsp;: appliquer une fonction multi-paramètres sur une liste d’arguments</a></li>
-  <li><a href="#reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire" id="toc-reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire" class="nav-link" data-scroll-target="#reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire">Reduce&nbsp;: réduire une liste ou un vecteur d’arguments par application successive d’un opérateur binaire</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices">Exercices</a>
-  <ul class="collapse">
-  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
-  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
-<script type="module" id="qwebr-monaco-editor-init">
-
-  // Configure the Monaco Editor's loader
-  require.config({
-    paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
-    }
-  });
-</script>
-<script type="module">
-// Function to update Monaco Editors when body class changes
-function updateMonacoEditorsOnBodyClassChange() {
-    // Select the body element
-    const body = document.querySelector('body');
-
-    // Options for the observer (which mutations to observe)
-    const observerOptions = {
-        attributes: true,  // Observe changes to attributes
-        attributeFilter: ['class'] // Only observe changes to the 'class' attribute
-    };
-
-    // Callback function to execute when mutations are observed
-    const bodyClassChangeCallback = function(mutationsList, observer) {
-        for(let mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                // Class attribute has changed
-                // Update all Monaco Editors on the page
-                updateMonacoEditorTheme();
-            }
-        }
-    };
-
-    // Create an observer instance linked to the callback function
-    const observer = new MutationObserver(bodyClassChangeCallback);
-
-    // Start observing the target node for configured mutations
-    observer.observe(body, observerOptions);
-}
-
-// Function to update all instances of Monaco Editors on the page
-function updateMonacoEditorTheme() {
-    // Determine what VS Theme to use
-    const vsThemeToUse = document.body.classList.contains("quarto-dark") ? 'vs-dark' : 'vs' ;
-
-    // Iterate through all initialized Monaco Editors
-    qwebrEditorInstances.forEach( function(editorInstance) { 
-        editorInstance.updateOptions({ theme: vsThemeToUse }); 
-    });
-}
-
-// Call the function to start observing changes to body class
-updateMonacoEditorsOnBodyClassChange();
-</script>
-<script type="module">
-// Global array to store Monaco Editor instances
-globalThis.qwebrEditorInstances = [];
-
-function isValidCodeLineNumbers(stringCodeLineNumbers) {
-  // Regular expression to match valid input strings
-  const regex = /^(\d+(-\d+)?)(,\d+(-\d+)?)*$/;
-  return regex.test(stringCodeLineNumbers);
-}
-
-// Function that builds and registers a Monaco Editor instance    
-globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
-
-  const initialCode = cellData.code;
-  const qwebrCounter = cellData.id;
-  const qwebrOptions = cellData.options;
-
-  // Retrieve the previously created document elements
-  let runButton = document.getElementById(`qwebr-button-run-${qwebrCounter}`);
-  let resetButton = document.getElementById(`qwebr-button-reset-${qwebrCounter}`);
-  let copyButton = document.getElementById(`qwebr-button-copy-${qwebrCounter}`);
-  let editorDiv = document.getElementById(`qwebr-editor-${qwebrCounter}`);
-
-  // Load the Monaco Editor and create an instance
-  let editor;
-  require(['vs/editor/editor.main'], function () {
-    editor = monaco.editor.create(editorDiv, {
-      value: initialCode,
-      language: 'r',
-      theme: 'vs-light',
-      automaticLayout: true,           // Works wonderfully with RevealJS
-      scrollBeyondLastLine: false,
-      minimap: {
-        enabled: false
-      },
-      fontSize: qwebrScaledFontSize(editorDiv, qwebrOptions),         
-      renderLineHighlight: "none",      // Disable current line highlighting
-      hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
-      readOnly: qwebrOptions['read-only'] ?? false,
-      quickSuggestions: qwebrOptions['editor-quick-suggestions'] ?? false,
-      wordWrap: (qwebrOptions['editor-word-wrap'] == 'true' ? "on" : "off")
-    });
-
-    // Store the official counter ID to be used in keyboard shortcuts
-    editor.__qwebrCounter = qwebrCounter;
-
-    // Store the official div container ID
-    editor.__qwebrEditorId = `qwebr-editor-${qwebrCounter}`;
-
-    // Store the initial code value and options
-    editor.__qwebrinitialCode = initialCode;
-    editor.__qwebrOptions = qwebrOptions;
-
-    // Set at the model level the preferred end of line (EOL) character to LF.
-    // This prevent `\r\n` from being given to the webR engine if the user is on Windows.
-    // See details in: https://github.com/coatless/quarto-webr/issues/94
-    // Associated error text: 
-    // Error: <text>:1:7 unexpected input
-
-    // Retrieve the underlying model
-    const model = editor.getModel();
-    // Set EOL for the model
-    model.setEOL(monaco.editor.EndOfLineSequence.LF);
-    
-    // Dynamically modify the height of the editor window if new lines are added.
-    let ignoreEvent = false;
-    const updateHeight = () => {
-      // Increment editor height by 2 to prevent vertical scroll bar from appearing
-      const contentHeight = editor.getContentHeight() + 2;
-
-      // Retrieve editor-max-height option
-      const maxEditorHeight = qwebrOptions['editor-max-height'];
-
-      // If editor-max-height is missing, allow infinite growth. Otherwise, threshold.
-      const editorHeight = !maxEditorHeight ?  contentHeight : Math.min(contentHeight, maxEditorHeight);
-
-      // We're avoiding a width change
-      //editorDiv.style.width = `${width}px`;
-      editorDiv.style.height = `${editorHeight}px`;
-      try {
-        ignoreEvent = true;
-
-        // The key to resizing is this call
-        editor.layout();
-      } finally {
-        ignoreEvent = false;
-      }
-    };
-
-    // Function to generate decorations to highlight lines
-    // in the editor based on input string.
-    function decoratorHighlightLines(codeLineNumbers) {
-      // Store the lines to be lighlight
-      let linesToHighlight = [];
-      
-      // Parse the codeLineNumbers string to get the line numbers to highlight
-      // First, split the string by commas
-      codeLineNumbers.split(',').forEach(part => {
-        // Check if we have a range of lines
-        if (part.includes('-')) {
-            // Handle range of lines (e.g., "6-8")
-            const [start, end] = part.split('-').map(Number);
-            for (let i = start; i <= end; i++) {
-                linesToHighlight.push(i);
-            }
-        } else {
-            // Handle single line (e.g., "7")
-            linesToHighlight.push(Number(part));
-        }
-      });
-  
-      // Create monaco decorations for the lines to highlight
-      const decorations = linesToHighlight.map(lineNumber => ({
-          range: new monaco.Range(lineNumber, 1, lineNumber, 1),
-          options: {
-              isWholeLine: true,
-              className: 'qwebr-editor-highlight-line'
-          }
-      }));
-  
-      // Return decorations to be applied to the editor
-      return decorations;
-    }
-
-    // Ensure that the editor-code-line-numbers option is set and valid
-    // then apply styling
-    if (qwebrOptions['editor-code-line-numbers']) {
-      // Remove all whitespace from the string
-      const codeLineNumbers = qwebrOptions['editor-code-line-numbers'].replace(/\s/g,'');
-      // Check if the string is valid for line numbers, e.g., "1,3-5,7"
-      if (isValidCodeLineNumbers(codeLineNumbers)) {
-        // Apply the decorations to the editor
-        editor.createDecorationsCollection(decoratorHighlightLines(codeLineNumbers));
-      } else {
-        // Warn the user that the input is invalid
-        console.warn(`Invalid "editor-code-line-numbers" value in code cell ${qwebrOptions['label']}: ${codeLineNumbers}`);
-      }
-    }
-
-    // Helper function to check if selected text is empty
-    function isEmptyCodeText(selectedCodeText) {
-      return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
-    }
-
-    // Registry of keyboard shortcuts that should be re-added to each editor window
-    // when focus changes.
-    const addWebRKeyboardShortCutCommands = () => {
-      // Add a keydown event listener for Shift+Enter to run all code in cell
-      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
-
-        // Retrieve all text inside the editor
-        qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
-      });
-
-      // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
-      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-
-        // Get the selected text from the editor
-        const selectedText = editor.getModel().getValueInRange(editor.getSelection());
-        // Check if no code is selected
-        if (isEmptyCodeText(selectedText)) {
-          // Obtain the current cursor position
-          let currentPosition = editor.getPosition();
-          // Retrieve the current line content
-          let currentLine = editor.getModel().getLineContent(currentPosition.lineNumber);
-
-          // Propose a new position to move the cursor to
-          let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
-
-          // Check if the new position is beyond the last line of the editor
-          if (newPosition.lineNumber > editor.getModel().getLineCount()) {
-            // Add a new line at the end of the editor
-            editor.executeEdits("addNewLine", [{
-            range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
-            text: "\n", 
-            forceMoveMarkers: true,
-            }]);
-          }
-          
-          // Run the entire line of code.
-          qwebrExecuteCode(currentLine, editor.__qwebrCounter, editor.__qwebrOptions);
-
-          // Move cursor to new position
-          editor.setPosition(newPosition);
-        } else {
-          // Code to run when Ctrl+Enter is pressed with selected code
-          qwebrExecuteCode(selectedText, editor.__qwebrCounter, editor.__qwebrOptions);
-        }
-      });
-    }
-
-    // Register an on focus event handler for when a code cell is selected to update
-    // what keyboard shortcut commands should work.
-    // This is a workaround to fix a regression that happened with multiple
-    // editor windows since Monaco 0.32.0 
-    // https://github.com/microsoft/monaco-editor/issues/2947
-    editor.onDidFocusEditorText(addWebRKeyboardShortCutCommands);
-
-    // Register an on change event for when new code is added to the editor window
-    editor.onDidContentSizeChange(updateHeight);
-
-    // Manually re-update height to account for the content we inserted into the call
-    updateHeight();
-
-    // Store the editor instance in the global dictionary
-    qwebrEditorInstances[editor.__qwebrCounter] = editor;
-
-  });
-
-  // Add a click event listener to the run button
-  runButton.onclick = function () {
-    qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
-  };
-
-  // Add a click event listener to the reset button
-  copyButton.onclick = function () {
-    // Retrieve current code data
-    const data = editor.getValue();
-    
-    // Write code data onto the clipboard.
-    navigator.clipboard.writeText(data || "");
-  };
-  
-  // Add a click event listener to the copy button
-  resetButton.onclick = function () {
-    editor.setValue(editor.__qwebrinitialCode);
-  };
-  
-}
-</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -2024,22 +231,46 @@ Remarque optionnelle
 </section>
 <section id="lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur" class="level2">
 <h2 class="anchored" data-anchor-id="lapply-appliquer-une-fonction-à-chaque-élément-dune-liste-ou-dun-vecteur">lapply&nbsp;: appliquer une fonction à chaque élément d’une liste ou d’un vecteur</h2>
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-1">
+
+</div>
+<script type="webr-1-contents">
+eyJjb2RlIjoiYmVnYWllbWVudCA8LVxuICBsYXBwbHkoXG4gICAgbGlzdChjKFwiYVwiLCBcImJcIiksXG4gICAgICAgICBjKFwiY1wiLCBcImRcIiwgXCJlXCIpLFxuICAgICAgICAgYyhcImZcIiwgXCJnXCIpKSxcbiAgICBmdW5jdGlvbih4KSBjKHgsIHgsIHgpXG4gIClcbmJlZ2FpZW1lbnRcbnR5cGVvZihiZWdhaWVtZW50KSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>La fonction <code>function(x) c(x, x, x)</code> demande à répéter trois fois un élément. Cette fonction est appliquée terme à terme à chaque élement de la liste.</p>
 <ul>
 <li><code>c("a", "b")</code> donne <code>c("a", "b", "a", "b", "a", "b")</code></li>
 <li><code>c("c", "d", "e")</code> donne <code>c("c", "d", "e", "c", "d", "e", "c", "d", "e")</code></li>
 <li><code>c("f", "g")</code> donne <code>c("f", "g", "f", "g", "f", "g")</code></li>
 </ul>
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-2">
+
+</div>
+<script type="webr-2-contents">
+eyJjb2RlIjoicmVwZXRlcl9sZXNfZWxlbWVudHMgPC0gZnVuY3Rpb24obGlzdGUpIHtcbiAgbGFwcGx5KGxpc3RlLCBmdW5jdGlvbih4KSBjKHgsIHgsIHgpKVxufVxuYmVnYWllbWVudCA8LVxuICByZXBldGVyX2xlc19lbGVtZW50cyhcbiAgICBsaXN0KGMoXCJhXCIsIFwiYlwiKSxcbiAgICAgICAgIGMoXCJjXCIsIFwiZFwiLCBcImVcIiksXG4gICAgICAgICBjKFwiZlwiLCBcImdcIikpKVxuYmVnYWllbWVudFxudHlwZW9mKGJlZ2FpZW1lbnQpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Le calcul ci-dessus montre qu’on peut utiliser <code>lapply</code> à l’intérieur d’une autre fonction.</p>
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-3">
+
+</div>
+<script type="webr-3-contents">
+eyJjb2RlIjoicmVwZXRlciA8LSBmdW5jdGlvbih4KSBjKHgsIHgsIHgpXG5cbnJlcGV0ZXJfbGVzX2VsZW1lbnRzIDwtIGZ1bmN0aW9uKGxpc3RlKSB7XG4gIGxhcHBseShsaXN0ZSwgcmVwZXRlcilcbn1cbmJlZ2FpZW1lbnQgPC1cbiAgcmVwZXRlcl9sZXNfZWxlbWVudHMoXG4gICAgbGlzdChjKFwiYVwiLCBcImJcIiksXG4gICAgICAgICBjKFwiY1wiLCBcImRcIiwgXCJlXCIpLFxuICAgICAgICAgYyhcImZcIiwgXCJnXCIpKSlcbmJlZ2FpZW1lbnRcbnR5cGVvZihiZWdhaWVtZW50KSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>On s’est d’ailleurs permis ici de remplacer <code>function(x) c(x, x, x)</code> par une fonction nommée qui s’appelle <code>repeter</code>. Ce petit changement illustre un aspect implicite des deux précédentes syntaxes utilisées&nbsp;: on utilisait <code>function(x) c(x, x, x)</code> en lieu et place d’un nom de fonction à l’intérieur du lapply ! On appelle de telles fonctions, dépourvues de noms, des <strong>fonctions anonymes</strong>. Si une fonction n’a pour vocation que d’être utilisée une seule fois, cela peut rendre la syntaxe plus claire et plus élégante qu’une <strong>fonction nommée</strong>.</p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-4">
+
+</div>
+<script type="webr-4-contents">
+eyJjb2RlIjoiYmVnYWllbWVudF9iaXMgPC1cbiAgcmVwZXRlcl9sZXNfZWxlbWVudHMoYyhcImFcIiwgXCJiXCIsIFwiY1wiLCBcImRcIikpXG5iZWdhaWVtZW50X2Jpc1xudHlwZW9mKGJlZ2FpZW1lbnRfYmlzKSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>Dans ce dernier calcul, on remarque que l’on peut appliquer <code>lapply</code> sur un vecteur.</p>
 <p>Toutefois, dans les 4 calculs, <strong>le résultat de <code>lapply</code> est une liste</strong>. lapply retourne une liste même quand on lui soumet un vecteur.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2060,8 +291,14 @@ Note
 <section id="vapply-une-sorte-de-lapply-mais-avec-un-retour-sous-forme-dun-vecteur-ou-dune-matrice." class="level1">
 <h1>vapply&nbsp;: une sorte de lapply mais avec un retour sous forme d’un vecteur ou d’une matrice.</h1>
 <p>On l’a vu dans les exemples précédents, le retour de <code>lapply</code> est une liste. Mais une liste n’est pas l’objet le plus pratique à manipuler dans un langage vectoriel&nbsp;! la fonction <code>vapply</code> permet de retourner les résultats sous la forme d’un vecteur ou d’une matrice (lorsque cela a une pertinence). La syntaxe est un peu particulière mais on s’y habitue vite&nbsp;!</p>
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-5">
+
+</div>
+<script type="webr-5-contents">
+eyJjb2RlIjoidmVjdGV1ciA8LSB2YXBwbHkobGlzdChjKDNMLCAzTCwgMTBMKSxcbiAgICAgICAgICAgICAgICAgICAgICAgYyg3TCwgLTJMLCAxMUwsIDIyTCksXG4gICAgICAgICAgICAgICAgICAgICAgIC0xTCksXG4gICAgICAgICAgICAgICAgICBcXCh4KSB4WzFMXSArIDFMLFxuICAgICAgICAgICAgICAgICAgMEwpXG52ZWN0ZXVyXG50eXBlb2YodmVjdGV1cikiLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <p><code>vapply</code> applique la fonction anonyme <code>\(x) x[1L] + 1L</code> sur chaque élément de la liste <code>list(c(3L, 3L, 10L), c(7L, -2L, 11L, 22L), -1L)</code> et renvoie un vecteur de type similaire à <code>0L</code> (c’est-à-dire un <code>"integer"</code>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2076,11 +313,23 @@ Note
 <p>On rappelle que dans R, une variable comme <code>-1L</code> n’est rien d’autre qu’un vecteur de taille <code>1L</code>. C’est pour cela qu’on a pu appliquer <code>\(x) x[1L] + 1L</code> sur -1L.</p>
 </div>
 </div>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-6">
+
+</div>
+<script type="webr-6-contents">
+eyJjb2RlIjoidmVjdGV1ciA8LSB2YXBwbHkobGlzdChjKDNMLCAzTCwgMTBMKSxcbiAgICAgICAgICAgICAgICAgICAgICAgYyg3TCwgLTJMLCAxMUwsIDIyTCksXG4gICAgICAgICAgICAgICAgICAgICAgIC0xTCksXG4gICAgICAgICAgICAgICAgICBcXCh4KSB4WzFMXSArIDFMLFxuICAgICAgICAgICAgICAgICAgMTMzMTIzMTI4TClcbnZlY3RldXJcbnR5cGVvZih2ZWN0ZXVyKSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>Ce calcul est exactement similaire au précédent. Ce qui est mis en avant ici, c’est que seul le <em>type</em> du troisième argument (<code>FUN.VALUE</code>) importe, sa valeur n’a aucune importance. Ici, si on veut retourner un vecteur entier, n’importe quel entier de taille <code>1L</code> fait l’affaire.</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-7">
+
+</div>
+<script type="webr-7-contents">
+eyJjb2RlIjoibWF0cmljZSA8LVxuICB2YXBwbHkoXG4gICAgYyhcImFcIiwgXCJiXCIsIFwiY1wiLCBcImRcIiksXG4gICAgXFwoeCkgYyh4LCB4LCB4KSxcbiAgICBjKFwiXCIsIFwiXCIsIFwiXCIpXG4gIClcbm1hdHJpY2VcbnR5cGVvZihtYXRyaWNlKSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>Dans le cas où, comme ici, chaque <em>application unitaire</em> de la fonction utilisée retourne plusieurs valeurs, alors l’argument <code>FUN.VALUE</code> doit être un vecteur de même taille.</p>
 <ul>
 <li>L’application de <code>\(x) c(x, x, x)</code> sur <code>"a"</code> donne <code>c("a", "a", "a")</code>.</li>
@@ -2090,14 +339,32 @@ Note
 </ul>
 <p>On attend quatre objets de <strong>taille <code>3L</code></strong>. C’est pour cela que nous soumettons à l’argument <code>FUN.VALUE</code> un <code>"character"</code> de taille <code>3L</code>.</p>
 <p>L’objet retourné sera une <em>matrice</em> et non plus un vecteur. Comme dans le cas vectoriel, son type est déterminé par celui de <code>FUN.VALUE</code>.</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-8">
+
+</div>
+<script type="webr-8-contents">
+eyJjb2RlIjoibWF0cmljZSA8LVxuICB2YXBwbHkoXG4gICAgYyhcImFcIiwgXCJiXCIsIFwiY1wiLCBcImRcIiksXG4gICAgXFwoeCkgYyh4LCB4LCB4KSxcbiAgICBjKFwiamVcIiwgXCJzdWlzXCIsIFwiYXJiaXRyYWlyZVwiKVxuICApXG5tYXRyaWNlXG50eXBlb2YobWF0cmljZSkiLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <p>Là encore, on remarque que les valeurs de l’argument <code>FUN.VALUE</code> sont purement arbitraires. Seules sa longueur et son type importent.</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-9">
+
+</div>
+<script type="webr-9-contents">
+eyJjb2RlIjoidmVjdGV1ciA8LSBzYXBwbHkobGlzdChjKDNMLCAzTCwgMTBMKSxcbiAgICAgICAgICAgICAgICAgICAgICAgYyg3TCwgLTJMLCAxMUwsIDIyTCksXG4gICAgICAgICAgICAgICAgICAgICAgIC0xTCksXG4gICAgICAgICAgICAgICAgICBcXCh4KSB4WzFMXSArIDFMKVxudmVjdGV1clxudHlwZW9mKHZlY3RldXIpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Comme on le voit ci-dessous, <code>sapply</code> est un raccourci de <code>vapply</code> sans la <code>FUN.VALUE</code>. <code>sapply</code> devine automatiquement les dimensions et le type requis. Utiliser un <code>vapply</code> explicite est cependant <em>en général</em> une meilleure pratique à l’intérieur d’un programme.</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-10">
+
+</div>
+<script type="webr-10-contents">
+eyJjb2RlIjoibWF0cmljZSA8LVxuICBzYXBwbHkoXG4gICAgYyhcImFcIiwgXCJiXCIsIFwiY1wiLCBcImRcIiksXG4gICAgXFwoeCkgYyh4LCB4LCB4KVxuICApXG5tYXRyaWNlXG50eXBlb2YobWF0cmljZSkiLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2117,8 +384,14 @@ sapply est plus laxiste que vapply
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) <span class="fu">c</span>(x, x, x)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-11">
+
+</div>
+<script type="webr-11-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBlc3NheWVyIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <p>Que se passe-t-il&nbsp;? Pourquoi ? Peut-on résoudre ce problème avec un vapply&nbsp;?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -2142,20 +415,50 @@ Réponse
 <section id="map-appliquer-une-fonction-multi-paramètres-termes-à-termes" class="level2">
 <h2 class="anchored" data-anchor-id="map-appliquer-une-fonction-multi-paramètres-termes-à-termes">Map&nbsp;: appliquer une fonction multi-paramètres termes à termes</h2>
 <p>On a vu avec <code>lapply</code> comment appliquer une fonction sur chaque termes d’<em>une</em> liste ou d’un vecteur et retourner une liste. Cependant, parfois, un seul argument ne suffit pas, et l’on a envie d’appliquer une fonction terme à terme sur plusieurs listes ou vecteurs. La fonction <code>Map</code> remplit ce besoin.</p>
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-12">
+
+</div>
+<script type="webr-12-contents">
+eyJjb2RlIjoiTWFwKHBhc3RlLFxuICAgIGMoXCJhXCIsIFwiYlwiLCBcImNcIiksXG4gICAgYyhcImRcIiwgXCJlXCIsIFwiZlwiKSkiLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <p>On voit ici que la fonction <code>Map</code> permet d’appliquer termet à terme la fonction <code>paste</code> sur plusieurs vecteurs character.</p>
-<div id="qwebr-insertion-location-13"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-13">
+
+</div>
+<script type="webr-13-contents">
+eyJjb2RlIjoiTWFwKHBhc3RlLFxuICAgIGMoXCJhXCIsIFwiYlwiLCBcImNcIiksXG4gICAgYyhcImRcIiwgXCJlXCIsIFwiZlwiKSxcbiAgICBNb3JlQXJncyA9IGxpc3Qoc2VwID0gXCJcIikpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>L’argument <code>MoreArgs</code> de <code>Map</code> permet de rajouter une liste d’arguments complémentaires, qui restent fixes entre tous les appels.</p>
-<div id="qwebr-insertion-location-14"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-14">
+
+</div>
+<script type="webr-14-contents">
+eyJjb2RlIjoiTWFwKFxcKC4uLikgcGFzdGUoLi4uLCBzZXAgPSBcIlwiKSxcbiAgICBjKFwiYVwiLCBcImJcIiwgXCJjXCIpLFxuICAgIGMoXCJkXCIsIFwiZVwiLCBcImZcIikpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>On aurait aussi tout aussi pu utiliser une fonction anonyme pour spécifier des arguments complémentaires. C’est au choix&nbsp;!</p>
-<div id="qwebr-insertion-location-15"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-15">
+
+</div>
+<script type="webr-15-contents">
+eyJjb2RlIjoiTWFwKHBhc3RlLFxuICAgIGMoXCJhXCIsIFwiYlwiLCBcImNcIiksXG4gICAgYyhcImRcIiwgXCJlXCIsIFwiZlwiKSxcbiAgICBjKFwiZ1wiLCBcImhcIiwgXCJpXCIpKSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>On vérifie ci-dessus que la fonction <code>Map</code> permet d’utiliser plus que deux arguments.</p>
-<div id="qwebr-insertion-location-16"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-16">
+
+</div>
+<script type="webr-16-contents">
+eyJjb2RlIjoiTWFwKGArYCxcbiAgICBsaXN0KGMoMUwsIDJMLCAzTCksIGMoNEwsIDVMLCA2TCwgN0wpLCBjKDhMLCA5TCkpLFxuICAgIGxpc3QoYygxMEwsIDExTCwgMTJMKSwgYygxM0wsIDE0TCwgMTVMLCAxNkwpLCBjKDE3TCwgMThMKSkpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>La fonction <code>Map</code> peut tout-à-fait utiliser des listes. Ici, elle renvoie donc une liste appliquant la fonction <code>+</code> terme à terme&nbsp;:</p>
 <ul>
 <li><code>c(1L, 2L, 3L) + c(10L, 11L, 12L)</code> pour le premier terme.</li>
@@ -2167,14 +470,32 @@ Réponse
 <h2 class="anchored" data-anchor-id="replicate-une-variante-commode-de-lapply-pour-les-générations-de-nombres-aléatoires">replicate&nbsp;: une variante commode de lapply pour les générations de nombres aléatoires</h2>
 <p>Certaines fonctions utiles en statistiques génèrent des nombres aléatoires. Par exemple, <code>runif(2L)</code> renvoie <code>2L</code> nombres entre 0 et 1 selon une loi uniforme. Si on veut générer <code>4L</code> vecteurs de <code>2L</code> nombres aléatoires, on voudrait appliquer un <code>lapply</code> sur <code>function() runif(2L)</code>.</p>
 <p>Le problème, c’est que cette fonction est sans paramètre. Du coup comment lui spécifier un <code>lapply</code> de bonne longueur&nbsp;? On voudrait faire un truc du genre&nbsp;:</p>
-<div id="qwebr-insertion-location-17"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-17">
+
+</div>
+<script type="webr-17-contents">
+eyJjb2RlIjoibGFwcGx5KGxpc3QoTlVMTCwgTlVMTCwgTlVMTCwgTlVMTCksXG4gICAgICAgZnVuY3Rpb24oKSBydW5pZigyTCkpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Mais cela n’est pas permis par R. On peut contourner le problème avec la solution ci-dessous&nbsp;:</p>
-<div id="qwebr-insertion-location-18"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-18">
+
+</div>
+<script type="webr-18-contents">
+eyJjb2RlIjoibGFwcGx5KDFMOjRMLFxuICAgICAgIGZ1bmN0aW9uKHgpIHJ1bmlmKDJMKSkiLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <p>Ce n’est cependant pas des plus élégants, car on utilise un argument purement fictif. Une alternative un peu plus claire existe donc. C’est la fonction <code>replicate</code>.</p>
-<div id="qwebr-insertion-location-19"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-19">
+
+</div>
+<script type="webr-19-contents">
+eyJjb2RlIjoicmVwbGljYXRlKDRMLCBydW5pZigyTCksIHNpbXBsaWZ5ID0gRkFMU0UpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p><code>replicate</code> est une variante de <code>lapply</code> qui permet d’évaluer une <em>expression</em> plusieurs fois de suite. Cela n’est, bien entendu, utile que dans le cas où cette expression renvoie des résultats différents à chaque évaluation, ce qui est notamment le cas en ce qui concerne la générations de nombres aléatoires.</p>
 <p>On note l’argument <code>simplify = FALSE</code> à la fin. Si celui-ci n’est pas spécifié, il est par défaut défini à la valeur <code>TRUE</code>, et alors <code>replicate</code> se comporte comme un <code>sapply</code>&nbsp;; il essaye de construire des matrices.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2194,8 +515,14 @@ Note
 <section id="apply-appliquer-une-fonction-sur-les-lignes-ou-les-colonnes-dune-matrice" class="level2">
 <h2 class="anchored" data-anchor-id="apply-appliquer-une-fonction-sur-les-lignes-ou-les-colonnes-dune-matrice">apply&nbsp;: appliquer une fonction sur les lignes ou les colonnes d’une matrice</h2>
 <p><code>apply</code> permet d’appliquer une fonction par ligne ou par colonne sur une matrice.</p>
-<div id="qwebr-insertion-location-20"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-20">
+
+</div>
+<script type="webr-20-contents">
+eyJjb2RlIjoibWF0cmljZSA8LVxuICBtYXRyaXgoMToxMixcbiAgICAgICAgIG5yb3cgPSAzTClcbnByaW50KG1hdHJpY2UpXG5hcHBseShtYXRyaWNlLFxuICAgICAgMUwsXG4gICAgICBtYXgpXG5hcHBseShtYXRyaWNlLFxuICAgICAgMkwsXG4gICAgICBtYXgpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Dans le tronçon de code ci-dessus, on a appliqué la fonction <code>max</code> (maximum) respectivement sur chaque ligne et chaque colonne. C’est l’argument <code>MARGIN</code> en deuxième position qui permet de déterminer la direction de cette application de fonction (<code>1</code> pour les lignes, <code>2</code> pour les colonnes).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2214,25 +541,55 @@ Note
 <section id="do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments" class="level2">
 <h2 class="anchored" data-anchor-id="do.call-appliquer-une-fonction-multi-paramètres-sur-une-liste-darguments">do.call&nbsp;: appliquer une fonction multi-paramètres sur une liste d’arguments</h2>
 <p>La fonction <code>do.call</code> permet d’utiliser une fonction multi-paramètres, par exemple (mais pas obligatoirement) une fonction dépendant de paramètres en dots <code>...</code>, sur une liste de valeurs.</p>
-<div id="qwebr-insertion-location-21"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-21">
+
+</div>
+<script type="webr-21-contents">
+eyJjb2RlIjoiZG8uY2FsbChwYXN0ZSwgbGlzdChcImFcIiwgXCJiXCIsIFwiY1wiLCBzZXAgPSBcIi9cIikpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Ici, on a appliqué la fonction <code>paste</code> en même temps sur chaque élément de la liste fournie en argument. On peut noter, également, que les éléments nommés de la liste (ici <code>sep</code>) sont traduits par des arguments nommés.</p>
 </section>
 <section id="reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire" class="level2">
 <h2 class="anchored" data-anchor-id="reduce-réduire-une-liste-ou-un-vecteur-darguments-par-application-successive-dun-opérateur-binaire">Reduce&nbsp;: réduire une liste ou un vecteur d’arguments par application successive d’un opérateur binaire</h2>
 <p>La fonction <code>Reduce</code> permet d’appliquer consécutivement une opération binaire.</p>
-<div id="qwebr-insertion-location-22"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-22">
+
+</div>
+<script type="webr-22-contents">
+eyJjb2RlIjoiUmVkdWNlKGArYCwgYygxLCAyLCA4LCAtNykpIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Cet exemple (que l’on a déjà vu dans le chapitre précédent) correspond à <code>((1 + 2) + 8) + (-7)</code>. Chaque étape utilise l’opération binaire <code>+</code>.</p>
-<div id="qwebr-insertion-location-23"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-23">
+
+</div>
+<script type="webr-23-contents">
+eyJjb2RlIjoiUmVkdWNlKGArYCwgYygxLCAyLCA4LCAtNyksIGFjY3VtdWxhdGUgPSBUUlVFKSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>Comme on le voit ci-dessus, on peut éventuellement, à l’aide de <code>accumulate = TRUE</code>, conserver les résultats intermédiaires de la réduction. À savoir ici <code>1</code>, puis <code>1 + 2</code>, puis <code>1 + 2 + 8</code> et enfin <code>1 + 2 + 8 - 7</code>.</p>
 <p>Mais <code>Reduce</code> peut être employé dans des calculs plus complexes.</p>
-<div id="qwebr-insertion-location-24"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-24">
+
+</div>
+<script type="webr-24-contents">
+eyJjb2RlIjoibGlzdGVfZm9uY3Rpb25zIDwtIGxpc3QoXG4gIFxcKHgpIHggKyAxLFxuICBcXCh4KSB4IC8gMyxcbiAgYXRhblxuKVxuXG5jb21wb3Nlcl9mb25jdGlvbnMgPC0gZnVuY3Rpb24oZTEsIGUyKSB7XG4gIGUxIDwtIG1hdGNoLmZ1bihlMSlcbiAgZTIgPC0gbWF0Y2guZnVuKGUyKVxuICBmdW5jdGlvbiguLi4pIHtcbiAgICBlMShlMiguLi4pKVxuICB9XG59XG5cbmZvbmN0aW9uX2NvbXBvc2VlIDwtIFJlZHVjZShjb21wb3Nlcl9mb25jdGlvbnMsIGxpc3RlX2ZvbmN0aW9ucylcblxuZm9uY3Rpb25fY29tcG9zZWUocGkpXG5hdGFuKHBpKSAvIDMgKyAxIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <p>Dans l’exemple précédent, on a appliqué sur une liste de fonctions l’opérateur <code>Reduce</code> au sens de la composition. C’est un joli exemple pour montrer la richesse d’un langage fonctionnel et illustrer l’idée que <code>Reduce</code> n’est pas restreint à des opérations numériques. En général, cependant, on préfèrera éviter d’empiler des fonctions non-évaluées. On préfèrera donc une notation intermédiaire comme employé ci-dessous.</p>
-<div id="qwebr-insertion-location-25"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-25">
+
+</div>
+<script type="webr-25-contents">
+eyJjb2RlIjoibGlzdGVfZm9uY3Rpb25zIDwtIGxpc3QoXG4gIFxcKHgpIHggKyAxLFxuICBcXCh4KSB4IC8gMyxcbiAgYXRhblxuKVxuXG5hcHBsaXF1ZXJfZm9uY3Rpb24gPC0gZnVuY3Rpb24oZiwgYWNjdW11bGF0ZXVyKSB7XG4gIGYgPC0gbWF0Y2guZnVuKGYpXG4gIGYoYWNjdW11bGF0ZXVyKVxufVxuXG5SZWR1Y2UoYXBwbGlxdWVyX2ZvbmN0aW9uLCBsaXN0ZV9mb25jdGlvbnMsIGluaXQgPSBwaSwgcmlnaHQgPSBUUlVFKSIsImF0dHIiOnsiYXV0b3J1biI6ZmFsc2UsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImNvbXBsZXRpb24iOnRydWV9fQ==
+</script>
+</div>
 <p>Ici, plutôt que d’empiler des fonctions en mémoire, on les applique successivement. <code>applique_fonction</code> reste une opération binaire, mais est une loi de composition externe, dans la mesure où <code>f</code> est une fonction tandis que <code>accumulateur</code> est un résultat numérique. On remarque aussi qu’on a utilisé l’argument <code>init</code> de <code>Reduce</code> qui permet d’initialiser l’accumulateur. En effet si on veut obtenir <code>atan(pi) / 3 + 1</code> il faut bien renseigner qu’on commence à <code>pi</code> quelque part. L’argument <code>right = TRUE</code> permet de parcourir la liste de droite à gauche plutôt que de gauche à droite.</p>
 </section>
 <section id="exercices" class="level2">
@@ -2240,8 +597,14 @@ Note
 <section id="question-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>À l’aide de la fonction <code>pmax</code> (sans utiliser la fonction <code>max</code>), calculer le maximum de cette liste. Vous pouvez consulter l’aide de la fonction <code>pmax</code> avec <code>help(pmax)</code>.</p>
-<div id="qwebr-insertion-location-26"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-26">
+
+</div>
+<script type="webr-26-contents">
+eyJjb2RlIjoibGlzdGUgPC0gbGlzdCgxLCAtNywgOCwgMClcbiMgVm91cyBwb3V2ZXogZmFpcmUgbCdleGVyY2ljZSBpY2kuIiwiYXR0ciI6eyJhdXRvcnVuIjpmYWxzZSwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwiY29tcGxldGlvbiI6dHJ1ZX19
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2268,8 +631,14 @@ Proposition de solution
 <section id="question-2" class="level3">
 <h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Générer une liste avec 10 vecteurs de taille 60, chacun répartis selon une loi normale d’espérance 3 et d’écart-type 0.5. Vous pouvez consulter l’aide de la fonction <code>rnorm</code> via <code>help(rnorm)</code>.</p>
-<div id="qwebr-insertion-location-27"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-27">
+
+</div>
+<script type="webr-27-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBmYWlyZSBsJ2V4ZXJjaWNlIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2286,104 +655,104 @@ Proposition de solution
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">60</span>,<span class="at">mean =</span> <span class="dv">3</span>,<span class="at">sd =</span> <span class="fl">0.5</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
- [1] 2.429103 3.415584 3.009524 3.031926 3.543955 2.622301 1.015770 3.366279
- [9] 2.787758 3.207455 2.755796 3.500746 2.707225 3.164017 3.396843 2.764238
-[17] 2.787244 3.892485 2.958014 3.744205 2.354590 2.595488 3.487342 1.920197
-[25] 3.592085 2.966961 2.372444 3.710612 2.490912 3.405863 3.560569 2.752330
-[33] 3.206974 2.818313 2.700698 2.654254 2.933925 3.061586 2.549196 2.179076
-[41] 3.492131 3.188441 4.270364 3.407461 3.205438 2.613679 2.982164 3.311649
-[49] 3.084294 3.842946 3.325393 3.138511 2.911442 2.342432 2.730341 3.043726
-[57] 2.308085 2.707048 3.292035 3.077976
+ [1] 3.470424 2.471308 2.584960 2.316121 3.409101 2.493150 3.125794 3.078102
+ [9] 3.777840 2.770482 2.799297 3.388810 2.707494 4.136750 2.825598 3.008842
+[17] 3.495914 2.906943 2.701140 3.132784 2.984378 2.645335 3.930973 2.615292
+[25] 2.817118 3.215616 2.463068 2.735560 3.882239 3.613711 2.335054 2.516899
+[33] 4.837504 3.663178 2.754062 3.902608 3.397367 3.577524 3.636965 3.504315
+[41] 2.568166 2.674768 2.743164 2.328111 2.395453 3.103760 2.806642 2.695817
+[49] 2.047530 2.746201 2.547124 2.629454 3.309708 3.103301 2.298753 3.019015
+[57] 1.961384 3.475902 2.152760 3.166011
 
 [[2]]
- [1] 3.579544 2.498411 2.750202 3.225130 2.624349 3.121406 2.505851 2.791492
- [9] 4.117042 2.529574 2.745954 3.228631 2.541203 2.867217 2.775245 2.891164
-[17] 3.532137 3.294214 3.371348 2.835718 2.772975 2.676874 3.705688 3.340240
-[25] 3.309221 3.949447 2.849363 3.149143 3.331778 3.220734 3.392333 2.192489
-[33] 2.884816 2.734537 3.956134 3.451113 2.639883 2.916229 2.950615 3.395520
-[41] 2.953448 1.962875 2.372810 2.437398 2.738360 3.164218 2.460925 4.140471
-[49] 2.507999 3.069312 2.685042 3.035455 3.282534 3.041117 3.167093 3.282796
-[57] 3.695566 2.603164 2.884071 3.321754
+ [1] 3.306328 4.008111 2.674942 3.352197 3.522520 2.735502 3.345299 2.476971
+ [9] 2.941742 3.377112 2.478864 2.643379 3.200064 3.016897 2.632701 2.663798
+[17] 2.418015 2.577971 3.060638 2.858699 3.166595 3.134945 2.517527 4.001490
+[25] 3.395719 2.429476 2.489508 2.513601 3.378470 3.820562 3.333770 2.012932
+[33] 3.249946 3.010429 3.146499 2.199191 4.067707 2.972930 3.404089 2.513853
+[41] 1.879285 3.171005 3.064720 3.024042 2.896917 2.684672 2.502285 2.270987
+[49] 2.740002 2.574804 4.562926 3.312808 2.940437 2.675744 2.977440 2.429078
+[57] 3.537911 2.923983 3.483795 3.110668
 
 [[3]]
- [1] 3.406380 2.792300 3.223258 3.788121 2.723411 3.107646 3.913551 3.346142
- [9] 2.402350 3.295187 2.994462 3.336227 3.368580 2.991936 3.350158 2.569993
-[17] 2.397055 3.259035 2.664508 3.267070 3.429881 3.623431 2.314331 3.401681
-[25] 2.104506 2.855291 3.364903 1.971101 2.763393 2.471267 2.947826 2.061164
-[33] 3.535375 3.242686 2.798000 2.332733 2.947497 3.234871 3.190845 2.311946
-[41] 2.901478 1.817279 2.646456 3.742021 2.753631 3.047735 2.328441 2.887916
-[49] 3.068018 3.037519 3.343207 2.945122 4.063095 3.223134 2.895610 2.899925
-[57] 2.890483 3.019661 3.195545 2.955076
+ [1] 2.625561 3.215994 3.066796 2.641782 2.683984 3.496973 3.595177 2.630298
+ [9] 3.352719 3.539182 2.406882 2.461722 2.373515 2.938796 2.911261 2.341345
+[17] 2.676196 3.807467 2.885817 2.588913 3.108940 2.791532 2.643203 3.305697
+[25] 2.598296 3.578146 3.078350 2.471116 2.212393 2.704519 4.021515 3.051843
+[33] 2.440652 2.981930 2.709893 3.237108 2.732583 2.850585 3.768024 3.381944
+[41] 2.977432 3.594014 3.326026 3.753120 2.300469 3.185493 3.378874 3.094768
+[49] 2.892185 3.881153 2.532124 3.346796 3.192139 3.235838 2.672568 2.976960
+[57] 3.726402 3.019789 2.724554 2.793794
 
 [[4]]
- [1] 2.785548 3.016399 3.282066 3.292113 2.939486 3.230179 3.218320 3.183059
- [9] 3.486883 2.771156 3.309059 3.556389 2.518076 3.235723 2.773941 3.032800
-[17] 3.567072 3.457007 2.542221 2.999907 2.658792 3.442218 3.148623 2.800997
-[25] 3.794438 2.548970 3.363377 2.395722 3.805651 2.556230 3.407531 2.591757
-[33] 3.285480 2.991855 3.218857 3.469995 4.052251 3.244903 2.886127 3.495720
-[41] 2.850336 3.383711 3.080671 2.758116 3.586509 2.808795 1.892782 2.378524
-[49] 2.852904 3.818573 2.735797 2.899312 2.753183 3.275234 2.665434 3.096249
-[57] 2.357684 2.526087 3.083263 3.353455
+ [1] 3.158189 2.398165 3.098009 2.800241 3.262148 3.047194 2.403459 2.928698
+ [9] 3.321670 2.683875 1.773971 2.397745 2.722204 2.022777 3.397413 3.007172
+[17] 2.574930 3.119731 2.701111 2.797235 2.943635 3.733191 3.745921 4.438385
+[25] 3.565330 2.675009 3.518643 2.374108 3.177296 2.864868 2.561182 2.947542
+[33] 1.702800 2.703579 3.460548 3.877193 3.652656 3.066977 3.409004 3.301056
+[41] 2.579123 2.366629 3.023645 3.091292 2.976147 2.744567 4.186498 3.634702
+[49] 2.734875 3.340995 3.550828 3.193494 3.528645 2.200392 3.030490 3.906812
+[57] 3.028636 3.309652 3.300605 2.468800
 
 [[5]]
- [1] 2.309495 2.664200 2.230365 2.950317 3.135849 2.970328 3.063305 3.035830
- [9] 3.179163 3.352407 2.070495 3.355854 3.537963 3.298369 2.829463 3.880065
-[17] 3.080443 3.239655 3.130785 3.625610 3.185456 2.784868 3.844649 3.593878
-[25] 2.962113 3.492901 3.256149 2.512952 3.473710 2.773163 3.365746 2.782069
-[33] 3.629161 2.674883 3.206993 3.610765 2.341112 3.229066 2.800531 3.678441
-[41] 2.986656 2.632890 2.844648 4.136544 3.377772 3.205830 3.221568 2.409924
-[49] 3.413624 2.919001 2.014557 2.704075 2.782246 3.155836 2.592467 3.525378
-[57] 3.274643 3.590909 2.550054 2.827897
+ [1] 3.403033 2.722482 2.898130 2.625809 3.251994 2.629126 3.475764 2.499024
+ [9] 3.149711 3.398932 2.828731 3.334511 2.663876 2.785145 3.874436 3.752188
+[17] 2.906201 3.594700 2.812675 2.451431 3.402193 3.678386 2.766995 4.064806
+[25] 3.465641 2.491374 3.584876 2.413268 2.696393 3.106049 2.733034 3.430084
+[33] 2.461092 2.849721 2.142794 3.387180 3.225781 2.945373 3.109618 3.440250
+[41] 3.624463 2.894854 3.548334 3.112525 2.819767 2.491552 3.141157 2.235021
+[49] 2.979516 2.753597 2.397599 2.102760 3.740161 2.857152 3.376144 3.985029
+[57] 2.462497 2.294221 2.694636 3.219293
 
 [[6]]
- [1] 3.199549 2.994215 3.034013 2.477343 3.601129 1.963493 3.090915 2.777587
- [9] 3.139392 2.984404 2.760835 3.558723 3.305411 3.330474 2.921671 2.401346
-[17] 3.733306 2.323101 2.534277 3.337244 2.841724 3.639609 2.473259 3.641380
-[25] 2.501451 3.538868 2.655379 2.258257 2.984642 2.349177 2.872750 2.857906
-[33] 2.767172 2.597679 3.188931 2.426634 3.136566 3.315685 3.050759 3.165053
-[41] 3.485254 2.543173 2.408506 2.682877 2.245619 2.441866 3.478246 2.849578
-[49] 3.451080 3.697672 3.338572 3.476533 2.812811 2.943154 2.916615 3.033446
-[57] 3.584305 2.549365 1.948388 3.450613
+ [1] 2.944489 3.362153 3.034873 3.670080 2.950553 3.307679 3.089458 2.034297
+ [9] 2.642858 4.233038 2.893952 2.738064 2.770913 3.388786 2.841880 2.179214
+[17] 2.334079 3.505845 3.458183 3.249421 2.334371 4.055090 3.257980 2.671731
+[25] 3.587006 2.739501 3.130217 3.453241 3.390230 3.079901 1.418833 2.677239
+[33] 3.113578 2.604114 3.424330 3.176244 3.021336 3.416500 2.875764 2.498230
+[41] 2.913885 3.273027 3.287479 2.939205 2.468672 3.907488 3.432452 3.193145
+[49] 2.487964 2.692401 3.248112 2.885220 3.057866 3.084784 3.561999 3.034946
+[57] 1.623364 2.847038 2.634423 3.082212
 
 [[7]]
- [1] 3.761863 2.530732 2.340896 3.847851 3.626649 2.788251 4.002105 3.201898
- [9] 3.411358 3.759361 3.398798 3.674523 3.356928 2.311715 3.001743 3.330768
-[17] 2.340872 1.944399 2.801588 2.972181 2.904970 2.378567 2.621495 2.657327
-[25] 2.829515 2.960130 3.188522 3.048541 2.828059 3.798238 2.412978 3.072339
-[33] 2.817698 3.670408 2.597084 2.266935 2.873914 3.263479 3.204887 2.864578
-[41] 2.233381 3.396365 3.100324 2.309079 3.472912 2.256339 3.577509 3.368112
-[49] 2.180966 2.831652 2.514978 3.152102 3.121355 3.414638 3.519205 3.001410
-[57] 2.779082 2.872592 2.522204 2.652113
+ [1] 3.473342 3.704565 2.570288 3.765705 3.397721 3.167262 3.013393 3.079689
+ [9] 3.838474 2.940180 2.776916 2.734261 3.117434 3.032356 2.071085 2.993386
+[17] 2.594451 3.062057 2.560993 2.856496 2.105129 3.623648 3.366360 2.388881
+[25] 2.806325 3.763498 2.241823 3.079727 3.986858 2.793916 2.990317 3.501300
+[33] 2.406679 3.455569 3.004783 3.420708 2.791618 3.017420 2.790189 3.038015
+[41] 3.044121 3.044411 3.134655 3.134215 3.038144 1.983835 3.217262 3.335144
+[49] 2.632683 2.645032 2.823344 2.322081 2.958654 1.582757 3.756244 3.132027
+[57] 2.586562 2.537012 2.336935 2.447597
 
 [[8]]
- [1] 3.797583 3.509104 3.511721 2.596960 2.933319 2.323726 2.501908 3.518213
- [9] 3.626118 2.611222 3.207760 3.364316 3.341931 1.739638 2.866524 2.493731
-[17] 3.722507 2.566013 3.439518 3.256473 2.699320 2.541031 2.594098 2.695672
-[25] 2.505980 3.493007 2.747366 2.590824 2.114845 2.654473 2.833817 3.421826
-[33] 2.431199 3.302020 2.577308 4.025283 2.792481 2.906991 2.512716 3.116242
-[41] 2.793955 2.888118 3.341093 2.879357 3.468074 2.798148 2.861141 3.243243
-[49] 3.082384 2.436681 2.384587 2.780959 2.972880 2.785664 2.843332 2.369633
-[57] 2.984218 3.695584 2.829730 2.994054
+ [1] 2.816087 3.499386 2.747937 2.565524 3.463028 3.406456 3.072500 2.446014
+ [9] 2.934522 2.849743 3.415703 2.824069 3.414236 3.412597 2.613685 3.189011
+[17] 2.975977 3.845079 3.467591 2.609034 4.048679 3.565652 3.245693 3.112662
+[25] 3.077697 2.878616 2.827788 2.848306 2.566436 2.531241 3.299478 3.051215
+[33] 3.265303 3.334410 3.179818 2.902991 3.259542 3.535567 2.794965 2.873382
+[41] 3.413703 3.011585 3.055184 2.401212 2.301401 2.998753 2.099096 3.085457
+[49] 3.596058 2.722082 3.016601 2.859979 3.768987 2.941203 2.654771 3.366434
+[57] 2.199634 3.136325 3.406717 2.977679
 
 [[9]]
- [1] 3.064510 3.075115 3.328707 3.844762 1.956716 3.309082 2.396264 2.800904
- [9] 3.705959 3.201886 2.961335 3.123894 3.044560 3.253439 2.941514 2.544302
-[17] 3.076535 2.003225 2.620393 2.860312 2.813586 3.306421 3.412254 3.593408
-[25] 3.148693 2.959723 2.494996 2.845053 2.993631 3.334021 3.626590 3.271585
-[33] 3.507361 4.050760 2.435059 2.175242 2.675592 3.576297 3.313389 2.150557
-[41] 2.914616 4.140081 3.168798 3.144484 3.077853 2.564470 2.190291 2.400983
-[49] 3.106479 3.103408 3.032970 3.251081 2.896258 2.982630 3.855362 3.090448
-[57] 3.380667 2.479034 2.475106 2.833183
+ [1] 2.788047 2.637924 3.555004 3.183345 2.404299 3.187825 3.146157 2.460692
+ [9] 3.133969 2.440735 2.279988 3.161919 3.169670 2.490678 3.270738 2.311484
+[17] 2.133827 2.439450 2.352939 2.543010 2.939247 3.440483 3.121877 3.283213
+[25] 2.690819 2.556963 4.293558 3.065923 2.744682 2.693797 2.778758 2.625196
+[33] 3.218973 2.783944 3.019399 3.073280 3.160559 2.993750 3.951331 3.110890
+[41] 2.963583 2.287423 2.763542 4.353050 3.554570 2.785683 3.229625 3.071578
+[49] 2.687625 2.712358 2.969376 3.237550 3.272200 3.259596 2.428750 3.288246
+[57] 3.586128 2.087678 2.693187 2.549653
 
 [[10]]
- [1] 3.702200 3.034006 2.616070 2.303982 2.204584 2.938259 2.759372 3.455118
- [9] 1.722823 2.505954 2.476846 2.302939 2.672530 2.290042 2.377362 2.760185
-[17] 2.836903 2.700783 2.828926 3.789069 2.419823 2.843495 3.397366 3.321606
-[25] 3.313761 3.154178 3.541750 3.182323 2.810486 3.161945 3.189492 3.184888
-[33] 2.926099 3.276063 2.313306 2.862894 2.945313 2.747907 3.333530 2.502965
-[41] 2.242051 2.891373 2.380418 3.205133 3.083047 3.004817 2.639975 3.355287
-[49] 2.858372 2.872449 3.343566 2.822614 3.001314 2.187117 2.367832 3.449373
-[57] 2.619508 2.306251 2.762678 4.307339</code></pre>
+ [1] 2.709211 3.294327 3.389902 3.243378 2.090649 3.316639 3.324449 2.998944
+ [9] 3.197502 2.612758 2.872191 2.424556 2.717094 2.651507 2.855434 3.311900
+[17] 2.352251 2.588931 2.868148 2.306465 2.105707 3.077412 2.122481 3.227686
+[25] 3.639758 3.820653 3.619137 2.983141 1.946259 3.072453 2.900404 2.239743
+[33] 2.255747 3.358348 2.974929 2.438613 2.774780 3.126910 2.957532 3.547356
+[41] 3.044791 2.554218 3.581252 3.275517 2.786330 3.756731 3.152323 2.314077
+[49] 2.392999 3.521093 2.707228 2.882689 3.407814 2.348080 3.726972 2.796712
+[57] 2.469982 3.177922 3.688594 1.947426</code></pre>
 </div>
 </div>
 </div>
@@ -2393,8 +762,14 @@ Proposition de solution
 <section id="question-3" class="level3">
 <h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <p>À l’aide de la fonction <code>paste0</code> (qui est comme la fonction <code>paste</code> mais avec l’argument par défaut <code>sep = ""</code>), produire la chaine de caractère <code>"aabbccddeeffgg (...) xxyyzz"</code>. Les lettres en minuscules sont accessibles via <code>letters</code>.</p>
-<div id="qwebr-insertion-location-28"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-28">
+
+</div>
+<script type="webr-28-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBmYWlyZSBsJ2V4ZXJjaWNlIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2452,8 +827,14 @@ Propositions de solution
 </div>
 </div>
 <p>Pouvez-vous généraliser cette création de matrice à n’importe quel vecteur d’entiers&nbsp;? Pour ce faire, construisez une fonction <code>super_matrice</code> dont l’unique paramètre est <code>vecteur</code>.</p>
-<div id="qwebr-insertion-location-29"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-29">
+
+</div>
+<script type="webr-29-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBmYWlyZSBsJ2V4ZXJjaWNlIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2493,8 +874,14 @@ Proposition de solution
 <p>Proposer une version du <a href="https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne">crible d’Eratosthène</a> faisant apparaître, pour un entier n donné, un vecteur booléen de taille n donnant la primalité (ou non) de l’entier i.</p>
 <p>Par exemple, <code>crible(10)</code> donne <code>c(FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE)</code>. En effet <code>1</code> n’est pas premier, <code>2</code> est premier, <code>3</code> est premier…</p>
 <p>On pourra utiliser la fonction <code>Reduce</code>.</p>
-<div id="qwebr-insertion-location-30"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-30">
+
+</div>
+<script type="webr-30-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBmYWlyZSBsJ2V4ZXJjaWNlIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2513,8 +900,14 @@ Aide 1 (conseillée&nbsp;!)
 <li>valant <code>TRUE</code> sur les multiples de <code>i</code></li>
 <li>valant <code>FALSE</code> ailleurs</li>
 </ul>
-<div id="qwebr-insertion-location-31"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-31">
+
+</div>
+<script type="webr-31-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBmYWlyZSBsJ2V4ZXJjaWNlIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2560,8 +953,14 @@ Aide 2 (optionnel mais à ne pas consulter avant 5 minutes de brainstorming !)
 <li>valant <code>FALSE</code> sur les <strong>autres</strong> multiples de <code>i</code></li>
 <li>valant <code>TRUE</code> ailleurs</li>
 </ul>
-<div id="qwebr-insertion-location-32"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-32">
+
+</div>
+<script type="webr-32-contents">
+eyJjb2RlIjoiIyBWb3VzIHBvdXZleiBmYWlyZSBsJ2V4ZXJjaWNlIGljaS4iLCJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJjb21wbGV0aW9uIjp0cnVlfX0=
+</script>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2616,11 +1015,39 @@ Proposition de solution
 </div>
 
 
+<script type="webr-data">
+eyJwYWNrYWdlcyI6eyJwa2dzIjpbImV2YWx1YXRlIiwia25pdHIiLCJodG1sdG9vbHMiXSwicmVwb3MiOltdfSwib3B0aW9ucyI6eyJiYXNlVXJsIjoiaHR0cHM6Ly93ZWJyLnItd2FzbS5vcmcvdjAuNC4xLyJ9LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMzIifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzIsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0zMiJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMzEifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMxID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzEsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0zMSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zMDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMzAifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzAsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0zMCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yOTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjkifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI5ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjktY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yOSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjksIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yOSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yODtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjgifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI4ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yOC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjgsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yOCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yNztcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjcifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjcsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yNyJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yNjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjYifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI2ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjYsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yNiJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjUifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI1ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjUsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yNSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yNDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjQifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjQsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yNCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yMztcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjMifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIzID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjMsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yMyJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjIifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjIsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yMiJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjEifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIxID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjEsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yMSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yMDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMjAifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjAsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yMCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xOTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTkifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE5ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTktY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xOSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTksIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xOSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xODtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTgifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE4ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xOC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTgsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xOCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xNztcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTcifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTcsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xNyJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xNjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTYifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE2ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTYsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xNiJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTUifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE1ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTUsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xNSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xNDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTQifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTQsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xNCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xMztcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTMifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEzID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTMsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xMyJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTIifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTIsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xMiJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTEifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzExID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTEsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xMSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xMDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMTAifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTAsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0xMCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV85O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIiwiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC05In0seyJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl85ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItOS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTktY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfOSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfOSwge30pO1xuIiwiY2VsbE5hbWUiOiJ3ZWJyLTkifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfODtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtOCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfOCA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici04LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzggPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzgsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici04In0seyJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4iLCJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTcifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzcgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici03LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV83ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl83LCB7fSk7XG4iLCJjZWxsTmFtZSI6IndlYnItNyJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV82O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIiwiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC02In0seyJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl82ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNi1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTYtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNiwge30pO1xuIiwiY2VsbE5hbWUiOiJ3ZWJyLTYifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtNSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici01LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzUgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzUsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici01In0seyJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4iLCJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTQifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzQgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici00LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV80ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl80LCB7fSk7XG4iLCJjZWxsTmFtZSI6IndlYnItNCJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIiwiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIn0seyJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8zID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMy1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTMtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMywge30pO1xuIiwiY2VsbE5hbWUiOiJ3ZWJyLTMifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiIsImNlbGxOYW1lIjoid2Vici13aWRnZXQtMiJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMiA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzIgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzIsIHt9KTtcbiIsImNlbGxOYW1lIjoid2Vici0yIn0seyJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4iLCJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEifSx7ImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xLCB7fSk7XG4iLCJjZWxsTmFtZSI6IndlYnItMSJ9LHsiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lLldlYlI7XG4gIGNvbnN0IHsgV2ViUkV2YWx1YXRvciwgV2ViUkVudmlyb25tZW50TWFuYWdlciwgc2V0dXBSLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG5cbiAgY29uc3Qgc3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLXN0YXR1c1wiKTtcbiAgY29uc3QgaW5kaWNhdG9yQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaW5kaWNhdG9yQ29udGFpbmVyLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XG5cbiAgbGV0IHN0YXR1c1RleHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXG4gIHN0YXR1c1RleHQuY2xhc3NMaXN0ID0gXCJleGVyY2lzZS1sb2FkaW5nLWRldGFpbHNcIjtcbiAgc3RhdHVzVGV4dCA9IHN0YXR1c0NvbnRhaW5lci5hcHBlbmRDaGlsZChzdGF0dXNUZXh0KTtcbiAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbml0aWFsaXNlYDtcblxuICAvLyBIb2lzdCBpbmRpY2F0b3Igb3V0IGZyb20gZmluYWwgc2xpZGUgd2hlbiBydW5uaW5nIHVuZGVyIHJldmVhbFxuICBjb25zdCByZXZlYWxTdGF0dXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCAuZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGlmIChyZXZlYWxTdGF0dXMpIHtcbiAgICByZXZlYWxTdGF0dXMucmVtb3ZlKCk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgPiAuc2xpZGVzXCIpLmFwcGVuZENoaWxkKHJldmVhbFN0YXR1cyk7XG4gIH1cblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBzd2FsbG93aW5nIGFueSBgZGlyIGV4aXN0c2AgZXJyb3JzXG4gICAgICBsZXQgcGF0aCA9IGZpbGU7XG4gICAgICB3aGlsZSAocGF0aCA9IHBhdGguc3Vic3RyKDAsIHBhdGgubGFzdEluZGV4T2YoJy8nKSkpIHtcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKCFlLm1lc3NhZ2UuaW5jbHVkZXMoXCJGUyBlcnJvclwiKSkge1xuICAgICAgICAgICAgdGhyb3cgZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgcmV0dXJuIGF3YWl0IHdlYlIuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5zdGFsbGluZyB3ZWJSIHNoaW1zYDtcbiAgICBhd2FpdCB3ZWJSLmV2YWxSVm9pZChgd2Vicjo6c2hpbV9pbnN0YWxsKClgKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgV2ViUiBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBSKHdlYlIsIGRhdGEpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHdlYlI7XG4gIH0pKG5ldyBXZWJSKGRhdGEub3B0aW9ucykpO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCB3ZWJSID0gYXdhaXQgd2ViUlByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFdlYlJFdmFsdWF0b3Iod2ViUiwgY29udGV4dClcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9jZXNzLFxuICAgIHdlYlJQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICB9O1xufVxuIiwiY2VsbE5hbWUiOiJ3ZWJyLXByZWx1ZGUifV19
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 </section>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -3042,122 +1469,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script type="module">
-// Handle cell initialization initialization
-qwebrCellDetails.map(
-  (entry) => {
-    // Handle the creation of the element
-    qwebrCreateHTMLElement(entry);
-    // In the event of interactive, initialize the monaco editor
-    if (entry.options.context == EvalTypes.Interactive) {
-      qwebrCreateMonacoEditorInstance(entry);
-    }
-  }
-);
-
-// Identify non-interactive cells (in order)
-const filteredEntries = qwebrCellDetails.filter(entry => {
-  const contextOption = entry.options && entry.options.context;
-  return ['output', 'setup'].includes(contextOption) || (contextOption == "interactive" && entry.options && entry.options.autorun === 'true');
-});
-
-// Condition non-interactive cells to only be run after webR finishes its initialization.
-qwebrInstance.then(
-  async () => {
-    const nHiddenCells = filteredEntries.length;
-    var currentHiddenCell = 0;
-
-
-    // Modify button state
-    qwebrSetInteractiveButtonState(`🟡 Running hidden code cells ...`, false);
-
-    // Begin processing non-interactive sections
-    // Due to the iteration policy, we must use a for() loop.
-    // Otherwise, we would need to switch to using reduce with an empty
-    // starting promise
-    for (const entry of filteredEntries) {
-
-      // Determine cell being examined
-      currentHiddenCell = currentHiddenCell + 1;
-      const formattedMessage = `Evaluating hidden cell ${currentHiddenCell} out of ${nHiddenCells}`;
-
-      // Update the document status header
-      if (qwebrShowStartupMessage) {
-        qwebrUpdateStatusHeader(formattedMessage);
-      }
-
-      // Display the update in non-active areas
-      qwebrUpdateStatusMessage(formattedMessage);
-
-      // Extract details on the active cell
-      const evalType = entry.options.context;
-      const cellCode = entry.code;
-      const qwebrCounter = entry.id;
-
-      if (['output', 'setup'].includes(evalType)) {
-        // Disable further global status updates
-        const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
-        activeContainer.classList.remove('qwebr-cell-needs-evaluation');
-        activeContainer.classList.add('qwebr-cell-evaluated');
-
-        // Update status on the code cell
-        const activeStatus = document.getElementById(`qwebr-status-text-${qwebrCounter}`);
-        activeStatus.innerText = " Evaluating hidden code cell...";
-        activeStatus.classList.remove('qwebr-cell-needs-evaluation');
-        activeStatus.classList.add('qwebr-cell-evaluated');
-      }
-
-      switch (evalType) {
-        case 'interactive':
-          // TODO: Make this more standardized.
-          // At the moment, we're overriding the interactive status update by pretending its
-          // output-like. 
-          const tempOptions = entry.options;
-          tempOptions["context"] = "output"
-          // Run the code in a non-interactive state that is geared to displaying output
-          await qwebrExecuteCode(`${cellCode}`, qwebrCounter, tempOptions);
-          break;
-        case 'output':
-          // Run the code in a non-interactive state that is geared to displaying output
-          await qwebrExecuteCode(`${cellCode}`, qwebrCounter, entry.options);
-          break;
-        case 'setup':
-          const activeDiv = document.getElementById(`qwebr-noninteractive-setup-area-${qwebrCounter}`);
-
-          // Store code in history
-          qwebrLogCodeToHistory(cellCode, entry.options);
-
-          // Run the code in a non-interactive state with all output thrown away
-          await mainWebR.evalRVoid(`${cellCode}`);
-          break;
-        default: 
-          break; 
-      }
-
-      if (['output', 'setup'].includes(evalType)) {
-        // Disable further global status updates
-        const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
-        // Disable visibility
-        activeContainer.style.visibility = 'hidden';
-        activeContainer.style.display = 'none';
-      }
-    }
-  }
-).then(
-  () => {
-    // Release document status as ready
-
-    if (qwebrShowStartupMessage) {
-      qwebrStartupMessage.innerText = "🟢 Ready!"
-    }
-  
-    qwebrSetInteractiveButtonState(
-      `<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>`, 
-      true
-    );  
-  }
-);
-</script>
 
 
 
