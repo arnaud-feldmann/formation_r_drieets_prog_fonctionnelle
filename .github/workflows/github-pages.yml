@@ -22,6 +22,10 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-renv@v2
+
+      - name: install quarto-webr (license is undefined)
+        run: |
+          quarto add --no-prompt coatless/quarto-webr
         
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
