@@ -686,3 +686,87 @@ Le code ci-dessus peut sembler étonnant ; this est en quelque-sorte auto-réf�
 * `suivant()` est ne peut être appelé qu'après le retour de `nouveau_compteur()` donc this existe bel et bien.
 
 :::
+
+### Exercice 4
+
+On souhaite produire une fonction `get_variables(df, ...)` qui retourne une **liste nommée** de tibbles. Les `...` correspondent à des symboles et on doit, pour chaque symbole `nom_symbole`, faire un `count(df, nom_symbole)` puis rajouter une colonne `pct` qui correspond aux tris à plat selon les modalités de cette colonne. On a donc :
+
+* Chaque nom de la liste correspond à un symbole des `...`.
+* Chaque élément de la liste correspond à un tibble avec trois colonnes (`nom_symbole`, `n` et `pct`).
+
+Par exemple, `get_variables(dplyr::starwars, eye_color, skin_color)` doit retourner :
+
+```{r}
+#| echo: false
+library(dplyr)
+
+get_variables <- function(df, ...) {
+  variables <- ensyms(...)
+  res <-
+    lapply(variables, function(x) {
+      df %>%
+        count(!! x) %>%
+        mutate(pct = n / sum(n) * 100) %>%
+        mutate(pct = round(pct, 1))
+    })
+  names(res) <- as.character(variables)
+  res
+}
+
+dplyr::starwars %>%
+  get_variables(eye_color, skin_color)
+```
+
+On pourra utiliser une propriété : ce qui est retourné par `ensyms()` est en fait une *liste de symboles*, susceptible d'être manipulée en tant que telle.
+
+```{webr-r}
+# Vous pouvez faire l'exercice ici.
+```
+
+::: {.callout-tip collapse="true"}
+
+## Aide  (optionnel mais à ne pas consulter avant minimum 15 minutes de brainstorming !)
+
+```{r}
+#| eval: false
+get_variables <- function(df, ...) {
+  variables <- ensyms(...)
+  res <-
+    lapply(variables, function(x) {
+      # remplir ici
+    })
+  names(res) <- as.character(variables)
+  res
+}
+
+dplyr::starwars %>%
+  get_variables(eye_color, skin_color)
+```
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Proposition de solution
+
+```{r}
+library(dplyr)
+
+get_variables <- function(df, ...) {
+  variables <- ensyms(...)
+  res <-
+    lapply(variables, function(x) {
+      df %>%
+        count(!! x) %>%
+        mutate(pct = n / sum(n) * 100) %>%
+        mutate(pct = round(pct, 1))
+    })
+  names(res) <- as.character(variables)
+  res
+}
+
+dplyr::starwars %>%
+  get_variables(eye_color, skin_color)
+```
+
+:::
