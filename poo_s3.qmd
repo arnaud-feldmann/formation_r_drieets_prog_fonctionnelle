@@ -479,6 +479,8 @@ On demande dans cette exercice de :
 
 ::: {.callout-tip collapse="true"}
 
+## Proposition de solution
+
 ```{r}
 nouveau_compteur <-
   function() {
