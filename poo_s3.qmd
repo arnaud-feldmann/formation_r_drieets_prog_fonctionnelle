@@ -196,7 +196,7 @@ On aurait pu également les affecter un par un comme on le voit ci-dessous.
 objet <- 1L:10L
 attr(objet, "class") <- "mon_vecteur" # complètement équivalent à class(objet) <- "mon_vecteur"
 attr(objet, "mon_attribut") <- list("bonjour", "le", "monde")
-class(objet))
+class(objet)
 attr(objet, "class")
 attr(objet, "mon_attribut")
 attributes(objet)
