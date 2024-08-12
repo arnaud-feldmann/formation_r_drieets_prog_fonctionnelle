@@ -20,13 +20,14 @@ website:
         text: Programmation fonctionnelle objet en R (S3)
     search: false
 
-format:
-  html:
-    toc: true
+format: live-html
+
+engine: knitr
 
 filters:
-  - webr
   - naquiz
 
-webr: 
-  show-startup-message: false
+webr:
+  cell-options:
+    autorun: false
+    completion: true

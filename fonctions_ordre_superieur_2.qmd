@@ -2,6 +2,8 @@
 title: "Fonctions d'ordre supérieur (retours)"
 ---
 
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
 ## Les environnements
 
 On l'a vu dans la partie précédente, la notion de **fonction d'ordre supérieur** désigne une fonction avec au moins l'une des propriétés suivantes :
