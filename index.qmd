@@ -89,33 +89,38 @@ L'opérateur pipe `%>%` repose sur les axiomes de la programmation fonctionnelle
 
 ## Quizz
 
+```{webr}
+#| edit: false
+#| output: false
+#| define:
+#|   - ok_reponse
+library(htmltools)
+ok_reponse <- function(reponse, n) {
+  if (is.na(reponse)) HTML("")
+  else if (reponse == n) div(HTML("Bonne réponse ✓"), style = "color: green")
+  else div(HTML("Mauvaise réponse ✗"), style = "color: red")
+}
+```
+
 ### Question 1
 
-::::: {.question}
 Dans un langage fonctionnel idéal :
 
-:::: {.choices}
-::: {.choice}
-On n'utilise que des procédures (des fonctions sans valeur de retour).
-:::
-
-::: {.choice .correct-choice}
-On n'utilise que des fonctions dites pures, c'est-à-dire des fonctions purement combinatoires.
-:::
-
-::: {.choice}
-On n'utilise que des fonctions, pures, ou non.
-:::
-
-::: {.choice}
-Différentes étapes successives qu'on appelle fonctions. On les applique sur des objets qu'elles modifient progressivement.
-:::
-
-:::{.button-clear title="Effacer la réponse" button-class="btn btn-light btn-xs"}
-:::
-
-::::
-:::::
+```{ojs}
+//| echo: false
+viewof reponse = Inputs.radio(
+new Map([
+["On n'utilise que des procédures (des fonctions sans valeur de retour).", 1],
+["On n'utilise que des fonctions dites pures, c'est-à-dire des fonctions purement combinatoires.", 2],
+["On n'utilise que des fonctions, pures ou non.", 3],
+["Différentes étapes successives qu'on appelle fonctions. On les applique sur des objets qu'elles modifient progressivement.", 4]
+])
+);
+function ok_reponse(reponse, n) {
+  return html``;
+}
+ok_reponse(reponse, 2);
+```
 
 ### Question 2
 
