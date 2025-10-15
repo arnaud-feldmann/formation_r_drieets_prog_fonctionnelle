@@ -1,6 +1,12 @@
 webROjs = {
-  const { WebR } = window._exercise_ojs_runtime.WebR;
-  const { WebREvaluator, WebREnvironmentManager, setupR, b64Decode } = window._exercise_ojs_runtime;
+  const { WebR, ChannelType } = window._exercise_ojs_runtime.WebR;
+  const {
+    WebREvaluator,
+    WebREnvironmentManager,
+    setupR,
+    b64Decode,
+    collapsePath
+  } = window._exercise_ojs_runtime;
 
   const statusContainer = document.getElementById("exercise-loading-status");
   const indicatorContainer = document.getElementById("exercise-loading-indicator");
@@ -18,6 +24,11 @@ webROjs = {
     document.querySelector(".reveal > .slides").appendChild(revealStatus);
   }
 
+  // Make any reveal slides with live cells scrollable
+  document.querySelectorAll(".reveal .exercise-cell").forEach((el) => {
+    el.closest('section.slide').classList.add("scrollable");
+  })
+
   // webR supplemental data and options
   const dataContent = document.querySelector(`script[type=\"webr-data\"]`).textContent;
   const data = JSON.parse(b64Decode(dataContent));
@@ -25,6 +36,10 @@ webROjs = {
   // Grab list of resources to be downloaded
   const filesContent = document.querySelector(`script[type=\"vfs-file\"]`).textContent;
   const files = JSON.parse(b64Decode(filesContent));
+
+  // Use PostMessage channel for async communication
+  // We do not expect to take nested prompt input in Quarto Live cells
+  data.options.channelType = ChannelType.PostMessage;
 
   // Initialise webR and setup for R code evaluation
   let webRPromise = (async (webR) => {
@@ -60,18 +75,25 @@ webROjs = {
         file = name;
       }
 
-      // Create directory tree, swallowing any `dir exists` errors
-      let path = file;
-      while (path = path.substr(0, path.lastIndexOf('/'))) {
-        try {
-          await webR.FS.mkdir(path);
-        } catch (e) {
-          if (!e.message.includes("FS error")) {
-            throw e;
+      // Collapse higher directory structure
+      file = collapsePath(file);
+
+      // Create directory tree, ignoring "directory exists" VFS errors
+      const parts = file.split('/').slice(0, -1);
+      let path = '';
+      while (parts.length > 0) {
+        path += parts.shift() + '/';
+        const analysis = await webR.FS.analyzePath(path);
+        if (!analysis.exists) {
+          try {
+            await webR.FS.mkdir(path);
+          } catch (e) {
+            throw new Error(`Filesystem Error: "${e.message}".`);
           }
         }
       }
 
+      // Write this file to the VFS
       return await webR.FS.writeFile(file, new Uint8Array(data));
     }).reduce((cur, next) => cur.then(next), Promise.resolve());
 
