@@ -5,3 +5,5 @@
 /.quarto/
 /_site
 *.odp#
+
+**/*.quarto_ipynb
